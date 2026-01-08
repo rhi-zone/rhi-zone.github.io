@@ -1,6 +1,6 @@
 # Integration
 
-How Rhizome Lab projects work together.
+How Rhizome projects work together.
 
 ## Overview
 

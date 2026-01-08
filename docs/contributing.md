@@ -1,6 +1,6 @@
 # Contributing
 
-Guidelines for contributing to Rhizome Lab projects.
+Guidelines for contributing to Rhizome projects.
 
 ## Development Setup
 

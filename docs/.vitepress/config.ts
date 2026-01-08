@@ -3,7 +3,7 @@ import { withMermaid } from 'vitepress-plugin-mermaid'
 
 export default withMermaid(
   defineConfig({
-    title: 'Rhizome Lab',
+    title: 'Rhizome',
     description: 'Tools for programmable creativity',
 
     themeConfig: {

@@ -1,6 +1,6 @@
 # Architecture Overview
 
-How Rhizome Lab projects are structured and how they relate.
+How Rhizome projects are structured and how they relate.
 
 ## Project Landscape
 

@@ -2,7 +2,7 @@
 layout: home
 
 hero:
-  name: "Rhizome Lab"
+  name: "Rhizome"
   text: "Tools for programmable creativity"
   tagline: "Code intelligence, persistent worlds, and constructive media."
   actions:

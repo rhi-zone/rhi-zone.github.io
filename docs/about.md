@@ -1,6 +1,6 @@
-# About Rhizome Lab
+# About Rhizome
 
-Rhizome Lab builds tools for **programmable creativity**—software that treats code, worlds, and media as malleable structures rather than opaque artifacts.
+Rhizome builds tools for **programmable creativity**—software that treats code, worlds, and media as malleable structures rather than opaque artifacts.
 
 ## Philosophy
 
