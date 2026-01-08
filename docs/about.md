@@ -1,10 +1,10 @@
 # About Rhizome
 
-Rhizome builds tools for **programmable creativity**—software that treats code, worlds, and media as malleable structures rather than opaque artifacts.
+Rhizome is an ecosystem of tools for **programmable creativity**—software that treats code, worlds, and media as malleable structures rather than opaque artifacts.
 
 ## Philosophy
 
-Our projects share common design principles:
+The projects share common design principles:
 
 ### Generalize, Don't Multiply
 

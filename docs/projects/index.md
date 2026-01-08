@@ -1,6 +1,6 @@
 # Projects
 
-Rhizome develops tools for programmable creativity - software that treats code, worlds, and media as malleable structures rather than opaque text or binary blobs.
+Rhizome is an ecosystem of tools for programmable creativity—software that treats code, worlds, and media as malleable structures rather than opaque text or binary blobs.
 
 ## Active Projects
 
