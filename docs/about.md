@@ -61,7 +61,7 @@ Our projects are designed the same way: independent tools that compose well toge
 | [Hypha](/projects/hypha) | Federation | Authoritative handoff protocol for interconnected worlds |
 | [Resin](/projects/resin) | Media generation | Composable procedural primitives for meshes, audio, textures |
 | [Frond](/projects/frond) | Game primitives | State machines, controllers, common gameplay patterns |
-| [Sap](/projects/sap) | Expressions | Multi-backend expression language (WGSL, Cranelift, Lua) |
+| [Dew](/projects/dew) | Expressions | Minimal expression language (WGSL, Cranelift, Lua) |
 | [Liana](/projects/liana) | API bindings | IR and codegen for cross-language bindings |
 | [Cambium](/projects/cambium) | Pipelines | Type-driven route planning for data conversion |
 | [Canopy](/projects/canopy) | UI | Universal client with control plane for any data source |
@@ -84,10 +84,10 @@ graph LR
     subgraph "Runtime"
         L[Lotus] --> |uses| R[Resin]
         L --> |federates via| H[Hypha]
-        R --> |expressions| S[Sap]
+        R --> |expressions| D[Dew]
         R --> |assets for| L
         CA[Cambium] --> |converts assets| R
-        CA --> |scoring| S
+        CA --> |scoring| D
     end
     subgraph "Generation"
         F[Frond]
@@ -106,7 +106,7 @@ graph LR
 - **Moss** provides code intelligence for all projects
 - **Lotus** runs persistent worlds, federates via **Hypha**
 - **Hypha** enables authoritative handoff between Lotus servers
-- **Resin** uses **Sap** for procedural expressions, generates assets for **Lotus**
+- **Resin** uses **Dew** for procedural expressions, generates assets for **Lotus**
 - **Frond** provides game design primitives
 - **Cambium** orchestrates asset conversion pipelines
 - **Liana** generates API bindings across the ecosystem

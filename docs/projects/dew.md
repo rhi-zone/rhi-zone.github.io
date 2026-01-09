@@ -1,8 +1,8 @@
-# Sap
+# Dew
 
-**Expression language for procedural generation.**
+**Minimal expression language for procedural generation.**
 
-Sap is a domain-specific expression language designed for procedural generation workflows. It compiles to multiple backends for flexible evaluation across GPU and CPU.
+Dew is a domain-specific expression language designed for procedural generation workflows. Small, ephemeral, perfectly formed—like a droplet condensed from logic. Just dew it.
 
 ## Key Features
 
@@ -21,5 +21,5 @@ Sap is a domain-specific expression language designed for procedural generation 
 
 ## Links
 
-- [GitHub](https://github.com/rhizome-lab/sap)
-- [Documentation](https://rhizome-lab.github.io/sap/)
+- [GitHub](https://github.com/rhizome-lab/dew)
+- [Documentation](https://rhizome-lab.github.io/dew/)

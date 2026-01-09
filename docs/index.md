@@ -26,9 +26,9 @@ features:
   - title: Frond
     details: Game design primitives. State machines, character controllers, camera systems.
     link: /projects/frond
-  - title: Sap
-    details: Expression language. Compiles to WGSL, Cranelift JIT, or Lua.
-    link: /projects/sap
+  - title: Dew
+    details: Minimal expression language. Small, ephemeral, perfectly formed.
+    link: /projects/dew
   - title: Liana
     details: API bindings IR. Unified representation for cross-language codegen.
     link: /projects/liana
