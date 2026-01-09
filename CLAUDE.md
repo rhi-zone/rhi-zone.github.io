@@ -51,36 +51,28 @@ When projects change:
 
 ### Scaffolding New Repos
 
-When creating a new Rust monorepo, include these standard files:
+Template files are in `scaffolding/` directory. Copy and replace placeholders:
 
-| File | Purpose |
-|------|---------|
-| `flake.nix` | Nix dev shell (reference `~/git/hypha/flake.nix`) |
-| `.envrc` | direnv config with nix-direnv (reference `~/git/hypha/.envrc`) |
-| `.cargo/config.toml` | Target bloat reduction + mold linker hint |
-| `.githooks/pre-commit` | fmt → clippy (fast checks first) |
-| `.github/workflows/ci.yml` | CI: fmt, clippy, build, test |
-| `.github/workflows/deploy-docs.yml` | VitePress docs deployment |
-| `docs/` | VitePress docs with mermaid plugin |
-| `CLAUDE.md` | Project-specific Claude instructions |
-
-**`.cargo/config.toml` template:**
-```toml
-# Reduce target/ directory bloat
-[profile.dev]
-debug = 1  # 0=none, 1=line tables, 2=full
-
-[profile.release]
-strip = "symbols"
-
-[profile.dev.package."*"]
-opt-level = 2  # Optimize deps even in dev builds
-
-# For faster builds with mold linker (local only), uncomment:
-# [target.x86_64-unknown-linux-gnu]
-# linker = "clang"
-# rustflags = ["-C", "link-arg=-fuse-ld=mold"]
+```bash
+cp -r scaffolding/. ~/git/new-project/
+sed -i 's/PROJECT_NAME/new-project/g' ~/git/new-project/flake.nix ~/git/new-project/docs/package.json
+sed -i 's/PROJECT_DESCRIPTION/Description here/g' ~/git/new-project/flake.nix
 ```
+
+**Included templates:**
+- `.cargo/config.toml` - target bloat reduction + mold hint
+- `.envrc` - nix-direnv integration
+- `.gitignore` - Rust + Nix + Node ignores
+- `.githooks/pre-commit` - fmt → clippy
+- `.github/workflows/ci.yml` - CI pipeline
+- `.github/workflows/deploy-docs.yml` - VitePress deployment
+- `flake.nix` - Nix dev shell
+- `docs/package.json` - VitePress + mermaid
+
+**Still need manually:**
+- `Cargo.toml` + `crates/`
+- `docs/.vitepress/config.ts` + `docs/index.md`
+- `CLAUDE.md`
 
 ### Crate Naming Convention
 
