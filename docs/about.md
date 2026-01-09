@@ -59,6 +59,7 @@ Our projects are designed the same way: independent tools that compose well toge
 | [Moss](/projects/moss) | Code intelligence | AST-aware navigation and editing across 98 languages |
 | [Lotus](/projects/lotus) | Persistent worlds | LambdaMOO-inspired entity system with Lua scripting |
 | [Resin](/projects/resin) | Media generation | Composable procedural primitives for meshes, audio, textures |
+| [Frond](/projects/frond) | World generation | Procedural terrain, biomes, and structures |
 | [Sap](/projects/sap) | Expressions | Multi-backend expression language (WGSL, Cranelift, Lua) |
 | [Liana](/projects/liana) | API bindings | IR and codegen for cross-language bindings |
 | [Cambium](/projects/cambium) | Pipelines | Type-driven route planning for data conversion |
@@ -80,6 +81,9 @@ graph LR
         R --> |assets for| L
         CA[Cambium] --> |converts assets| R
     end
+    subgraph "Generation"
+        F[Frond]
+    end
     subgraph "Interface"
         CN[Canopy] --> |views| L
         CN --> |views| CA
@@ -88,6 +92,7 @@ graph LR
 
 - **Moss** provides code intelligence for all projects
 - **Resin** uses **Sap** for procedural expressions, generates assets for **Lotus**
+- **Frond** provides procedural world generation
 - **Cambium** orchestrates asset conversion pipelines
 - **Liana** generates API bindings across the ecosystem
 - **Canopy** provides UI for viewing data from any project
