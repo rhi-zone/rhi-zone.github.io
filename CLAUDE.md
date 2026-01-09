@@ -12,13 +12,15 @@ This is the organization-level documentation site for the Rhizome ecosystem.
 |---------|------|-------------|
 | **Moss** | `~/git/moss` | Structural code intelligence |
 | **Lotus** | `~/git/lotus` | Persistent multiplayer world runtime |
+| **Hypha** | `~/git/hypha` | Federation protocol for persistent worlds |
 | **Resin** | `~/git/resin` | Constructive media generation |
-| **Sap** | `~/git/sap` | Expression language for procedural generation |
+| **Frond** | `~/git/frond` | Game design primitives library |
+| **Dew** | `~/git/dew` | Minimal expression language |
 | **Liana** | `~/git/liana` | API bindings IR and codegen |
 | **Cambium** | `~/git/cambium` | Pipeline orchestrator for data conversion |
-| **Canopy** | `~/git/canopy` | Universal UI client |
-| **Frond** | `~/git/frond` | Game design primitives library |
+| **Canopy** | `~/git/canopy` | Universal UI client with control plane |
 | **Winnow** | `~/git/winnow` | Legacy software lifting framework |
+| **Nursery** | `~/git/nursery` | Ecosystem orchestrator |
 
 ### Org Resources
 
