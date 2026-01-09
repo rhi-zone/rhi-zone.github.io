@@ -4,7 +4,7 @@ layout: home
 hero:
   name: "Rhizome"
   text: "Tools for programmable creativity"
-  tagline: "Code intelligence, persistent worlds, and constructive media."
+  tagline: "Code intelligence, persistent worlds, constructive media, and more."
   actions:
     - theme: brand
       text: Projects
@@ -12,12 +12,24 @@ hero:
 
 features:
   - title: Moss
-    details: Structural code intelligence for humans and AI agents. AST-aware navigation, editing, and analysis across 98 languages.
+    details: Structural code intelligence. AST-aware navigation, editing, and analysis across 98 languages.
     link: /projects/moss
   - title: Lotus
-    details: LambdaMOO-inspired Lua runtime with persistent entity storage. Scriptable objects, rooms, and multiplayer worlds.
+    details: Persistent multiplayer worlds. LambdaMOO-inspired Lua runtime with entity storage.
     link: /projects/lotus
   - title: Resin
-    details: Constructive media generation. Procedural meshes, audio synthesis, textures, vector art, and rigging in Rust.
+    details: Constructive media. Procedural meshes, audio, textures, vector art, and rigging.
     link: /projects/resin
+  - title: Sap
+    details: Expression language. Compiles to WGSL, Cranelift JIT, or Lua.
+    link: /projects/sap
+  - title: Liana
+    details: API bindings IR. Unified representation for cross-language codegen.
+    link: /projects/liana
+  - title: Cambium
+    details: Pipeline orchestrator. Type-driven route planning for asset conversion.
+    link: /projects/cambium
+  - title: Canopy
+    details: Universal UI. Configurable views for any data format or source.
+    link: /projects/canopy
 ---

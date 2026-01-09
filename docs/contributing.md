@@ -96,6 +96,10 @@ When adding features, update relevant documentation. Prefer updating existing do
 - **Moss**: See `CLAUDE.md` for detailed behavioral rules and design philosophy
 - **Lotus**: Check `docs/development.md` for build instructions
 - **Resin**: See `docs/philosophy.md` for design principles
+- **Sap**: Expression language; see crate docs
+- **Liana**: API bindings; see `liana-core` for IR types
+- **Cambium**: See `docs/philosophy.md` for pipeline design
+- **Canopy**: See `CLAUDE.md` for UI design principles
 
 ## Questions?
 

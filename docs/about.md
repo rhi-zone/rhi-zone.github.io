@@ -59,6 +59,10 @@ Our projects are designed the same way: independent tools that compose well toge
 | [Moss](/projects/moss) | Code intelligence | AST-aware navigation and editing across 98 languages |
 | [Lotus](/projects/lotus) | Persistent worlds | LambdaMOO-inspired entity system with Lua scripting |
 | [Resin](/projects/resin) | Media generation | Composable procedural primitives for meshes, audio, textures |
+| [Sap](/projects/sap) | Expressions | Multi-backend expression language (WGSL, Cranelift, Lua) |
+| [Liana](/projects/liana) | API bindings | IR and codegen for cross-language bindings |
+| [Cambium](/projects/cambium) | Pipelines | Type-driven route planning for data conversion |
+| [Canopy](/projects/canopy) | UI | Universal client for arbitrary data formats |
 
 ## Integration
 
@@ -67,15 +71,23 @@ The projects are designed to work together:
 ```mermaid
 graph LR
     subgraph "Development"
-        M[Moss] --> |analyzes| L[Lotus]
-        M --> |analyzes| R[Resin]
+        M[Moss] --> |analyzes| ALL[All Projects]
+        LI[Liana] --> |generates bindings| ALL
     end
     subgraph "Runtime"
-        L --> |uses| R
+        L[Lotus] --> |uses| R[Resin]
+        R --> |expressions| S[Sap]
         R --> |assets for| L
+        CA[Cambium] --> |converts assets| R
+    end
+    subgraph "Interface"
+        CN[Canopy] --> |views| L
+        CN --> |views| CA
     end
 ```
 
-- **Moss** provides code intelligence for developing Lotus and Resin
-- **Resin** generates procedural assets (textures, meshes, audio) for Lotus worlds
-- **Lotus** can host interactive editors for Resin node graphs
+- **Moss** provides code intelligence for all projects
+- **Resin** uses **Sap** for procedural expressions, generates assets for **Lotus**
+- **Cambium** orchestrates asset conversion pipelines
+- **Liana** generates API bindings across the ecosystem
+- **Canopy** provides UI for viewing data from any project
