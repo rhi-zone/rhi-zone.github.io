@@ -51,6 +51,21 @@ All Rust crates in the ecosystem should be prefixed with `rhizome-`:
 - `rhizome-moss-core`, `rhizome-lotus-runtime`, etc.
 - Binary names should NOT be prefixed (just `moss`, `lotus`, etc.)
 
+### Docs Site Conventions
+
+**Monorepo docs should link back to the main ecosystem site:**
+
+When a monorepo (moss, lotus, resin, etc.) has its own docs site, include a navbar link back to the main Rhizome docs. In VitePress config:
+
+```ts
+nav: [
+  // ... other nav items
+  { text: 'Rhizome', link: 'https://rhizome-lab.github.io/' },
+]
+```
+
+This ensures users can navigate between project-specific docs and the ecosystem overview.
+
 ## Core Rules
 
 **Note things down immediately:**
