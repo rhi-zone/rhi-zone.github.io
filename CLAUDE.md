@@ -49,6 +49,39 @@ When projects change:
 - Update `README.md` project table
 - Update sidebar/nav in `.vitepress/config.ts`
 
+### Scaffolding New Repos
+
+When creating a new Rust monorepo, include these standard files:
+
+| File | Purpose |
+|------|---------|
+| `flake.nix` | Nix dev shell (reference `~/git/hypha/flake.nix`) |
+| `.envrc` | direnv config with nix-direnv (reference `~/git/hypha/.envrc`) |
+| `.cargo/config.toml` | Target bloat reduction + mold linker hint |
+| `.githooks/pre-commit` | fmt → clippy (fast checks first) |
+| `.github/workflows/ci.yml` | CI: fmt, clippy, build, test |
+| `.github/workflows/deploy-docs.yml` | VitePress docs deployment |
+| `docs/` | VitePress docs with mermaid plugin |
+| `CLAUDE.md` | Project-specific Claude instructions |
+
+**`.cargo/config.toml` template:**
+```toml
+# Reduce target/ directory bloat
+[profile.dev]
+debug = 1  # 0=none, 1=line tables, 2=full
+
+[profile.release]
+strip = "symbols"
+
+[profile.dev.package."*"]
+opt-level = 2  # Optimize deps even in dev builds
+
+# For faster builds with mold linker (local only), uncomment:
+# [target.x86_64-unknown-linux-gnu]
+# linker = "clang"
+# rustflags = ["-C", "link-arg=-fuse-ld=mold"]
+```
+
 ### Crate Naming Convention
 
 All Rust crates in the ecosystem should be prefixed with `rhizome-`:
