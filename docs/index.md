@@ -20,6 +20,9 @@ features:
   - title: Resin
     details: Constructive media. Procedural meshes, audio, textures, vector art, and rigging.
     link: /projects/resin
+  - title: Frond
+    details: Game design primitives. State machines, character controllers, camera systems.
+    link: /projects/frond
   - title: Sap
     details: Expression language. Compiles to WGSL, Cranelift JIT, or Lua.
     link: /projects/sap
