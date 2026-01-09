@@ -17,6 +17,9 @@ features:
   - title: Lotus
     details: Persistent multiplayer worlds. LambdaMOO-inspired Lua runtime with entity storage.
     link: /projects/lotus
+  - title: Hypha
+    details: Federation protocol. Authoritative handoff for interconnected persistent worlds.
+    link: /projects/hypha
   - title: Resin
     details: Constructive media. Procedural meshes, audio, textures, vector art, and rigging.
     link: /projects/resin
@@ -33,9 +36,12 @@ features:
     details: Pipeline orchestrator. Type-driven route planning for asset conversion.
     link: /projects/cambium
   - title: Canopy
-    details: Universal UI. Configurable views for any data format or source.
+    details: Universal UI with control plane. View, mutate, and control any data source.
     link: /projects/canopy
   - title: Winnow
     details: Legacy lifting. Extract and transform software from obsolete runtimes.
     link: /projects/winnow
+  - title: Nursery
+    details: Ecosystem orchestrator. One manifest to coordinate all Rhizome tools.
+    link: /projects/nursery
 ---

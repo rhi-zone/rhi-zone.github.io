@@ -58,13 +58,15 @@ Our projects are designed the same way: independent tools that compose well toge
 |---------|--------|----------|
 | [Moss](/projects/moss) | Code intelligence | AST-aware navigation and editing across 98 languages |
 | [Lotus](/projects/lotus) | Persistent worlds | LambdaMOO-inspired entity system with Lua scripting |
+| [Hypha](/projects/hypha) | Federation | Authoritative handoff protocol for interconnected worlds |
 | [Resin](/projects/resin) | Media generation | Composable procedural primitives for meshes, audio, textures |
 | [Frond](/projects/frond) | Game primitives | State machines, controllers, common gameplay patterns |
 | [Sap](/projects/sap) | Expressions | Multi-backend expression language (WGSL, Cranelift, Lua) |
 | [Liana](/projects/liana) | API bindings | IR and codegen for cross-language bindings |
 | [Cambium](/projects/cambium) | Pipelines | Type-driven route planning for data conversion |
-| [Canopy](/projects/canopy) | UI | Universal client for arbitrary data formats |
+| [Canopy](/projects/canopy) | UI | Universal client with control plane for any data source |
 | [Winnow](/projects/winnow) | Preservation | Legacy software lifting from obsolete runtimes |
+| [Nursery](/projects/nursery) | Orchestration | Manifest-based coordination of Rhizome tools |
 
 ## Integration
 
@@ -72,12 +74,16 @@ The projects are designed to work together:
 
 ```mermaid
 graph LR
+    subgraph "Orchestration"
+        N[Nursery] --> |coordinates| ALL[All Tools]
+    end
     subgraph "Development"
-        M[Moss] --> |analyzes| ALL[All Projects]
+        M[Moss] --> |analyzes| ALL
         LI[Liana] --> |generates bindings| ALL
     end
     subgraph "Runtime"
         L[Lotus] --> |uses| R[Resin]
+        L --> |federates via| H[Hypha]
         R --> |expressions| S[Sap]
         R --> |assets for| L
         CA[Cambium] --> |converts assets| R
@@ -90,15 +96,19 @@ graph LR
         W[Winnow]
     end
     subgraph "Interface"
-        CN[Canopy] --> |views| L
-        CN --> |views| CA
+        CN[Canopy] --> |views & controls| L
+        CN --> |views & controls| CA
+        CN --> |views & controls| W
     end
 ```
 
+- **Nursery** coordinates all tools via `rhizome.toml` manifests
 - **Moss** provides code intelligence for all projects
+- **Lotus** runs persistent worlds, federates via **Hypha**
+- **Hypha** enables authoritative handoff between Lotus servers
 - **Resin** uses **Sap** for procedural expressions, generates assets for **Lotus**
 - **Frond** provides game design primitives
 - **Cambium** orchestrates asset conversion pipelines
 - **Liana** generates API bindings across the ecosystem
-- **Canopy** provides UI for viewing data from any project
+- **Canopy** provides UI for viewing and controlling any project
 - **Winnow** lifts legacy software into modern web runtimes

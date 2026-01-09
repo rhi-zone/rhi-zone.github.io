@@ -16,6 +16,7 @@ export default withMermaid(
           items: [
             { text: 'Moss', link: 'https://rhizome-lab.github.io/moss/' },
             { text: 'Lotus', link: 'https://rhizome-lab.github.io/lotus/' },
+            { text: 'Hypha', link: 'https://rhizome-lab.github.io/hypha/' },
             { text: 'Resin', link: 'https://rhizome-lab.github.io/resin/' },
             { text: 'Frond', link: 'https://rhizome-lab.github.io/frond/' },
             { text: 'Sap', link: 'https://rhizome-lab.github.io/sap/' },
@@ -23,6 +24,7 @@ export default withMermaid(
             { text: 'Cambium', link: 'https://rhizome-lab.github.io/cambium/' },
             { text: 'Canopy', link: 'https://rhizome-lab.github.io/canopy/' },
             { text: 'Winnow', link: 'https://rhizome-lab.github.io/winnow/' },
+            { text: 'Nursery', link: 'https://rhizome-lab.github.io/nursery/' },
           ]
         },
       ],
@@ -42,6 +44,7 @@ export default withMermaid(
             items: [
               { text: 'Moss', link: '/projects/moss' },
               { text: 'Lotus', link: '/projects/lotus' },
+              { text: 'Hypha', link: '/projects/hypha' },
               { text: 'Resin', link: '/projects/resin' },
               { text: 'Frond', link: '/projects/frond' },
               { text: 'Sap', link: '/projects/sap' },
@@ -49,6 +52,7 @@ export default withMermaid(
               { text: 'Cambium', link: '/projects/cambium' },
               { text: 'Canopy', link: '/projects/canopy' },
               { text: 'Winnow', link: '/projects/winnow' },
+              { text: 'Nursery', link: '/projects/nursery' },
             ]
           },
           {
