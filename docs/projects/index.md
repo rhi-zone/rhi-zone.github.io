@@ -46,8 +46,12 @@ Legacy software lifting framework. Extract and transform applications from obsol
 
 ### [Nursery](/projects/nursery)
 
-Ecosystem orchestrator. One `rhizome.toml` manifest to coordinate all Rhizome tools for your project.
+Schema-controlled tool orchestrator. Define tool schemas and compose any CLI tools via manifests.
 
 ### [Spore](/projects/spore)
 
 Agentic AI framework with Lua scripting. Multi-provider LLM client, memory store, session parsing, and state machine agents.
+
+### [Reed](/projects/reed)
+
+Language translation layer. Parse source code into a common IR, then emit to different target languages.

@@ -66,8 +66,9 @@ Our projects are designed the same way: independent tools that compose well toge
 | [Cambium](/projects/cambium) | Pipelines | Type-driven route planning for data conversion |
 | [Canopy](/projects/canopy) | UI | Universal client with control plane for any data source |
 | [Siphon](/projects/siphon) | Preservation | Legacy software lifting from obsolete runtimes |
-| [Nursery](/projects/nursery) | Orchestration | Manifest-based coordination of Rhizome tools |
+| [Nursery](/projects/nursery) | Orchestration | Schema-controlled tool composition via manifests |
 | [Spore](/projects/spore) | AI Agents | Multi-provider LLM client and Lua-based agent framework |
+| [Reed](/projects/reed) | Translation | Source → IR → source across languages |
 
 ## Integration
 
@@ -81,10 +82,13 @@ graph LR
     subgraph "Development"
         M[Moss] --> |analyzes| ALL
         LI[Liana] --> |generates bindings| ALL
+        RE[Reed] --> |translates| ALL
     end
     subgraph "AI Agents"
         S[Spore] --> |LLM client| ALL
         M --> |extends| S
+        L --> |world state| S
+        RE --> |verb codegen| S
     end
     subgraph "Runtime"
         L[Lotus] --> |uses| R[Resin]
@@ -107,9 +111,10 @@ graph LR
     end
 ```
 
-- **Nursery** coordinates all tools via `rhizome.toml` manifests
+- **Nursery** coordinates tools via schema-validated manifests
 - **Moss** provides code intelligence for all projects
-- **Spore** provides LLM client and agent runtime; **Moss** can extend it via plugins
+- **Reed** provides bidirectional translation between languages
+- **Spore** provides LLM client and agent runtime; **Moss** and **Lotus** extend it via plugins
 - **Lotus** runs persistent worlds, federates via **Hypha**
 - **Hypha** enables authoritative handoff between Lotus servers
 - **Resin** uses **Dew** for procedural expressions, generates assets for **Lotus**

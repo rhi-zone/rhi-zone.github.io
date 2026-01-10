@@ -1,15 +1,34 @@
 # Nursery
 
-**Ecosystem orchestrator for Rhizome tools.**
+**Schema-controlled tool orchestrator.**
 
-Nursery is the glue that holds the Rhizome ecosystem together. Instead of memorizing arguments for multiple tools, you write one `rhizome.toml` manifest.
+Nursery is a generic orchestrator for composing CLI tools. Define tool schemas and compose them via manifests—no hardcoded tool knowledge required.
 
 ## Key Features
 
-- **Manifest-Driven** - One `rhizome.toml` file defines how all tools compose
-- **Seeds** - Starter templates for common workflows
+- **Schema-Driven** - Tools declare their interfaces via JSON Schema
+- **Manifest Composition** - One `rhizome.toml` file composes any set of tools
 - **Lazy Discovery** - Only inspects tools that are referenced
 - **Fail Informatively** - Clear errors when tools are missing or misconfigured
+- **Plugin Architecture** - Add new tools without modifying Nursery itself
+
+## Tool Schemas
+
+Tools register themselves with a schema describing their inputs and outputs:
+
+```json
+{
+  "name": "my-tool",
+  "version": "1.0.0",
+  "inputs": {
+    "source": { "type": "path", "required": true },
+    "format": { "type": "string", "enum": ["json", "yaml"] }
+  },
+  "outputs": {
+    "result": { "type": "path" }
+  }
+}
+```
 
 ## The Manifest
 
@@ -19,17 +38,15 @@ Nursery is the glue that holds the Rhizome ecosystem together. Instead of memori
 name = "my-project"
 version = "0.1.0"
 
-[siphon]
-source = "./dump/game.exe"
-strategy = "gms2"
-assets = "./assets/raw"
+[tools.convert]
+source = "./input.json"
+format = "yaml"
 
-[lotus]
-target = "web-wasm"
-port = 8080
+[tools.process]
+input = "${tools.convert.result}"
 ```
 
-This file **is** the documentation. It shows exactly how the tools compose for your project.
+The manifest composes tools by wiring outputs to inputs. Nursery validates the pipeline against tool schemas before execution.
 
 ## Seeds
 

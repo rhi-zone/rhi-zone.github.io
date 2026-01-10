@@ -42,6 +42,12 @@ features:
     details: Legacy lifting. Extract and transform software from obsolete runtimes.
     link: /projects/siphon
   - title: Nursery
-    details: Ecosystem orchestrator. One manifest to coordinate all Rhizome tools.
+    details: Schema-controlled tool orchestrator. Compose CLI tools via manifests.
     link: /projects/nursery
+  - title: Spore
+    details: Agentic AI framework. Multi-provider LLM client with Lua scripting.
+    link: /projects/spore
+  - title: Reed
+    details: Language translation layer. Source → IR → source across languages.
+    link: /projects/reed
 ---

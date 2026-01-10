@@ -31,6 +31,7 @@ The projects are intentionally not hard-linked. Moss can optionally extend Spore
 | Crate | Description |
 |-------|-------------|
 | `rhizome-spore-moss` | [Moss](/projects/moss) code intelligence integration |
+| `rhizome-spore-lotus` | [Lotus](/projects/lotus) world state integration |
 
 ## LLM Providers
 

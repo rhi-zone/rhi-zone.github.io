@@ -22,6 +22,7 @@ This is the organization-level documentation site for the Rhizome ecosystem.
 | **Siphon** | `~/git/siphon` | Legacy software lifting framework |
 | **Nursery** | `~/git/nursery` | Ecosystem orchestrator |
 | **Spore** | `~/git/spore` | Agentic AI framework |
+| **Reed** | `~/git/reed` | Language translation layer (source → IR → source) |
 
 ### Org Resources
 
