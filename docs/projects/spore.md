@@ -23,7 +23,14 @@ The projects are intentionally not hard-linked. Moss can optionally extend Spore
 
 | Crate | Description |
 |-------|-------------|
-| `spore-core` | LLM client and memory store infrastructure |
+| `rhizome-spore-core` | LLM client and memory store infrastructure |
+| `rhizome-spore-lua` | Lua runtime with Integration trait for plugins |
+
+### Integrations
+
+| Crate | Description |
+|-------|-------------|
+| `rhizome-spore-moss` | [Moss](/projects/moss) code intelligence integration |
 
 ## LLM Providers
 
@@ -49,15 +56,22 @@ Features:
 ## Usage
 
 ```rust
-use spore_core::{LlmClient, MemoryStore};
+use rhizome_spore_core::{LlmClient, MemoryStore};
+use rhizome_spore_lua::Runtime;
 
 // Create LLM client
 let client = LlmClient::new("anthropic", Some("claude-sonnet-4-5"))?;
-let response = client.complete("Explain this code...", 1000).await?;
+let response = client.complete(None, "Explain this code...", Some(1000))?;
 
 // Persistent memory
 let memory = MemoryStore::open(&project_root)?;
 memory.store("context", Some("agent"), 1.0, json!({}))?;
+
+// Run agent with moss integration
+use rhizome_spore_moss::MossIntegration;
+let runtime = Runtime::new()?;
+runtime.register(&MossIntegration::new("."))?;
+runtime.run_file(Path::new("scripts/agent.lua"))?;
 ```
 
 ## Links
