@@ -14,9 +14,6 @@ features:
   - title: Moss
     details: Structural code intelligence. AST-aware navigation, editing, and analysis across 98 languages.
     link: /projects/moss
-  - title: Lotus
-    details: Entity/capability storage. Entity/capability storage layer.
-    link: /projects/lotus
   - title: Hypha
     details: Federation protocol. Authoritative handoff for interconnected persistent worlds.
     link: /projects/hypha

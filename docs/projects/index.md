@@ -8,10 +8,6 @@ Rhizome is an ecosystem of tools for programmable creativity—software that tre
 
 Structural code intelligence for humans and AI agents. Moss provides AST-aware tools for understanding, navigating, and modifying code across 98 languages.
 
-### [Lotus](/projects/lotus)
-
-A LambdaMOO-inspired Lua runtime with persistent entity storage. Build scriptable objects, rooms, NPCs, and multiplayer worlds with capability-based security.
-
 ### [Hypha](/projects/hypha)
 
 Federation protocol for persistent worlds. Authoritative handoff between servers—no state merging, no split-brain attacks.
@@ -50,7 +46,7 @@ Schema-controlled tool orchestrator. Define tool schemas and compose any CLI too
 
 ### [Spore](/projects/spore)
 
-Lua runtime with plugin system for the Rhizome ecosystem. Extensible via integrations from Moss, Lotus, and other projects.
+Lua runtime with plugin system for the Rhizome ecosystem.
 
 ### [Reed](/projects/reed)
 

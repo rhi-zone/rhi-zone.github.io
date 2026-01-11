@@ -11,7 +11,6 @@ This is the organization-level documentation site for the Rhizome ecosystem.
 | Project | Path | Description |
 |---------|------|-------------|
 | **Moss** | `~/git/moss` | Structural code intelligence |
-| **Lotus** | `~/git/lotus` | Entity/capability storage layer |
 | **Hypha** | `~/git/hypha` | Federation protocol for persistent worlds |
 | **Resin** | `~/git/resin` | Constructive media generation |
 | **Frond** | `~/git/frond` | Game design primitives library |
@@ -79,14 +78,14 @@ sed -i 's/PROJECT_DESCRIPTION/Description here/g' ~/git/new-project/flake.nix
 ### Crate Naming Convention
 
 All Rust crates in the ecosystem should be prefixed with `rhizome-`:
-- `rhizome-moss-core`, `rhizome-lotus-runtime`, etc.
-- Binary names should NOT be prefixed (just `moss`, `lotus`, etc.)
+- `rhizome-moss-core`, `rhizome-spore-core`, etc.
+- Binary names should NOT be prefixed (just `moss`, `spore`, etc.)
 
 ### Docs Site Conventions
 
 **Monorepo docs should link back to the main ecosystem site:**
 
-When a monorepo (moss, lotus, resin, etc.) has its own docs site, include a navbar link back to the main Rhizome docs. In VitePress config:
+When a monorepo (moss, spore, resin, etc.) has its own docs site, include a navbar link back to the main Rhizome docs. In VitePress config:
 
 ```ts
 nav: [

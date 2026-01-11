@@ -11,7 +11,7 @@ The projects share common design principles:
 Prefer one flexible solution over many specialized ones. Composability reduces cognitive load and maintenance burden.
 
 - **Moss**: Three primitives (view, edit, analyze) instead of 100 specialized tools
-- **Lotus**: Generic entity system that can power games, knowledge bases, or productivity tools
+- **Spore**: Lua runtime exposes libsql directly—apps define their own schemas
 - **Resin**: Unified `Field<I, O>` trait for textures, audio, and any continuous domain
 
 ### Structure Over Text
@@ -26,7 +26,7 @@ Build descriptions, evaluate on demand. Don't pay for what you don't use.
 
 - **Resin**: Procedural textures and audio are lazy fields, materialized only when rendered
 - **Moss**: Skeleton views extract structure without loading entire files
-- **Lotus**: Entity properties are computed on access, not upfront
+- **Spore**: Integrations are loaded on demand, not at startup
 
 ### Plugin Architecture
 
@@ -57,8 +57,7 @@ Our projects are designed the same way: independent tools that compose well toge
 | Project | Domain | Key Idea |
 |---------|--------|----------|
 | [Moss](/projects/moss) | Code intelligence | AST-aware navigation and editing across 98 languages |
-| [Lotus](/projects/lotus) | Persistent worlds | Entity/capability storage layer |
-| [Hypha](/projects/hypha) | Federation | Authoritative handoff protocol for interconnected worlds |
+| [Hypha](/projects/hypha) | Federation | Authoritative handoff protocol for persistent worlds |
 | [Resin](/projects/resin) | Media generation | Composable procedural primitives for meshes, audio, textures |
 | [Frond](/projects/frond) | Game primitives | State machines, controllers, common gameplay patterns |
 | [Dew](/projects/dew) | Expressions | Minimal expression language (WGSL, Cranelift, Lua) |
@@ -87,14 +86,11 @@ graph LR
     subgraph "Scripting"
         S[Spore] --> |Lua runtime| ALL
         M --> |extends| S
-        L --> |world state| S
-        RE --> |verb codegen| S
+        S --> |libsql| DB[(Database)]
+        S --> |federates via| H[Hypha]
     end
-    subgraph "Runtime"
-        L[Lotus] --> |uses| R[Resin]
-        L --> |federates via| H[Hypha]
-        R --> |expressions| D[Dew]
-        R --> |assets for| L
+    subgraph "Media"
+        R[Resin] --> |expressions| D[Dew]
         CA[Cambium] --> |converts assets| R
         CA --> |scoring| D
     end
@@ -105,7 +101,7 @@ graph LR
         W[Siphon]
     end
     subgraph "Interface"
-        CN[Canopy] --> |views & controls| L
+        CN[Canopy] --> |views & controls| S
         CN --> |views & controls| CA
         CN --> |views & controls| W
     end
@@ -114,10 +110,9 @@ graph LR
 - **Nursery** coordinates tools via schema-validated manifests
 - **Moss** provides code intelligence for all projects
 - **Reed** provides bidirectional translation between languages
-- **Spore** provides Lua runtime with integrations for **Moss** and **Lotus**
-- **Lotus** runs persistent worlds, federates via **Hypha**
-- **Hypha** enables authoritative handoff between Lotus servers
-- **Resin** uses **Dew** for procedural expressions, generates assets for **Lotus**
+- **Spore** provides Lua runtime with libsql persistence and **Moss** integration
+- **Hypha** enables authoritative handoff between Spore servers
+- **Resin** uses **Dew** for procedural expressions
 - **Frond** provides game design primitives
 - **Cambium** orchestrates asset conversion pipelines
 - **Liana** generates API bindings across the ecosystem

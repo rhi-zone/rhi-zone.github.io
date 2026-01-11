@@ -15,7 +15,6 @@ export default withMermaid(
           text: 'Docs',
           items: [
             { text: 'Moss', link: 'https://rhizome-lab.github.io/moss/' },
-            { text: 'Lotus', link: 'https://rhizome-lab.github.io/lotus/' },
             { text: 'Hypha', link: 'https://rhizome-lab.github.io/hypha/' },
             { text: 'Resin', link: 'https://rhizome-lab.github.io/resin/' },
             { text: 'Frond', link: 'https://rhizome-lab.github.io/frond/' },
@@ -45,7 +44,6 @@ export default withMermaid(
             text: 'Projects',
             items: [
               { text: 'Moss', link: '/projects/moss' },
-              { text: 'Lotus', link: '/projects/lotus' },
               { text: 'Hypha', link: '/projects/hypha' },
               { text: 'Resin', link: '/projects/resin' },
               { text: 'Frond', link: '/projects/frond' },
