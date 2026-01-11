@@ -57,7 +57,7 @@ Our projects are designed the same way: independent tools that compose well toge
 | Project | Domain | Key Idea |
 |---------|--------|----------|
 | [Moss](/projects/moss) | Code intelligence | AST-aware navigation and editing across 98 languages |
-| [Lotus](/projects/lotus) | Persistent worlds | LambdaMOO-inspired entity system with Lua scripting |
+| [Lotus](/projects/lotus) | Persistent worlds | Entity/capability storage layer |
 | [Hypha](/projects/hypha) | Federation | Authoritative handoff protocol for interconnected worlds |
 | [Resin](/projects/resin) | Media generation | Composable procedural primitives for meshes, audio, textures |
 | [Frond](/projects/frond) | Game primitives | State machines, controllers, common gameplay patterns |

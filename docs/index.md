@@ -15,7 +15,7 @@ features:
     details: Structural code intelligence. AST-aware navigation, editing, and analysis across 98 languages.
     link: /projects/moss
   - title: Lotus
-    details: Persistent multiplayer worlds. LambdaMOO-inspired Lua runtime with entity storage.
+    details: Entity/capability storage. Entity/capability storage layer.
     link: /projects/lotus
   - title: Hypha
     details: Federation protocol. Authoritative handoff for interconnected persistent worlds.

@@ -1,25 +1,46 @@
 # Lotus
 
-**A persistent multiplayer world runtime.**
+Entity/capability storage layer.
 
-Lotus is a LambdaMOO-inspired system built on Lua with persistent entity storage. Create scriptable objects, rooms, NPCs, and more in a capability-secured environment.
+**Repository:** [github.com/rhizome-lab/lotus](https://github.com/rhizome-lab/lotus)
 
-## Key Features
+## Overview
 
-- **Multiplayer** - Real-time interaction with other users in a persistent world
-- **Scriptable** - Custom scripting with Lua for dynamic content and object behaviors
-- **Multi-frontend** - Access via Web, Discord, or Terminal (TUI)
-- **Capability Security** - Fine-grained permission system based on object capabilities
+Lotus provides persistent storage for entities with capability-based authorization:
 
-## Architecture
+- **Entities** - Objects with properties and prototype chains
+- **Verbs** - Executable code attached to entities (stored as S-expression JSON)
+- **Capabilities** - Authorization tokens for fine-grained permissions
+- **Storage** - libsql-backed persistence
 
-Lotus separates concerns into:
+## Crates
 
-- **Core** - Entity system, persistence, capability model
-- **Scripting** - Lua runtime with sandboxing
-- **Frontends** - Discord bot, web interface, TUI
+| Crate | Description |
+|-------|-------------|
+| `rhizome-lotus-core` | Entity system, capabilities, storage, scheduler |
+
+## Usage
+
+```rust
+use rhizome_lotus_core::{WorldStorage, Entity, Capability};
+
+// Open world database
+let storage = WorldStorage::open("world.sqlite").await?;
+
+// Create an entity
+let entity_id = storage.create_entity(None, serde_json::json!({
+    "name": "Room",
+    "description": "A quiet room"
+})).await?;
+
+// Query entities
+let entity = storage.get_entity(entity_id).await?;
+```
+
+## Design Notes
+
+Lotus is intentionally minimal - just storage and data structures. Execution (Lua runtime, transpilation) lives in Spore. Federation lives in Hypha.
 
 ## Links
 
 - [GitHub](https://github.com/rhizome-lab/lotus)
-- [Documentation](https://rhizome-lab.github.io/lotus/)

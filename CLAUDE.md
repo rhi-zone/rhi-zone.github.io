@@ -11,7 +11,7 @@ This is the organization-level documentation site for the Rhizome ecosystem.
 | Project | Path | Description |
 |---------|------|-------------|
 | **Moss** | `~/git/moss` | Structural code intelligence |
-| **Lotus** | `~/git/lotus` | Persistent multiplayer world runtime |
+| **Lotus** | `~/git/lotus` | Entity/capability storage layer |
 | **Hypha** | `~/git/hypha` | Federation protocol for persistent worlds |
 | **Resin** | `~/git/resin` | Constructive media generation |
 | **Frond** | `~/git/frond` | Game design primitives library |
