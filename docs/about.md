@@ -69,7 +69,7 @@ Our projects are designed the same way: independent tools that compose well toge
 | [Spore](/projects/spore) | Runtime | Lua runtime with plugin system for ecosystem integration |
 | [Reed](/projects/reed) | Translation | Source → IR → source across languages |
 | [Pith](/projects/pith) | Standard library | Capability-based interfaces inspired by WASI |
-| [Herbarium](/projects/herbarium) | Package data | Cross-registry package unification via Moss |
+| [Flora](/projects/flora) | Monorepo | Lua-based tools, scaffolds, and orchestration |
 
 ## Integration
 

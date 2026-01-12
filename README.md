@@ -20,7 +20,7 @@ Tools for programmable creativity.
 | [Nursery](https://github.com/rhizome-lab/nursery) | Ecosystem orchestrator via rhizome.toml manifests |
 | [Spore](https://github.com/rhizome-lab/spore) | Lua runtime with plugin system |
 | [Pith](https://github.com/rhizome-lab/pith) | Standard library interfaces |
-| [Herbarium](https://github.com/rhizome-lab/herbarium) | Cross-registry package unification |
+| [Flora](https://github.com/rhizome-lab/flora) | Lua-based tools, scaffolds, and orchestration |
 
 ## Development
 

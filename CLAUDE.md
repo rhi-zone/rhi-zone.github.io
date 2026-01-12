@@ -23,7 +23,7 @@ This is the organization-level documentation site for the Rhizome ecosystem.
 | **Spore** | `~/git/spore` | Lua runtime with plugin system |
 | **Reed** | `~/git/reed` | Language translation layer (source → IR → source) |
 | **Pith** | `~/git/pith` | Standard library interfaces |
-| **Herbarium** | `~/git/herbarium` | Cross-registry package unification |
+| **Flora** | `~/git/flora` | Lua-based tools, scaffolds, and orchestration |
 
 ### Org Resources
 
