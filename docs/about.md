@@ -46,6 +46,28 @@ Real-world code is messy. Real-world data is heterogeneous. Tools should:
 - Support incremental improvement
 - Not impose architectural opinions unless asked
 
+### Structure for Agents
+
+"Agent" means anything trying to understand or interact with systems—human or AI.
+
+The current approach forces agents to interpret unstructured things:
+- AI looks at screenshots to use apps
+- LLMs read documentation to understand APIs
+- Humans hunt for tools to convert formats
+- Chat logs are the only context for AI roleplay
+
+This is fragile, slow, lossy, and requires guessing. Rhizome's approach: **make the world structured, don't force interpretation.**
+
+| Problem | Interpretation approach | Structured approach |
+|---------|------------------------|---------------------|
+| Understand large codebase | Read it (can't) | **Moss**: Query structured code intelligence |
+| Use platform APIs | Read docs, write boilerplate | **Liana**: Codegen from specs (OpenAPI, headers) |
+| Convert format A → B | Hunt for exotic tools | **Cambium**: Unified type-driven pipelines |
+| AI with persistent context | Linear chat history (amnesia) | **Lotus**: Inject world state, not just chat |
+| Universal primitives | Different stdlib per language | **Pith**: Capability-based interfaces on WASI |
+
+The specs already exist—OpenAPI, headers, WASI, ASTs. The structure is there. Rhizome projects make it accessible.
+
 ## The Name
 
 A rhizome is a root system that grows horizontally, sending out shoots at intervals. Unlike trees with a single trunk, rhizomes form interconnected networks where any point can connect to any other.
