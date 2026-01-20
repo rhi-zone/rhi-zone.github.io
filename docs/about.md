@@ -92,6 +92,7 @@ Our projects are designed the same way: independent tools that compose well toge
 | [Reed](/projects/reed) | Translation | Source → IR → source across languages |
 | [Pith](/projects/pith) | Standard library | Capability-based interfaces inspired by WASI |
 | [Flora](/projects/flora) | Monorepo | Lua-based tools, scaffolds, and orchestration |
+| [Trellis](/projects/trellis) | Macros | Composable derive macros for Rust |
 
 ## Integration
 

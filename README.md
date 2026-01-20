@@ -21,6 +21,7 @@ Tools for programmable creativity.
 | [Spore](https://github.com/rhizome-lab/spore) | Lua runtime with plugin system |
 | [Pith](https://github.com/rhizome-lab/pith) | Standard library interfaces |
 | [Flora](https://github.com/rhizome-lab/flora) | Lua-based tools, scaffolds, and orchestration |
+| [Trellis](https://github.com/rhizome-lab/trellis) | Composable derive macros for Rust |
 
 ## Development
 

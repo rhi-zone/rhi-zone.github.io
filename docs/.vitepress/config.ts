@@ -28,6 +28,7 @@ export default withMermaid(
             { text: 'Reed', link: 'https://rhizome-lab.github.io/reed/' },
             { text: 'Pith', link: 'https://rhizome-lab.github.io/pith/' },
             { text: 'Flora', link: 'https://rhizome-lab.github.io/flora/' },
+            { text: 'Trellis', link: 'https://rhizome-lab.github.io/trellis/' },
           ]
         },
       ],
@@ -59,6 +60,7 @@ export default withMermaid(
               { text: 'Reed', link: '/projects/reed' },
               { text: 'Pith', link: '/projects/pith' },
               { text: 'Flora', link: '/projects/flora' },
+              { text: 'Trellis', link: '/projects/trellis' },
             ]
           },
           {

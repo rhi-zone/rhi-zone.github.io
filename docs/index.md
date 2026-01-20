@@ -53,4 +53,7 @@ features:
   - title: Flora
     details: Lua-based tools, seeds, and orchestration scripts for the ecosystem.
     link: /projects/flora
+  - title: Trellis
+    details: Composable derive macros. Progressive disclosure from zero-config to full control.
+    link: /projects/trellis
 ---

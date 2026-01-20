@@ -24,6 +24,7 @@ This is the organization-level documentation site for the Rhizome ecosystem.
 | **Reed** | `~/git/reed` | Language translation layer (source → IR → source) |
 | **Pith** | `~/git/pith` | Standard library interfaces |
 | **Flora** | `~/git/flora` | Lua-based tools, scaffolds, and orchestration |
+| **Trellis** | `~/git/trellis` | Composable derive macros for Rust |
 
 ### Org Resources
 
@@ -51,6 +52,7 @@ When projects change:
 - Update the project table in `docs/about.md`
 - Update `README.md` project table
 - Update sidebar/nav in `.vitepress/config.ts`
+- Update hero page features in `docs/index.md`
 
 ### Scaffolding New Repos
 
