@@ -171,7 +171,7 @@ Not a solution. Just... not adding to the problem.
 - Honest complexity. As simple as possible, no simpler.
 - Offline-first. Not dependent on servers that might disappear.
 - No metrics as self-worth. Or no metrics at all.
-- Endings. Things that are done, not infinite.
+- Escape from infinite. You choose when to stop.
 - Calm. Not demanding constant attention.
 
 This isn't a product spec. It's a set of values. A filter for decisions.
