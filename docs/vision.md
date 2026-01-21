@@ -35,6 +35,7 @@ Lots of software makes tradeoffs. Some do things well. But in general:
 | Chat history as AI context | Linear conversation = amnesia. Why not world state? |
 | Different stdlib per language | Everyone reinvents the same things |
 | Format conversion | Hunt for exotic tools, pray they exist |
+| Device lock-in | Working on something at your desk, want to continue over dinner on your phone. Can't. Context is trapped in a specific interface. |
 
 These are all "accepted" tradeoffs that maybe shouldn't be accepted. The question isn't "can we make software" - it's "can we make software that doesn't make these tradeoffs?" Or at least makes different ones.
 
