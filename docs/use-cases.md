@@ -275,7 +275,7 @@ Things we want to enable but aren't there yet:
 - **Low-floor creative tools** - Start with a fragment, not a blank canvas. Constraints as permission to be imperfect.
 - **Interactive learning infrastructure** - Between quiz platforms and game engines. Primitives for challenges, progression, feedback.
 - **Social with artifacts** - Not ephemeral posting. Building things together that persist.
-- **Collaboration without knowing CRDTs** - The technology exists (Yjs, Automerge) but is invisible to most people. An abstraction layer that gives you "share a link, you're both there" without needing to understand the machinery.
+- **Collaboration without knowing CRDTs** - The technology is completely solved. Yjs exists, has a full Rust port (yrs), works across languages. The *only* gap is the human layer - knowing it exists, knowing when to use it, knowing how. Not new technology. Just the bridge to humans.
 - **Inspectable software** - See how things work while they're working. Smalltalk/MOO energy.
 
 ---
