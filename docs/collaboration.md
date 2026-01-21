@@ -180,6 +180,44 @@ This is the "bridge to humans" layer. Yjs handles the CRDT. Something needs to h
 
 All of these are closer to "for developers who know what they're doing" than "for anyone building an app."
 
+## Is This Solvable?
+
+On paper, mostly yes. What "solved" means varies by ecosystem:
+
+**JavaScript/TypeScript (Vue, React, Svelte)**
+
+The CRDT layer is solved (Yjs). What's missing:
+- First-class reactive primitives that are CRDT-backed
+- `const count = ref(0)` → `const count = sharedRef(0)` and it syncs
+- Framework-blessed, maintained bindings (not third-party, possibly abandoned)
+- Presence/awareness in dev tools
+- "Make this shared" as a one-line change, not an architecture rewrite
+
+"Solved" = you don't think about CRDTs. You think about shared state.
+
+**Rust**
+
+yrs exists (Yjs port). Different situation - no reactive UI framework paradigm to integrate with. What's missing:
+- Derive macros: `#[derive(Crdt)]` on a struct and it works
+- Good sync transport abstractions
+- Persistence story (CRDT ↔ database)
+
+"Solved" = defining collaborative data is as easy as defining regular data.
+
+**Other languages**
+
+Automerge has multiple language ports. But "solved" depends on what frameworks exist in that ecosystem. Python has no dominant reactive UI framework. Go doesn't either. The problem is smaller there - or maybe just different.
+
+**Cross-language**
+
+The harder problem: Yjs document in browser ↔ yrs in Rust backend ↔ mobile client. The wire format is compatible, but the ergonomics of "same document, multiple languages" are rough.
+
+"Solved" = language is an implementation detail, not a barrier.
+
+**The meta-answer**
+
+"Solved" = collaboration is a property you add to state, not an architecture you adopt. Like how `async` infected everything it touched, but eventually became manageable. Collaboration should be a modifier, not a rewrite.
+
 ## The Gap
 
 The technology is solved. The developer experience isn't.
