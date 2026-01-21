@@ -80,6 +80,20 @@ This is fragile, slow, lossy, and requires guessing. Rhizome's approach: **make 
 
 The specs already exist—OpenAPI, headers, WASI, ASTs. The structure is there. Rhizome projects make it accessible.
 
+### Compose With What Exists
+
+Tools should fit into your infrastructure, not replace it. Vendor lock-in is usually framed as exit friction—hard to leave. But it's also *entry* friction—you have to adopt their whole stack to try one thing.
+
+If a tool composes with what you already have:
+- Lower barrier to try it (don't have to change anything else)
+- Lower barrier to leave (nothing else depends on it)
+- Works with your existing setup (tailscale, your servers, your repos)
+- Doesn't create parallel universes of state that drift apart
+
+The opposite: "use our VM, our sync, our infrastructure." Now you have two of everything, they're never quite in sync, and you're locked in both directions.
+
+Rhizome projects aim to be tools, not platforms. Use them with whatever else you have.
+
 ## The Name
 
 A rhizome is a root system that grows horizontally, sending out shoots at intervals. Unlike trees with a single trunk, rhizomes form interconnected networks where any point can connect to any other.
