@@ -72,6 +72,10 @@ But you have to build high enough up the stack. Too low ("here's a VM bytecode s
 
 The hope: someone uses the tools to build something. The realistic version: we build things ourselves, use them ourselves, and if others find them useful, great. If not, we still have tools we use.
 
+**Why some things work at scale without being platforms:** Minecraft, SCP, AO3, Terraria - massive successes that aren't traditional platforms. What they share: not ad-driven (no incentive to maximize engagement), creation is the point (not consumption with a "post" button), ownership (you own what you make), no algorithmic feed (you find things by exploring), community not audience (you're *with* people, not performing *for* them), persistence (things you build stay).
+
+The pattern: **they have specific creative outputs**. Minecraft has builds. SCP has articles. AO3 has fics. "General social" has no artifact - just ephemeral engagement. Platforms won general social because there's nothing to *build*. The alternatives that work are ones where you're building something together.
+
 ## Prior Art
 
 ### Systems That Dared To Be Different
@@ -115,6 +119,10 @@ What the early web had:
 What killed it wasn't technology - it was incentives. Platforms centralized attention (easier to post *on* something than *make* something). Mobile shifted to apps. The attention economy rewards feeds, not exploration. "Your site looks amateur" became an insult, not a badge of authenticity.
 
 The spirit never fully died - nightfall.city, the IF community, Neocities, the small web movement. But the *path* to finding these corners got paved over. Algorithms surface what optimizes engagement. The weird creative stuff doesn't optimize for engagement. So it stays invisible.
+
+**Deeper problem: feeds control cognition.** If creativity is making connections between things, and connections depend on what's adjacent in your mind, then the platform controls which connections you make by controlling what you see, in what order. Linear feeds are the most controlled - you scroll down, one thing after another, no choice in sequence. The "doomscroll trance" isn't just addiction - it's surrendering cognitive agency to an algorithm.
+
+Non-linear tools (wikis, MOO, spatial interfaces) give you agency. You choose what to look at next. You make your own paths. The connections are *yours*.
 
 ### Learning From Failure
 
