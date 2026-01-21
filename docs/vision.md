@@ -58,6 +58,20 @@ The thesis, clarified:
 
 Not a second brain. A living system.
 
+## Substrate, Not Platform
+
+Don't try to be the destination. Be the infrastructure. Let others build the destinations on top.
+
+- Minecraft isn't a platform - it's a substrate. Servers are the destinations.
+- SCP wiki isn't a platform - the wiki software is substrate, the content is destination.
+- AO3 isn't trying to be a social network - it's an archive. Infrastructure for fic.
+
+If you build good substrate, others build the communities. You don't have to do the social labor.
+
+But you have to build high enough up the stack. Too low ("here's a VM bytecode spec") and nobody uses it. Too high and you're running a community - which is fine, but its reach is fundamentally limited to that community. The sweet spot: usable + demonstrable + extensible. Reference implementations that show what's possible, but aren't *the* destination.
+
+The hope: someone uses the tools to build something. The realistic version: we build things ourselves, use them ourselves, and if others find them useful, great. If not, we still have tools we use.
+
 ## Prior Art
 
 ### Systems That Dared To Be Different
@@ -135,6 +149,51 @@ WIMP is prior art. Lesson: accidental, calcified, not a solution. React churn is
 Common threads: infrastructure not end-user apps, filled genuine gaps (not "slightly better" but "didn't exist"), became dependencies, technically extraordinary ("how did one person do this?").
 
 The question isn't "why hasn't someone built X" but "who specifically would have built X, and why didn't they?" These people are rare, busy, or working on other things. Maybe things don't exist because the people who could build them are occupied elsewhere.
+
+## Why Things Don't Exist
+
+### Bridge Problems
+
+Most missing tools are bridge problems - they require crossing between specializations, and specialists rarely cross.
+
+Building something ambitious needs multiple disciplines: systems programming, interaction design, domain knowledge, product sense, distribution. The Venn diagram of "can build it" + "will build it" + "has time" is nearly empty.
+
+Plus incentives work against it: open source maintainers burn out, companies optimize for features not polish, academia rewards novelty not accessibility.
+
+### Taste and Drive
+
+LLMs collapse the skill barrier. You don't need to *be* a proc macro expert if you can collaborate with one. The bridge becomes walkable.
+
+But motivation is still the bottleneck. Who *sees* that it should exist? Who cares enough to start? Who follows through past the prototype?
+
+LLMs help with execution, not vision. The person still needs to notice the gap, believe it's worth filling, and sustain effort through the unglamorous parts. **The new scarcity isn't skill - it's taste and drive.** Knowing what's worth building, and actually shipping it.
+
+The bottleneck isn't time either. 100k Discord messages prove time exists. It's the allocation that doesn't.
+
+### Incumbents Won By Showing Up
+
+The uncomfortable truth: incumbents often won by showing up first, not by being good.
+
+So the bar is actually low - but it *looks* high because incumbents seem authoritative. In reality, "finished and marketed" beats "better but obscure." The real filter is: showing up, finishing, telling people. Most projects fail at step 2 or 3, not step 1.
+
+The median software experience is buggy, bloated, half-finished, user-hostile, fragile. We've just normalized it. "Good enough" captures the market and then coasts. 2026 and we still can't copy-paste reliably between apps.
+
+Good software exists - SQLite, ffmpeg, Linux kernel - because the right person happened to care. Most problems don't get their Hipp or their obsessive. They get abandoned side projects and half-baked enterprise solutions. Pockets of excellence in a sea of mediocrity.
+
+### The Stolen Word
+
+There's no "doodling" for programming. No word that means "I make little programs for fun, not for work, don't ask about my career."
+
+"I draw" → hobby until proven otherwise. "I program" → "for work? a startup? why?"
+
+Except we *had* a word. **Hacker.** MIT hacker culture - tinkering with computers for fun, clever solutions, joy of building. "I'm a hacker" used to mean "I make things because I love it."
+
+Then it got stolen. Media turned it into "criminal who breaks into systems." Bootcamps gave us "growth hacker" and "hackathon" (career-ified).
+
+1980: "I'm a hacker" = I make things with computers for fun.
+2026: "I'm a hacker" = I break into systems / I do 24-hour startup sprints.
+
+We lost the word. And with it, the framing.
 
 ## Who Might Care
 
