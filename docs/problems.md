@@ -175,6 +175,8 @@ Versus games: you're both just *there*, doing things in the same space. No trans
 
 Some tools get this right. JSFiddle, tldraw, Cloud9 - share a link, you're both there, both can do things. No setup, no "can you share your screen," no verbal remote-piloting. The technology exists. It's just not the default.
 
+(Cloud9 got acquired by AWS and absorbed into their ecosystem. Another pattern: good collaborative tools get swallowed by platforms, then either disappear or become vendor-locked. The technology existed, proved useful, then got captured.)
+
 ## Where Rhizome Actually Is
 
 Honest assessment.
