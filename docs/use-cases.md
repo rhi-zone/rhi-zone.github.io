@@ -276,7 +276,7 @@ Things we want to enable but aren't there yet:
 - **Interactive learning infrastructure** - Between quiz platforms and game engines. Primitives for challenges, progression, feedback.
 - **Social with artifacts** - Not ephemeral posting. Building things together that persist.
 - **Collaboration primitives, cross-ecosystem** - Not just JS. Yjs for browser, yrs for Rust, Lua bindings via Spore. The bridge to humans should work across languages, not lock you into one ecosystem. `sharedRef()` energy but polyglot.
-- **Multiple interfaces, same backend** - CLI on desktop, mobile-native on phone, same context/state. Tailscale works. SSH works. But a terminal on phone is miserable. The tool shouldn't be locked to one interface - different projections of the same thing. Caveat: only works for things you build yourself. Can't retrofit this onto closed tools - that's on the vendor.
+- **Multiple interfaces, same backend** - CLI on desktop, mobile-native on phone, same context/state. Tailscale works. SSH works. But a terminal on phone is miserable. The tool shouldn't be locked to one interface - different projections of the same thing. Sometimes the glue exists: Claude's Agent SDK exposes Claude Code as a library - same tools, same context, you build the UI. Mobile frontend to your agent session becomes feasible without reimplementing everything.
 - **Inspectable software** - See how things work while they're working. Smalltalk/MOO energy.
 
 ---
