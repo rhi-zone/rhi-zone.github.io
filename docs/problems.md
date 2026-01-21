@@ -143,6 +143,16 @@ Or maybe it IS more common than it seems, just not articulated? Lots of people m
 
 The question isn't "why don't people know this?" It's "why doesn't this propagate?" Maybe because it's not teachable as a technique - it's a disposition. You either care about these things or you're focused elsewhere. And most people building software are focused elsewhere.
 
+The software stack itself doesn't encourage this either. Even good tools - ComfyUI, Obsidian - are steps forward but not the whole picture. There's a spectrum:
+
+- **Cloud-first**: Worst. Vendor lock-in, their infrastructure, your stuff held hostage.
+- **Local-first**: Better. You own your data, it's on your machine, you can compose with local tools.
+- **Local-only**: But also limiting. Can't access from your phone. Can't share easily. Can't collaborate.
+
+The ideal is **local-first, network-capable**. Your stuff lives on your machine, but you CAN access it remotely via your own infrastructure (tailscale, your server, whatever you have). You CAN share and collaborate. The network is optional capability, not required dependency. You're not locked into their cloud, but you're also not locked out of your own stuff when you're away from your desk.
+
+Most tools pick a point on this spectrum and stop. Cloud SaaS picks the worst point. Local-first tools pick a better point but often don't go further. "Local-first AND accessible from anywhere via your own setup" is rare.
+
 ## Where Rhizome Actually Is
 
 Honest assessment.
