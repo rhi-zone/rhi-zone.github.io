@@ -87,6 +87,52 @@ Not all software. But a lot of it.
 
 None of this is inevitable. It's choices made by people. Different choices are possible.
 
+## What Would Actually Help?
+
+Not convenience. Not "slightly easier." Actual change.
+
+- **First step trivially easy** - Not tutorials. Not setup. You do something and it exists. Thirty seconds.
+- **Permission to be imperfect** - Constraints that say "of course it's rough, that's the point." PICO-8 energy. Dwitter energy.
+- **Creation as reward** - The making feels good. Not the likes. Not the metrics. The making itself.
+- **Real connection** - Building together. Not performing for each other. Shared artifacts, not curated highlights.
+- **Things that end** - Done is possible. Not infinite scroll, infinite backlog, infinite guilt.
+- **Calm** - Software that doesn't demand. Doesn't notify. Doesn't make you feel behind.
+
+These aren't features. They're design values. They require building differently, not adding functionality.
+
+## Where Rhizome Actually Is
+
+Honest assessment.
+
+**What exists: foundations**
+
+Moss, Resin, Cambium, Spore, Liana, etc. These are infrastructure. Plumbing. They make things *possible*:
+- Moss makes code understandable (to tools, to agents)
+- Resin makes procedural generation composable
+- Cambium makes format conversion type-driven
+- Spore makes scripting embeddable
+
+Useful. Real. Working (mostly).
+
+But nobody lives in a foundation. Infrastructure doesn't make the first step trivially easy. It doesn't give permission to be imperfect. It doesn't create real connection.
+
+**What doesn't exist: the things that help**
+
+- The environment where you describe a thing and it exists
+- The place where creation is play, not work
+- The community where you build together and stumble on what others made
+- The calm software that respects your time and attention
+
+These would be built *on* the foundations. They don't exist yet.
+
+**The gap**
+
+We have plumbing. We don't have a house.
+
+The foundations are necessary but not sufficient. The tools serve a vision, but the vision isn't realized. Most of the work is still ahead.
+
+This is honest. Not pessimistic - the foundations matter. But not pretending that Moss solves loneliness or Resin makes creation fun. They're steps toward something. Not the something itself.
+
 ## What Would "Not Making It Worse" Look Like?
 
 Not a solution. Just... not adding to the problem.
