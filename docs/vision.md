@@ -188,6 +188,22 @@ The median software experience is buggy, bloated, half-finished, user-hostile, f
 
 Good software exists - SQLite, ffmpeg, Linux kernel - because the right person happened to care. Most problems don't get their Hipp or their obsessive. They get abandoned side projects and half-baked enterprise solutions. Pockets of excellence in a sea of mediocrity.
 
+### Ideas Aren't Rare, Completion Is
+
+The intuitions behind most "missing" software are years old. Thousands of people probably had the same ideas. Where did they go?
+
+- Gave up (too hard)
+- Got practical (needed a job)
+- Built it, nobody noticed
+- Wrote papers nobody read
+- Burned out
+- Life happened
+- Still going, somewhere, quietly
+
+Ideas aren't the bottleneck. Completion is rare. Good completion is rarer. The sadness isn't "someone might steal my idea." The sadness is: nobody built it, so if you want it, you might have to do it yourself. Years of work. Might never matter to anyone else.
+
+But also: **the dream is still available.** Nobody's claimed it yet.
+
 ### The Stolen Word
 
 There's no "doodling" for programming. No word that means "I make little programs for fun, not for work, don't ask about my career."
@@ -202,6 +218,10 @@ Then it got stolen. Media turned it into "criminal who breaks into systems." Boo
 2026: "I'm a hacker" = I break into systems / I do 24-hour startup sprints.
 
 We lost the word. And with it, the framing.
+
+**The crochet comparison:** Nobody asks a crocheter "but why though." The answer "because I enjoy it" is sufficient. Same time investment as programming. Same skill-building. But when a programmer says "I make software for fun" it's "but why? Is it for work? A startup? What's the point?"
+
+The point is the same: because I like doing it. Society just decided one is a valid hobby and one is weird.
 
 ## Who Might Care
 
