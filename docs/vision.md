@@ -36,7 +36,7 @@ Lots of software makes tradeoffs. Some do things well. But in general:
 | Different stdlib per language | Everyone reinvents the same things |
 | Format conversion | Hunt for exotic tools, pray they exist |
 | Fragmented context | Working at your desk, want to continue on your phone. The "solution" is a vendor VM - but you already have tailscale to your home machine. Everything's there. You don't want their infrastructure, you want a mobile interface to yours. Tools should compose with what you have, not replace it. |
-| Finding things later | Download an image, want to find it in 6 months. Options: folder hierarchy (which one?), hack tags into filename, hope search works. Windows had tags decades ago. macOS has tags. And yet the actual workflow is... rename the file. |
+| Finding things later | Download an image, want to find it in 6 months. Options: folder hierarchy (which one?), hack tags into filename, hope search works. Windows had tags decades ago. macOS has tags. And yet the actual workflow is... rename the file. The pragmatic fix: tags in a database (SQLite), not file metadata. Metadata doesn't survive transfers, isn't indexed, has patchy app support. DB just works. |
 
 These are all "accepted" tradeoffs that maybe shouldn't be accepted. The question isn't "can we make software" - it's "can we make software that doesn't make these tradeoffs?" Or at least makes different ones.
 
