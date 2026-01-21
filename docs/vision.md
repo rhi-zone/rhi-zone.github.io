@@ -212,3 +212,4 @@ You probably won't care if you want polished, production-ready software today, o
 
 - [Philosophy](/about#philosophy) - Design principles shared across projects
 - [Projects](/projects/) - What exists today
+- [Flora Design Brainstorm](https://rhizome-lab.github.io/flora/design/servers-brainstorm) - The 5000-line conversation this page was distilled from
