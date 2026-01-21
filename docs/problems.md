@@ -194,7 +194,9 @@ Moss, Resin, Cambium, Spore, Liana, etc. But calling these "foundations" or "inf
 - Spore: Lua runtime
 - Cambium: conversion pipelines
 
-Useful? Sometimes. Working? Mostly. But they're libraries, not frameworks. You call them - they don't impose structure. That's consistent with "compose with what exists" - but it's also why "foundation" was the wrong word. Libraries don't cohere into a substrate. You pick up the ones that are useful. They don't form a whole.
+Useful? Sometimes. Working? Mostly. They're libraries, not frameworks - you call them, they don't impose structure.
+
+Coherent in *philosophy*, not in requiring you to use everything together. "Use Moss and Resin and Spore or else" would be exactly the lock-in we criticized. Each project should be useful on its own, composable with non-Rhizome things. The coherence is in the values they embody, not in forcing adoption of the whole stack. That's the philosophy applied to itself.
 
 **What doesn't exist: the things that help**
 
