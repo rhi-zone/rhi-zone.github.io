@@ -2,6 +2,87 @@
 
 What kinds of projects benefit from Rhizome? This is both a guide and a wishlist - some of these work today, some are aspirational.
 
+## Overarching Goals
+
+These are the north stars. The specific use-cases below serve these larger goals.
+
+### Subsume Virtually All Computer Interaction
+
+The absurd moonshot. Not that it'll happen, but: what would it look like?
+
+- Stop switching between apps for different tasks
+- Unified substrate where everything composes
+- Tools that share context (what you're doing in one place is available in another)
+- Reduce "I want to do X, now I need to find/learn tool Y" friction
+
+**What we have:** Pieces. Moss for code, Resin for procgen, Spore for scripting. Each is a domain. They can compose (Spore can call Moss, etc.) but there's no unified environment yet.
+
+**What's missing:** The glue. A workspace where these come together. Canopy was meant to be this - user-defined projections onto any data source. Currently conceptual.
+
+---
+
+### Objects, Not Documents
+
+Things that live, not sit. Active, not passive.
+
+- Notes that come to *you* (triggers, reminders, awareness)
+- Data with behavior, not just content
+- Things that connect and relate, not isolated files
+
+**What we have:** Lotus (in Flora) explores this - object graphs with state, behavior, connections. Spore provides the runtime for objects to have behavior (Lua scripting).
+
+**What's missing:** A usable frontend. The object graph exists but there's no good way to interact with it yet. Also: proving this is actually better than files, not just different.
+
+---
+
+### Social With Artifacts
+
+Not ephemeral posting. Building together, things persist.
+
+- Collaborative worldbuilding (SCP energy, but interactive)
+- Shared spaces where creations accumulate
+- "Here's a thing I made" not "here's what I'm thinking"
+
+**What we have:** Hypha for federation (your server, connected to others). Lotus for persistent objects. The philosophy is clear.
+
+**What's missing:** An actual deployed thing people can use. The MOO-ish experience where you build together and stumble on things others made months ago. Needs Hypha + Lotus + frontend + community.
+
+---
+
+### First Creative Step Trivially Easy
+
+Low floor, high ceiling, ownership.
+
+- Start with a fragment, not blank canvas
+- Constraints as permission to be imperfect
+- Tiny first step produces something real
+
+**What we have:** Resin primitives let you tweak and see results. Spore makes scripting accessible. The intent is there.
+
+**What's missing:** The onboarding. "Describe a room → it exists" isn't built yet. The low-floor entry point that lets someone create something in minutes without learning a whole system.
+
+---
+
+### Personal Creative Spaces, Connected to Others
+
+Early web spirit.
+
+- You own what you make
+- Not rented from a platform
+- Connected but not centralized
+
+**What we have:** Hypha's federation model. Self-hostable by design. No platform dependency.
+
+**What's missing:** Making it easy enough that non-technical people can actually run their own instance. The "install WordPress and go" level of accessibility.
+
+---
+
+## Specific Use-Cases
+
+These serve the goals above. Some work today, some are aspirational.
+
+---
+
 ## Developer Tools That Understand Structure
 
 **The problem:** Most dev tools operate on text. Grep doesn't know what a function is. Regex can't refactor safely. You're pattern-matching strings when you want to query structure.
