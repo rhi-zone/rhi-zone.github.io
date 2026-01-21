@@ -124,9 +124,9 @@ These aren't features. They're design values. They require building differently,
 
 What form would it take? A game? A website? A creative tool? A chat server?
 
-Wrong question. That's the "one paradigm" trap. It doesn't have to be one form. It doesn't even have to be one tool.
+Wrong question. That's the "one paradigm" trap. It doesn't have to be one form. It doesn't have to be one tool. It doesn't even have to be a tool at all.
 
-Multiple small tools, each embodying these values, composing with each other *and* with things that aren't Rhizome at all. That's literally what the name means - no central trunk, just interconnected nodes. Same user, different moments: sometimes a game, sometimes a tool, sometimes a conversation. The substrate is shared, the values are consistent, but the form is whatever fits.
+It's a philosophy. A way of thinking about how software should work. The Rhizome tools are one expression of it - but someone else could build completely different things that embody the same values. The philosophy is the thing. The tools are just what happens when you try to live it.
 
 ## Where Rhizome Actually Is
 
