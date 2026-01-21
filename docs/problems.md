@@ -72,6 +72,21 @@ It's a game. It has mechanics, rewards, feedback loops. But optimized for what?
 
 The worst game because it uses all the techniques of good games - but inverted. Exploiting instead of serving.
 
+## Why Does Discord Work?
+
+Not perfect. But different. And the difference matters.
+
+- **Community, not audience** - You're in a server with people. Not broadcasting to followers.
+- **No algorithmic feed** - You see what's posted, in order. Nobody's optimizing your attention.
+- **Servers have culture** - Each one is different. Has history. Has norms. Has regulars.
+- **Conversation, not performance** - You're talking with people, not curating a highlight reel.
+- **Persistence** - The server exists. The history exists. You can scroll back and see what happened.
+- **You're already there** - Low friction. No new app. No new identity. Just... join.
+
+Different design choices → different outcomes. Discord isn't trying to maximize engagement metrics. It's trying to be a place where people hang out.
+
+Still has problems. Moderation is hard. Discoverability is weird. Notifications can be overwhelming. But the core dynamic is different from feed-based social media. That matters.
+
 ## Why Does Software Often Make Things Worse?
 
 Not all software. But a lot of it.
