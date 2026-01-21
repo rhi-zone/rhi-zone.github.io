@@ -46,6 +46,18 @@ Real-world code is messy. Real-world data is heterogeneous. Tools should:
 - Support incremental improvement
 - Not impose architectural opinions unless asked
 
+### Multiple Paradigms
+
+"One paradigm" is always wrong. The answer is always "multiple, fluid, user-chosen."
+
+How do you find a friend's apartment? Ask the doorman, check the directory, call them, remember "3rd floor end of hall", wander and look at numbers, or some combination. Real life gives you spatial, ask, remember, browse, index, shortcut. Filesystem gives you hierarchy + search. That's it.
+
+The poverty isn't "wrong paradigm." It's "only one paradigm."
+
+Same user, different moments: sometimes keyboard, sometimes click; tired vs focused; familiar vs exploring. Different users: expert wants density, novice wants guidance. "Know your user" is wrong. "Support multiple modes of being a user" is right.
+
+Don't pick the right paradigm. Offer multiple. Let users switch based on context, task, preference.
+
 ### Structure for Agents
 
 "Agent" means anything trying to understand or interact with systems—human or AI.
