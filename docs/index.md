@@ -44,9 +44,6 @@ features:
   - title: Spore
     details: Lua runtime with plugin system for the Rhizome ecosystem.
     link: /projects/spore
-  - title: Reed
-    details: Language translation layer. Source → IR → source across languages.
-    link: /projects/reed
   - title: Pith
     details: Standard library interfaces. Capability-based APIs inspired by WASI.
     link: /projects/pith

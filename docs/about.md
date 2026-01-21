@@ -89,7 +89,6 @@ Our projects are designed the same way: independent tools that compose well toge
 | [Siphon](/projects/siphon) | Preservation | Legacy software lifting from obsolete runtimes |
 | [Nursery](/projects/nursery) | Configuration | Unified tool config and project scaffolding from seeds |
 | [Spore](/projects/spore) | Runtime | Lua runtime with plugin system for ecosystem integration |
-| [Reed](/projects/reed) | Translation | Source → IR → source across languages |
 | [Pith](/projects/pith) | Standard library | Capability-based interfaces inspired by WASI |
 | [Flora](/projects/flora) | Monorepo | Lua-based tools, scaffolds, and orchestration |
 | [Trellis](/projects/trellis) | Macros | Composable derive macros for Rust |
@@ -106,7 +105,6 @@ graph LR
     subgraph "Development"
         M[Moss] --> |analyzes| ALL
         LI[Liana] --> |generates bindings| ALL
-        RE[Reed] --> |translates| ALL
     end
     subgraph "Scripting"
         S[Spore] --> |Lua runtime| ALL
@@ -134,7 +132,6 @@ graph LR
 
 - **Nursery** coordinates tools via schema-validated manifests
 - **Moss** provides code intelligence for all projects
-- **Reed** provides bidirectional translation between languages
 - **Spore** provides Lua runtime with libsql persistence and **Moss** integration
 - **Hypha** enables authoritative handoff between Spore servers
 - **Resin** uses **Dew** for procedural expressions

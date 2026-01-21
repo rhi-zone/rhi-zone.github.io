@@ -12,7 +12,6 @@ When invoked with `--schema`, the tool prints a JSON Schema describing its confi
 
 - [x] **moss** - Code intelligence CLI
 - [ ] **lotus** - World runtime CLI
-- [ ] **reed** - Translation layer (no CLI yet)
 - [ ] **cambium** - Pipeline orchestrator (no CLI yet)
 - [ ] **dew** - Expression language (no CLI yet)
 - [ ] **nursery** - Ecosystem orchestrator (has CLI, needs schema)

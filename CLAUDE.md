@@ -21,7 +21,6 @@ This is the organization-level documentation site for the Rhizome ecosystem.
 | **Siphon** | `~/git/siphon` | Legacy software lifting framework |
 | **Nursery** | `~/git/nursery` | Ecosystem orchestrator |
 | **Spore** | `~/git/spore` | Lua runtime with plugin system |
-| **Reed** | `~/git/reed` | Language translation layer (source → IR → source) |
 | **Pith** | `~/git/pith` | Standard library interfaces |
 | **Flora** | `~/git/flora` | Lua-based tools, scaffolds, and orchestration |
 | **Trellis** | `~/git/trellis` | Composable derive macros for Rust |

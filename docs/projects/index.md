@@ -48,10 +48,6 @@ Unified tool configuration and project scaffolding. Manage all tool configs from
 
 Lua runtime with plugin system for the Rhizome ecosystem.
 
-### [Reed](/projects/reed)
-
-Language translation layer. Parse source code into a common IR, then emit to different target languages.
-
 ### [Pith](/projects/pith)
 
 Standard library interfaces. Capability-based, async-first APIs inspired by WASI.
