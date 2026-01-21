@@ -37,7 +37,9 @@ Not clinically. Just... the ambient background sadness that seems everywhere.
 - **Chronic stress** - Always something. Never a break. The baseline is anxiety.
 - **Loss** - Of people, of possibilities, of the person you thought you'd be.
 
-Loneliness existed before software. But "connected to everyone, close to no one" is new. The parasocial relationship is new. The curated highlight reel making everyone else's life look perfect is new.
+Loneliness existed before software. But "connected to everyone, close to no one" is new. The curated highlight reel making everyone else's life look perfect is new.
+
+And the **parasocial relationship** is new at scale. You feel like you know someone. You follow their life, their thoughts, their struggles. They don't know you exist. This asymmetry - one person broadcasting to millions, each feeling a personal connection - creates a new kind of loneliness. You have "relationships" that only flow one direction. You invest emotional energy into people who can't possibly reciprocate because they don't know you're there.
 
 Software created new forms of sadness. It amplified existing ones. That means software has power here too.
 
@@ -66,6 +68,7 @@ It's a game. It has mechanics, rewards, feedback loops. But optimized for what?
 - **Outrage spreads faster** - Anger is engaging. Calm isn't. The algorithm knows.
 - **Metrics as self-worth** - How many likes? How many views? Why didn't they respond?
 - **Performative connection** - Curated highlights. Not real relationships.
+- **Asymmetry baked in** - One broadcasts, millions consume. You know them, they don't know you. Parasocial by design.
 - **Designed to be addictive** - Not an accident. Not a side effect. The goal.
 - **Your attention is the product** - You're not the customer. Advertisers are.
 - **No endpoint** - Good games end. Social media never does. There's always more scroll.
@@ -76,7 +79,7 @@ The worst game because it uses all the techniques of good games - but inverted. 
 
 Not perfect. But different. And the difference matters.
 
-- **Community, not audience** - You're in a server with people. Not broadcasting to followers.
+- **Community, not audience** - You're in a server with people. Not broadcasting to followers. Symmetric relationships - people who know each other, not parasocial one-way flows.
 - **No algorithmic feed** - You see what's posted, in order. Nobody's optimizing your attention.
 - **Servers have culture** - Each one is different. Has history. Has norms. Has regulars.
 - **Conversation, not performance** - You're talking with people, not curating a highlight reel.
@@ -113,8 +116,8 @@ Not convenience. Not "slightly easier." Actual change.
 - **First step trivially easy** - Not tutorials. Not setup. You do something and it exists. Thirty seconds.
 - **Permission to be imperfect** - Constraints that say "of course it's rough, that's the point." PICO-8 energy. Dwitter energy.
 - **Creation as reward** - The making feels good. Not the likes. Not the metrics. The making itself.
-- **Real connection** - Building together. Not performing for each other. Shared artifacts, not curated highlights.
-- **Things that end** - Done is possible. Not infinite scroll, infinite backlog, infinite guilt.
+- **Real connection** - Building together. Not performing for each other. Shared artifacts, not curated highlights. Symmetric - you know the people who know you.
+- **Escape from infinite** - Not infinite scroll, infinite backlog, infinite guilt. You choose when to stop. The system doesn't exploit your inability to find a stopping point.
 - **Calm** - Software that doesn't demand. Doesn't notify. Doesn't make you feel behind.
 
 These aren't features. They're design values. They require building differently, not adding functionality.
