@@ -275,7 +275,8 @@ Things we want to enable but aren't there yet:
 - **Low-floor creative tools** - Start with a fragment, not a blank canvas. Constraints as permission to be imperfect.
 - **Interactive learning infrastructure** - Between quiz platforms and game engines. Primitives for challenges, progression, feedback.
 - **Social with artifacts** - Not ephemeral posting. Building things together that persist.
-- **Collaboration without knowing CRDTs** - The technology is completely solved. Yjs exists, has a full Rust port (yrs), works across languages. The *only* gap is the human layer - knowing it exists, knowing when to use it, knowing how. Not new technology. Just the bridge to humans.
+- **Collaboration primitives, cross-ecosystem** - Not just JS. Yjs for browser, yrs for Rust, Lua bindings via Spore. The bridge to humans should work across languages, not lock you into one ecosystem. `sharedRef()` energy but polyglot.
+- **Multiple interfaces, same backend** - CLI on desktop, mobile-native on phone, same context/state. Tailscale works. SSH works. But a terminal on phone is miserable. The tool shouldn't be locked to one interface - different projections of the same thing.
 - **Inspectable software** - See how things work while they're working. Smalltalk/MOO energy.
 
 ---
