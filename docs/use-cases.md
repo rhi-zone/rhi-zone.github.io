@@ -77,6 +77,63 @@ Early web spirit.
 
 ---
 
+## By Persona
+
+Real workflows, real problems.
+
+### "I'm a writer"
+
+**Your pain:** Notes apps are paper on a screen. Documents sit there. You have ideas scattered across files, no connections, nothing that comes to you. Exporting to different formats means hunting for converters or praying your app supports it.
+
+**What Rhizome wants to offer:**
+- Objects, not documents. Your notes have behavior, connections, triggers.
+- rescribe for format conversion that preserves structure (not just visual appearance).
+- A living system where ideas connect and surface when relevant.
+
+**What exists today:** rescribe is in progress. Lotus (object graphs) is in development. Honestly, not much usable for writers yet.
+
+---
+
+### "I'm an artist"
+
+**Your pain:** Procedural tools are locked in expensive software (Houdini, Substance). Creative coding requires learning a whole stack. Generative art is either code-heavy or template-constrained.
+
+**What Rhizome wants to offer:**
+- Resin for procedural generation - textures, patterns, meshes, audio.
+- Dew as a simple expression language for defining transforms.
+- Deterministic output: same seed = same result, shareable as recipes.
+
+**What exists today:** Resin has 40+ crates of primitives. Dew is early. No friendly frontend yet - currently code-level access only.
+
+---
+
+### "I keep using five different tools to convert one file"
+
+**Your pain:** Photoshop → Upscayl → some exotic webp converter → ezgif.com → pray nothing broke. Each tool is a separate download, separate UI, separate mental model. Format conversion is a scavenger hunt.
+
+**What Rhizome wants to offer:**
+- Cambium: unified pipelines. Define your conversion once, run it on anything.
+- Type-driven: the types tell you what conversions are possible.
+- Composable: chain transforms without leaving the system.
+
+**What exists today:** Cambium exists but is early. rescribe handles documents. ooxml parses Office formats. The unified "convert anything" experience isn't there yet.
+
+---
+
+### "I'm a game developer"
+
+**Your pain:** Closed engines, limited modding, centralized multiplayer, procedural content requires building from scratch or expensive middleware.
+
+**What Rhizome wants to offer:**
+- Spore for scriptable everything (Lua runtime with plugins).
+- Resin for procedural content (terrain, textures, audio, meshes).
+- Frond for game primitives (inventory, dialogue, quests).
+- Hypha for federated multiplayer (your server, connected to others).
+
+**What exists today:** Spore works. Resin has many primitives. Frond and Hypha are early.
+
+---
+
 ## Specific Use-Cases
 
 These serve the goals above. Some work today, some are aspirational.
