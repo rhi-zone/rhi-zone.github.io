@@ -153,6 +153,16 @@ The ideal is **local-first, network-capable**. Your stuff lives on your machine,
 
 Most tools pick a point on this spectrum and stop. Cloud SaaS picks the worst point. Local-first tools pick a better point but often don't go further. "Local-first AND accessible from anywhere via your own setup" is rare.
 
+And why isn't interaction - helping each other, collaborating, debugging together - more common? Because it's nearly impossible.
+
+- Debug someone's setup? You can't see their machine, their environment, their state.
+- Help with their Photoshop issue? Screen share. They fumble to show you. You can't touch anything.
+- Pair on code? Special tools, both online at once, latency, still can't see their full context.
+
+The friction is so high we've accepted isolation as the default. "Works on my machine" isn't a meme - it's the reality of how hard sharing context is. We've learned not to even try.
+
+If you could just... see what they're seeing, poke at their setup, help directly - collaboration would be natural. But the stack makes it nearly impossible. So the disposition to help doesn't form, because the infrastructure never let it.
+
 ## Where Rhizome Actually Is
 
 Honest assessment.
