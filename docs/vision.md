@@ -58,6 +58,84 @@ The thesis, clarified:
 
 Not a second brain. A living system.
 
+## Prior Art
+
+### Systems That Dared To Be Different
+
+Prior art not because they're all good or relevant, but because they tried something other than the mainstream.
+
+| System | What's Different | Status |
+|--------|-----------------|--------|
+| **Plan 9** | Everything is a file, network-transparent FS | Influential but niche |
+| **Oberon** | Tiled text UI, no hidden state, everything visible | Academic, preserved |
+| **Smalltalk/Pharo** | Live object system, image-based | Active (Pharo), influential |
+| **Arcan** | Rethinking display server from scratch | Active, ambitious |
+| **Uxn/Varvara** | Minimal VM, personal computing, off-grid capable | Active, intentionally constrained |
+| **Lisp Machines** | Hardware + OS built around one paradigm | Dead, influential |
+| **HyperCard** | Anyone can build interactive things, low floor | Dead, mourned |
+
+Common threads: coherence (one paradigm carried through), simplicity (fewer concepts, more orthogonal), introspection (system can examine/modify itself), different tradeoffs (sacrificed mainstream compatibility for internal consistency).
+
+Why they didn't win: network effects, ecosystem ("where are the apps?"), "good enough" incumbents, sometimes genuinely worse at common tasks. But they proved *alternatives exist*. The current way isn't the only way.
+
+### Where Did HyperCard Go?
+
+HyperCard (1987) - "Anyone can make interactive things." It worked. Regular people made things. Then Apple killed it.
+
+And in almost 40 years, where did its paradigm go? Nowhere useful.
+
+Flash is dead. Scratch has a ceiling too low ("for kids"). No-code tools are vendor-locked. Notion is close but not programmable. Excel is everyone's accidental programming environment but doesn't produce interactive artifacts.
+
+We've had decades to reinvent it. To stand on shoulders of giants. To make something *better*. Instead: professional developers vs everyone else. The gap widened, not narrowed.
+
+### The Early Web Spirit
+
+What the early web had:
+- **Ownership** - your space, your rules
+- **Tinkering** - view source → learn → make your own
+- **Low floor** - HTML in notepad was enough to start
+- **Weird creativity** - personal, messy, no brand consistency required
+- **Connection** - links to other weird pages, webrings, discovery
+- **No gatekeepers** - no algorithm, no platform approval
+
+What killed it wasn't technology - it was incentives. Platforms centralized attention (easier to post *on* something than *make* something). Mobile shifted to apps. The attention economy rewards feeds, not exploration. "Your site looks amateur" became an insult, not a badge of authenticity.
+
+The spirit never fully died - nightfall.city, the IF community, Neocities, the small web movement. But the *path* to finding these corners got paved over. Algorithms surface what optimizes engagement. The weird creative stuff doesn't optimize for engagement. So it stays invisible.
+
+### Learning From Failure
+
+It's 2026. We have all the prior art in the world. Not just research - all shipped software, all the code ever written, all tutorials, blog posts, Stack Overflow answers, all hacky weekend projects and abandoned repos.
+
+But prior art includes the status quo. Which often doesn't work.
+
+The current broken landscape is itself evidence: "this approach was tried and didn't scale," "this pattern became standard despite being broken," "this decision calcified before anyone questioned it."
+
+WIMP is prior art. Lesson: accidental, calcified, not a solution. React churn is prior art. Lesson: state management is unsolved. The current mess is data. Learning from prior art means learning from failures as much as successes. We're swimming in documented failure.
+
+### People
+
+**Creative track inspirations** - people keeping the "programming as play" spirit alive:
+
+| Who | What | Why it matters |
+|-----|------|----------------|
+| **Lu Wilson** (todepond) | Experimental interfaces, creative coding, [tldraw](https://tldraw.com) | Proves you can explore weird ideas publicly, playfully |
+| **Inigo Quilez** | [Shadertoy](https://shadertoy.com), procedural graphics | Demoscene spirit in 2026, math as art, approachable mastery |
+| **100 Rabbits** (Devine Lu Linvega) | Uxn/Varvara, off-grid computing | Intentional constraints, comprehensible systems, living differently |
+| **letoram** | Arcan display server | One person rethinking the entire display stack |
+
+**Infrastructure legends** - more aspirational than achievable, but proof of what's possible:
+
+| Who | What | Pattern |
+|-----|------|---------|
+| **Linus Torvalds** | Linux, Git | Scratched own itch, became essential infrastructure |
+| **Fabrice Bellard** | QEMU, TCC, FFmpeg | Single genius filling infrastructure niches |
+| **Mike Pall** | LuaJIT | Insane performance from one person |
+| **Georgi Gerganov** | ggml, llama.cpp | Recent proof this is still possible |
+
+Common threads: infrastructure not end-user apps, filled genuine gaps (not "slightly better" but "didn't exist"), became dependencies, technically extraordinary ("how did one person do this?").
+
+The question isn't "why hasn't someone built X" but "who specifically would have built X, and why didn't they?" These people are rare, busy, or working on other things. Maybe things don't exist because the people who could build them are occupied elsewhere.
+
 ## Who Might Care
 
 You might find Rhizome useful if you:
