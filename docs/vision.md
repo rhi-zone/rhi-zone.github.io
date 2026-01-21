@@ -35,7 +35,7 @@ Lots of software makes tradeoffs. Some do things well. But in general:
 | Chat history as AI context | Linear conversation = amnesia. Why not world state? |
 | Different stdlib per language | Everyone reinvents the same things |
 | Format conversion | Hunt for exotic tools, pray they exist |
-| Fragmented context | Working at your desk, want to continue on your phone. Technically possible - but it's a VM with latency, missing half your repos, on a drifted branch. The capability exists but continuity doesn't. Why isn't "same project, any device" just how it works? |
+| Fragmented context | Working at your desk, want to continue on your phone. The "solution" is a vendor VM - but you already have tailscale to your home machine. Everything's there. You don't want their infrastructure, you want a mobile interface to yours. Tools should compose with what you have, not replace it. |
 
 These are all "accepted" tradeoffs that maybe shouldn't be accepted. The question isn't "can we make software" - it's "can we make software that doesn't make these tradeoffs?" Or at least makes different ones.
 
