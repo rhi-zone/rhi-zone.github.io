@@ -39,6 +39,7 @@ export default withMermaid(
             items: [
               { text: 'About', link: '/about' },
               { text: 'Vision', link: '/vision' },
+              { text: 'Use Cases', link: '/use-cases' },
               { text: 'Architecture', link: '/architecture' },
               { text: 'Integration', link: '/integration' },
             ]
