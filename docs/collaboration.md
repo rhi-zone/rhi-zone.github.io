@@ -102,6 +102,25 @@ You need bidirectional binding between Vue's reactive system and the CRDT. Both 
 - Vue devs often end up writing custom binding layers
 - The "just works" experience isn't there
 
+**A pragmatic pattern that works:**
+```ts
+// Create reactive views of CRDT state
+function useYText(text: Y.Text) {
+  const content = ref<string>()
+  watchEffect((onCleanup) => {
+    const update = () => content.value = text.toJSON()
+    update()
+    text.observe(update)
+    onCleanup(() => text.unobserve(update))
+  })
+  return content
+}
+```
+
+This is the "wrap and observe" approach - don't try to make the CRDT *be* a Vue reactive object. Instead, create reactive refs that are views of CRDT state, using `watchEffect` for lifecycle (setup observers, clean up on unmount). You still interact with Yjs types directly, but you get reactive views for the template.
+
+Not as elegant as native integration, but it works. The cleanup handling via `onCleanup` is the key insight - Vue's reactivity lifecycle manages Yjs observers.
+
 **What would help:**
 - A Y.Map that *is* a Vue reactive object (not wrapped, native)
 - Or: Vue reactivity primitives that understand CRDT sync
