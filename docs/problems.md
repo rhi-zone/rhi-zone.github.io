@@ -87,6 +87,10 @@ Different design choices → different outcomes. Discord isn't trying to maximiz
 
 Still has problems. Moderation is hard. Discoverability is weird. Notifications can be overwhelming. But the core dynamic is different from feed-based social media. That matters.
 
+**The telling thing:** If Discord is your primary social media, you might read the "why is social media the worst game" section and think "is this even real? I'm fine."
+
+You're fine *because of the design choices*. Not because the problems don't exist. People on Twitter/Instagram/TikTok are experiencing something fundamentally different. The medium shapes the experience. You might not understand why social media is toxic - because yours isn't.
+
 ## Why Does Software Often Make Things Worse?
 
 Not all software. But a lot of it.
