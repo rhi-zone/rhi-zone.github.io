@@ -124,9 +124,9 @@ These aren't features. They're design values. They require building differently,
 
 What form would it take? A game? A website? A creative tool? A chat server?
 
-Wrong question. That's the "one paradigm" trap. It shouldn't BE one form - it should compose into whatever form makes sense for the context. The values above would shape any form it takes, but the form itself isn't singular.
+Wrong question. That's the "one paradigm" trap. It doesn't have to be one form. It doesn't even have to be one tool.
 
-Same user, different moments: sometimes you want a game, sometimes a tool, sometimes a conversation. Different users want different things. "What form should it take?" assumes one answer. The answer is: many forms, same substrate, values baked in everywhere.
+Multiple small tools, each embodying these values, composing with each other *and* with things that aren't Rhizome at all. That's literally what the name means - no central trunk, just interconnected nodes. Same user, different moments: sometimes a game, sometimes a tool, sometimes a conversation. The substrate is shared, the values are consistent, but the form is whatever fits.
 
 ## Where Rhizome Actually Is
 
