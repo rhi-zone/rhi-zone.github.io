@@ -177,6 +177,10 @@ Some tools get this right. JSFiddle, tldraw, Cloud9, HackMD, VS Code Live Share,
 
 (Cloud9 got acquired by AWS and absorbed into their ecosystem. Another pattern: good collaborative tools get swallowed by platforms, then either disappear or become vendor-locked. The technology existed, proved useful, then got captured.)
 
+What can be done? The technology is solved - CRDTs exist (Yjs, Automerge), real-time sync is a library not a research problem. The issue is building it in from the start, not bolting it on later.
+
+For Rhizome, there's no "foundation" to add collaboration to yet - just pieces. So it's less about pivoting and more about not closing doors: web-based where possible (share a link is free), CRDT-friendly data structures, local-first but syncable by design, don't assume single-user. Keep the door open instead of accidentally building walls.
+
 ## Where Rhizome Actually Is
 
 Honest assessment.
