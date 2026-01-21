@@ -128,6 +128,21 @@ Wrong question. That's the "one paradigm" trap. It doesn't have to be one form. 
 
 It's a philosophy. A way of thinking about how software should work. The Rhizome tools are one expression of it - but someone else could build completely different things that embody the same values. The philosophy is the thing. The tools are just what happens when you try to live it.
 
+## Why Isn't This Obvious?
+
+If these values are good, why aren't they the default? Even in FOSS, where profit motive is absent?
+
+- **"I want something that works"** - You're solving your problem. You have the context, the setup, the mental model. Composability with things you don't have isn't on your mind.
+- **Interaction design is a different skill** - Most devs aren't trained in it. Might even dismiss it as "not real engineering."
+- **Standalone is easier** - Thinking about how your tool fits with everything else is extra effort. Extra constraints.
+- **FOSS culture rewards different things** - Clever code, performance, features. Not "fits smoothly into your life."
+- **Unix philosophy stayed narrow** - Small tools that compose via pipes. But it never extended to interaction design, GUIs, the human experience.
+- **Consideration requires imagining others** - Hard when you're deep in solving a technical problem for yourself.
+
+Or maybe it IS more common than it seems, just not articulated? Lots of people make composable, calm, respectful tools without calling it a philosophy. They just think of it as "doing it right."
+
+The question isn't "why don't people know this?" It's "why doesn't this propagate?" Maybe because it's not teachable as a technique - it's a disposition. You either care about these things or you're focused elsewhere. And most people building software are focused elsewhere.
+
 ## Where Rhizome Actually Is
 
 Honest assessment.
