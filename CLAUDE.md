@@ -99,6 +99,16 @@ nav: [
 
 This ensures users can navigate between project-specific docs and the ecosystem overview.
 
+## Tools
+
+**Moss** for structural code/doc exploration:
+```bash
+~/git/moss/target/debug/moss view <file>     # structural outline with line numbers
+~/git/moss/target/debug/moss view <dir>      # directory structure
+```
+
+Especially useful for large files - get the structure first, then read specific sections.
+
 ## Core Rules
 
 **Note things down immediately:**

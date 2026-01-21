@@ -140,3 +140,13 @@ graph LR
 - **Liana** generates API bindings across the ecosystem
 - **Canopy** provides UI for viewing and controlling any project
 - **Siphon** lifts legacy software into modern web runtimes
+
+## Related Projects
+
+Independent projects that share Rhizome's design philosophy:
+
+| Project | Domain | Key Idea |
+|---------|--------|----------|
+| [rescribe](https://github.com/pterror/rescribe) | Document conversion | Lossless IR for format translation (pandoc, but fidelity-preserving) |
+| [burn-models](https://github.com/pterror/burn-models) | ML inference | Deep learning in pure Rust—no Python, multiple backends |
+| [ooxml](https://github.com/pterror/ooxml) | Office formats | Structural parsing for docx/xlsx/pptx |
