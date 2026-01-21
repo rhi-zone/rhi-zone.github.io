@@ -72,6 +72,43 @@ Multi-user UI needs:
 
 None of this is free. Each is a feature to build.
 
+## Framework-Specific: Vue Reactivity
+
+Vue's reactivity is proxy-based - it wraps objects and detects mutations. How does this interact with CRDTs?
+
+**The mental model conflict:**
+- Vue: mutate state directly (`this.count++`), Vue detects and re-renders
+- CRDT: changes go through the CRDT API, which handles merge/sync
+
+These aren't naturally compatible. You either:
+1. Make the CRDT look like normal Vue state (wrap it in reactive proxy)
+2. Or give up Vue's nice mutation syntax and always go through CRDT methods
+
+**Two sources of truth problem:**
+```
+Local mutation → Vue reactive state → ??? → CRDT → sync
+Remote change → CRDT → ??? → Vue reactive state → re-render
+```
+
+You need bidirectional binding between Vue's reactive system and the CRDT. Both directions need to work without infinite loops.
+
+**Granularity mismatch:**
+- Vue tracks at property level
+- Yjs has Y.Map, Y.Array, Y.Text with their own granularity
+- Deep nesting gets complicated - which layer "owns" reactivity?
+
+**What exists:**
+- `y-vue` - but how maintained? How deep is the integration?
+- Vue devs often end up writing custom binding layers
+- The "just works" experience isn't there
+
+**What would help:**
+- A Y.Map that *is* a Vue reactive object (not wrapped, native)
+- Or: Vue reactivity primitives that understand CRDT sync
+- The frameworks need to meet in the middle, not be bridged after the fact
+
+This is one example. React has different issues (immutability assumptions vs CRDT mutation). Svelte has others (compile-time reactivity). Each framework has its own friction with the CRDT model.
+
 ## Framework Dependency
 
 How hard this is depends enormously on your starting point:
