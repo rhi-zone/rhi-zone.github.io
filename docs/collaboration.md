@@ -121,6 +121,15 @@ This is the "wrap and observe" approach - don't try to make the CRDT *be* a Vue 
 
 Not as elegant as native integration, but it works. The cleanup handling via `onCleanup` is the key insight - Vue's reactivity lifecycle manages Yjs observers.
 
+**At scale, this pattern holds but complexity grows:**
+- Reusable composables (`useObserveYjs`, `useObserveYjsDeep`) across the codebase
+- `markRaw` for heavy objects Vue shouldn't deep-track (awareness, connections, registries)
+- Undo manager state synced via Yjs observers → reactive Vue state
+- Subdocument handling, provider lifecycle, reconnection logic
+- Real production code doing this is substantial - not trivial glue
+
+The pattern works, but it's work. Every project reinvents some of this.
+
 **What would help:**
 - A Y.Map that *is* a Vue reactive object (not wrapped, native)
 - Or: Vue reactivity primitives that understand CRDT sync
