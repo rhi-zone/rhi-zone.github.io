@@ -167,6 +167,8 @@ Games prove this. Minecraft - you just join their world. You see what they're bu
 
 Games solved this decades ago. The rest of software just... didn't.
 
+And this shouldn't need proving. Humans are social creatures. Of course we want to collaborate. Remove friction and we do it constantly. Add friction and we stop. Software made collaboration so hard that we forgot it was natural. Games kept it easy, so people kept doing it - not because gamers are special, but because the infrastructure didn't get in the way.
+
 ## Where Rhizome Actually Is
 
 Honest assessment.
