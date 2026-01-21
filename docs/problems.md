@@ -169,6 +169,10 @@ Games solved this decades ago. The rest of software just... didn't.
 
 And this shouldn't need proving. Humans are social creatures. Of course we want to collaborate. Remove friction and we do it constantly. Add friction and we stop. Software made collaboration so hard that we forgot it was natural. Games kept it easy, so people kept doing it - not because gamers are special, but because the infrastructure didn't get in the way.
 
+Even our "solutions" are high-friction. Screen share means you can see their screen but can't touch anything. So you remote-pilot through voice: "Click the... no, the other thing. Scroll down. No, back up. The menu first, then the button." Exhausting, imprecise, frustrating for both people. Requires real-time synchronous attention. And you're still just watching - you can't actually help, just instruct.
+
+Versus games: you're both just *there*, doing things in the same space. No translation layer of verbal instructions. That's what collaboration should feel like.
+
 ## Where Rhizome Actually Is
 
 Honest assessment.
