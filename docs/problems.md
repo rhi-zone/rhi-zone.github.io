@@ -122,11 +122,11 @@ Not convenience. Not "slightly easier." Actual change.
 
 These aren't features. They're design values. They require building differently, not adding functionality.
 
-What form would it take? A game? A website? A creative tool? A chat server? Something else?
+What form would it take? A game? A website? A creative tool? A chat server?
 
-Unknown. The form follows from the values, not the other way around. Discord didn't start by saying "let's make a chat app" - it started with "let's make a place for gamers to hang out." The chat app was an implementation of that intent.
+Wrong question. That's the "one paradigm" trap. It shouldn't BE one form - it should compose into whatever form makes sense for the context. The values above would shape any form it takes, but the form itself isn't singular.
 
-Whatever form it takes would need to *embody* these values, not just have them as afterthoughts. Calm can't be bolted on. Symmetry can't be added later. These shape the architecture from the start.
+Same user, different moments: sometimes you want a game, sometimes a tool, sometimes a conversation. Different users want different things. "What form should it take?" assumes one answer. The answer is: many forms, same substrate, values baked in everywhere.
 
 ## Where Rhizome Actually Is
 
