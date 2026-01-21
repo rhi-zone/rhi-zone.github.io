@@ -173,7 +173,7 @@ Even our "solutions" are high-friction. Screen share means you can see their scr
 
 Versus games: you're both just *there*, doing things in the same space. No translation layer of verbal instructions. That's what collaboration should feel like.
 
-Some tools get this right. JSFiddle, tldraw, Cloud9, HackMD, VS Code Live Share - share a link (or session), you're both there, both can do things. No setup, no "can you share your screen," no verbal remote-piloting. The technology exists. It's just not the default.
+Some tools get this right. JSFiddle, tldraw, Cloud9, HackMD, VS Code Live Share, Overleaf - share a link (or session), you're both there, both can do things. No setup, no "can you share your screen," no verbal remote-piloting. The technology exists. It's just scattered - each tool solves it for their domain, but it's not a general pattern.
 
 (Cloud9 got acquired by AWS and absorbed into their ecosystem. Another pattern: good collaborative tools get swallowed by platforms, then either disappear or become vendor-locked. The technology existed, proved useful, then got captured.)
 
