@@ -185,17 +185,16 @@ For Rhizome, there's no "foundation" to add collaboration to yet - just pieces. 
 
 Honest assessment.
 
-**What exists: foundations**
+**What exists: projects**
 
-Moss, Resin, Cambium, Spore, Liana, etc. These are infrastructure. Plumbing. They make things *possible*:
-- Moss makes code understandable (to tools, to agents)
-- Resin makes procedural generation composable
-- Cambium makes format conversion type-driven
-- Spore makes scripting embeddable
+Moss, Resin, Cambium, Spore, Liana, etc. But calling these "foundations" or "infrastructure" implies other things build on them. Do they? These are tools. Projects. Experiments. Things made while thinking about these problems.
 
-Useful. Real. Working (mostly).
+- Moss: code intelligence tool
+- Resin: procgen primitives
+- Spore: Lua runtime
+- Cambium: conversion pipelines
 
-But nobody lives in a foundation. Infrastructure doesn't make the first step trivially easy. It doesn't give permission to be imperfect. It doesn't create real connection.
+Useful? Sometimes. Working? Mostly. But they're libraries, not frameworks. You call them - they don't impose structure. That's consistent with "compose with what exists" - but it's also why "foundation" was the wrong word. Libraries don't cohere into a substrate. You pick up the ones that are useful. They don't form a whole.
 
 **What doesn't exist: the things that help**
 
@@ -204,15 +203,13 @@ But nobody lives in a foundation. Infrastructure doesn't make the first step tri
 - The community where you build together and stumble on what others made
 - The calm software that respects your time and attention
 
-These would be built *on* the foundations. They don't exist yet.
-
 **The gap**
 
-We have plumbing. We don't have a house.
+We have sketches. We don't have a house. We don't even have plumbing - just drawings of pipes.
 
-The foundations are necessary but not sufficient. The tools serve a vision, but the vision isn't realized. Most of the work is still ahead.
+The projects exist. They embody the philosophy (sometimes). But they're not infrastructure anyone builds on. They're not steps toward a destination - they're explorations in a direction. Maybe some of them lead somewhere. Maybe not.
 
-This is honest. Not pessimistic - the foundations matter. But not pretending that Moss solves loneliness or Resin makes creation fun. They're steps toward something. Not the something itself.
+This is honest. Not pessimistic - exploration matters. But not pretending that Moss solves loneliness or Resin makes creation fun. They're things someone made while thinking about these problems. Not solutions. Not even foundations. Just... work.
 
 ## What Would "Not Making It Worse" Look Like?
 
