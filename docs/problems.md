@@ -173,6 +173,8 @@ Even our "solutions" are high-friction. Screen share means you can see their scr
 
 Versus games: you're both just *there*, doing things in the same space. No translation layer of verbal instructions. That's what collaboration should feel like.
 
+Some tools get this right. JSFiddle, tldraw - share a link, you're both there, both can do things. No setup, no "can you share your screen," no verbal remote-piloting. The technology exists. It's just not the default.
+
 ## Where Rhizome Actually Is
 
 Honest assessment.
