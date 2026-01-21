@@ -163,6 +163,10 @@ The friction is so high we've accepted isolation as the default. "Works on my ma
 
 If you could just... see what they're seeing, poke at their setup, help directly - collaboration would be natural. But the stack makes it nearly impossible. So the disposition to help doesn't form, because the infrastructure never let it.
 
+Games prove this. Minecraft - you just join their world. You see what they're building. You can help. No screen share, no special tools, no "can you show me your screen?" The context is shared by design, so collaboration is natural. People help each other constantly in games because the friction is zero.
+
+Games solved this decades ago. The rest of software just... didn't.
+
 ## Where Rhizome Actually Is
 
 Honest assessment.
