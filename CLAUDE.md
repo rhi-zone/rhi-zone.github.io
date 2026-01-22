@@ -8,19 +8,46 @@ This is the organization-level documentation site for the Rhizome ecosystem.
 
 ### Projects
 
+**Code Intelligence**
+
 | Project | Path | Description |
 |---------|------|-------------|
 | **Moss** | `~/git/moss` | Structural code intelligence |
-| **Hypha** | `~/git/hypha` | Federation protocol for persistent worlds |
+
+**Generation**
+
+| Project | Path | Description |
+|---------|------|-------------|
 | **Resin** | `~/git/resin` | Constructive media generation |
-| **Frond** | `~/git/frond` | Game design primitives library |
 | **Dew** | `~/git/dew` | Minimal expression language |
-| **Liana** | `~/git/liana` | API bindings IR and codegen |
+
+**Games & Worlds**
+
+| Project | Path | Description |
+|---------|------|-------------|
+| **Frond** | `~/git/frond` | Game design primitives library |
+| **Hypha** | `~/git/hypha` | Federation protocol for persistent worlds |
+
+**Data Transformation**
+
+| Project | Path | Description |
+|---------|------|-------------|
 | **Cambium** | `~/git/cambium` | Pipeline orchestrator for data conversion |
-| **Canopy** | `~/git/canopy` | Universal UI client with control plane |
+| **Liana** | `~/git/liana` | API bindings IR and codegen |
 | **Siphon** | `~/git/siphon` | Legacy software lifting framework |
-| **Nursery** | `~/git/nursery` | Ecosystem orchestrator |
+
+**Runtime & Interface**
+
+| Project | Path | Description |
+|---------|------|-------------|
 | **Spore** | `~/git/spore` | Lua runtime with plugin system |
+| **Canopy** | `~/git/canopy` | Universal UI client with control plane |
+
+**Infrastructure**
+
+| Project | Path | Description |
+|---------|------|-------------|
+| **Nursery** | `~/git/nursery` | Ecosystem orchestrator |
 | **Pith** | `~/git/pith` | Standard library interfaces |
 | **Flora** | `~/git/flora` | Lua-based tools, scaffolds, and orchestration |
 | **Trellis** | `~/git/trellis` | Composable derive macros for Rust |

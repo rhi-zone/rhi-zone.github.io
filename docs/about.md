@@ -102,22 +102,49 @@ Our projects are designed the same way: independent tools that compose well toge
 
 ## Projects
 
-| Project | Domain | Key Idea |
-|---------|--------|----------|
-| [Moss](/projects/moss) | Code intelligence | AST-aware navigation and editing across 98 languages |
-| [Hypha](/projects/hypha) | Federation | Authoritative handoff protocol for persistent worlds |
-| [Resin](/projects/resin) | Media generation | Composable procedural primitives for meshes, audio, textures |
-| [Frond](/projects/frond) | Game primitives | State machines, controllers, common gameplay patterns |
-| [Dew](/projects/dew) | Expressions | Minimal expression language (WGSL, Cranelift, Lua) |
-| [Liana](/projects/liana) | API bindings | IR and codegen for cross-language bindings |
-| [Cambium](/projects/cambium) | Pipelines | Type-driven route planning for data conversion |
-| [Canopy](/projects/canopy) | UI | Universal client with control plane for any data source |
-| [Siphon](/projects/siphon) | Preservation | Legacy software lifting from obsolete runtimes |
-| [Nursery](/projects/nursery) | Configuration | Unified tool config and project scaffolding from seeds |
-| [Spore](/projects/spore) | Runtime | Lua runtime with plugin system for ecosystem integration |
-| [Pith](/projects/pith) | Standard library | Capability-based interfaces inspired by WASI |
-| [Flora](/projects/flora) | Monorepo | Lua-based tools, scaffolds, and orchestration |
-| [Trellis](/projects/trellis) | Macros | Composable derive macros for Rust |
+### Code Intelligence
+
+| Project | Key Idea |
+|---------|----------|
+| [Moss](/projects/moss) | AST-aware navigation and editing across 98 languages |
+
+### Generation
+
+| Project | Key Idea |
+|---------|----------|
+| [Resin](/projects/resin) | Composable procedural primitives for meshes, audio, textures |
+| [Dew](/projects/dew) | Minimal expression language (WGSL, Cranelift, Lua) |
+
+### Games & Worlds
+
+| Project | Key Idea |
+|---------|----------|
+| [Frond](/projects/frond) | State machines, controllers, common gameplay patterns |
+| [Hypha](/projects/hypha) | Authoritative handoff protocol for persistent worlds |
+
+### Data Transformation
+
+| Project | Key Idea |
+|---------|----------|
+| [Cambium](/projects/cambium) | Type-driven route planning for data conversion |
+| [Liana](/projects/liana) | IR and codegen for cross-language bindings |
+| [Siphon](/projects/siphon) | Legacy software lifting from obsolete runtimes |
+
+### Runtime & Interface
+
+| Project | Key Idea |
+|---------|----------|
+| [Spore](/projects/spore) | Lua runtime with plugin system for ecosystem integration |
+| [Canopy](/projects/canopy) | Universal client with control plane for any data source |
+
+### Infrastructure
+
+| Project | Key Idea |
+|---------|----------|
+| [Nursery](/projects/nursery) | Unified tool config and project scaffolding from seeds |
+| [Pith](/projects/pith) | Capability-based interfaces inspired by WASI |
+| [Flora](/projects/flora) | Lua-based tools, scaffolds, and orchestration |
+| [Trellis](/projects/trellis) | Composable derive macros for Rust |
 
 ## Integration
 

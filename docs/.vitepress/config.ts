@@ -14,20 +14,32 @@ export default withMermaid(
         {
           text: 'Docs',
           items: [
-            { text: 'Moss', link: 'https://rhizome-lab.github.io/moss/' },
-            { text: 'Hypha', link: 'https://rhizome-lab.github.io/hypha/' },
-            { text: 'Resin', link: 'https://rhizome-lab.github.io/resin/' },
-            { text: 'Frond', link: 'https://rhizome-lab.github.io/frond/' },
-            { text: 'Dew', link: 'https://rhizome-lab.github.io/dew/' },
-            { text: 'Liana', link: 'https://rhizome-lab.github.io/liana/' },
-            { text: 'Cambium', link: 'https://rhizome-lab.github.io/cambium/' },
-            { text: 'Canopy', link: 'https://rhizome-lab.github.io/canopy/' },
-            { text: 'Siphon', link: 'https://rhizome-lab.github.io/siphon/' },
-            { text: 'Nursery', link: 'https://rhizome-lab.github.io/nursery/' },
-            { text: 'Spore', link: 'https://rhizome-lab.github.io/spore/' },
-            { text: 'Pith', link: 'https://rhizome-lab.github.io/pith/' },
-            { text: 'Flora', link: 'https://rhizome-lab.github.io/flora/' },
-            { text: 'Trellis', link: 'https://rhizome-lab.github.io/trellis/' },
+            { text: 'Code Intelligence', items: [
+              { text: 'Moss', link: 'https://rhizome-lab.github.io/moss/' },
+            ]},
+            { text: 'Generation', items: [
+              { text: 'Resin', link: 'https://rhizome-lab.github.io/resin/' },
+              { text: 'Dew', link: 'https://rhizome-lab.github.io/dew/' },
+            ]},
+            { text: 'Games & Worlds', items: [
+              { text: 'Frond', link: 'https://rhizome-lab.github.io/frond/' },
+              { text: 'Hypha', link: 'https://rhizome-lab.github.io/hypha/' },
+            ]},
+            { text: 'Data Transformation', items: [
+              { text: 'Cambium', link: 'https://rhizome-lab.github.io/cambium/' },
+              { text: 'Liana', link: 'https://rhizome-lab.github.io/liana/' },
+              { text: 'Siphon', link: 'https://rhizome-lab.github.io/siphon/' },
+            ]},
+            { text: 'Runtime & Interface', items: [
+              { text: 'Spore', link: 'https://rhizome-lab.github.io/spore/' },
+              { text: 'Canopy', link: 'https://rhizome-lab.github.io/canopy/' },
+            ]},
+            { text: 'Infrastructure', items: [
+              { text: 'Nursery', link: 'https://rhizome-lab.github.io/nursery/' },
+              { text: 'Pith', link: 'https://rhizome-lab.github.io/pith/' },
+              { text: 'Flora', link: 'https://rhizome-lab.github.io/flora/' },
+              { text: 'Trellis', link: 'https://rhizome-lab.github.io/trellis/' },
+            ]},
           ]
         },
       ],
@@ -47,19 +59,50 @@ export default withMermaid(
             ]
           },
           {
-            text: 'Projects',
+            text: 'Code Intelligence',
+            collapsed: true,
             items: [
               { text: 'Moss', link: '/projects/moss' },
-              { text: 'Hypha', link: '/projects/hypha' },
+            ]
+          },
+          {
+            text: 'Generation',
+            collapsed: true,
+            items: [
               { text: 'Resin', link: '/projects/resin' },
-              { text: 'Frond', link: '/projects/frond' },
               { text: 'Dew', link: '/projects/dew' },
-              { text: 'Liana', link: '/projects/liana' },
+            ]
+          },
+          {
+            text: 'Games & Worlds',
+            collapsed: true,
+            items: [
+              { text: 'Frond', link: '/projects/frond' },
+              { text: 'Hypha', link: '/projects/hypha' },
+            ]
+          },
+          {
+            text: 'Data Transformation',
+            collapsed: true,
+            items: [
               { text: 'Cambium', link: '/projects/cambium' },
-              { text: 'Canopy', link: '/projects/canopy' },
+              { text: 'Liana', link: '/projects/liana' },
               { text: 'Siphon', link: '/projects/siphon' },
-              { text: 'Nursery', link: '/projects/nursery' },
+            ]
+          },
+          {
+            text: 'Runtime & Interface',
+            collapsed: true,
+            items: [
               { text: 'Spore', link: '/projects/spore' },
+              { text: 'Canopy', link: '/projects/canopy' },
+            ]
+          },
+          {
+            text: 'Infrastructure',
+            collapsed: true,
+            items: [
+              { text: 'Nursery', link: '/projects/nursery' },
               { text: 'Pith', link: '/projects/pith' },
               { text: 'Flora', link: '/projects/flora' },
               { text: 'Trellis', link: '/projects/trellis' },

@@ -269,15 +269,26 @@ The key insight isn't one specific approach - it's that agents should work with 
 
 ## The Wishlist
 
-Things we want to enable but aren't there yet:
+Things we want to enable but aren't there yet.
+
+### Collaboration
+
+- **Collaboration primitives, cross-ecosystem** - Not just JS. Yjs for browser, yrs for Rust, Lua bindings via Spore. The bridge to humans should work across languages, not lock you into one ecosystem. `sharedRef()` energy but polyglot.
+- **Social with artifacts** - Not ephemeral posting. Building things together that persist.
+
+### Interface & Access
 
 - **Universal UI client** (Canopy) - User-defined projections onto any data source. Escape from WIMP by making the paradigm user-defined.
-- **Low-floor creative tools** - Start with a fragment, not a blank canvas. Constraints as permission to be imperfect.
-- **Interactive learning infrastructure** - Between quiz platforms and game engines. Primitives for challenges, progression, feedback.
-- **Social with artifacts** - Not ephemeral posting. Building things together that persist.
-- **Collaboration primitives, cross-ecosystem** - Not just JS. Yjs for browser, yrs for Rust, Lua bindings via Spore. The bridge to humans should work across languages, not lock you into one ecosystem. `sharedRef()` energy but polyglot.
 - **Multiple interfaces, same backend** - CLI on desktop, mobile-native on phone, same context/state. Tailscale works. SSH works. But a terminal on phone is miserable. The tool shouldn't be locked to one interface - different projections of the same thing. Sometimes the glue exists: Claude's Agent SDK exposes Claude Code as a library - same tools, same context, you build the UI. Mobile frontend to your agent session becomes feasible without reimplementing everything.
 - **Inspectable software** - See how things work while they're working. Smalltalk/MOO energy.
+
+### Creative Entry Points
+
+- **Low-floor creative tools** - Start with a fragment, not a blank canvas. Constraints as permission to be imperfect.
+- **Interactive learning infrastructure** - Between quiz platforms and game engines. Primitives for challenges, progression, feedback.
+
+### AI Agents
+
 - **Agent orchestration layer** - Built on Claude's Agent SDK. Non-terminal interface, multi-agent coordination (spawn to different repos, track, coordinate), smarter context management (not linear), configurable autonomy, meta-analysis, automatic refinement loops. Addresses Claude Code's weaknesses while using its core capabilities. Tailscale-friendly - access your agents from anywhere.
 
 ---
