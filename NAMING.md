@@ -74,12 +74,14 @@ Tracking potential project renames before crates.io publication.
 
 #### **Hypha**
 - **Current**: Federation protocol for persistent worlds
+- **Potential expansion**: Federation + collaborative editing (CRDT/ydoc-based, cross-language)
 - **Issues**: Perfect metaphor (fungal network) but nobody knows the word, pronunciation unclear
 - **Alternatives considered**:
-  - Mesh (network metaphor)
-  - Web (connections)
-  - Link (federation)
-- **Requirements**: Should evoke distributed networking
+  - Mesh, Web, Link (taken or too generic)
+  - sync, converge, merge (taken or too narrow)
+  - **interconnect** - ✓ available, covers both federation and collaboration, plain English, 12 letters
+- **Requirements**: Should evoke distributed networking and potentially collaboration
+- **Status**: interconnect is strong leading candidate
 
 #### **Pith**
 - **Current**: Capability-based interfaces (WASI-inspired)
