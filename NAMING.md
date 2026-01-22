@@ -84,13 +84,20 @@ Tracking potential project renames before crates.io publication.
 - **Status**: interconnect is strong leading candidate
 
 #### **Pith**
-- **Current**: Capability-based interfaces (WASI-inspired)
+- **Current**: Capability-based interfaces (WASI-inspired but not compatible, stdlib-like)
 - **Issues**: Too obscure, pronunciation unclear, "core → interfaces" connection weak
+- **Key aspects**: Interface definitions, capability patterns, for runtime integration (Spore), NOT trying to be authoritative standard
 - **Alternatives considered**:
-  - Core (taken)
-  - Base (foundation)
-  - Cap (capabilities, but too informal)
-- **Requirements**: Should evoke foundational interfaces/capabilities
+  - Core, base, foundation, bedrock (taken or too authoritative)
+  - capabilities, cap-std (taken or misleading re: WASI compatibility)
+  - permit, grant, access (too general, not just capabilities)
+  - traits (sounds like trait utils)
+  - cappy (available but too mascot-like)
+  - cap-traits, if-caps, rhi-caps (too generic or prefixed)
+  - tokens, handles (wrong connotations or taken)
+  - **portals** - entry points to capabilities, precedent in XDP (XDG Desktop Portal), 7 letters, humble/not authoritative
+- **Requirements**: Should evoke capability interfaces without claiming to be "the" standard
+- **Status**: portals is strong candidate (need to verify availability)
 
 ### 🤔 Under Review
 
