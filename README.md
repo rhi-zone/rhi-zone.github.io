@@ -67,19 +67,30 @@ Rhizome builds on the shoulders of giants. We're grateful to these projects and 
 - [Rust](https://www.rust-lang.org/) - The language that makes safe systems programming practical
 - [LuaJIT](https://luajit.org/) - Lightning-fast scripting runtime powering Spore
 - [tree-sitter](https://tree-sitter.github.io/) - Incremental parsing powering Moss
+- [Arborium](https://arborium.bearcove.eu/) - Curated tree-sitter grammars
 
-### Infrastructure
-- [VitePress](https://vitepress.dev/) - Modern documentation framework
+### Development Tools
 - [Nix](https://nixos.org/) - Reproducible development environments
+- [direnv](https://direnv.net/) - Environment switcher for the shell
+- [VitePress](https://vitepress.dev/) - Modern documentation framework
 - [GitHub Actions](https://github.com/features/actions) - CI/CD infrastructure
 
-### Rust Ecosystem
+### Rust Ecosystem Core
+- [Tokio](https://tokio.rs/) - Async runtime
 - [Axum](https://github.com/tokio-rs/axum) - Ergonomic web framework
-- [wgpu](https://wgpu.rs/) - Cross-platform GPU API for Resin
-- [Burn](https://burn.dev/) - Deep learning framework
 - [serde](https://serde.rs/) - Serialization framework
 - [clap](https://docs.rs/clap/) - Command-line argument parsing
-- And countless other crates that make Rust development delightful
+- [thiserror](https://docs.rs/thiserror/) - Error handling
+- [mlua](https://github.com/mlua-rs/mlua) - Lua/LuaJIT bindings
+
+### Domain-Specific
+- [wgpu](https://wgpu.rs/) - Cross-platform GPU API (Resin)
+- [Burn](https://burn.dev/) - Deep learning framework
+- [libsql](https://github.com/tursodatabase/libsql) - SQLite fork with async support
+- [rig](https://github.com/0xPlaygrounds/rig) - LLM application framework
+- [ignore](https://docs.rs/ignore/) - gitignore-aware file walking
+- [notify](https://docs.rs/notify/) - Cross-platform filesystem watcher
+- [nucleo](https://github.com/helix-editor/nucleo) - Fuzzy matching
 
 ### Inspiration
 - [Pandoc](https://pandoc.org/) - Universal document converter inspiring rescribe
