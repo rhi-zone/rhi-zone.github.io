@@ -2,70 +2,47 @@
 
 Rhizome is an ecosystem of tools for programmable creativity—software that treats code, worlds, and media as malleable structures rather than opaque text or binary blobs.
 
-## Code Intelligence
+| Project | Description | Layer | Domain |
+|---------|-------------|-------|--------|
+| [Moss](/projects/moss) | Structural code intelligence across 98 languages | <span class="badge-layer layer-semantics">Semantics</span> | <span class="badge-domain domain-code">Code</span> |
+| [Dew](/projects/dew) | Minimal expression language (WGSL, Cranelift, Lua) | <span class="badge-layer layer-semantics">Semantics</span> | <span class="badge-domain domain-media">Media</span> |
+| [Liana](/projects/liana) | API bindings IR and cross-language codegen | <span class="badge-layer layer-semantics">Semantics</span> | <span class="badge-domain domain-code">Code</span> |
+| [Pith](/projects/pith) | Capability-based standard library interfaces | <span class="badge-layer layer-semantics">Semantics</span> | <span class="badge-domain domain-core">Core</span> |
+| [Trellis](/projects/trellis) | Composable derive macros for Rust | <span class="badge-layer layer-semantics">Semantics</span> | <span class="badge-domain domain-code">Code</span> |
+| [Resin](/projects/resin) | Procedural meshes, audio, textures, vector art | <span class="badge-layer layer-execution">Execution</span> | <span class="badge-domain domain-media">Media</span> |
+| [Frond](/projects/frond) | Game design primitives and patterns | <span class="badge-layer layer-execution">Execution</span> | <span class="badge-domain domain-games">Games</span> |
+| [Spore](/projects/spore) | Lua runtime with plugin system | <span class="badge-layer layer-execution">Execution</span> | <span class="badge-domain domain-core">Core</span> |
+| [Cambium](/projects/cambium) | Type-driven pipeline orchestrator | <span class="badge-layer layer-orchestration">Orchestration</span> | <span class="badge-domain domain-data">Data</span> |
+| [Nursery](/projects/nursery) | Unified tool config and project scaffolding | <span class="badge-layer layer-orchestration">Orchestration</span> | <span class="badge-domain domain-core">Core</span> |
+| [Flora](/projects/flora) | Lua-based tools, scaffolds, and scripts | <span class="badge-layer layer-orchestration">Orchestration</span> | <span class="badge-domain domain-core">Core</span> |
+| [Canopy](/projects/canopy) | Universal UI client with control plane | <span class="badge-layer layer-interface">Interface</span> | <span class="badge-domain domain-core">Core</span> |
+| [Hypha](/projects/hypha) | Federation protocol for persistent worlds | <span class="badge-layer layer-federation">Federation</span> | <span class="badge-domain domain-worlds">Worlds</span> |
+| [Siphon](/projects/siphon) | Lift legacy software to modern web runtimes | <span class="badge-layer layer-legacy">Legacy</span> | <span class="badge-domain domain-data">Data</span> |
 
-### [Moss](/projects/moss)
+## By Layer
 
-Structural code intelligence for humans and AI agents. Moss provides AST-aware tools for understanding, navigating, and modifying code across 98 languages.
+**<span class="badge-layer layer-semantics">Semantics</span>** — Define structure, meaning, and translation rules
 
-## Generation
+**<span class="badge-layer layer-execution">Execution</span>** — Run code, generate content, provide runtime primitives
 
-### [Resin](/projects/resin)
+**<span class="badge-layer layer-orchestration">Orchestration</span>** — Coordinate tools, manage pipelines, configure projects
 
-Constructive media generation in Rust. Procedural meshes, audio synthesis, textures, 2D vector graphics, and skeletal rigging with composable node graphs.
+**<span class="badge-layer layer-interface">Interface</span>** — Present and interact with data
 
-### [Dew](/projects/dew)
+**<span class="badge-layer layer-federation">Federation</span>** — Connect distributed systems
 
-Minimal expression language for procedural generation. Small, ephemeral, perfectly formed. Compiles to WGSL shaders, Cranelift JIT, or Lua.
+**<span class="badge-layer layer-legacy">Legacy</span>** — Bridge to obsolete systems
 
-## Games & Worlds
+## By Domain
 
-### [Frond](/projects/frond)
+**<span class="badge-domain domain-code">Code</span>** — Programming languages, ASTs, codegen
 
-Game design primitives library. State machines, character controllers, camera systems, and common gameplay patterns.
+**<span class="badge-domain domain-media">Media</span>** — Procedural content, audio, graphics
 
-### [Hypha](/projects/hypha)
+**<span class="badge-domain domain-games">Games</span>** — Game design patterns and primitives
 
-Federation protocol for persistent worlds. Authoritative handoff between servers—no state merging, no split-brain attacks.
+**<span class="badge-domain domain-worlds">Worlds</span>** — Persistent, interconnected environments
 
-## Data Transformation
+**<span class="badge-domain domain-data">Data</span>** — Transformation, conversion, pipelines
 
-### [Cambium](/projects/cambium)
-
-Pipeline orchestrator for data conversion. Type-driven route planning for asset pipelines—agents declare intent, Cambium finds the path.
-
-### [Liana](/projects/liana)
-
-API bindings IR and code generation. Unified representation for generating bindings across languages and frameworks.
-
-### [Siphon](/projects/siphon)
-
-Legacy software lifting framework. Extract and transform applications from obsolete runtimes (Flash, Director, VB6) into modern web equivalents.
-
-## Runtime & Interface
-
-### [Spore](/projects/spore)
-
-Lua runtime with plugin system for the Rhizome ecosystem.
-
-### [Canopy](/projects/canopy)
-
-Universal UI client with control plane. View, mutate, and control any data source through configurable interfaces.
-
-## Infrastructure
-
-### [Nursery](/projects/nursery)
-
-Unified tool configuration and project scaffolding. Manage all tool configs from one manifest, scaffold projects from seeds.
-
-### [Pith](/projects/pith)
-
-Standard library interfaces. Capability-based, async-first APIs inspired by WASI.
-
-### [Flora](/projects/flora)
-
-Lua-based tools, scaffolds, and orchestration. Contains agent scripts, project seeds for nursery, and shared Lua utilities.
-
-### [Trellis](/projects/trellis)
-
-Composable derive macros for Rust. Reduce boilerplate across the ecosystem.
+**<span class="badge-domain domain-core">Core</span>** — Infrastructure used across domains
