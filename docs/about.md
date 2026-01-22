@@ -160,3 +160,30 @@ Other projects that follow the unification pattern:
 |---------|--------|-------------|
 | [burn-models](https://github.com/pterror/burn-models) | ML inference | Pure Rust ML unifies backends (CPU, GPU, WebGPU) |
 | [ooxml](https://github.com/pterror/ooxml) | Office formats | Structural parsing unifies docx/xlsx/pptx handling |
+
+## Special Thanks
+
+Rhizome builds on the shoulders of giants. We're grateful to these projects and communities:
+
+### Core Technologies
+- [Rust](https://www.rust-lang.org/) - The language that makes safe systems programming practical
+- [LuaJIT](https://luajit.org/) - Lightning-fast scripting runtime powering Spore
+- [tree-sitter](https://tree-sitter.github.io/) - Incremental parsing powering Moss
+
+### Infrastructure
+- [VitePress](https://vitepress.dev/) - Modern documentation framework
+- [Nix](https://nixos.org/) - Reproducible development environments
+- [GitHub Actions](https://github.com/features/actions) - CI/CD infrastructure
+
+### Rust Ecosystem
+- [Axum](https://github.com/tokio-rs/axum) - Ergonomic web framework
+- [wgpu](https://wgpu.rs/) - Cross-platform GPU API for Resin
+- [Burn](https://burn.dev/) - Deep learning framework
+- [serde](https://serde.rs/) - Serialization framework
+- [clap](https://docs.rs/clap/) - Command-line argument parsing
+- And countless other crates that make Rust development delightful
+
+### Inspiration
+- [Pandoc](https://pandoc.org/) - Universal document converter inspiring rescribe
+- [WASI](https://wasi.dev/) - Capability-based interfaces inspiring Pith
+- The broader open source community for showing us what's possible
