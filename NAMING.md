@@ -26,13 +26,14 @@ Tracking potential project renames before crates.io publication.
 ### 🔄 Semi-locked
 
 #### **Dew**
-- **Current status**: Expression language
+- **Current status**: Expression language (no user-defined functions, pure expressions)
 - **Strengths**: Short (3 letters), cute aesthetic, available
 - **Issues**: Weak metaphor (was originally "Sap" - lifeblood metaphor, but taken)
 - **Considered alternatives**:
   - Pip (free, but Python association problematic)
   - Bud (taken)
   - Mist, Glyph, Rune (don't capture the "cute little language" aesthetic)
+  - pipline (pipeline metaphor, but misnomer since no user-defined functions)
 - **Decision**: Keep for now, but open to perfect alternative
 
 ### ⚠️ Needs Rename (High Priority)
@@ -40,11 +41,12 @@ Tracking potential project renames before crates.io publication.
 #### **Spore**
 - **Current**: Lua runtime with plugin system
 - **Issues**: Infectious/disease connotation for a runtime
+- **Status**: Actively brainstorming
 - **Alternatives considered**:
   - Substrate (what things grow on)
   - Soil (execution environment)
   - Loam (rich soil for growth)
-- **Requirements**: Should evoke hosting/execution/environment
+- **Requirements**: Should evoke hosting/execution/environment, botanical or pragmatic
 
 #### **Hypha**
 - **Current**: Federation protocol for persistent worlds
