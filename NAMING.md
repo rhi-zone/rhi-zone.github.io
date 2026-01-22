@@ -38,6 +38,30 @@ Tracking potential project renames before crates.io publication.
 
 ### ⚠️ Needs Rename (High Priority)
 
+#### **Resin**
+- **Current**: Composable procedural primitives for meshes, audio, textures
+- **Issues**: Taken on crates.io
+- **Key aspects to capture**:
+  - Procedural generation (procgen)
+  - Graph-based / node-based (like Pure Data, Houdini, modular synths)
+  - Introspectable and manipulable (full history/provenance)
+  - Field<I,O> abstraction (functional transformation)
+  - VR/spatial manipulation capability
+  - Operations/functions as values
+- **Alternatives considered**:
+  - amber, forge, cast, weave (all taken)
+  - resculpt (tentative, "re-" prefix less obvious fit than rescribe)
+  - origami, kirigami (perfect metaphor but taken)
+  - synth, fractal (taken)
+  - fieldgen (too generic, vague jargon)
+  - transmute (taken, plus std::mem::transmute collision)
+  - patchwork, patch (taken)
+  - **polymorphine** (from Noita transformation potion) - ✓ available, captures transformation/many forms, alchemical creative vibe, 11 letters
+  - **manyfold** - ✓ available, multiple transformations/variations, mathematical feel, 8 letters, exotic but evocative
+- **Status**: polymorphine and manyfold both strong contenders
+
+### ⚠️ Needs Rename (High Priority)
+
 #### **Spore**
 - **Current**: Lua runtime with plugin system
 - **Issues**: Infectious/disease connotation for a runtime
