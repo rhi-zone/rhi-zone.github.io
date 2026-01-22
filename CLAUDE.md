@@ -33,6 +33,7 @@ This is the organization-level documentation site for the Rhizome ecosystem.
 | Project | Path | Description |
 |---------|------|-------------|
 | **Cambium** | `~/git/cambium` | Pipeline orchestrator for data conversion |
+| **rescribe** | `~/git/rescribe` | Lossless document conversion library |
 | **Liana** | `~/git/liana` | API bindings IR and codegen |
 | **Siphon** | `~/git/siphon` | Legacy software lifting framework |
 
@@ -50,7 +51,7 @@ This is the organization-level documentation site for the Rhizome ecosystem.
 | **Nursery** | `~/git/nursery` | Ecosystem orchestrator |
 | **Pith** | `~/git/pith` | Standard library interfaces |
 | **Flora** | `~/git/flora` | Lua-based tools, scaffolds, and orchestration |
-| **Trellis** | `~/git/trellis` | Composable derive macros for Rust |
+| **server-less** | `~/git/server-less` | Derive macros: one impl → many protocols |
 
 ### Org Resources
 
@@ -64,7 +65,6 @@ This is the organization-level documentation site for the Rhizome ecosystem.
 | Project | Path | Description |
 |---------|------|-------------|
 | **burn-models** | `~/git/burn-models` | Stable Diffusion in pure Rust (burn) |
-| **rescribe** | `~/git/rescribe` | Universal document conversion library |
 | **ooxml** | `~/git/ooxml` | Office Open XML library for Rust |
 | **claude-code-hub** | `~/git/claude-code-hub` | Orchestration hub for Claude Code agents |
 
@@ -116,9 +116,10 @@ sed -i 's/PROJECT_DESCRIPTION/Description here/g' ~/git/new-project/flake.nix
 
 ### Crate Naming Convention
 
-All Rust crates in the ecosystem should be prefixed with `rhizome-`:
-- `rhizome-moss-core`, `rhizome-spore-core`, etc.
-- Binary names should NOT be prefixed (just `moss`, `spore`, etc.)
+Rust crates use `rhizome-` prefix when the unprefixed name is taken on crates.io:
+- `rhizome-moss-core`, `rhizome-spore-core`, etc. (moss, spore are taken)
+- `rescribe`, `server-less` (available names, no prefix needed)
+- Binary names should NOT be prefixed (just `moss`, `spore`, `rescribe`, `server-less`, etc.)
 
 ### Docs Site Conventions
 

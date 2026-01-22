@@ -17,13 +17,16 @@ Most tools pick one variant and ignore the rest, or build specialized solutions 
 
 | Domain | Fragmentation | Unified Abstraction |
 |--------|--------------|---------------------|
-| **Code intelligence** | 98 languages × specialized tools | **Moss**: Three primitives (view, edit, analyze) over unified AST |
+| **Language support** | 98 languages with different parsers/tooling | **Moss**: Unified `Language` trait and AST interface |
+| **AI session logs** | Claude Code, Gemini, OpenAI Codex (JSONL, JSON) | **Moss**: Unified `Session` type across agent formats |
+| **Package ecosystems** | apt, brew, npm, crates.io, pip (different APIs) | **Moss**: Unified `Ecosystem` and `PackageIndex` traits |
+| **Development tools** | Different linters, formatters, type checkers | **Moss**: Unified tool interface with SARIF/JSON output |
 | **Media generation** | Separate APIs for textures, audio, meshes | **Resin**: `Field<I, O>` trait for any continuous domain |
 | **Expression languages** | WGSL, Cranelift, Lua, shader languages | **Dew**: Single AST compiles to all backends |
 | **API specifications** | OpenAPI, gRPC, headers, Thrift | **Liana**: One IR, generate bindings for all |
 | **Format conversion** | Hunt for exotic tools per format pair | **Cambium**: Type-driven route planning |
-| **Document formats** | Lossy pandoc conversions | **Rescribe**: Lossless IR preserves round-trip fidelity |
-| **Service protocols** | Rewrite for HTTP, CLI, MCP, WebSocket | **Trellis**: Write impl once, derive all protocols |
+| **Document formats** | Lossy pandoc conversions | **rescribe**: Lossless IR preserves round-trip fidelity |
+| **Service protocols** | Rewrite for HTTP, CLI, MCP, WebSocket | **server-less**: Write impl once, derive all protocols |
 | **Data sources** | Different UIs for every API/database | **Canopy**: Universal client with control plane |
 | **Runtime interfaces** | Every language has different stdlib | **Pith**: Capability interfaces on WASI foundation |
 | **Game patterns** | Reinvent state machines every project | **Frond**: Common patterns as reusable primitives |
@@ -109,6 +112,7 @@ Our projects are designed the same way: independent tools that compose well toge
 | Project | Key Idea |
 |---------|----------|
 | [Cambium](/projects/cambium) | Type-driven route planning for data conversion |
+| [rescribe](/projects/rescribe) | Lossless document IR for format translation |
 | [Liana](/projects/liana) | IR and codegen for cross-language bindings |
 | [Siphon](/projects/siphon) | Legacy software lifting from obsolete runtimes |
 
@@ -126,7 +130,7 @@ Our projects are designed the same way: independent tools that compose well toge
 | [Nursery](/projects/nursery) | Unified tool config and project scaffolding from seeds |
 | [Pith](/projects/pith) | Capability-based interfaces inspired by WASI |
 | [Flora](/projects/flora) | Lua-based tools, scaffolds, and orchestration |
-| [Trellis](/projects/trellis) | Composable derive macros for Rust |
+| [server-less](/projects/server-less) | Derive macros: one impl → many protocols |
 
 ## Composition
 
@@ -150,12 +154,9 @@ Use any project standalone. Compose them when it makes sense. No vendor lock-in.
 
 ## Related Projects
 
-Other projects that follow the unification pattern. Not part of the Rhizome GitHub org, but share the same approach:
+Other projects that follow the unification pattern:
 
 | Project | Domain | Unification |
 |---------|--------|-------------|
-| [rescribe](https://github.com/pterror/rescribe) | Document conversion | Lossless IR unifies format translation (pandoc with fidelity) |
 | [burn-models](https://github.com/pterror/burn-models) | ML inference | Pure Rust ML unifies backends (CPU, GPU, WebGPU) |
 | [ooxml](https://github.com/pterror/ooxml) | Office formats | Structural parsing unifies docx/xlsx/pptx handling |
-
-The distinction is organizational, not philosophical. These could be Rhizome projects; Rhizome projects could be standalone. The pattern matters more than the GitHub org.

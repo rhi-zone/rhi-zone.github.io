@@ -31,6 +31,7 @@ Tools for programmable creativity.
 | Project | Description |
 |---------|-------------|
 | [Cambium](https://github.com/rhizome-lab/cambium) | Pipeline orchestrator for data conversion |
+| [rescribe](https://github.com/rhizome-lab/rescribe) | Lossless document conversion library |
 | [Liana](https://github.com/rhizome-lab/liana) | API bindings IR and code generation |
 | [Siphon](https://github.com/rhizome-lab/siphon) | Legacy software lifting framework |
 
@@ -48,7 +49,7 @@ Tools for programmable creativity.
 | [Nursery](https://github.com/rhizome-lab/nursery) | Ecosystem orchestrator via rhizome.toml manifests |
 | [Pith](https://github.com/rhizome-lab/pith) | Standard library interfaces |
 | [Flora](https://github.com/rhizome-lab/flora) | Lua-based tools, scaffolds, and orchestration |
-| [Trellis](https://github.com/rhizome-lab/trellis) | Composable derive macros for Rust |
+| [server-less](https://github.com/rhizome-lab/server-less) | Derive macros: one impl → many protocols |
 
 ## Development
 
