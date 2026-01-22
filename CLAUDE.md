@@ -59,6 +59,15 @@ This is the organization-level documentation site for the Rhizome ecosystem.
 | **.github** | `~/git/rhizome-lab-github` | Org-wide GitHub config, templates |
 | **Docs site** | `~/git/rhizome-lab-github-io` | This repo - org documentation |
 
+### External / Related Repos
+
+| Project | Path | Description |
+|---------|------|-------------|
+| **burn-models** | `~/git/burn-models` | Stable Diffusion in pure Rust (burn) |
+| **rescribe** | `~/git/rescribe` | Universal document conversion library |
+| **ooxml** | `~/git/ooxml` | Office Open XML library for Rust |
+| **claude-code-hub** | `~/git/claude-code-hub` | Orchestration hub for Claude Code agents |
+
 ## Responsibilities
 
 ### Ecosystem-Wide Refactors
@@ -152,3 +161,6 @@ Do not:
 - Leave work uncommitted
 - Make ecosystem changes without checking all affected repos
 - Update docs without verifying against source
+- Use path dependencies in Cargo.toml - causes clippy to stash changes across repos
+- Use `--no-verify` - fix the issue or fix the hook
+- Assume tools are missing - check if `nix develop` is available for the right environment
