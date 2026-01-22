@@ -1,98 +1,80 @@
 # About Rhizome
 
-Rhizome is an ecosystem of tools for **programmable creativity**—software that treats code, worlds, and media as malleable structures rather than opaque artifacts.
+Rhizome is an ecosystem of tools unified by a single pattern: **finding common abstractions across fragmented domains**.
 
 ## Philosophy
 
-The projects share common design principles:
+### Unification Through Abstraction
 
-### Generalize, Don't Multiply
+Fragmentation is the default state of software:
+- 98 programming languages with incompatible tooling
+- Dozens of API specification formats (OpenAPI, gRPC, GraphQL, headers)
+- Hundreds of document and media formats
+- Incompatible protocols for the same purposes
+- Different capability interfaces across every language runtime
 
-Prefer one flexible solution over many specialized ones. Composability reduces cognitive load and maintenance burden.
+Most tools pick one variant and ignore the rest, or build specialized solutions for each. Rhizome projects find the common abstraction and unify the domain.
 
-- **Moss**: Three primitives (view, edit, analyze) instead of 100 specialized tools
-- **Spore**: Lua runtime exposes libsql directly—apps define their own schemas
-- **Resin**: Unified `Field<I, O>` trait for textures, audio, and any continuous domain
+| Domain | Fragmentation | Unified Abstraction |
+|--------|--------------|---------------------|
+| **Code intelligence** | 98 languages × specialized tools | **Moss**: Three primitives (view, edit, analyze) over unified AST |
+| **Media generation** | Separate APIs for textures, audio, meshes | **Resin**: `Field<I, O>` trait for any continuous domain |
+| **Expression languages** | WGSL, Cranelift, Lua, shader languages | **Dew**: Single AST compiles to all backends |
+| **API specifications** | OpenAPI, gRPC, headers, Thrift | **Liana**: One IR, generate bindings for all |
+| **Format conversion** | Hunt for exotic tools per format pair | **Cambium**: Type-driven route planning |
+| **Document formats** | Lossy pandoc conversions | **Rescribe**: Lossless IR preserves round-trip fidelity |
+| **Service protocols** | Rewrite for HTTP, CLI, MCP, WebSocket | **Trellis**: Write impl once, derive all protocols |
+| **Data sources** | Different UIs for every API/database | **Canopy**: Universal client with control plane |
+| **Runtime interfaces** | Every language has different stdlib | **Pith**: Capability interfaces on WASI foundation |
+| **Game patterns** | Reinvent state machines every project | **Frond**: Common patterns as reusable primitives |
+| **Distributed worlds** | Incompatible server architectures | **Hypha**: Federation protocol for handoff |
+| **Tool configuration** | Every tool has different config format | **Nursery**: Schema-validated manifests |
+| **Legacy runtimes** | Flash, Java applets, obsolete VMs | **Siphon**: Lift to modern web runtimes |
 
-### Structure Over Text
+This is why the projects don't need deep technical integration—each unifies its own domain. They share a solution pattern, not a codebase.
 
-Return structure, not prose. Structured data composes; text requires parsing.
+### Principles That Follow
 
-Hierarchy implies trees. Code (AST), files (directories), entities (graphs), media (node graphs)—design operations that work on these structures directly.
+The unification principle drives other design decisions:
 
-### Lazy by Default
+**Structure Over Text**
+Unification requires finding common structure. Text requires parsing; structure composes. Code (AST), files (directories), entities (graphs), media (node graphs)—work on the structure directly.
 
-Build descriptions, evaluate on demand. Don't pay for what you don't use.
-
-- **Resin**: Procedural textures and audio are lazy fields, materialized only when rendered
+**Lazy by Default**
+Unified abstractions shouldn't pay for what they don't use. Build descriptions, evaluate on demand:
+- **Resin**: Procedural fields materialize only when rendered
 - **Moss**: Skeleton views extract structure without loading entire files
-- **Spore**: Integrations are loaded on demand, not at startup
+- **Spore**: Plugins load on demand
 
-### Plugin Architecture
-
-Optional, domain-specific, or heavyweight features belong in plugins:
-
-- Core stays lean
-- Heavy dependencies are isolated
-- Users can swap implementations
-- Third-party extensions use the same interfaces as built-in features
-
-### Works Anywhere
-
-Real-world code is messy. Real-world data is heterogeneous. Tools should:
-
+**Works Anywhere**
+Unification means handling the messy reality, not imposing constraints:
 - Handle legacy systems without requiring refactoring first
 - Degrade gracefully when parsing fails
 - Support incremental improvement
-- Not impose architectural opinions unless asked
+- Don't force architectural opinions
 
-### Multiple Paradigms
+**Multiple Paradigms**
+"One paradigm" is fragmentation. The answer is always "multiple, fluid, user-chosen."
 
-"One paradigm" is always wrong. The answer is always "multiple, fluid, user-chosen."
-
-How do you find a friend's apartment? Ask the doorman, check the directory, call them, remember "3rd floor end of hall", wander and look at numbers, or some combination. Real life gives you spatial, ask, remember, browse, index, shortcut. Filesystem gives you hierarchy + search. That's it.
+How do you find a friend's apartment? Ask the doorman, check the directory, call them, remember "3rd floor end of hall", wander and look at numbers. Real life gives you spatial, ask, remember, browse, index, shortcut. Filesystem gives you hierarchy + search. That's it.
 
 The poverty isn't "wrong paradigm." It's "only one paradigm."
 
-Same user, different moments: sometimes keyboard, sometimes click; tired vs focused; familiar vs exploring. Different users: expert wants density, novice wants guidance. "Know your user" is wrong. "Support multiple modes of being a user" is right.
+Same user, different moments: keyboard vs click, tired vs focused, familiar vs exploring. Different users: expert wants density, novice wants guidance. "Know your user" is wrong. "Support multiple modes of being a user" is right.
 
-Don't pick the right paradigm. Offer multiple. Let users switch based on context, task, preference.
-
-### Structure for Agents
-
+**Structure for Agents**
 "Agent" means anything trying to understand or interact with systems—human or AI.
 
-The current approach forces agents to interpret unstructured things:
-- AI looks at screenshots to use apps
-- LLMs read documentation to understand APIs
-- Humans hunt for tools to convert formats
-- Chat logs are the only context for AI roleplay
+Current approach forces interpretation of unstructured things: AI reads screenshots, LLMs parse docs, humans hunt for format converters. This is fragile, slow, lossy, requires guessing.
 
-This is fragile, slow, lossy, and requires guessing. Rhizome's approach: **make the world structured, don't force interpretation.**
+Rhizome's approach: **make the world structured, don't force interpretation.**
 
-| Problem | Interpretation approach | Structured approach |
-|---------|------------------------|---------------------|
-| Understand large codebase | Read it (can't) | **Moss**: Query structured code intelligence |
-| Use platform APIs | Read docs, write boilerplate | **Liana**: Codegen from specs (OpenAPI, headers) |
-| Convert format A → B | Hunt for exotic tools | **Cambium**: Unified type-driven pipelines |
-| AI with persistent context | Linear chat history (amnesia) | **Lotus**: Inject world state, not just chat |
-| Universal primitives | Different stdlib per language | **Pith**: Capability-based interfaces on WASI |
+The specs already exist—OpenAPI, headers, WASI, ASTs. The structure is there. Rhizome projects make it accessible through unified abstractions.
 
-The specs already exist—OpenAPI, headers, WASI, ASTs. The structure is there. Rhizome projects make it accessible.
+**Compose With What Exists**
+Tools should fit your infrastructure, not replace it. Vendor lock-in is framed as exit friction, but it's also *entry* friction—you have to adopt their whole stack to try one thing.
 
-### Compose With What Exists
-
-Tools should fit into your infrastructure, not replace it. Vendor lock-in is usually framed as exit friction—hard to leave. But it's also *entry* friction—you have to adopt their whole stack to try one thing.
-
-If a tool composes with what you already have:
-- Lower barrier to try it (don't have to change anything else)
-- Lower barrier to leave (nothing else depends on it)
-- Works with your existing setup (tailscale, your servers, your repos)
-- Doesn't create parallel universes of state that drift apart
-
-The opposite: "use our VM, our sync, our infrastructure." Now you have two of everything, they're never quite in sync, and you're locked in both directions.
-
-Rhizome projects aim to be tools, not platforms. Use them with whatever else you have.
+Rhizome projects are tools, not platforms. Use them with whatever else you have. No parallel universes of state.
 
 ## The Name
 
@@ -146,60 +128,34 @@ Our projects are designed the same way: independent tools that compose well toge
 | [Flora](/projects/flora) | Lua-based tools, scaffolds, and orchestration |
 | [Trellis](/projects/trellis) | Composable derive macros for Rust |
 
-## Integration
+## Composition
 
-The projects are designed to work together:
+The projects are independent tools that can compose when useful:
 
-```mermaid
-graph LR
-    subgraph "Orchestration"
-        N[Nursery] --> |coordinates| ALL[All Tools]
-    end
-    subgraph "Development"
-        M[Moss] --> |analyzes| ALL
-        LI[Liana] --> |generates bindings| ALL
-    end
-    subgraph "Scripting"
-        S[Spore] --> |Lua runtime| ALL
-        M --> |extends| S
-        S --> |libsql| DB[(Database)]
-        S --> |federates via| H[Hypha]
-    end
-    subgraph "Media"
-        R[Resin] --> |expressions| D[Dew]
-        CA[Cambium] --> |converts assets| R
-        CA --> |scoring| D
-    end
-    subgraph "Generation"
-        F[Frond]
-    end
-    subgraph "Preservation"
-        W[Siphon]
-    end
-    subgraph "Interface"
-        CN[Canopy] --> |views & controls| S
-        CN --> |views & controls| CA
-        CN --> |views & controls| W
-    end
-```
+**Actual integrations:**
+- **Resin** uses **Dew** for procedural expressions (library dependency)
+- **Spore** has plugins for **Moss** (runtime bindings)
+- **Spore** uses **Pith** capability interfaces (shared trait definitions)
 
-- **Nursery** coordinates tools via schema-validated manifests
-- **Moss** provides code intelligence for all projects
-- **Spore** provides Lua runtime with libsql persistence and **Moss** integration
-- **Hypha** enables authoritative handoff between Spore servers
-- **Resin** uses **Dew** for procedural expressions
-- **Frond** provides game design primitives
-- **Cambium** orchestrates asset conversion pipelines
-- **Liana** generates API bindings across the ecosystem
-- **Canopy** provides UI for viewing and controlling any project
-- **Siphon** lifts legacy software into modern web runtimes
+**Potential compositions:**
+- **Nursery** could coordinate tool configs via manifests
+- **Canopy** could provide UIs for any structured data source
+- **Cambium** could orchestrate conversions between any unified formats
+- **Liana** could generate bindings for Rhizome project APIs
+- **Moss** could analyze any project's codebase
+
+These projects don't form a deeply integrated technical ecosystem. They're independent solutions to different fragmentation problems. The commonality is the pattern: find the abstraction, unify the domain.
+
+Use any project standalone. Compose them when it makes sense. No vendor lock-in.
 
 ## Related Projects
 
-Independent projects that share Rhizome's design philosophy:
+Other projects that follow the unification pattern. Not part of the Rhizome GitHub org, but share the same approach:
 
-| Project | Domain | Key Idea |
-|---------|--------|----------|
-| [rescribe](https://github.com/pterror/rescribe) | Document conversion | Lossless IR for format translation (pandoc, but fidelity-preserving) |
-| [burn-models](https://github.com/pterror/burn-models) | ML inference | Deep learning in pure Rust—no Python, multiple backends |
-| [ooxml](https://github.com/pterror/ooxml) | Office formats | Structural parsing for docx/xlsx/pptx |
+| Project | Domain | Unification |
+|---------|--------|-------------|
+| [rescribe](https://github.com/pterror/rescribe) | Document conversion | Lossless IR unifies format translation (pandoc with fidelity) |
+| [burn-models](https://github.com/pterror/burn-models) | ML inference | Pure Rust ML unifies backends (CPU, GPU, WebGPU) |
+| [ooxml](https://github.com/pterror/ooxml) | Office formats | Structural parsing unifies docx/xlsx/pptx handling |
+
+The distinction is organizational, not philosophical. These could be Rhizome projects; Rhizome projects could be standalone. The pattern matters more than the GitHub org.
