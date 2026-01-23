@@ -113,11 +113,18 @@ Tracking potential project renames before crates.io publication.
 #### **Cambium**
 - **Current**: Pipeline orchestrator for data conversion
 - **Issues**: Growth layer → pipelines connection unclear, obscure
+- **Key aspects**: Type-driven routing, general data transformation (not just preservation - supports archival, composition, stream manipulation, metadata ops), data → other data
 - **Alternatives considered**:
-  - Flow (data flow)
-  - Stream (probably taken)
-  - Pipe (too obvious/generic)
-- **Requirements**: Should evoke transformation/pipeline/flow
+  - pipeline, orchestrate, dataflow, router, dispatch (too generic or ETL-coded)
+  - alembic (squatted), crucible, refinery, distill (taken)
+  - transmogrify (sounds like uglify)
+  - chameleon, shapeshifter (misnomer - tool doesn't disguise itself)
+  - forge, mold, craft, reshape (taken or too general)
+  - kiln (taken, too industrial/hot)
+  - deformer (negative connotation)
+  - **reformer** - ✓ available, re-forming data into new formats, clear transformation, 8 letters, neutral tone
+- **Requirements**: Should evoke data transformation without being too generic
+- **Status**: reformer is strong leading candidate
 
 #### **Canopy**
 - **Current**: Universal UI client with control plane
