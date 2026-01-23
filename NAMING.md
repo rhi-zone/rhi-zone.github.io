@@ -14,8 +14,9 @@ Tracking potential project renames before crates.io publication.
 
 | Project | Rationale |
 |---------|-----------|
-| **rescribe** | Clear, professional, available namespace |
-| **server-less** | Literal, punchy, available |
+| **rescribe** | Document format conversion library. "Re-scribe" = writing again/differently, perfect for lossless document IR and format translation. Clear verb, professional tone, evocative without being metaphorical. 8 letters, immediately understandable, available on crates.io. |
+| **server-less** | Derive macros for multi-protocol implementations. Literal description of what it does (one impl → many protocols, no server boilerplate). Punchy 10 letters, plays on "serverless" trend but distinct meaning. Available namespace, immediately clear to potential users. |
+| **concord** | API bindings IR and codegen. Establishing harmony/agreement between your code and external APIs. Perfect "first contact" vibe - collaborative, not othering. When you generate bindings, you're reaching concord with the API spec. 7 letters, clear meaning, available on crates.io. |
 
 **Previously considered strong but reconsidered for full clarity pivot:**
 - Moss, Resin, Nursery, Flora, Liana - botanical names, moving to clarity over metaphor
@@ -32,7 +33,7 @@ Tracking potential project renames before crates.io publication.
 
 ### ⚠️ Needs Rename (High Priority)
 
-#### **Moss**
+#### **Moss → normalize**
 - **Current**: Structural code intelligence (98 languages, sessions, packages, tools)
 - **Issues**: Botanical, meaning unclear ("moss grows on code"?), taken on crates.io
 - **What it unifies**:
@@ -47,8 +48,9 @@ Tracking potential project renames before crates.io publication.
   - **normalize** - ✓ available, exactly what it does (normalizing fragmentation), 9 letters, works perfectly with crate structure (normalize-sessions, normalize-tools, normalize-packages, normalize-languages), precedent: serde/tokio/clap took general names
 - **Requirements**: Should convey unified dev intelligence, normalization of fragmentation
 - **Status**: normalize is strong leading candidate
+- **Rationale**: The entire purpose of Moss is normalizing fragmentation across development tools. 98 languages → unified AST. Different session formats → unified type. Multiple package ecosystems → unified traits. That's normalization. The crate structure writes itself: normalize-languages, normalize-sessions, normalize-tools, normalize-packages. It's a general word, but so are serde/tokio/clap - and they work because they do exactly what the name says.
 
-#### **Siphon**
+#### **Siphon → resurrect**
 - **Current**: Legacy software lifting framework
 - **Issues**: Functional but could be clearer (siphon = extract/transfer, but not resurrection)
 - **What it does**: Flash, Java applets, obsolete VMs → modern web runtimes
@@ -57,13 +59,23 @@ Tracking potential project renames before crates.io publication.
   - **resurrect** - ✓ available, bringing dead software back to life, immediately clear, 9 letters, theatrical but fitting
 - **Requirements**: Should convey legacy revival/transformation
 - **Status**: resurrect is strong candidate
+- **Rationale**: Flash is dead. Java applets are dead. Obsolete VMs are dead. Resurrect brings them back to life in modern web runtimes. It's theatrical, but that fits - this is genuinely bringing extinct software back from the dead. The word is immediately clear: you know what it does before reading documentation. "Siphon" requires explanation; "resurrect" doesn't.
 
-#### **Liana**
-- **Current**: API bindings IR and codegen
+#### **Liana → concord**
+- **Current**: API bindings IR and codegen (plus pre-generated bindings collection)
 - **Issues**: Botanical (vines), obscure, taken on crates.io
 - **What it unifies**: OpenAPI, gRPC, headers, Thrift → one IR, generate bindings
-- **Requirements**: Should convey API bindings, cross-language, code generation
-- **Status**: Need alternatives for clarity pivot
+- **Alternatives considered**:
+  - foreign, alien, extern, bindings (taken or derogatory/othering)
+  - accord, envoy, atlas, treaty, conduit, parley (all taken but had right collaborative vibe)
+  - handshake (yanked, TCP association)
+  - covenant (Contributor Covenant collision)
+  - attune (viable but less clear)
+  - resonate (music/sound association misleading)
+  - **concord** - ✓ available, establishing harmony/agreement between systems, perfect "first contact" collaborative vibe (not othering), 7 letters, clear meaning
+- **Requirements**: Should convey API bindings with collaborative/discovery tone, not derogatory
+- **Status**: concord is the decision
+- **Rationale**: When you generate bindings for an external API, you're establishing concord - reaching agreement between your code and their specification. Has that diplomatic "first contact" feeling without framing external services as foreign/alien. Works perfectly: "reaching concord with external APIs."
 
 #### **Resin**
 - **Current**: Composable procedural primitives for meshes, audio, textures
@@ -86,6 +98,7 @@ Tracking potential project renames before crates.io publication.
   - **polymorphine** (from Noita transformation potion) - ✓ available, captures transformation/many forms, alchemical creative vibe, 11 letters
   - **manyfold** - ✓ available, multiple transformations/variations, mathematical feel, 8 letters, exotic but evocative
 - **Status**: polymorphine and manyfold both strong contenders
+- **Rationale**: Resin is fundamentally about transformation through composition. You build procedural primitives (Fields) and compose them into infinite variations. Polymorphine captures the alchemical transformation vibe perfectly - one substance becoming many forms (like Noita's potion). Manyfold is more mathematical/manifold-adjacent, emphasizing the "many variations from composition" aspect. Both work because they emphasize the core value: procedural generation through compositional transformation.
 
 ### ⚠️ Needs Rename (High Priority)
 
@@ -103,6 +116,7 @@ Tracking potential project renames before crates.io publication.
   - **moonlet** - ✓ available, small moon (astronomical term), clear Lua reference, friendly/approachable, 7 letters, "small but complete" = batteries-included
 - **Requirements**: Should evoke Lua/scripting, active execution, collaborative not hierarchical
 - **Status**: moonlet is strong leading candidate
+- **Rationale**: Lua is the moon (Portuguese). Moonlet is a small moon - an actual astronomical term for small natural satellites. Perfect metaphor for a batteries-included Lua runtime: small but complete. The name immediately signals "this is Lua-based" without being too literal (luakit/luabox). Also tempers expectations appropriately - it's not trying to be the full moon, just a friendly little moonlet for scripting integration.
 
 #### **Hypha**
 - **Current**: Federation protocol for persistent worlds
@@ -114,6 +128,7 @@ Tracking potential project renames before crates.io publication.
   - **interconnect** - ✓ available, covers both federation and collaboration, plain English, 12 letters
 - **Requirements**: Should evoke distributed networking and potentially collaboration
 - **Status**: interconnect is strong leading candidate
+- **Rationale**: Hypha is a beautiful metaphor (fungal networks connecting everything) but nobody knows the word. Interconnect says exactly what it does: connecting persistent worlds through federation, potentially expanding to collaborative editing (CRDT). Plain English, immediately understandable, covers both federation protocol and future collaboration features. The word itself embodies the purpose - making connections between separate systems.
 
 #### **Pith**
 - **Current**: Capability-based interfaces (WASI-inspired but not compatible, stdlib-like)
@@ -130,6 +145,7 @@ Tracking potential project renames before crates.io publication.
   - **portals** - entry points to capabilities, precedent in XDP (XDG Desktop Portal), 7 letters, humble/not authoritative
 - **Requirements**: Should evoke capability interfaces without claiming to be "the" standard
 - **Status**: portals is strong candidate (need to verify availability)
+- **Rationale**: Pith (core/essence) doesn't convey "interface to capabilities." Portals does: they're entry points to access capabilities. Has precedent in XDG Desktop Portal (capability-based desktop integration). Humble tone - not claiming to be "the standard" like WASI, just providing portals to capabilities for runtime integration. The name emphasizes what matters: gateways to controlled access, not authoritative definitions.
 
 ### 🔄 Semi-locked
 
@@ -141,6 +157,7 @@ Tracking potential project renames before crates.io publication.
   - examples, showcase, apps, demos, gallery (too generic or boring)
   - **zone** - ✓ available (rhizone/rhi-zone on crates), matches rhi.zone domain perfectly, "the zone" = where integrated projects live, 4 letters, clean branding
 - **Status**: Basically locked in - perfect match with org/domain branding
+- **Rationale**: Flora (botanical) doesn't fit the clarity pivot. Zone is perfect: matches rhi.zone domain exactly, short (4 letters), "the zone" is where integrated full-stack projects live. It's the monorepo for showcasing tools working together. Clean branding alignment across org name, domain, and this monorepo. Sometimes the obvious choice is obvious for good reason.
 
 ### 🤔 Under Review
 
@@ -166,6 +183,7 @@ Tracking potential project renames before crates.io publication.
   - saferc (potential safer-compiler collision)
 - **Requirements**: Should evoke unified config management, type safety, not commands/history
 - **Status**: typedrc captures the "type-safe unified config" value prop
+- **Rationale**: The core value proposition is type-safe unified config management. Every tool has different config formats; Nix has untyped configs. Typedrc gives you one file (typedrc.toml) with schema validation - all your tool configs in one place, type-checked. The name emphasizes the key differentiator (typed) while connecting to the rc file tradition (.bashrc, .vimrc). Clear value prop in the name itself.
 
 #### **Lotus**
 - **Current**: Object store with scripting, MUD/MOO-like but generalized (in Flora monorepo)
@@ -203,6 +221,7 @@ Tracking potential project renames before crates.io publication.
   - diffractor (available but more passive, 10 letters)
 - **Requirements**: Should evoke universal viewing + control, frontend-agnostic architecture
 - **Status**: polarizer is strong leading candidate
+- **Rationale**: Canopy (covering/view) is too passive for a control plane. Polarizer captures both viewing AND active manipulation - it filters and orients light, controlling how you see and interact with data. Unlike lens/prism (FP optics collision) or monocle/spyglass (view-only), polarizer emphasizes the control aspect. Works for the universal client pattern: you polarize any data source to view and control it through a unified interface.
 
 #### **Frond**
 - **Current**: Game design primitives library (state machines, controllers, common patterns)
@@ -212,6 +231,7 @@ Tracking potential project renames before crates.io publication.
   - **playmate** - ✓ available, play + mate (companion), friendly/itch.io vibe, 8 letters
 - **Requirements**: Should evoke game development patterns, itch.io-adjacent casual tone okay
 - **Status**: playmate is leading candidate (Playboy association not a concern in game dev context)
+- **Rationale**: Frond (leaf) has zero connection to game design primitives. Playmate works: it's your companion for play/game development. The library provides reusable patterns (state machines, controllers) so you don't reinvent them every project. Friendly, approachable tone fits the itch.io indie game dev audience. The Playboy magazine association isn't a concern in game development context where "play" is the primary semantic anchor.
 
 #### **Cambium**
 - **Current**: Pipeline orchestrator for data conversion
@@ -228,6 +248,7 @@ Tracking potential project renames before crates.io publication.
   - **reformer** - ✓ available, re-forming data into new formats, clear transformation, 8 letters, neutral tone
 - **Requirements**: Should evoke data transformation without being too generic
 - **Status**: reformer is strong leading candidate
+- **Rationale**: Cambium (growth layer) doesn't connect to pipeline orchestration. Reformer is clear: re-forming data from one format into another. Type-driven routing means the data types determine how reformation happens. Not too generic (unlike "pipeline" or "transform") because it emphasizes the format conversion aspect specifically. Neutral tone works for a tool that handles archival, composition, stream manipulation - general data transformation without being ETL-coded.
 
 #### **Canopy**
 - **Current**: Universal UI client with control plane
