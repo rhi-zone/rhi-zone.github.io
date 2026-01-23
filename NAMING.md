@@ -43,6 +43,16 @@ Tracking potential project renames before crates.io publication.
 - **Requirements**: Should convey code intelligence, AST-aware, multi-language, structural analysis
 - **Status**: Need alternatives for clarity pivot
 
+#### **Siphon**
+- **Current**: Legacy software lifting framework
+- **Issues**: Functional but could be clearer (siphon = extract/transfer, but not resurrection)
+- **What it does**: Flash, Java applets, obsolete VMs → modern web runtimes
+- **Alternatives considered**:
+  - reincarnate (too long at 11 letters)
+  - **resurrect** - ✓ available, bringing dead software back to life, immediately clear, 9 letters, theatrical but fitting
+- **Requirements**: Should convey legacy revival/transformation
+- **Status**: resurrect is strong candidate
+
 #### **Liana**
 - **Current**: API bindings IR and codegen
 - **Issues**: Botanical (vines), obscure, taken on crates.io
