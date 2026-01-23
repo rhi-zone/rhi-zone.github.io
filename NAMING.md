@@ -102,13 +102,13 @@ Tracking potential project renames before crates.io publication.
 ### 🤔 Under Review
 
 #### **Frond**
-- **Current**: Game design primitives library
-- **Issues**: Leaf → game design has no connection
+- **Current**: Game design primitives library (state machines, controllers, common patterns)
+- **Issues**: Leaf → game design has no connection, unclear what it even is ("game logic pieces in general")
 - **Alternatives considered**:
-  - Pattern (too generic)
-  - Motif (game design patterns)
-  - Play (clear but taken)
-- **Requirements**: Should evoke patterns/gameplay/primitives
+  - playbook, gamekit, mechanics (probably taken)
+  - **playmate** - ✓ available, play + mate (companion), friendly/itch.io vibe, 8 letters
+- **Requirements**: Should evoke game development patterns, itch.io-adjacent casual tone okay
+- **Status**: playmate is leading candidate (Playboy association not a concern in game dev context)
 
 #### **Cambium**
 - **Current**: Pipeline orchestrator for data conversion
