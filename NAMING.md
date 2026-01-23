@@ -224,6 +224,58 @@ From our ecosystem philosophy:
 - **Trellis → server-less**: Botanical metaphor unclear, new name is literal and available
 - **rescribe**: Moved from Related to main projects, kept descriptive name
 
+## Moving Projects Into Org
+
+**Decision:** Bring these projects into rhi-zone org (follow unification pattern):
+- **ooxml** - Office format parsing (ooxml crate taken, use different crate names like rhi-ooxml-core)
+- **burn-models** - Model zoo/inference (needs rename first - see below)
+
+**Keep External:**
+- **claude-code-hub** - Development meta-tooling
+
+### burn-models Renaming
+
+- **Current**: burn-models (too tied to Burn framework name)
+- **Context**: Burn is the framework, this is the model zoo that uses it (like PyTorch vs diffusers/transformers)
+- **Requirements**: One-stop-shop for AI inference, ComfyUI/SwarmUI/Forge/InvokeAI adjacent, framework-agnostic name
+- **Alternatives considered**:
+  - ember (taken)
+  - easyml, quickml, simpleai (available but maybe too simple-sounding)
+  - modelkit (bland, two words conceptually)
+  - foundry (not obviously ML-coded)
+- **Status**: Need better name before moving to org
+
+## Execution Checklist
+
+When ready to execute the full ecosystem rename (rhizome → rhi, all project renames):
+
+### Documentation Updates
+- [ ] Rename all docs in this repo (~/git/rhizome-lab-github-io)
+  - [ ] docs/about.md, docs/projects/*, README.md, CLAUDE.md
+  - [ ] .vitepress/config.ts navigation
+- [ ] Rename all docs in ~/git/rhizome-lab-github/
+- [ ] Update ~/.claude/projects/ directory names (EXCEPT rhizome-lab-github-io)
+
+### Repository Moves
+- [ ] Move all ~/git/ directories to new names (EXCEPT rhizome-lab-github-io - we're in it)
+  - moss, resin→polymorphine/manyfold, dew, etc.
+- [ ] Execute `gh repo rename` for all repos in rhi-zone org
+- [ ] Update git remote origin for all repos
+
+### Code Updates (Per Repo)
+- [ ] Update Cargo.toml crate names (rhizome- → rhi- prefix where needed)
+- [ ] Update internal imports/references
+- [ ] Update git dependencies in Cargo.toml (repo URLs)
+- [ ] Grep validate: search for "rhizome-lab", "rhizome-", old project names
+- [ ] Update CLAUDE.md if present
+- [ ] Update README.md
+
+### Verification
+- [ ] All repos build successfully
+- [ ] Git remotes point to rhi-zone org
+- [ ] No stray references to old names (grep across ecosystem)
+- [ ] Docs site deploys correctly
+
 ## Process
 
 Before publishing to crates.io:
