@@ -14,14 +14,12 @@ Tracking potential project renames before crates.io publication.
 
 | Project | Rationale |
 |---------|-----------|
-| **Moss** | Botanical, evocative, clear domain (code intelligence), 4 letters |
-| **Resin** | Material/substance metaphor for generation, clear, pronounceable |
-| **Nursery** | Orchestration/tending metaphor works, generally understood |
-| **Flora** | Collection of tools, simple and appropriate |
-| **Liana** | Vines connecting = API bindings, metaphor works |
-| **Siphon** | Functional/clear for legacy lifting, no botanical requirement |
 | **rescribe** | Clear, professional, available namespace |
 | **server-less** | Literal, punchy, available |
+
+**Previously considered strong but reconsidered for full clarity pivot:**
+- Moss, Resin, Nursery, Flora, Liana - botanical names, moving to clarity over metaphor
+- Siphon - functional but could be clearer
 
 ### ✅ Locked (Keeping Current Name)
 
@@ -33,6 +31,24 @@ Tracking potential project renames before crates.io publication.
 - **Decision**: Keep Dew - good enough and available beats perfect but unavailable
 
 ### ⚠️ Needs Rename (High Priority)
+
+#### **Moss**
+- **Current**: Structural code intelligence (98 languages, sessions, packages, tools)
+- **Issues**: Botanical, meaning unclear ("moss grows on code"?), taken on crates.io
+- **What it unifies**:
+  - Language support (98 languages → unified AST)
+  - AI session logs (Claude Code, Gemini, OpenAI → unified Session type)
+  - Package ecosystems (apt, brew, npm, crates → unified traits)
+  - Development tools (linters, formatters, type checkers → unified interface)
+- **Requirements**: Should convey code intelligence, AST-aware, multi-language, structural analysis
+- **Status**: Need alternatives for clarity pivot
+
+#### **Liana**
+- **Current**: API bindings IR and codegen
+- **Issues**: Botanical (vines), obscure, taken on crates.io
+- **What it unifies**: OpenAPI, gRPC, headers, Thrift → one IR, generate bindings
+- **Requirements**: Should convey API bindings, cross-language, code generation
+- **Status**: Need alternatives for clarity pivot
 
 #### **Resin**
 - **Current**: Composable procedural primitives for meshes, audio, textures
