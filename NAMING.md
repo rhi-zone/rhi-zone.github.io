@@ -40,8 +40,13 @@ Tracking potential project renames before crates.io publication.
   - AI session logs (Claude Code, Gemini, OpenAI → unified Session type)
   - Package ecosystems (apt, brew, npm, crates → unified traits)
   - Development tools (linters, formatters, type checkers → unified interface)
-- **Requirements**: Should convey code intelligence, AST-aware, multi-language, structural analysis
-- **Status**: Need alternatives for clarity pivot
+- **Alternatives considered**:
+  - codeview, codemap, astview, inspect (too narrow or collision-prone)
+  - devkit, cognition (available but don't capture unification)
+  - rein (connection iffy - "reining in" complexity)
+  - **normalize** - ✓ available, exactly what it does (normalizing fragmentation), 9 letters, works perfectly with crate structure (normalize-sessions, normalize-tools, normalize-packages, normalize-languages), precedent: serde/tokio/clap took general names
+- **Requirements**: Should convey unified dev intelligence, normalization of fragmentation
+- **Status**: normalize is strong leading candidate
 
 #### **Siphon**
 - **Current**: Legacy software lifting framework
