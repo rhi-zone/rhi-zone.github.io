@@ -2,6 +2,8 @@
 
 Tracking potential project renames before crates.io publication.
 
+**NOTE:** This document serves as historical reference for naming decisions. If we pivot to a different theme/approach, we'll keep this file and create a new one to track the new direction.
+
 ## Status Key
 - ✅ **Locked** - Name finalized, no changes planned
 - 🔄 **Semi-locked** - Keep for now, but open to better suggestions
