@@ -106,6 +106,29 @@ Tracking potential project renames before crates.io publication.
 
 ### 🤔 Under Review
 
+#### **Nursery**
+- **Current**: Ecosystem orchestrator via rhizome.toml manifests
+- **Issues**: Taken on crates.io, botanical
+- **Key aspects**:
+  - Tool/package management (stow/Nix replacement)
+  - Type-safe schema-validated configs (vs Nix's untyped configs)
+  - All configs in one file (nursery.toml)
+  - Central gathering place for tool configuration
+  - Dehydrated configs that expand/hydrate into full setup
+- **Alternatives considered**:
+  - depot, central, vault (taken or not clear about storing things)
+  - seedbox, spawn (too generic or game-coded)
+  - catalog, schematic, declare, uniconf (wrong angle or taken)
+  - caddy (web server collision), toolcase (configs aren't tools)
+  - binder, dossier, folio (taken or yanked)
+  - ledger (implies history not config)
+  - rc (taken), runcom (wrong concept - commands not config)
+  - allrc, unirc, metarc, mainrc (all kinda jank)
+  - **typedrc** - ✓ available, type-safe rc file (vs Nix untyped), unified config tradition, 7 letters, emphasizes key value prop
+  - saferc (potential safer-compiler collision)
+- **Requirements**: Should evoke unified config management, type safety, not commands/history
+- **Status**: typedrc captures the "type-safe unified config" value prop
+
 #### **Lotus**
 - **Current**: Object store with scripting, MUD/MOO-like but generalized (in Flora monorepo)
 - **Issues**: Name conflict with existing `lotus` crate
