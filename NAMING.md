@@ -63,14 +63,19 @@ Tracking potential project renames before crates.io publication.
 ### ⚠️ Needs Rename (High Priority)
 
 #### **Spore**
-- **Current**: Lua runtime with plugin system
+- **Current**: Lua runtime with plugin system, ecosystem orchestrator, capabilities-first
 - **Issues**: Infectious/disease connotation for a runtime
-- **Status**: Actively brainstorming
+- **Key aspects**: Lua runtime, batteries-included, orchestrates rhi ecosystem, needs to temper expectations by being clearly Lua-associated
 - **Alternatives considered**:
-  - Substrate (what things grow on)
-  - Soil (execution environment)
-  - Loam (rich soil for growth)
-- **Requirements**: Should evoke hosting/execution/environment, botanical or pragmatic
+  - Substrate, soil, loam (too passive)
+  - arena (conflict with arena allocator in Rust)
+  - maestro, conductor, director (too hierarchical)
+  - luakit, luabox, lunar (taken or too literal)
+  - Moon deities: kaguya, selene, khonsu (all taken or unpronounceable)
+  - moonbase, moonkit, moonbox (functional but uninspired)
+  - **moonlet** - ✓ available, small moon (astronomical term), clear Lua reference, friendly/approachable, 7 letters, "small but complete" = batteries-included
+- **Requirements**: Should evoke Lua/scripting, active execution, collaborative not hierarchical
+- **Status**: moonlet is strong leading candidate
 
 #### **Hypha**
 - **Current**: Federation protocol for persistent worlds
