@@ -97,10 +97,10 @@ Tracking potential project renames before crates.io publication.
   - fieldgen (too generic, vague jargon)
   - transmute (taken, plus std::mem::transmute collision)
   - patchwork, patch (taken)
-  - **polymorphine** (from Noita transformation potion) - ✓ available, captures transformation/many forms, alchemical creative vibe, 11 letters
-  - **manyfold** - ✓ available, multiple transformations/variations, mathematical feel, 8 letters, exotic but evocative
-- **Status**: polymorphine is preferred for creative core
-- **Rationale**: Resin is fundamentally about transformation through composition. You build procedural primitives (Fields) and compose them into infinite variations. Polymorphine captures the alchemical creative vibe perfectly - one substance becoming many forms (like Noita's potion). Manyfold is more mathematical/technical-sounding. For a creative/generative tool, polymorphine's alchemical playfulness fits better than manyfold's technical precision. Per layered naming framework: creative tools can be more expressive.
+  - **polymorphine** (from Noita transformation potion) - ✓ available, captures transformation/many forms, alchemical creative vibe, 11 letters - BUT arcane/esoteric = intimidating
+  - **manyfold** - ✓ available, multiple transformations/variations, mathematical feel, 8 letters, exotic but evocative - more approachable but still not obviously playful/gentle
+- **Status**: Leaning back towards manyfold, but neither is perfect
+- **Rationale**: Resin is fundamentally about transformation through composition. You build procedural primitives (Fields) and compose them into infinite variations. This is a creative/generative tool (human-facing layer) so warmth/gentleness matters. Polymorphine is too arcane/intimidating despite creative vibe. Manyfold is more approachable but still not obviously playful. Per naming gradient: human-facing tools should prioritize gentleness. May need third option that's both warm AND clearly compositional.
 
 ### ⚠️ Needs Rename (High Priority)
 
@@ -181,11 +181,12 @@ Tracking potential project renames before crates.io publication.
   - ledger (implies history not config)
   - rc (taken), runcom (wrong concept - commands not config)
   - allrc, unirc, metarc, mainrc (all kinda jank)
-  - **typedrc** - ✓ available, type-safe rc file (vs Nix untyped), unified config tradition, 7 letters, emphasizes key value prop
+  - **typedrc** - ✓ available, type-safe rc file (vs Nix untyped), unified config tradition, 7 letters, emphasizes key value prop - BUT cognitively clear, emotionally cold
+  - **nursery** (original name) - emotionally warm, semantically vague
   - saferc (potential safer-compiler collision)
 - **Requirements**: Should evoke unified config management, type safety, not commands/history
-- **Status**: typedrc captures the "type-safe unified config" value prop
-- **Rationale**: The core value proposition is type-safe unified config management. Every tool has different config formats; Nix has untyped configs. Typedrc gives you one file (typedrc.toml) with schema validation - all your tool configs in one place, type-checked. The name emphasizes the key differentiator (typed) while connecting to the rc file tradition (.bashrc, .vimrc). Clear value prop in the name itself.
+- **Status**: Real tension between clarity and warmth for user-facing tool
+- **Rationale**: This is a user-facing tool (you interact with it directly) so per naming gradient, gentleness matters. But there's genuine tension: typedrc = cognitively clear but cold (infrastructure vibes), nursery = emotionally warm but semantically vague (what does it DO?). The core value proposition is type-safe unified config management. Typedrc emphasizes the key differentiator (typed) while connecting to rc file tradition. Nursery conveys care/tending but doesn't say "config management." Need to decide: does warmth or clarity win for user-facing config tool? Or find third option that's both warm AND clear?
 
 #### **Lotus → habitat**
 - **Current**: Object store with scripting, MUD/MOO-like but generalized (in Flora/zone monorepo)
@@ -219,11 +220,11 @@ Tracking potential project renames before crates.io publication.
   - lens, prism, optic (FP optics collision)
   - refractor (taken), refractory (wrong connotation)
   - monocle, spyglass (viewing only, no control)
-  - **polarizer** - ✓ available, filters/orients light (controls presentation), active manipulation + viewing, familiar optical term, 9 letters
+  - **polarizer** - ✓ available, filters/orients light (controls presentation), 9 letters - BUT wrong framing: control instrument, not exploration interface
   - diffractor (available but more passive, 10 letters)
-- **Requirements**: Should evoke universal viewing + control, frontend-agnostic architecture
-- **Status**: polarizer is strong leading candidate
-- **Rationale**: Canopy (covering/view) is too passive for a control plane. Polarizer captures both viewing AND active manipulation - it filters and orients light, controlling how you see and interact with data. Unlike lens/prism (FP optics collision) or monocle/spyglass (view-only), polarizer emphasizes the control aspect. Works for the universal client pattern: you polarize any data source to view and control it through a unified interface.
+- **Requirements**: Should evoke universal viewing + gentle exploration + world interaction, NOT control/manipulation
+- **Status**: polarizer probably wrong metaphor
+- **Rationale**: This is a human-facing tool (exploration/interaction) so per naming gradient, gentleness and approachability matter most. Polarizer frames it as a "control instrument" - filtering, orienting, manipulating. But the actual purpose is more like: gentle universal viewing, exploration interface, world interaction agent (like Postman/Wireshark but approachable). Polarizer emphasizes control/technical precision when we want gentle exploration. Need metaphor that conveys "gentle universal viewing/interaction" not "precise optical control." Canopy (covering/view) was too passive. What's in between?
 
 #### **Frond**
 - **Current**: Game design primitives library (state machines, controllers, common patterns)
@@ -263,32 +264,44 @@ Tracking potential project renames before crates.io publication.
 
 ## Naming Principles
 
-### Layered Naming Framework (The Real Answer)
+### Naming Gradient Principle
 
-After extensive exploration, we realized the key insight: **we need different naming strategies for different layers**.
+**Naming should follow proximity to human experience.**
 
-**Infrastructure/substrate layer** → semantic/system names:
-- These are conceptual operators, not brands
-- They need to be **boring names that become language**
-- Examples: normalize, rescribe, resurrect, concord, interconnect, reformer, portals
-- Like: serde, tokio, git, nix, unix, systemd
-- Goal: structural legibility, system semantics, technical primitives
+Not rigid rules, but a gradient/tolerance model:
 
-**User-facing/creative tools** → warm/branded names:
-- These can have identity, emotion, warmth
-- Can be cozy, playful, memorable
-- Examples: moonlet, habitat, playmate, zone, dew, inferia
-- Like: bubbletea, lipgloss, glow (Charmbracelet)
-- Goal: approachability, emotional attachment, community
+- **Substrate layers** prioritize semantic clarity and structural legibility
+  - Far from direct human interaction
+  - Semantic clarity can take priority over gentleness
+  - Gentleness is desirable when natural, not required when it conflicts with legibility
+  - Examples: normalize, rescribe, resurrect, concord, interconnect, reformer, portals
+  - Like: serde, tokio, git, nix, unix
+
+- **System layers** balance clarity with approachability
+  - Middle distance from interaction
+  - Semantic + some warmth when possible
+
+- **Human-facing layers** prioritize gentleness and emotional tone
+  - Direct interaction points
+  - Warmth, playfulness, approachability matter most
+  - Examples: moonlet, habitat, playmate, zone, dew, inferia
+  - Like: bubbletea, lipgloss, glow
+
+**Key points:**
+- This is a **design heuristic**, not dogma
+- We don't aestheticize infrastructure by force
+- If a gentle name naturally fits infra, we use it
+- If it doesn't, semantic clarity wins
+- Gentleness is a goal, not a constraint; clarity is a requirement
 
 **Why this works:**
-- Charmbracelet builds a "craft shop" (everything cozy)
-- We're building a "nervous system" (substrate + surface)
-- Core layers need clarity; surface needs warmth
-- This is how healthy ecosystems actually work (Linux kernel vs terminal apps)
+- Distance from interaction determines naming softness
+- Substrate exists to enable experience, not be experience
+- Infrastructure can AFFORD to be semantic (not MUST be)
+- Allows exceptions, evolution, discovery - avoids rigidity
 
 **The litmus test:**
-Can you mentally model the system from the names alone? Infrastructure names should tell you what they DO. User tool names can be more expressive.
+Can you mentally model the system from the names alone? Infrastructure should tell you what it DOES. User tools can be more expressive.
 
 ### Legacy Principles (Still Valid)
 
