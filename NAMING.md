@@ -185,9 +185,9 @@ Tracking potential project renames before crates.io publication.
 - **Status**: typedrc captures the "type-safe unified config" value prop
 - **Rationale**: The core value proposition is type-safe unified config management. Every tool has different config formats; Nix has untyped configs. Typedrc gives you one file (typedrc.toml) with schema validation - all your tool configs in one place, type-checked. The name emphasizes the key differentiator (typed) while connecting to the rc file tradition (.bashrc, .vimrc). Clear value prop in the name itself.
 
-#### **Lotus**
-- **Current**: Object store with scripting, MUD/MOO-like but generalized (in Flora monorepo)
-- **Issues**: Name conflict with existing `lotus` crate
+#### **Lotus → habitat**
+- **Current**: Object store with scripting, MUD/MOO-like but generalized (in Flora/zone monorepo)
+- **Issues**: Name conflict with existing `lotus` crate, botanical naming
 - **Key aspects**:
   - Schemaless object store (intentionally flexible, not limited)
   - Scriptable/programmable objects
@@ -204,8 +204,8 @@ Tracking potential project renames before crates.io publication.
   - colony (available but less evocative)
   - **habitat** - ✓ available, digital habitat for persistent scriptable objects, "place you inhabit not progress through", captures MUD/MOO spirit without game-coding, ontology not objectives, 7 letters
 - **Requirements**: Should evoke persistent living world, programmable objects, schemaless flexibility, not database-coded or game-coded
-- **Status**: habitat perfectly captures the digital habitat philosophy
-- **Rationale**: Not a database (too static), not a game (too goal-driven), but a persistent environment where scriptable objects inhabit and interact - a computational world with memory, history, and emergence
+- **Status**: habitat is the decision
+- **Rationale**: Lotus is taken and botanical. What this project really is: a digital habitat - a place you inhabit, not progress through. Not a database (too static/sterile), not a game (too goal-oriented), but a persistent computational environment where scriptable objects live and interact. Captures the MUD/MOO spirit (ontology not objectives, emergence not design) without game-coding it. The schemaless flexibility isn't a limitation, it's the point - habitats support diverse life, not rigid schemas. 7 letters, immediately evocative, perfectly describes "a place where computational things inhabit."
 
 #### **Canopy**
 - **Current**: Universal UI client with control plane for any data source
