@@ -23,18 +23,14 @@ Tracking potential project renames before crates.io publication.
 | **rescribe** | Clear, professional, available namespace |
 | **server-less** | Literal, punchy, available |
 
-### 🔄 Semi-locked
+### ✅ Locked (Keeping Current Name)
 
-#### **Dew**
-- **Current status**: Expression language (no user-defined functions, pure expressions)
-- **Strengths**: Short (3 letters), cute aesthetic, available
-- **Issues**: Weak metaphor (was originally "Sap" - lifeblood metaphor, but taken)
-- **Considered alternatives**:
-  - Pip (free, but Python association problematic)
-  - Bud (taken)
-  - Mist, Glyph, Rune (don't capture the "cute little language" aesthetic)
-  - pipline (pipeline metaphor, but misnomer since no user-defined functions)
-- **Decision**: Keep for now, but open to perfect alternative
+#### **Dew** (kept)
+- **Status**: Expression language (no user-defined functions, pure expressions)
+- **Rationale**: Short (3 letters), cute aesthetic, available, established in codebase
+- **Context**: Originally wanted "Sap" (lifeblood/flow metaphor) but friend owns the crate. Dew's metaphor is weaker but nothing clearly better emerged.
+- **Extensive alternatives explored**: gem, essence, mana, pearl, axiom, verve, vis, neat, formula (all taken or not clearly better)
+- **Decision**: Keep Dew - good enough and available beats perfect but unavailable
 
 ### ⚠️ Needs Rename (High Priority)
 
