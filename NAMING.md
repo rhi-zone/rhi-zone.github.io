@@ -104,6 +104,17 @@ Tracking potential project renames before crates.io publication.
 - **Requirements**: Should evoke capability interfaces without claiming to be "the" standard
 - **Status**: portals is strong candidate (need to verify availability)
 
+### 🔄 Semi-locked
+
+#### **Flora → zone**
+- **Current**: Lua-based tools, scaffolds, and orchestration monorepo
+- **Issues**: Botanical naming if moving away from that theme
+- **Key aspects**: Monorepo for full-stack/integrated projects using multiple rhi tools, doesn't need its own crate
+- **Alternatives considered**:
+  - examples, showcase, apps, demos, gallery (too generic or boring)
+  - **zone** - ✓ available (rhizone/rhi-zone on crates), matches rhi.zone domain perfectly, "the zone" = where integrated projects live, 4 letters, clean branding
+- **Status**: Basically locked in - perfect match with org/domain branding
+
 ### 🤔 Under Review
 
 #### **Nursery**
