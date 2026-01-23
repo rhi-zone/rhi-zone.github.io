@@ -74,13 +74,44 @@ After pivoting from botanical names to clarity-focused names (see NAMING.md), we
 - Playful but professional
 - Cohesive aesthetic without rigid taxonomy
 
-### Characteristics
+**Tailwags**
+- wag, bark, fetch, paws - dog/puppy domain
+- Cute, playful, pastel, modern small-web
+- Perfect vibe reference but they own the puppy space
+- We want similar energy, different semantic territory
+
+### Aesthetic: "Fluffy Pastel"
+
+**Not:**
+- Digital desktop vibes (too tech-forward)
+- Vibrant/boisterous (too loud)
+- Corporate/industrial (wrong energy entirely)
+
+**Yes:**
+- Fluffy/plushie soft (soft-shaded art, no harsh outlines)
+- Pastel colors (fairy floss, kandi bracelets, gentle)
+- Childlike wonder (not childish)
+- Small-scale, intimate
+- Gentle/hushed (not boisterous)
+- Whimsical but calm
+- Muted pastels
+- Creative but unhurried
+
+**References:**
+- Needy Streamer Overload, Unpacking, Melatonin (soft digital life)
+- Pastel pop, hyperpop aesthetics
+- Kandi raver PLUR positivity
+- Yaelokre "Harpy Hare" (small forest folk tale vibes)
+- Soft treats (bubbletea, soft-serve)
+
+### Name Characteristics
 
 - Simple/short (4-7 letters ideal)
 - Often lowercase in presentation
 - Could be: real words repurposed, gentle compounds, soft neologisms
 - Handmade/indie/personal feeling
 - Playful but not jokey
+- Soft sounds, gentle consonants
 - Anti-enterprise, anti-scale
 - itch.io/neocities/tilde/permacomputing vibes
 
@@ -129,43 +160,52 @@ Instead of "pick names from a category," build a **cohesive world** where all ou
 - Legacy lifting (Siphon)
 - Multi-protocol derives (Trellis)
 
-### Possible Worlds (Evaluated Against Vision)
+### Theme Explorations (Pastel-Fluffy Lens)
 
-**📚 Cozy Digital Library/Archive**
-- Tools are library practices: cataloging, restoration, translation, binding, cross-referencing
-- Example names: catalog, restoration, binding, translation, index, annotation
-- ✅ Small-scale, made with care, tending/preservation
-- ❓ Collaboration (archivists working together?)
-- ❌ Could feel formal/institutional, not particularly playful
-- **Verdict:** Too formal, lacks playfulness
+**❌ Workshop/Studio (cottagecore, not pastel)**
+- loom, kiln, press, easel, bench
+- Too earthy/physical, not soft enough
+- Verdict: Wrong vibe
 
-**🎨 Small Creative Studio/Workshop** ⭐
-- Tools are workstations/craft stations: print bench, weaving station, kiln, darkroom
-- Example names: loom, kiln, press, easel, bench, lathe, sketch, draft, mold
-- ✅ Collaborative making, playful, creative
-- ✅ Imperfection welcome (sketches, drafts, experiments)
-- ✅ Small-scale, made with care
-- ✅ Working on shared artifacts
-- ✅ Sokpop/indie game jam vibes
-- **Verdict:** Strongest fit for vision
+**❌ Digital Desktop/Virtual Room**
+- window, widget, cache, pixel, sprite
+- Too tech-forward, synthetic not soft
+- Verdict: Interesting but misses fluffy gentleness
 
-**🌱 Digital Garden/Greenhouse** ⭐
-- Tools are gardening activities: propagation, grafting, composting, cross-pollination
-- Example names: compost, graft, propagate, sprout, mulch, prune, tend, bloom
-- ✅ Tending/care, small-scale
-- ✅ Imperfection welcome (gardens are messy/organic)
-- ✅ Growth/exploration, not optimization
-- ✅ Solarpunk/permacomputing alignment
-- ✅ Community gardens = collaboration
-- **Verdict:** Strong fit, different vibe than studio
+**🤔 Sweet Treats / Confections** (Charm Bracelet model)
+- fizz, sprinkle, mochi, taffy, sherbet, sorbet, glaze
+- ✅ Pastel-coded, sweet, gentle
+- ❌ Encroaches on Charm's territory
+- ❌ Might feel too sugary/surface
+- Verdict: Right vibe but maybe derivative
 
-**🏘️ Small Village/Neighborhood**
-- Each tool is a shop/role: the scribe, the courier, the archivist, the gardener
-- Example names: scribe, courier, depot, plaza, commons, market
-- ✅ Community, symmetric relationships, small-scale
-- ❌ Could feel too structured/formal
-- ❌ Roles/specialization might feel hierarchical
-- **Verdict:** Too structured
+**✅ Small Soft Things**
+- bell, chime, ribbon, feather, petal, wisp, tuft
+- ✅ Tactile, delicate, gentle
+- ✅ Fluffy/plushie energy
+- Verdict: Valid direction
+
+**✅ Soft Sounds / Onomatopoeia**
+- hum, murmur, chirp, tinkle, plink, whoosh, flutter
+- ✅ Cute, playful, alive
+- ✅ Gentle consonants, soft sounds
+- Verdict: Valid direction
+
+**✅ Weather/Atmosphere (soft phenomena)**
+- mist, dew, haze, drift, breeze, drizzle, shimmer
+- ✅ Ambient, calming, pastel-friendly
+- ✅ Gentle, atmospheric
+- Verdict: Valid direction
+
+**❌ Toys/Playthings**
+- block, marble, crayon, spinner, puzzle
+- Too vibrant/boisterous
+- Verdict: Wrong energy
+
+**❌ Sleep/Dreams**
+- dream, doze, nap, snooze, lull
+- Too restful - doesn't inspire creativity
+- Verdict: Too sleepy
 
 ## Current Names - Vibe Check
 
@@ -190,61 +230,67 @@ Instead of "pick names from a category," build a **cohesive world** where all ou
 - **resurrect** - too theatrical
 - **portals** - borderline, depends on world
 
-## Exploring the Strong Candidates
+## Leading Direction: Small Woodland Whispers 🍄
 
-### 🎨 Workshop/Studio World
-
-**The world:** Small creative studio where people make things collaboratively. Workstations, tools, materials. Sketches and experiments welcome. Indie game jam / art collective vibes.
-
-**Mapping tools to this world:**
-- Code intelligence → **sketch**, **draft**, **outline**, **trace** (understanding structure)
-- Procedural generation → **kiln**, **forge**, **mold**, **cast** (forming/shaping)
-- Document conversion → **press**, **transcribe** (reproducing in different form)
-- Runtime → **bench**, **station**, **workspace** (where you actually work)
-- Collaboration → **studio**, **atelier** (shared creative space)
-- Object store → **archive**, **cabinet** (storing works)
-
-**Vibe:** Playful making, permission to sketch/draft, collaborative creation
-
-### 🌱 Garden World
-
-**The world:** Digital garden/greenhouse where you tend creative projects. Growing, grafting, composting. Organic, messy, alive. Solarpunk/permacomputing.
-
-**Mapping tools to this world:**
-- Code intelligence → **compost** (breaking down complexity into nutrients)
-- Procedural generation → **graft**, **propagate**, **hybridize** (combining/generating)
-- Configuration → **seedbed**, **plot**, **bed** (where things start)
-- Collaboration → **trellis**, **lattice** (supporting growth/connection)
-- Object store → **terrarium**, **plot**, **patch** (contained ecosystems)
-- Runtime → **greenhouse**, **nursery** (protected growing environment)
-
-**Vibe:** Tending/care, organic growth, imperfection welcome
-
-### 🌿 Hybrid: Creative Garden Workshop
-
-**The world:** Greenhouse studio where you tend creative projects like plants. Making and growing blur together. You have tools (bench, kiln) AND living systems (plants, compost). Ghibli cottage energy.
+**The world:** Intimate small forest. Not grand wilderness - a gentle woodland glade. Small creatures, soft phenomena, folk tale magic. Harpy Hare / Yaelokre coded.
 
 **Why this works:**
-- Combines playful making (studio) with organic tending (garden)
-- "Growing" creative work feels less performative than "producing"
-- Tools AND nature, making AND tending
-- Permits both active creation and patient cultivation
-- Rhizome (underground network) fits naturally in garden context
+- ✅ Fluffy/soft aesthetic (moths, down, moss)
+- ✅ Gentle/hushed (whispers, rustles, murmurs)
+- ✅ Small-scale, intimate
+- ✅ Whimsical but calm
+- ✅ Nature as break from technology ("touch grass" energy)
+- ✅ Pastel-friendly (muted forest colors, dusk light)
+- ✅ Rhizome (underground network) fits perfectly
+- ✅ Creative but unhurried (natural growth, seasonal time)
 
-**Example aesthetic references:**
-- Ghibli cottage workshops (Kiki's Delivery Service, Howl's Moving Castle)
-- Stardew Valley's farm workshop hybrid
-- Cozy game studios (Sokpop, Sokpop, Sokpop)
-- 100 Rabbits aboard Pino (sailing = tending/navigating)
+**Combining three sub-themes:**
+
+### 🦋 Small Forest Creatures/Elements
+- moth, fern, moss, acorn, twig, lichen, spore
+- Gentle, small-scale nature
+- Lives in the understory, not the canopy
+
+### 🌫️ Soft Phenomena (weather/light/sound)
+- wisp, rustle, flutter, murmur, shimmer, haze, glow, glimmer
+- Atmospheric, ambient
+- Gentle movements and sounds
+
+### 🧶 Soft Textures/Materials
+- velvet, down, fleece, fluff, tuft, felt, cotton
+- Plushie-coded, tactile softness
+- Fluffy energy
+
+**Example names from this world:**
+moth, fern, wisp, rustle, flutter, murmur, velvet, down, shimmer, haze, glow, moss, dusk, mist
+
+**Aesthetic references:**
+- Yaelokre "Harpy Hare" (small forest folk tales)
+- Hollow Knight (bugs in gentle ruins)
+- Pikmin (small scale, nature intimacy)
+- Ori (soft-shaded forest, gentle light)
+- Cozy grove (small island, gentle spirits)
+
+**The vibe:** Soft, hushed, intimate, whimsical-but-calm, nature as respite, permission to be small and gentle
 
 ## Next Steps
 
-1. Decide: Studio, Garden, or Hybrid?
-2. Map each project to something natural in that world
-3. Find specific names that fit the world AND small-web aesthetic
-4. Check crates.io availability
-5. Test the names against vision values
+1. Map each project to the Small Woodland Whispers world
+2. Find specific names from the three sub-themes:
+   - Small forest creatures/elements (moth, fern, moss, acorn)
+   - Soft phenomena (wisp, rustle, flutter, murmur, shimmer)
+   - Soft textures (velvet, down, fluff, tuft)
+3. Check crates.io availability
+4. Test names against vision values (approachable, playful, calm)
+5. Consider: some current names might already fit (dew!)
 6. Keep NAMING.md as historical reference
+
+## Open Questions
+
+- Is "small woodland whispers" too nature/cottagecore vs pastel-digital?
+- Should we lean more into bright pastel (kandi, fairy floss) vs muted forest?
+- Can we blend forest-soft with digital-soft somehow?
+- Which projects get creature names vs phenomena vs textures?
 
 ---
 
