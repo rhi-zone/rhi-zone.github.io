@@ -326,11 +326,11 @@ Can you mentally model the system from the names alone? Infrastructure should te
 **Keep External:**
 - **claude-code-hub** - Development meta-tooling
 
-### burn-models → terrarium
+### burn-models → sketchpad
 
 - **Current**: burn-models (too tied to Burn framework name)
-- **Context**: Burn is the framework, this is the model zoo that uses it (like PyTorch vs diffusers/transformers)
-- **Requirements**: One-stop-shop for AI inference, ComfyUI/SwarmUI/Forge/InvokeAI adjacent, framework-agnostic name, gentle/cozy for user-facing tool
+- **Context**: Burn is the framework, this is the model zoo/collection that uses it (like PyTorch vs diffusers/transformers). Primarily generative models (Stable Diffusion, FLUX, etc.)
+- **Requirements**: Gentle/cozy for user-facing tool, doesn't oversell genAI capabilities, respects skeptics' concerns
 - **Alternatives considered**:
   - ember (taken)
   - easyml, quickml, simpleai (available but maybe too simple-sounding)
@@ -338,12 +338,12 @@ Can you mentally model the system from the names alone? Infrastructure should te
   - foundry (not obviously ML-coded)
   - ark (taken)
   - menagerie (available, fun, expressive, model-zoo literal - but circus-y)
-  - inferia (infer + ia, subtle Burn/fire connection) - BUT sounds infernal/demonic, wrong vibe
-  - gallery (available, art collection, curated)
-  - vivarium (available, contained environment, obscure)
-  - **terrarium** - ✓ available, contained plant ecosystem, gentle/soft/cozy, pastel-friendly, 9 letters
-- **Status**: terrarium is the decision
-- **Rationale**: This is a user-facing tool so per naming gradient, gentleness matters. Inferia sounded too infernal/demonic (wrong for pastel-cute). Terrarium is a contained ecosystem metaphor (models living in their habitat) - semantic connection to "model zoo" isn't super clear but it's gentle, cozy, immediately recognizable, and has soft pastel-green vibes. A little greenhouse where your models live. Sometimes perfect semantic fit + perfect vibe is impossible; this optimizes for approachability.
+  - inferia (infer + ia, subtle Burn/fire connection) - BUT sounds infernal/demonic, wrong vibe for pastel-cute
+  - terrarium (gentle but semantic connection unclear - plants ≠ models)
+  - gallery, vivarium, compendium, catalog (formal/unapproachable or unclear)
+  - **sketchpad** - ✓ available, place for creative sketching, 9 letters, follows -pad pattern (mikupad precedent)
+- **Status**: sketchpad is the decision
+- **Rationale**: This is a user-facing creative tool so per naming gradient, gentleness and approachability matter most. "Sketchpad" deliberately downplays AI hype - it's a place for rough creative sketches, not production pipelines. The "sketch = lower quality/rough draft" connotation is INTENTIONAL: sets appropriate expectations about genAI capabilities, doesn't oversell utility, respects skeptics who think "genai bad." Metaphor: gentle creative space where your generative tools live. Follows established -pad pattern (mikupad). Warm, approachable, honest about limitations.
 
 ## Execution Checklist
 
