@@ -106,6 +106,21 @@ Tracking potential project renames before crates.io publication.
 
 ### 🤔 Under Review
 
+#### **Canopy**
+- **Current**: Universal UI client with control plane for any data source
+- **Issues**: Covering/view metaphor weak, botanical
+- **Key aspects**: Frontend architecture/pattern (not specific implementation), universal data source client, control plane (view + control), similar to Postman/Wireshark/imhex universality
+- **Alternatives considered**:
+  - dashboard, panel, console (don't convey universality)
+  - cartographer (too passive, just mapping)
+  - lens, prism, optic (FP optics collision)
+  - refractor (taken), refractory (wrong connotation)
+  - monocle, spyglass (viewing only, no control)
+  - **polarizer** - ✓ available, filters/orients light (controls presentation), active manipulation + viewing, familiar optical term, 9 letters
+  - diffractor (available but more passive, 10 letters)
+- **Requirements**: Should evoke universal viewing + control, frontend-agnostic architecture
+- **Status**: polarizer is strong leading candidate
+
 #### **Frond**
 - **Current**: Game design primitives library (state machines, controllers, common patterns)
 - **Issues**: Leaf → game design has no connection, unclear what it even is ("game logic pieces in general")
