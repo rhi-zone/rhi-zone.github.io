@@ -326,21 +326,24 @@ Can you mentally model the system from the names alone? Infrastructure should te
 **Keep External:**
 - **claude-code-hub** - Development meta-tooling
 
-### burn-models → inferia
+### burn-models → terrarium
 
 - **Current**: burn-models (too tied to Burn framework name)
 - **Context**: Burn is the framework, this is the model zoo that uses it (like PyTorch vs diffusers/transformers)
-- **Requirements**: One-stop-shop for AI inference, ComfyUI/SwarmUI/Forge/InvokeAI adjacent, framework-agnostic name
+- **Requirements**: One-stop-shop for AI inference, ComfyUI/SwarmUI/Forge/InvokeAI adjacent, framework-agnostic name, gentle/cozy for user-facing tool
 - **Alternatives considered**:
   - ember (taken)
   - easyml, quickml, simpleai (available but maybe too simple-sounding)
   - modelkit (bland, two words conceptually)
   - foundry (not obviously ML-coded)
-  - ark (symbolic, model-zoo semantics)
-  - menagerie (fun, expressive, model-zoo literal)
-  - **inferia** - infer + ia, subtle Burn/fire connection (inferno), clean, inference-semantic, 7 letters
-- **Status**: inferia is the decision
-- **Rationale**: Perfect blend of semantic clarity (inference) and subtle Burn framework connection (inferno → inferia). Clean, professional, framework-appropriate. The "ia" suffix codes as AI/ML without being heavy-handed.
+  - ark (taken)
+  - menagerie (available, fun, expressive, model-zoo literal - but circus-y)
+  - inferia (infer + ia, subtle Burn/fire connection) - BUT sounds infernal/demonic, wrong vibe
+  - gallery (available, art collection, curated)
+  - vivarium (available, contained environment, obscure)
+  - **terrarium** - ✓ available, contained plant ecosystem, gentle/soft/cozy, pastel-friendly, 9 letters
+- **Status**: terrarium is the decision
+- **Rationale**: This is a user-facing tool so per naming gradient, gentleness matters. Inferia sounded too infernal/demonic (wrong for pastel-cute). Terrarium is a contained ecosystem metaphor (models living in their habitat) - semantic connection to "model zoo" isn't super clear but it's gentle, cozy, immediately recognizable, and has soft pastel-green vibes. A little greenhouse where your models live. Sometimes perfect semantic fit + perfect vibe is impossible; this optimizes for approachability.
 
 ## Execution Checklist
 
