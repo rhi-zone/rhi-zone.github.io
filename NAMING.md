@@ -99,8 +99,8 @@ Tracking potential project renames before crates.io publication.
   - patchwork, patch (taken)
   - **polymorphine** (from Noita transformation potion) - ✓ available, captures transformation/many forms, alchemical creative vibe, 11 letters
   - **manyfold** - ✓ available, multiple transformations/variations, mathematical feel, 8 letters, exotic but evocative
-- **Status**: polymorphine and manyfold both strong contenders
-- **Rationale**: Resin is fundamentally about transformation through composition. You build procedural primitives (Fields) and compose them into infinite variations. Polymorphine captures the alchemical transformation vibe perfectly - one substance becoming many forms (like Noita's potion). Manyfold is more mathematical/manifold-adjacent, emphasizing the "many variations from composition" aspect. Both work because they emphasize the core value: procedural generation through compositional transformation.
+- **Status**: polymorphine is preferred for creative core
+- **Rationale**: Resin is fundamentally about transformation through composition. You build procedural primitives (Fields) and compose them into infinite variations. Polymorphine captures the alchemical creative vibe perfectly - one substance becoming many forms (like Noita's potion). Manyfold is more mathematical/technical-sounding. For a creative/generative tool, polymorphine's alchemical playfulness fits better than manyfold's technical precision. Per layered naming framework: creative tools can be more expressive.
 
 ### ⚠️ Needs Rename (High Priority)
 
@@ -263,14 +263,40 @@ Tracking potential project renames before crates.io publication.
 
 ## Naming Principles
 
-From our ecosystem philosophy:
+### Layered Naming Framework (The Real Answer)
+
+After extensive exploration, we realized the key insight: **we need different naming strategies for different layers**.
+
+**Infrastructure/substrate layer** → semantic/system names:
+- These are conceptual operators, not brands
+- They need to be **boring names that become language**
+- Examples: normalize, rescribe, resurrect, concord, interconnect, reformer, portals
+- Like: serde, tokio, git, nix, unix, systemd
+- Goal: structural legibility, system semantics, technical primitives
+
+**User-facing/creative tools** → warm/branded names:
+- These can have identity, emotion, warmth
+- Can be cozy, playful, memorable
+- Examples: moonlet, habitat, playmate, zone, dew, inferia
+- Like: bubbletea, lipgloss, glow (Charmbracelet)
+- Goal: approachability, emotional attachment, community
+
+**Why this works:**
+- Charmbracelet builds a "craft shop" (everything cozy)
+- We're building a "nervous system" (substrate + surface)
+- Core layers need clarity; surface needs warmth
+- This is how healthy ecosystems actually work (Linux kernel vs terminal apps)
+
+**The litmus test:**
+Can you mentally model the system from the names alone? Infrastructure names should tell you what they DO. User tool names can be more expressive.
+
+### Legacy Principles (Still Valid)
 
 1. **Evocative over literal** - rescribe not "document-converter"
 2. **Domain-specific, not transformation-specific** - "prism" could describe half the ecosystem
 3. **Short and punchy** - Match serde/clap/anyhow aesthetic (3-6 letters ideal)
 4. **Pronounceable** - Avoid pronunciation ambiguity
 5. **Available** - Check crates.io before committing
-6. **Botanical preferred but not required** - Clarity trumps theme consistency
 
 ## Historical Context
 
@@ -287,7 +313,7 @@ From our ecosystem philosophy:
 **Keep External:**
 - **claude-code-hub** - Development meta-tooling
 
-### burn-models Renaming
+### burn-models → inferia
 
 - **Current**: burn-models (too tied to Burn framework name)
 - **Context**: Burn is the framework, this is the model zoo that uses it (like PyTorch vs diffusers/transformers)
@@ -297,7 +323,11 @@ From our ecosystem philosophy:
   - easyml, quickml, simpleai (available but maybe too simple-sounding)
   - modelkit (bland, two words conceptually)
   - foundry (not obviously ML-coded)
-- **Status**: Need better name before moving to org
+  - ark (symbolic, model-zoo semantics)
+  - menagerie (fun, expressive, model-zoo literal)
+  - **inferia** - infer + ia, subtle Burn/fire connection (inferno), clean, inference-semantic, 7 letters
+- **Status**: inferia is the decision
+- **Rationale**: Perfect blend of semantic clarity (inference) and subtle Burn framework connection (inferno → inferia). Clean, professional, framework-appropriate. The "ia" suffix codes as AI/ML without being heavy-handed.
 
 ## Execution Checklist
 
