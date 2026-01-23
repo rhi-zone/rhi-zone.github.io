@@ -106,6 +106,28 @@ Tracking potential project renames before crates.io publication.
 
 ### 🤔 Under Review
 
+#### **Lotus**
+- **Current**: Object store with scripting, MUD/MOO-like but generalized (in Flora monorepo)
+- **Issues**: Name conflict with existing `lotus` crate
+- **Key aspects**:
+  - Schemaless object store (intentionally flexible, not limited)
+  - Scriptable/programmable objects
+  - Persistent interactive world (MUD/MOO spirit)
+  - Any kind of object (notes, calendar, timers, game entities, whatever)
+  - Not progression-based, not goal-oriented - a place to inhabit
+  - Digital habitat: "a place you live in, not progress through"
+- **Alternatives considered**:
+  - freeform, looseleaf (only capture schemaless aspect)
+  - scriptbox, codex, vault (only capture programmable/storage aspect)
+  - realm, world, space (too generic)
+  - workshop, studio, lab (wrong vibe)
+  - activestore, livedb (corporate/technical, miss the living world aspect)
+  - colony (available but less evocative)
+  - **habitat** - ✓ available, digital habitat for persistent scriptable objects, "place you inhabit not progress through", captures MUD/MOO spirit without game-coding, ontology not objectives, 7 letters
+- **Requirements**: Should evoke persistent living world, programmable objects, schemaless flexibility, not database-coded or game-coded
+- **Status**: habitat perfectly captures the digital habitat philosophy
+- **Rationale**: Not a database (too static), not a game (too goal-driven), but a persistent environment where scriptable objects inhabit and interact - a computational world with memory, history, and emergence
+
 #### **Canopy**
 - **Current**: Universal UI client with control plane for any data source
 - **Issues**: Covering/view metaphor weak, botanical
