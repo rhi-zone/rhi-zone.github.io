@@ -266,12 +266,17 @@ moth, fern, wisp, rustle, flutter, murmur, velvet, down, shimmer, haze, glow, mo
 
 **Aesthetic references:**
 - Yaelokre "Harpy Hare" (small forest folk tales)
-- Hollow Knight (bugs in gentle ruins)
-- Pikmin (small scale, nature intimacy)
-- Ori (soft-shaded forest, gentle light)
-- Cozy grove (small island, gentle spirits)
+- Sable (pastel desert, soft art, gentle exploration)
+- Feather (peaceful bird flying, pastel skies, no objectives)
+- Ori (soft-shaded forest, gentle light, magical)
+- Journey (pastel desert, flowing cloth, calm)
+- Ghibli forests (soft light, magical, pastel)
 
-**The vibe:** Soft, hushed, intimate, whimsical-but-calm, nature as respite, permission to be small and gentle
+**Key insight:** Pastel + nature works! Pick elements that are ALREADY soft/pastel/fluffy:
+- ✅ sakura, petal, mist, moth, shimmer, wisp, dusk, dawn (inherently soft)
+- ❌ bark, timber, root, branch (too earthy/rugged)
+
+**The vibe:** Soft, hushed, intimate, whimsical-but-calm, gentle exploration, nature as respite, permission to be small and gentle. Pastel-magical-nature, not dark-wild-forest.
 
 ## Next Steps
 
