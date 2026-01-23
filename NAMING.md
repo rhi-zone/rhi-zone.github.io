@@ -181,12 +181,25 @@ Tracking potential project renames before crates.io publication.
   - ledger (implies history not config)
   - rc (taken), runcom (wrong concept - commands not config)
   - allrc, unirc, metarc, mainrc (all kinda jank)
-  - **typedrc** - ✓ available, type-safe rc file (vs Nix untyped), unified config tradition, 7 letters, emphasizes key value prop - BUT cognitively clear, emotionally cold
-  - **nursery** (original name) - emotionally warm, semantically vague
+#### **Nursery → myenv**
+- **Current**: Ecosystem orchestrator via rhizome.toml manifests
+- **Issues**: Taken on crates.io, botanical
+- **Key aspects**:
+  - Tool/package management (stow/Nix replacement)
+  - Type-safe schema-validated configs (vs Nix's untyped configs)
+  - All configs in one file (nursery.toml)
+  - Central gathering place for tool configuration
+  - Dehydrated configs that expand/hydrate into full setup
+- **Alternatives considered**:
+  - typedrc - ✓ available, type-safe rc file, 7 letters - BUT cognitively clear, emotionally cold (infrastructure vibes)
+  - nursery (original) - emotionally warm, semantically vague (what does it do?)
+  - unirc - unified rc, middle ground but felt "jank"
+  - myrc - personal rc file - BUT awkward, creates unwanted "my-" pattern with antiquated "-rc"
   - saferc (potential safer-compiler collision)
-- **Requirements**: Should evoke unified config management, type safety, not commands/history
-- **Status**: Real tension between clarity and warmth for user-facing tool
-- **Rationale**: This is a user-facing tool (you interact with it directly) so per naming gradient, gentleness matters. But there's genuine tension: typedrc = cognitively clear but cold (infrastructure vibes), nursery = emotionally warm but semantically vague (what does it DO?). The core value proposition is type-safe unified config management. Typedrc emphasizes the key differentiator (typed) while connecting to rc file tradition. Nursery conveys care/tending but doesn't say "config management." Need to decide: does warmth or clarity win for user-facing config tool? Or find third option that's both warm AND clear?
+  - **myenv** - ✓ available, my environment/setup, 5 letters
+- **Requirements**: Should evoke unified config management, be both warm AND clear
+- **Status**: myenv is the decision
+- **Rationale**: This is a user-facing tool so per naming gradient, warmth matters. Real tension: typedrc = clear but cold, nursery = warm but vague. **myenv** solves both: "my" = personal/warm/approachable, "env" = environment/setup/configuration (modern, clear). Precedent: direnv (environment management tool that's broader than just env vars - it's about whole dev environment setup). The "-rc" suffix is antiquated Unix tradition; "env" is modern. Short (5 letters), warm, and clear about what it does: managing your unified development environment setup.
 
 #### **Lotus → habitat**
 - **Current**: Object store with scripting, MUD/MOO-like but generalized (in Flora/zone monorepo)
