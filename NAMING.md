@@ -249,10 +249,10 @@ Tracking potential project renames before crates.io publication.
 - **Status**: playmate is leading candidate (Playboy association not a concern in game dev context)
 - **Rationale**: Frond (leaf) has zero connection to game design primitives. Playmate works: it's your companion for play/game development. The library provides reusable patterns (state machines, controllers) so you don't reinvent them every project. Friendly, approachable tone fits the itch.io indie game dev audience. The Playboy magazine association isn't a concern in game development context where "play" is the primary semantic anchor.
 
-#### **Cambium**
+#### **Cambium → paraphase**
 - **Current**: Pipeline orchestrator for data conversion
-- **Issues**: Growth layer → pipelines connection unclear, obscure
-- **Key aspects**: Type-driven routing, general data transformation (not just preservation - supports archival, composition, stream manipulation, metadata ops), data → other data
+- **Issues**: Growth layer → pipelines connection unclear, obscure, botanical
+- **Key aspects**: Type-driven routing/pathfinding, general data transformation (not just preservation - supports archival, composition, stream manipulation, metadata ops), data → other data. Fundamentally: you define start and end, it figures out the path.
 - **Alternatives considered**:
   - pipeline, orchestrate, dataflow, router, dispatch (too generic or ETL-coded)
   - alembic (squatted), crucible, refinery, distill (taken)
@@ -261,10 +261,13 @@ Tracking potential project renames before crates.io publication.
   - forge, mold, craft, reshape (taken or too general)
   - kiln (taken, too industrial/hot)
   - deformer (negative connotation)
-  - **reformer** - ✓ available, re-forming data into new formats, clear transformation, 8 letters, neutral tone
-- **Requirements**: Should evoke data transformation without being too generic
-- **Status**: reformer is strong leading candidate
-- **Rationale**: Cambium (growth layer) doesn't connect to pipeline orchestration. Reformer is clear: re-forming data from one format into another. Type-driven routing means the data types determine how reformation happens. Not too generic (unlike "pipeline" or "transform") because it emphasizes the format conversion aspect specifically. Neutral tone works for a tool that handles archival, composition, stream manipulation - general data transformation without being ETL-coded.
+  - reformer (available, clear transformation, neutral) - BUT too mechanical/industrial, one metaphoric step too factory-coded
+  - switchboard (perfect routing metaphor, telephone operator finding paths) - taken
+  - molding-adjacent (softer transformation) - but needed to describe process not hands-on craft
+  - **paraphase** - ✓ available, para (alongside/parallel) + phase (state transformation), 9 letters, gentle phase transition metaphor
+- **Requirements**: Should evoke data format transformation/routing that's clear but not mechanical/industrial
+- **Status**: paraphase is the decision
+- **Rationale**: This is infrastructure so per naming gradient, semantic clarity is appropriate. The fundamental insight: Cambium does type-driven routing/pathfinding between data formats - you define start and end, it figures out the middle path. "Reformer" was too mechanical/factory-coded (industrial reforming). "Paraphase" = para (alongside/parallel) + phase (state/format transformation). Captures the transformation aspect through gentler metaphor of phase transitions (like matter changing states) rather than mechanical reforming. Phase transitions in nature are softer, more fluid than industrial processes. The "para-" prefix suggests parallel formats/phases being bridged. Clear enough for infrastructure (compound neologism is okay for substrate layer), softer than reformer, available. Potential weakness: emphasizes transformation more than routing/pathfinding aspect, but the phase transition metaphor is natural and approachable.
 
 #### **Canopy**
 - **Current**: Universal UI client with control plane
