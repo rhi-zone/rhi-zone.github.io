@@ -158,7 +158,7 @@ Other projects that follow the unification pattern:
 
 | Project | Domain | Unification |
 |---------|--------|-------------|
-| [sketchpad](https://github.com/pterror/sketchpad) | ML inference | Pure Rust ML unifies backends (CPU, GPU, WebGPU) |
+| [sketchpad](https://github.com/rhi-zone/sketchpad) | ML inference | Pure Rust ML unifies backends (CPU, GPU, WebGPU) |
 | [ooxml](https://github.com/pterror/ooxml) | Office formats | Structural parsing unifies docx/xlsx/pptx handling |
 
 ## Special Thanks
