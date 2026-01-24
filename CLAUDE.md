@@ -12,59 +12,59 @@ This is the organization-level documentation site for the rhi ecosystem.
 
 | Project | Path | Description |
 |---------|------|-------------|
-| **Normalize** | `~/git/normalize` | Structural code intelligence |
+| **Normalize** | `~/git/rhizone/normalize` | Structural code intelligence |
 
 **Generation**
 
 | Project | Path | Description |
 |---------|------|-------------|
-| **Unshape** | `~/git/unshape` | Constructive media generation |
-| **Dew** | `~/git/dew` | Minimal expression language |
+| **Unshape** | `~/git/rhizone/unshape` | Constructive media generation |
+| **Dew** | `~/git/rhizone/dew` | Minimal expression language |
 
 **Games & Worlds**
 
 | Project | Path | Description |
 |---------|------|-------------|
-| **Playmate** | `~/git/playmate` | Game design primitives library |
-| **Interconnect** | `~/git/interconnect` | Federation protocol for persistent worlds |
+| **Playmate** | `~/git/rhizone/playmate` | Game design primitives library |
+| **Interconnect** | `~/git/rhizone/interconnect` | Federation protocol for persistent worlds |
 
 **Data Transformation**
 
 | Project | Path | Description |
 |---------|------|-------------|
-| **Paraphase** | `~/git/paraphase` | Pipeline orchestrator for data conversion |
-| **rescribe** | `~/git/rescribe` | Lossless document conversion library |
-| **Concord** | `~/git/concord` | API bindings IR and codegen |
-| **Resurrect** | `~/git/resurrect` | Legacy software lifting framework |
+| **Paraphase** | `~/git/rhizone/paraphase` | Pipeline orchestrator for data conversion |
+| **rescribe** | `~/git/rhizone/rescribe` | Lossless document conversion library |
+| **Concord** | `~/git/rhizone/concord` | API bindings IR and codegen |
+| **Resurrect** | `~/git/rhizone/resurrect` | Legacy software lifting framework |
 
 **Runtime & Interface**
 
 | Project | Path | Description |
 |---------|------|-------------|
-| **Moonlet** | `~/git/moonlet` | Lua runtime with plugin system |
-| **Dusklight** | `~/git/dusklight` | Universal UI client with control plane |
+| **Moonlet** | `~/git/rhizone/moonlet` | Lua runtime with plugin system |
+| **Dusklight** | `~/git/rhizone/dusklight` | Universal UI client with control plane |
 
 **Infrastructure**
 
 | Project | Path | Description |
 |---------|------|-------------|
-| **Myenv** | `~/git/myenv` | Ecosystem orchestrator |
-| **Portals** | `~/git/portals` | Standard library interfaces |
-| **Zone** | `~/git/zone` | Lua-based tools, scaffolds, and orchestration |
-| **server-less** | `~/git/server-less` | Derive macros: one impl → many protocols |
+| **Myenv** | `~/git/rhizone/myenv` | Ecosystem orchestrator |
+| **Portals** | `~/git/rhizone/portals` | Standard library interfaces |
+| **Zone** | `~/git/rhizone/zone` | Lua-based tools, scaffolds, and orchestration |
+| **server-less** | `~/git/rhizone/server-less` | Derive macros: one impl → many protocols |
 
 ### Org Resources
 
 | Resource | Path | Description |
 |----------|------|-------------|
-| **.github** | `~/git/rhi-zone-github` | Org-wide GitHub config, templates |
-| **Docs site** | `~/git/rhi-zone-github-io` | This repo - org documentation |
+| **.github** | `~/git/rhizone/profile` | Org-wide GitHub config, templates |
+| **Docs site** | `~/git/rhizone/github-io` | This repo - org documentation |
 
 ### External / Related Repos
 
 | Project | Path | Description |
 |---------|------|-------------|
-| **sketchpad** | `~/git/sketchpad` | Stable Diffusion in pure Rust (burn) |
+| **sketchpad** | `~/git/rhizone/sketchpad` | Stable Diffusion in pure Rust (burn) |
 | **ooxml** | `~/git/ooxml` | Office Open XML library for Rust |
 | **claude-code-hub** | `~/git/claude-code-hub` | Orchestration hub for Claude Code agents |
 
@@ -94,9 +94,9 @@ When projects change:
 Template files are in `scaffolding/` directory. Copy and replace placeholders:
 
 ```bash
-cp -r scaffolding/. ~/git/new-project/
-sed -i 's/PROJECT_NAME/new-project/g' ~/git/new-project/flake.nix ~/git/new-project/docs/package.json
-sed -i 's/PROJECT_DESCRIPTION/Description here/g' ~/git/new-project/flake.nix
+cp -r scaffolding/. ~/git/rhizone/new-project/
+sed -i 's/PROJECT_NAME/new-project/g' ~/git/rhizone/new-project/flake.nix ~/git/rhizone/new-project/docs/package.json
+sed -i 's/PROJECT_DESCRIPTION/Description here/g' ~/git/rhizone/new-project/flake.nix
 ```
 
 **Included templates:**
@@ -142,8 +142,8 @@ This ensures users can navigate between project-specific docs and the ecosystem 
 
 **Normalize** for structural code/doc exploration:
 ```bash
-~/git/normalize/target/debug/normalize view <file>     # structural outline with line numbers
-~/git/normalize/target/debug/normalize view <dir>      # directory structure
+~/git/rhizone/normalize/target/debug/normalize view <file>     # structural outline with line numbers
+~/git/rhizone/normalize/target/debug/normalize view <dir>      # directory structure
 ```
 
 Especially useful for large files - get the structure first, then read specific sections.
