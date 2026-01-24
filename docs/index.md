@@ -3,8 +3,8 @@ layout: home
 
 hero:
   name: "rhi"
-  text: "Tools for programmable creativity"
-  tagline: "Code intelligence, persistent worlds, constructive media, and more."
+  text: "A glue layer for computers."
+  tagline: "Removing boundaries between you and your computer."
   actions:
     - theme: brand
       text: Projects

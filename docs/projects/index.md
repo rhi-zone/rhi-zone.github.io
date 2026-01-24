@@ -1,6 +1,6 @@
 # Projects
 
-rhi is an ecosystem of tools for programmable creativity—software that treats code, worlds, and media as malleable structures rather than opaque text or binary blobs.
+rhi is a glue layer for computers—removing boundaries between you and what your computer can do. Each project makes a different domain approachable.
 
 | Project | Description | Layer | Domain |
 |---------|-------------|-------|--------|

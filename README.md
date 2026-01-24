@@ -1,6 +1,6 @@
 # rhi
 
-Tools for programmable creativity.
+A glue layer for computers. Removing boundaries between you and your computer.
 
 **https://rhi.zone**
 
