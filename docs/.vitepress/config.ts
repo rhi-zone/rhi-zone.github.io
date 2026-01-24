@@ -15,30 +15,30 @@ export default withMermaid(
           text: 'Docs',
           items: [
             { text: 'Code Intelligence', items: [
-              { text: 'Normalize', link: 'https://rhi.zone/normalize/' },
+              { text: 'Normalize', link: 'https://docs.rhi.zone/normalize/' },
             ]},
             { text: 'Generation', items: [
-              { text: 'Unshape', link: 'https://rhi.zone/unshape/' },
-              { text: 'Dew', link: 'https://rhi.zone/dew/' },
+              { text: 'Unshape', link: 'https://docs.rhi.zone/unshape/' },
+              { text: 'Dew', link: 'https://docs.rhi.zone/dew/' },
             ]},
             { text: 'Games & Worlds', items: [
-              { text: 'Playmate', link: 'https://rhi.zone/playmate/' },
-              { text: 'Interconnect', link: 'https://rhi.zone/interconnect/' },
+              { text: 'Playmate', link: 'https://docs.rhi.zone/playmate/' },
+              { text: 'Interconnect', link: 'https://docs.rhi.zone/interconnect/' },
             ]},
             { text: 'Data Transformation', items: [
-              { text: 'Paraphase', link: 'https://rhi.zone/paraphase/' },
-              { text: 'Concord', link: 'https://rhi.zone/concord/' },
-              { text: 'Resurrect', link: 'https://rhi.zone/resurrect/' },
+              { text: 'Paraphase', link: 'https://docs.rhi.zone/paraphase/' },
+              { text: 'Concord', link: 'https://docs.rhi.zone/concord/' },
+              { text: 'Resurrect', link: 'https://docs.rhi.zone/resurrect/' },
             ]},
             { text: 'Runtime & Interface', items: [
-              { text: 'Moonlet', link: 'https://rhi.zone/moonlet/' },
-              { text: 'Dusklight', link: 'https://rhi.zone/dusklight/' },
+              { text: 'Moonlet', link: 'https://docs.rhi.zone/moonlet/' },
+              { text: 'Dusklight', link: 'https://docs.rhi.zone/dusklight/' },
             ]},
             { text: 'Infrastructure', items: [
-              { text: 'Myenv', link: 'https://rhi.zone/myenv/' },
-              { text: 'Portals', link: 'https://rhi.zone/portals/' },
-              { text: 'Zone', link: 'https://rhi.zone/zone/' },
-              { text: 'Server-Less', link: 'https://rhi.zone/server-less/' },
+              { text: 'Myenv', link: 'https://docs.rhi.zone/myenv/' },
+              { text: 'Portals', link: 'https://docs.rhi.zone/portals/' },
+              { text: 'Zone', link: 'https://docs.rhi.zone/zone/' },
+              { text: 'Server-Less', link: 'https://docs.rhi.zone/server-less/' },
             ]},
           ]
         },
