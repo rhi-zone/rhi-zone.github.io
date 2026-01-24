@@ -30,28 +30,28 @@ This is a design heuristic, not dogma. We don't aestheticize infrastructure by f
 
 | Project | New Name | Rationale |
 |---------|----------|-----------|
-| Moss | **normalize** | Normalizing fragmentation across dev tools (98 languages → unified AST, sessions, packages, tools) |
+| Normalize | **normalize** | Normalizing fragmentation across dev tools (98 languages → unified AST, sessions, packages, tools) |
 | - | **rescribe** | Re-scribe = lossless document conversion, clear verb |
-| Siphon | **resurrect** | Bringing dead software (Flash, applets) back to life, immediately clear |
-| Liana | **concord** | Establishing harmony/agreement between code and external APIs, first-contact collaborative vibe |
-| Hypha | **interconnect** | Federation + collaboration, plain English for connecting distributed systems |
-| Cambium | **paraphase** | para+phase, intentionally hijacking "paraphrase" - re-expressing data in different formats while preserving meaning |
-| Pith | **portals** | Entry points to capabilities, XDG Desktop Portal precedent, humble not authoritative |
+| Resurrect | **resurrect** | Bringing dead software (Flash, applets) back to life, immediately clear |
+| Concord | **concord** | Establishing harmony/agreement between code and external APIs, first-contact collaborative vibe |
+| Interconnect | **interconnect** | Federation + collaboration, plain English for connecting distributed systems |
+| Paraphase | **paraphase** | para+phase, intentionally hijacking "paraphrase" - re-expressing data in different formats while preserving meaning |
+| Portals | **portals** | Entry points to capabilities, XDG Desktop Portal precedent, humble not authoritative |
 
 ### User-Facing Layer (Warm/Approachable)
 
 | Project | New Name | Rationale |
 |---------|----------|-----------|
-| Canopy | **dusklight** | THE foundational interface - visibility without intensity, gentle twilight exploration |
-| Spore | **moonlet** | Small moon (Lua connection), batteries-included, friendly approachable runtime |
+| Dusklight | **dusklight** | THE foundational interface - visibility without intensity, gentle twilight exploration |
+| Moonlet | **moonlet** | Small moon (Lua connection), batteries-included, friendly approachable runtime |
 | Lotus | **habitat** | Digital habitat for persistent scriptable objects, place you inhabit not progress through |
-| Frond | **playmate** | Companion for game development patterns, friendly itch.io vibe |
-| Flora | **zone** | Matches rhi.zone domain, where integrated projects live |
+| Playmate | **playmate** | Companion for game development patterns, friendly itch.io vibe |
+| Zone | **zone** | Matches rhi.zone domain, where integrated projects live |
 | - | **dew** | Gentle expression language, morning moisture, kept from original |
-| burn-models | **sketchpad** | Gentle creative sketching space, intentional expectation management (sketch = rough/imperfect), follows -pad pattern (mikupad) |
-| Nursery | **myenv** | Personal unified environment setup, warm (my) + clear (env), direnv precedent |
-| Resin | **unshape** | Liberating creative composition, releasing from fixed forms, Houdini/Pure Data/modular synth context |
-| Trellis | **server-less** | Literal - one impl → many protocols, kept from previous decision |
+| sketchpad | **sketchpad** | Gentle creative sketching space, intentional expectation management (sketch = rough/imperfect), follows -pad pattern (mikupad) |
+| Myenv | **myenv** | Personal unified environment setup, warm (my) + clear (env), direnv precedent |
+| Unshape | **unshape** | Liberating creative composition, releasing from fixed forms, Houdini/Pure Data/modular synth context |
+| Server-Less | **server-less** | Literal - one impl → many protocols, kept from previous decision |
 
 ## Key Naming Decisions Explained
 

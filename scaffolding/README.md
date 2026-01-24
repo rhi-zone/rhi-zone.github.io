@@ -1,6 +1,6 @@
 # Scaffolding Templates
 
-Standard files for new Rust monorepos in the Rhizome ecosystem.
+Standard files for new Rust monorepos in the rhi ecosystem.
 
 ## Usage
 
@@ -31,7 +31,7 @@ sed -i 's/PROJECT_NAME/your-project/g' ~/git/new-project/docs/package.json
 
 ## Placeholders
 
-- `PROJECT_NAME` - lowercase project name (e.g., `hypha`)
+- `PROJECT_NAME` - lowercase project name (e.g., `interconnect`)
 - `PROJECT_DESCRIPTION` - short description
 
 ## Additional Setup

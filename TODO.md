@@ -9,12 +9,12 @@ Tracking issues for cross-project work.
 Migrate from "rhizome" branding to "rhi" to match rhi.zone domain:
 1. **Namespace audit**: Check crates.io availability for all project names
    - Identify which projects need prefixes (namespace collision)
-   - Decide: rescribe-style (no prefix) vs moss-style (needs prefix)
-2. **GitHub org rename**: rhizome-lab → rhi-zone
+   - Decide: rescribe-style (no prefix) vs normalize-style (needs prefix)
+2. **GitHub org rename**: rhi-zone → rhi-zone
    - Note: `rhi` org is taken on GitHub, so we'd use `rhi-zone`
    - Update all git remotes across ecosystem repos
    - Can script with gh cli + git remote set-url
-3. **Crate prefix migration**: rhizome-* → rhi-*
+3. **Crate prefix migration**: rhi-* → rhi-*
    - Update all Cargo.toml workspace members
    - Update all internal crate references
    - Update imports in all projects
@@ -38,9 +38,9 @@ Migrate from "rhizome" branding to "rhi" to match rhi.zone domain:
 ### Subdomain Structure
 
 **Project-specific docs:**
-- `moss.rhi.zone` → Moss documentation
-- `spore.rhi.zone` → Spore documentation
-- `resin.rhi.zone` → Resin documentation
+- `normalize.rhi.zone` → Normalize documentation
+- `moonlet.rhi.zone` → Moonlet documentation
+- `unshape.rhi.zone` → Unshape documentation
 - etc. (makes each project feel independent under unified brand)
 
 **Functional subdomains:**
@@ -54,15 +54,15 @@ Migrate from "rhizome" branding to "rhi" to match rhi.zone domain:
 Landing page options:
 - Interactive project switcher with ecosystem visualization
 - Live demos of each project in action
-- Playground: Try Dew expressions, Moss queries, Resin generation in-browser
+- Playground: Try Dew expressions, Normalize queries, Unshape generation in-browser
 - Status dashboard: Build status, release versions across projects
 
 ### Short URLs
 
 Pattern: `rhi.zone/{project-initial}/{topic}`
-- `rhi.zone/m/view` → Moss view command docs
-- `rhi.zone/s/plugin` → Spore plugin docs
-- `rhi.zone/r/audio` → Resin audio docs
+- `rhi.zone/m/view` → Normalize view command docs
+- `rhi.zone/s/plugin` → Moonlet plugin docs
+- `rhi.zone/r/audio` → Unshape audio docs
 - Short, memorable links for common docs pages
 
 ### TODO
@@ -75,19 +75,19 @@ Pattern: `rhi.zone/{project-initial}/{topic}`
 - [ ] Build landing page
 - [ ] Create playground infrastructure
 
-## Nursery Integration: `--schema` Support
+## Myenv Integration: `--schema` Support
 
-Add `--schema` flag to CLI tools for Nursery integration per [tool-integration.md](https://github.com/rhizome-lab/nursery/blob/master/docs/tool-integration.md).
+Add `--schema` flag to CLI tools for Myenv integration per [tool-integration.md](https://github.com/rhi-zone/myenv/blob/master/docs/tool-integration.md).
 
 When invoked with `--schema`, the tool prints a JSON Schema describing its configuration and exits.
 
 ### Projects with CLIs
 
-- [x] **moss** - Code intelligence CLI
+- [x] **normalize** - Code intelligence CLI
 - [ ] **lotus** - World runtime CLI
-- [ ] **cambium** - Pipeline orchestrator (no CLI yet)
+- [ ] **paraphase** - Pipeline orchestrator (no CLI yet)
 - [ ] **dew** - Expression language (no CLI yet)
-- [ ] **nursery** - Ecosystem orchestrator (has CLI, needs schema)
+- [ ] **myenv** - Ecosystem orchestrator (has CLI, needs schema)
 
 ### Implementation
 

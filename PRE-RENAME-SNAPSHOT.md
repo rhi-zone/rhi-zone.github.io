@@ -5,38 +5,38 @@ Snapshot taken before rhi ecosystem rename on 2026-01-24.
 ## Ecosystem Repos
 
 ### Code Intelligence
-- **moss** → normalize
+- **normalize** → normalize
 
 ### Generation
-- **resin** → unshape
+- **unshape** → unshape
 - **dew** → dew (unchanged)
 
 ### Games & Worlds
-- **frond** → playmate
-- **hypha** → interconnect
+- **playmate** → playmate
+- **interconnect** → interconnect
 
 ### Data Transformation
-- **cambium** → paraphase
+- **paraphase** → paraphase
 - **rescribe** → rescribe (unchanged)
-- **liana** → concord
-- **siphon** → resurrect
+- **concord** → concord
+- **resurrect** → resurrect
 
 ### Runtime & Interface
-- **spore** → moonlet
-- **canopy** → dusklight
+- **moonlet** → moonlet
+- **dusklight** → dusklight
 
 ### Infrastructure
-- **nursery** → myenv
-- **pith** → portals
-- **flora** → zone
-- **trellis** → server-less (unchanged - but will check if this is correct)
+- **myenv** → myenv
+- **portals** → portals
+- **zone** → zone
+- **server-less** → server-less (unchanged - but will check if this is correct)
 
 ### Org Resources
-- **rhizome-lab-github** → rhi-zone-github (or similar)
-- **rhizome-lab-github-io** → rhi-docs (or similar)
+- **rhi-zone-github** → rhi-zone-github (or similar)
+- **rhi-zone-github-io** → rhi-docs (or similar)
 
 ### External (to be transferred in)
-- **burn-models** → sketchpad (currently under pterror org)
+- **sketchpad** → sketchpad (currently under pterror org)
 
 ### External (remain external)
 - **ooxml** (infrastructure dependency)
@@ -44,18 +44,18 @@ Snapshot taken before rhi ecosystem rename on 2026-01-24.
 
 ## Current Org Status
 
-- **rhizome-lab**: moss, resin, dew, frond, hypha, cambium, rescribe, liana, siphon, spore, canopy, nursery, pith, flora, trellis, rhizome-lab-github, rhizome-lab-github-io
-- **pterror**: burn-models (will be transferred)
+- **rhi-zone**: normalize, unshape, dew, playmate, interconnect, paraphase, rescribe, concord, resurrect, moonlet, dusklight, myenv, portals, zone, server-less, rhi-zone-github, rhi-zone-github-io
+- **pterror**: sketchpad (will be transferred)
 
 ## Org Migration
 
-- **rhizome-lab** org → **rhi-zone** org
+- **rhi-zone** org → **rhi-zone** org
 
 ## Crate Naming
 
 All crates will use `rhi-` prefix:
-- `rhizome-moss-core` → `rhi-normalize-core`
-- `rhizome-spore-core` → `rhi-moonlet-core`
+- `rhi-normalize-core` → `rhi-normalize-core`
+- `rhi-moonlet-core` → `rhi-moonlet-core`
 - etc.
 
 ## Git Tags

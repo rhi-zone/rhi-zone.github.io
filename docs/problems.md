@@ -126,7 +126,7 @@ What form would it take? A game? A website? A creative tool? A chat server?
 
 Wrong question. That's the "one paradigm" trap. It doesn't have to be one form. It doesn't have to be one tool. It doesn't even have to be a tool at all.
 
-It's a philosophy. A way of thinking about how software should work. The Rhizome tools are one expression of it - but someone else could build completely different things that embody the same values. The philosophy is the thing. The tools are just what happens when you try to live it.
+It's a philosophy. A way of thinking about how software should work. The rhi tools are one expression of it - but someone else could build completely different things that embody the same values. The philosophy is the thing. The tools are just what happens when you try to live it.
 
 ## Why Isn't This Obvious?
 
@@ -179,24 +179,24 @@ Some tools get this right. JSFiddle, tldraw, Cloud9, HackMD, VS Code Live Share,
 
 What can be done? The technology is "solved" - CRDTs exist (Yjs, Automerge), real-time sync is a library not a research problem. But "solved" means "exists as a library." How many people know CRDTs are a thing? How many know Yjs exists? Can find it? Can integrate it? The technology being solved doesn't mean the problem is solved. Same pattern - capability exists, friction prevents use. "Just use Yjs" is like "just use tailscale" - obvious once you know, invisible if you don't.
 
-For Rhizome, there's no "foundation" to add collaboration to yet - just pieces. So it's less about pivoting and more about not closing doors: web-based where possible (share a link is free), CRDT-friendly data structures, local-first but syncable by design, don't assume single-user. Keep the door open instead of accidentally building walls.
+For rhi, there's no "foundation" to add collaboration to yet - just pieces. So it's less about pivoting and more about not closing doors: web-based where possible (share a link is free), CRDT-friendly data structures, local-first but syncable by design, don't assume single-user. Keep the door open instead of accidentally building walls.
 
-## Where Rhizome Actually Is
+## Where rhi Actually Is
 
 Honest assessment.
 
 **What exists: projects**
 
-Moss, Resin, Cambium, Spore, Liana, etc. But calling these "foundations" or "infrastructure" implies other things build on them. Do they? These are tools. Projects. Experiments. Things made while thinking about these problems.
+Normalize, Unshape, Paraphase, Moonlet, Concord, etc. But calling these "foundations" or "infrastructure" implies other things build on them. Do they? These are tools. Projects. Experiments. Things made while thinking about these problems.
 
-- Moss: code intelligence tool
-- Resin: procgen primitives
-- Spore: Lua runtime
-- Cambium: conversion pipelines
+- Normalize: code intelligence tool
+- Unshape: procgen primitives
+- Moonlet: Lua runtime
+- Paraphase: conversion pipelines
 
 Useful? Sometimes. Working? Mostly. They're libraries, not frameworks - you call them, they don't impose structure.
 
-Coherent in *philosophy*, not in requiring you to use everything together. "Use Moss and Resin and Spore or else" would be exactly the lock-in we criticized. Each project should be useful on its own, composable with non-Rhizome things. The coherence is in the values they embody, not in forcing adoption of the whole stack. That's the philosophy applied to itself.
+Coherent in *philosophy*, not in requiring you to use everything together. "Use Normalize and Unshape and Moonlet or else" would be exactly the lock-in we criticized. Each project should be useful on its own, composable with non-rhi things. The coherence is in the values they embody, not in forcing adoption of the whole stack. That's the philosophy applied to itself.
 
 **What doesn't exist: the things that help**
 
@@ -211,7 +211,7 @@ We have sketches. We don't have a house. We don't even have plumbing - just draw
 
 The projects exist. They embody the philosophy (sometimes). But they're not infrastructure anyone builds on. They're not steps toward a destination - they're explorations in a direction. Maybe some of them lead somewhere. Maybe not.
 
-This is honest. Not pessimistic - exploration matters. But not pretending that Moss solves loneliness or Resin makes creation fun. They're things someone made while thinking about these problems. Not solutions. Not even foundations. Just... work.
+This is honest. Not pessimistic - exploration matters. But not pretending that Normalize solves loneliness or Unshape makes creation fun. They're things someone made while thinking about these problems. Not solutions. Not even foundations. Just... work.
 
 ## What Would "Not Making It Worse" Look Like?
 

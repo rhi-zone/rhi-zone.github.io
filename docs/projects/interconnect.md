@@ -1,8 +1,8 @@
-# Hypha
+# Interconnect
 
 **Federation protocol for persistent worlds.**
 
-Hypha enables Lotus servers to form interconnected networks where players can travel between worlds owned by different authorities.
+Interconnect enables Lotus servers to form interconnected networks where players can travel between worlds owned by different authorities.
 
 ## Key Features
 
@@ -19,7 +19,7 @@ Traditional federation (like Matrix) merges state from multiple servers. This cr
 - History rewriting
 - Split-brain attacks
 
-Hypha avoids these by using single-authority ownership. When you move between worlds, you disconnect from Server A and connect to Server B.
+Interconnect avoids these by using single-authority ownership. When you move between worlds, you disconnect from Server A and connect to Server B.
 
 ## Ghost Mode
 
@@ -31,5 +31,5 @@ When authority connection is lost:
 
 ## Links
 
-- [GitHub](https://github.com/rhizome-lab/hypha)
-- [Documentation](https://rhizome-lab.github.io/hypha/)
+- [GitHub](https://github.com/rhi-zone/interconnect)
+- [Documentation](https://rhi.zone/interconnect/)

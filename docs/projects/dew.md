@@ -21,5 +21,5 @@ Dew is a domain-specific expression language designed for procedural generation 
 
 ## Links
 
-- [GitHub](https://github.com/rhizome-lab/dew)
-- [Documentation](https://rhizome-lab.github.io/dew/)
+- [GitHub](https://github.com/rhi-zone/dew)
+- [Documentation](https://rhi.zone/dew/)

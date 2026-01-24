@@ -1,6 +1,6 @@
 # Contributing
 
-Guidelines for contributing to Rhizome projects.
+Guidelines for contributing to rhi projects.
 
 ## Development Setup
 
@@ -9,7 +9,7 @@ Guidelines for contributing to Rhizome projects.
 Most projects need Rust and/or Bun:
 
 ```bash
-# Rust projects (Moss, Resin)
+# Rust projects (Normalize, Unshape)
 cargo build
 cargo test
 
@@ -93,13 +93,13 @@ When adding features, update relevant documentation. Prefer updating existing do
 
 ## Project-Specific Guidelines
 
-- **Moss**: See `CLAUDE.md` for detailed behavioral rules and design philosophy
+- **Normalize**: See `CLAUDE.md` for detailed behavioral rules and design philosophy
 - **Lotus**: Check `docs/development.md` for build instructions
-- **Resin**: See `docs/philosophy.md` for design principles
+- **Unshape**: See `docs/philosophy.md` for design principles
 - **Sap**: Expression language; see crate docs
-- **Liana**: API bindings; see `liana-core` for IR types
-- **Cambium**: See `docs/philosophy.md` for pipeline design
-- **Canopy**: See `CLAUDE.md` for UI design principles
+- **Concord**: API bindings; see `concord-core` for IR types
+- **Paraphase**: See `docs/philosophy.md` for pipeline design
+- **Dusklight**: See `CLAUDE.md` for UI design principles
 
 ## Questions?
 

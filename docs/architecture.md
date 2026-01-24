@@ -1,13 +1,13 @@
 # Architecture Overview
 
-How Rhizome projects are structured and how they relate.
+How rhi projects are structured and how they relate.
 
 ## Project Landscape
 
 ```mermaid
 graph TB
     subgraph "Code Intelligence"
-        M[Moss]
+        M[Normalize]
         M --> |view| AST[AST Navigation]
         M --> |edit| SE[Structural Editing]
         M --> |analyze| AN[Code Analysis]
@@ -21,7 +21,7 @@ graph TB
     end
 
     subgraph "Media Generation"
-        R[Resin]
+        R[Unshape]
         R --> MESH[Meshes]
         R --> AUD[Audio]
         R --> TEX[Textures]
@@ -30,7 +30,7 @@ graph TB
     end
 ```
 
-## Moss Architecture
+## Normalize Architecture
 
 Structural code intelligence with three primitives:
 
@@ -68,7 +68,7 @@ Key components:
 - **Grammar Loader**: Dynamic `.so` loading for 98 tree-sitter grammars
 - **Skeleton Extractor**: AST → structured output (signatures, dependencies, calls)
 - **File Index**: SQLite symbol/call graph with background daemon
-- **Shadow Git**: Hunk-level edit tracking in `.moss/.git`
+- **Shadow Git**: Hunk-level edit tracking in `.normalize/.git`
 
 ## Lotus Architecture
 
@@ -111,7 +111,7 @@ Key components:
 - **Capability System**: Fine-grained permissions per entity
 - **JSON-RPC**: Headless core, any frontend can connect
 
-## Resin Architecture
+## Unshape Architecture
 
 Constructive media generation with lazy evaluation:
 

@@ -1,8 +1,8 @@
-# Canopy
+# Dusklight
 
 **Universal UI client with control plane.**
 
-Canopy is an infinitely configurable UI for viewing, mutating, and controlling data—static files, network streams, video, audio, binary formats, and more.
+Dusklight is an infinitely configurable UI for viewing, mutating, and controlling data—static files, network streams, video, audio, binary formats, and more.
 
 ## Key Features
 
@@ -17,19 +17,19 @@ Canopy is an infinitely configurable UI for viewing, mutating, and controlling d
 - **Log viewers and debuggers** - View and interact with running systems
 - **API explorers** - Inspect and trigger endpoints
 - **Stream monitors** - Real-time data visualization
-- **Project hubs** - Unified dashboard for Rhizome workflows
+- **Project hubs** - Unified dashboard for rhi workflows
 - **Binary inspectors** - Format-agnostic data exploration
 
 ## Project Hub
 
-For Rhizome projects, Canopy becomes the unified dashboard:
+For rhi projects, Dusklight becomes the unified dashboard:
 
 - View Lotus world state, trigger actions
-- Monitor Siphon extraction progress
-- Inspect Cambium pipeline status
+- Monitor Resurrect extraction progress
+- Inspect Paraphase pipeline status
 - Control any data-producing system
 
 ## Links
 
-- [GitHub](https://github.com/rhizome-lab/canopy)
-- [Documentation](https://rhizome-lab.github.io/canopy/)
+- [GitHub](https://github.com/rhi-zone/dusklight)
+- [Documentation](https://rhi.zone/dusklight/)

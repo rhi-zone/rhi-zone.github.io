@@ -1,8 +1,8 @@
-# Rhizome
+# rhi
 
 Tools for programmable creativity.
 
-**https://rhizome-lab.github.io**
+**https://rhi.zone**
 
 ## Projects
 
@@ -10,46 +10,46 @@ Tools for programmable creativity.
 
 | Project | Description |
 |---------|-------------|
-| [Moss](https://github.com/rhizome-lab/moss) | Structural code intelligence for humans and AI agents |
+| [Normalize](https://github.com/rhi-zone/normalize) | Structural code intelligence for humans and AI agents |
 
 ### Generation
 
 | Project | Description |
 |---------|-------------|
-| [Resin](https://github.com/rhizome-lab/resin) | Constructive media generation in Rust |
-| [Dew](https://github.com/rhizome-lab/dew) | Minimal expression language for procedural generation |
+| [Unshape](https://github.com/rhi-zone/unshape) | Constructive media generation in Rust |
+| [Dew](https://github.com/rhi-zone/dew) | Minimal expression language for procedural generation |
 
 ### Games & Worlds
 
 | Project | Description |
 |---------|-------------|
-| [Frond](https://github.com/rhizome-lab/frond) | Game design primitives library |
-| [Hypha](https://github.com/rhizome-lab/hypha) | Federation protocol for interconnected persistent worlds |
+| [Playmate](https://github.com/rhi-zone/playmate) | Game design primitives library |
+| [Interconnect](https://github.com/rhi-zone/interconnect) | Federation protocol for interconnected persistent worlds |
 
 ### Data Transformation
 
 | Project | Description |
 |---------|-------------|
-| [Cambium](https://github.com/rhizome-lab/cambium) | Pipeline orchestrator for data conversion |
-| [rescribe](https://github.com/rhizome-lab/rescribe) | Lossless document conversion library |
-| [Liana](https://github.com/rhizome-lab/liana) | API bindings IR and code generation |
-| [Siphon](https://github.com/rhizome-lab/siphon) | Legacy software lifting framework |
+| [Paraphase](https://github.com/rhi-zone/paraphase) | Pipeline orchestrator for data conversion |
+| [rescribe](https://github.com/rhi-zone/rescribe) | Lossless document conversion library |
+| [Concord](https://github.com/rhi-zone/concord) | API bindings IR and code generation |
+| [Resurrect](https://github.com/rhi-zone/resurrect) | Legacy software lifting framework |
 
 ### Runtime & Interface
 
 | Project | Description |
 |---------|-------------|
-| [Spore](https://github.com/rhizome-lab/spore) | Lua runtime with plugin system |
-| [Canopy](https://github.com/rhizome-lab/canopy) | Universal UI client with control plane |
+| [Moonlet](https://github.com/rhi-zone/moonlet) | Lua runtime with plugin system |
+| [Dusklight](https://github.com/rhi-zone/dusklight) | Universal UI client with control plane |
 
 ### Infrastructure
 
 | Project | Description |
 |---------|-------------|
-| [Nursery](https://github.com/rhizome-lab/nursery) | Ecosystem orchestrator via rhizome.toml manifests |
-| [Pith](https://github.com/rhizome-lab/pith) | Standard library interfaces |
-| [Flora](https://github.com/rhizome-lab/flora) | Lua-based tools, scaffolds, and orchestration |
-| [server-less](https://github.com/rhizome-lab/server-less) | Derive macros: one impl → many protocols |
+| [Myenv](https://github.com/rhi-zone/myenv) | Ecosystem orchestrator via rhi.toml manifests |
+| [Portals](https://github.com/rhi-zone/portals) | Standard library interfaces |
+| [Zone](https://github.com/rhi-zone/zone) | Lua-based tools, scaffolds, and orchestration |
+| [server-less](https://github.com/rhi-zone/server-less) | Derive macros: one impl → many protocols |
 
 ## Development
 
@@ -61,12 +61,12 @@ bun run dev
 
 ## Special Thanks
 
-Rhizome builds on the shoulders of giants. We're grateful to these projects and communities:
+rhi builds on the shoulders of giants. We're grateful to these projects and communities:
 
 ### Core Technologies
 - [Rust](https://www.rust-lang.org/) - The language that makes safe systems programming practical
-- [LuaJIT](https://luajit.org/) - Lightning-fast scripting runtime powering Spore
-- [tree-sitter](https://tree-sitter.github.io/) - Incremental parsing powering Moss
+- [LuaJIT](https://luajit.org/) - Lightning-fast scripting runtime powering Moonlet
+- [tree-sitter](https://tree-sitter.github.io/) - Incremental parsing powering Normalize
 - [Arborium](https://arborium.bearcove.eu/) - Curated tree-sitter grammars
 
 ### Development Tools
@@ -84,7 +84,7 @@ Rhizome builds on the shoulders of giants. We're grateful to these projects and 
 - [mlua](https://github.com/mlua-rs/mlua) - Lua/LuaJIT bindings
 
 ### Domain-Specific
-- [wgpu](https://wgpu.rs/) - Cross-platform GPU API (Resin)
+- [wgpu](https://wgpu.rs/) - Cross-platform GPU API (Unshape)
 - [Burn](https://burn.dev/) - Deep learning framework
 - [libsql](https://github.com/tursodatabase/libsql) - SQLite fork with async support
 - [rig](https://github.com/0xPlaygrounds/rig) - LLM application framework
@@ -94,5 +94,5 @@ Rhizome builds on the shoulders of giants. We're grateful to these projects and 
 
 ### Inspiration
 - [Pandoc](https://pandoc.org/) - Universal document converter inspiring rescribe
-- [WASI](https://wasi.dev/) - Capability-based interfaces inspiring Pith
+- [WASI](https://wasi.dev/) - Capability-based interfaces inspiring Portals
 - The broader open source community for showing us what's possible

@@ -21,8 +21,8 @@ Tracking potential project renames before crates.io publication.
 | **concord** | API bindings IR and codegen. Establishing harmony/agreement between your code and external APIs. Perfect "first contact" vibe - collaborative, not othering. When you generate bindings, you're reaching concord with the API spec. 7 letters, clear meaning, available on crates.io. |
 
 **Previously considered strong but reconsidered for full clarity pivot:**
-- Moss, Resin, Nursery, Flora, Liana - botanical names, moving to clarity over metaphor
-- Siphon - functional but could be clearer
+- Normalize, Unshape, Myenv, Zone, Concord - botanical names, moving to clarity over metaphor
+- Resurrect - functional but could be clearer
 
 ### ✅ Locked (Keeping Current Name)
 
@@ -35,9 +35,9 @@ Tracking potential project renames before crates.io publication.
 
 ### ⚠️ Needs Rename (High Priority)
 
-#### **Moss → normalize**
+#### **Normalize → normalize**
 - **Current**: Structural code intelligence (98 languages, sessions, packages, tools)
-- **Issues**: Botanical, meaning unclear ("moss grows on code"?), taken on crates.io
+- **Issues**: Botanical, meaning unclear ("normalize grows on code"?), taken on crates.io
 - **What it unifies**:
   - Language support (98 languages → unified AST)
   - AI session logs (Claude Code, Gemini, OpenAI → unified Session type)
@@ -50,20 +50,20 @@ Tracking potential project renames before crates.io publication.
   - **normalize** - ✓ available, exactly what it does (normalizing fragmentation), 9 letters, works perfectly with crate structure (normalize-sessions, normalize-tools, normalize-packages, normalize-languages), precedent: serde/tokio/clap took general names
 - **Requirements**: Should convey unified dev intelligence, normalization of fragmentation
 - **Status**: normalize is strong leading candidate
-- **Rationale**: The entire purpose of Moss is normalizing fragmentation across development tools. 98 languages → unified AST. Different session formats → unified type. Multiple package ecosystems → unified traits. That's normalization. The crate structure writes itself: normalize-languages, normalize-sessions, normalize-tools, normalize-packages. It's a general word, but so are serde/tokio/clap - and they work because they do exactly what the name says.
+- **Rationale**: The entire purpose of Normalize is normalizing fragmentation across development tools. 98 languages → unified AST. Different session formats → unified type. Multiple package ecosystems → unified traits. That's normalization. The crate structure writes itself: normalize-languages, normalize-sessions, normalize-tools, normalize-packages. It's a general word, but so are serde/tokio/clap - and they work because they do exactly what the name says.
 
-#### **Siphon → resurrect**
+#### **Resurrect → resurrect**
 - **Current**: Legacy software lifting framework
-- **Issues**: Functional but could be clearer (siphon = extract/transfer, but not resurrection)
+- **Issues**: Functional but could be clearer (resurrect = extract/transfer, but not resurrection)
 - **What it does**: Flash, Java applets, obsolete VMs → modern web runtimes
 - **Alternatives considered**:
   - reincarnate (too long at 11 letters)
   - **resurrect** - ✓ available, bringing dead software back to life, immediately clear, 9 letters, theatrical but fitting
 - **Requirements**: Should convey legacy revival/transformation
 - **Status**: resurrect is strong candidate
-- **Rationale**: Flash is dead. Java applets are dead. Obsolete VMs are dead. Resurrect brings them back to life in modern web runtimes. It's theatrical, but that fits - this is genuinely bringing extinct software back from the dead. The word is immediately clear: you know what it does before reading documentation. "Siphon" requires explanation; "resurrect" doesn't.
+- **Rationale**: Flash is dead. Java applets are dead. Obsolete VMs are dead. Resurrect brings them back to life in modern web runtimes. It's theatrical, but that fits - this is genuinely bringing extinct software back from the dead. The word is immediately clear: you know what it does before reading documentation. "Resurrect" requires explanation; "resurrect" doesn't.
 
-#### **Liana → concord**
+#### **Concord → concord**
 - **Current**: API bindings IR and codegen (plus pre-generated bindings collection)
 - **Issues**: Botanical (vines), obscure, taken on crates.io
 - **What it unifies**: OpenAPI, gRPC, headers, Thrift → one IR, generate bindings
@@ -79,7 +79,7 @@ Tracking potential project renames before crates.io publication.
 - **Status**: concord is the decision
 - **Rationale**: When you generate bindings for an external API, you're establishing concord - reaching agreement between your code and their specification. Has that diplomatic "first contact" feeling without framing external services as foreign/alien. Works perfectly: "reaching concord with external APIs."
 
-#### **Resin → unshape**
+#### **Unshape → unshape**
 - **Current**: Composable procedural primitives for meshes, audio, textures
 - **Issues**: Taken on crates.io, botanical
 - **Key aspects to capture**:
@@ -104,11 +104,11 @@ Tracking potential project renames before crates.io publication.
   - impress - ✓ available, making impressions/patterns - BUT "impress me" expectation pressure, wrong for gentle creative tool
   - **unshape** - ✓ available, releasing from fixed forms, 7 letters, gentle liberating creation
 - **Status**: unshape is the decision
-- **Rationale**: This is a human-facing creative tool so per naming gradient, warmth and approachability matter most. Resin is fundamentally about compositional procedural generation - infinite variations from primitives. Think Houdini (procedural node-based 3D), Pure Data (audio patching), modular synths - that's the reference context for what this does. "Unshape" = releasing from fixed/rigid forms, enabling fluid compositional creation. Not destructive (that would be "deshape") but liberating - freeing forms to be malleable, composed, infinitely varied. The name leans creative/expressive rather than substrate/technical, but that's appropriate for a creative tool. The "un-" prefix carries slight risk of negative connotation, but in context it reads as opening/liberating (like unfurl, unfold) rather than destroying. Short (7 letters), gentle, creative, available. Captures the freedom and fluidity of procedural composition without being arcane (polymorphine) or too technical (manyfold/interweave).
+- **Rationale**: This is a human-facing creative tool so per naming gradient, warmth and approachability matter most. Unshape is fundamentally about compositional procedural generation - infinite variations from primitives. Think Houdini (procedural node-based 3D), Pure Data (audio patching), modular synths - that's the reference context for what this does. "Unshape" = releasing from fixed/rigid forms, enabling fluid compositional creation. Not destructive (that would be "deshape") but liberating - freeing forms to be malleable, composed, infinitely varied. The name leans creative/expressive rather than substrate/technical, but that's appropriate for a creative tool. The "un-" prefix carries slight risk of negative connotation, but in context it reads as opening/liberating (like unfurl, unfold) rather than destroying. Short (7 letters), gentle, creative, available. Captures the freedom and fluidity of procedural composition without being arcane (polymorphine) or too technical (manyfold/interweave).
 
 ### ⚠️ Needs Rename (High Priority)
 
-#### **Spore**
+#### **Moonlet**
 - **Current**: Lua runtime with plugin system, ecosystem orchestrator, capabilities-first
 - **Issues**: Infectious/disease connotation for a runtime
 - **Key aspects**: Lua runtime, batteries-included, orchestrates rhi ecosystem, needs to temper expectations by being clearly Lua-associated
@@ -124,7 +124,7 @@ Tracking potential project renames before crates.io publication.
 - **Status**: moonlet is strong leading candidate
 - **Rationale**: Lua is the moon (Portuguese). Moonlet is a small moon - an actual astronomical term for small natural satellites. Perfect metaphor for a batteries-included Lua runtime: small but complete. The name immediately signals "this is Lua-based" without being too literal (luakit/luabox). Also tempers expectations appropriately - it's not trying to be the full moon, just a friendly little moonlet for scripting integration.
 
-#### **Hypha**
+#### **Interconnect**
 - **Current**: Federation protocol for persistent worlds
 - **Potential expansion**: Federation + collaborative editing (CRDT/ydoc-based, cross-language)
 - **Issues**: Perfect metaphor (fungal network) but nobody knows the word, pronunciation unclear
@@ -134,12 +134,12 @@ Tracking potential project renames before crates.io publication.
   - **interconnect** - ✓ available, covers both federation and collaboration, plain English, 12 letters
 - **Requirements**: Should evoke distributed networking and potentially collaboration
 - **Status**: interconnect is strong leading candidate
-- **Rationale**: Hypha is a beautiful metaphor (fungal networks connecting everything) but nobody knows the word. Interconnect says exactly what it does: connecting persistent worlds through federation, potentially expanding to collaborative editing (CRDT). Plain English, immediately understandable, covers both federation protocol and future collaboration features. The word itself embodies the purpose - making connections between separate systems.
+- **Rationale**: Interconnect is a beautiful metaphor (fungal networks connecting everything) but nobody knows the word. Interconnect says exactly what it does: connecting persistent worlds through federation, potentially expanding to collaborative editing (CRDT). Plain English, immediately understandable, covers both federation protocol and future collaboration features. The word itself embodies the purpose - making connections between separate systems.
 
-#### **Pith**
+#### **Portals**
 - **Current**: Capability-based interfaces (WASI-inspired but not compatible, stdlib-like)
 - **Issues**: Too obscure, pronunciation unclear, "core → interfaces" connection weak
-- **Key aspects**: Interface definitions, capability patterns, for runtime integration (Spore), NOT trying to be authoritative standard
+- **Key aspects**: Interface definitions, capability patterns, for runtime integration (Moonlet), NOT trying to be authoritative standard
 - **Alternatives considered**:
   - Core, base, foundation, bedrock (taken or too authoritative)
   - capabilities, cap-std (taken or misleading re: WASI compatibility)
@@ -151,11 +151,11 @@ Tracking potential project renames before crates.io publication.
   - **portals** - entry points to capabilities, precedent in XDP (XDG Desktop Portal), 7 letters, humble/not authoritative
 - **Requirements**: Should evoke capability interfaces without claiming to be "the" standard
 - **Status**: portals is strong candidate (need to verify availability)
-- **Rationale**: Pith (core/essence) doesn't convey "interface to capabilities." Portals does: they're entry points to access capabilities. Has precedent in XDG Desktop Portal (capability-based desktop integration). Humble tone - not claiming to be "the standard" like WASI, just providing portals to capabilities for runtime integration. The name emphasizes what matters: gateways to controlled access, not authoritative definitions.
+- **Rationale**: Portals (core/essence) doesn't convey "interface to capabilities." Portals does: they're entry points to access capabilities. Has precedent in XDG Desktop Portal (capability-based desktop integration). Humble tone - not claiming to be "the standard" like WASI, just providing portals to capabilities for runtime integration. The name emphasizes what matters: gateways to controlled access, not authoritative definitions.
 
 ### 🔄 Semi-locked
 
-#### **Flora → zone**
+#### **Zone → zone**
 - **Current**: Lua-based tools, scaffolds, and orchestration monorepo
 - **Issues**: Botanical naming if moving away from that theme
 - **Key aspects**: Monorepo for full-stack/integrated projects using multiple rhi tools, doesn't need its own crate
@@ -163,17 +163,17 @@ Tracking potential project renames before crates.io publication.
   - examples, showcase, apps, demos, gallery (too generic or boring)
   - **zone** - ✓ available (rhizone/rhi-zone on crates), matches rhi.zone domain perfectly, "the zone" = where integrated projects live, 4 letters, clean branding
 - **Status**: Basically locked in - perfect match with org/domain branding
-- **Rationale**: Flora (botanical) doesn't fit the clarity pivot. Zone is perfect: matches rhi.zone domain exactly, short (4 letters), "the zone" is where integrated full-stack projects live. It's the monorepo for showcasing tools working together. Clean branding alignment across org name, domain, and this monorepo. Sometimes the obvious choice is obvious for good reason.
+- **Rationale**: Zone (botanical) doesn't fit the clarity pivot. Zone is perfect: matches rhi.zone domain exactly, short (4 letters), "the zone" is where integrated full-stack projects live. It's the monorepo for showcasing tools working together. Clean branding alignment across org name, domain, and this monorepo. Sometimes the obvious choice is obvious for good reason.
 
 ### 🤔 Under Review
 
-#### **Nursery**
-- **Current**: Ecosystem orchestrator via rhizome.toml manifests
+#### **Myenv**
+- **Current**: Ecosystem orchestrator via rhi.toml manifests
 - **Issues**: Taken on crates.io, botanical
 - **Key aspects**:
   - Tool/package management (stow/Nix replacement)
   - Type-safe schema-validated configs (vs Nix's untyped configs)
-  - All configs in one file (nursery.toml)
+  - All configs in one file (myenv.toml)
   - Central gathering place for tool configuration
   - Dehydrated configs that expand/hydrate into full setup
 - **Alternatives considered**:
@@ -185,28 +185,28 @@ Tracking potential project renames before crates.io publication.
   - ledger (implies history not config)
   - rc (taken), runcom (wrong concept - commands not config)
   - allrc, unirc, metarc, mainrc (all kinda jank)
-#### **Nursery → myenv**
-- **Current**: Ecosystem orchestrator via rhizome.toml manifests
+#### **Myenv → myenv**
+- **Current**: Ecosystem orchestrator via rhi.toml manifests
 - **Issues**: Taken on crates.io, botanical
 - **Key aspects**:
   - Tool/package management (stow/Nix replacement)
   - Type-safe schema-validated configs (vs Nix's untyped configs)
-  - All configs in one file (nursery.toml)
+  - All configs in one file (myenv.toml)
   - Central gathering place for tool configuration
   - Dehydrated configs that expand/hydrate into full setup
 - **Alternatives considered**:
   - typedrc - ✓ available, type-safe rc file, 7 letters - BUT cognitively clear, emotionally cold (infrastructure vibes)
-  - nursery (original) - emotionally warm, semantically vague (what does it do?)
+  - myenv (original) - emotionally warm, semantically vague (what does it do?)
   - unirc - unified rc, middle ground but felt "jank"
   - myrc - personal rc file - BUT awkward, creates unwanted "my-" pattern with antiquated "-rc"
   - saferc (potential safer-compiler collision)
   - **myenv** - ✓ available, my environment/setup, 5 letters
 - **Requirements**: Should evoke unified config management, be both warm AND clear
 - **Status**: myenv is the decision
-- **Rationale**: This is a user-facing tool so per naming gradient, warmth matters. Real tension: typedrc = clear but cold, nursery = warm but vague. **myenv** solves both: "my" = personal/warm/approachable, "env" = environment/setup/configuration (modern, clear). Precedent: direnv (environment management tool that's broader than just env vars - it's about whole dev environment setup). The "-rc" suffix is antiquated Unix tradition; "env" is modern. Short (5 letters), warm, and clear about what it does: managing your unified development environment setup.
+- **Rationale**: This is a user-facing tool so per naming gradient, warmth matters. Real tension: typedrc = clear but cold, myenv = warm but vague. **myenv** solves both: "my" = personal/warm/approachable, "env" = environment/setup/configuration (modern, clear). Precedent: direnv (environment management tool that's broader than just env vars - it's about whole dev environment setup). The "-rc" suffix is antiquated Unix tradition; "env" is modern. Short (5 letters), warm, and clear about what it does: managing your unified development environment setup.
 
 #### **Lotus → habitat**
-- **Current**: Object store with scripting, MUD/MOO-like but generalized (in Flora/zone monorepo)
+- **Current**: Object store with scripting, MUD/MOO-like but generalized (in Zone/zone monorepo)
 - **Issues**: Name conflict with existing `lotus` crate, botanical naming
 - **Key aspects**:
   - Schemaless object store (intentionally flexible, not limited)
@@ -227,7 +227,7 @@ Tracking potential project renames before crates.io publication.
 - **Status**: habitat is the decision
 - **Rationale**: Lotus is taken and botanical. What this project really is: a digital habitat - a place you inhabit, not progress through. Not a database (too static/sterile), not a game (too goal-oriented), but a persistent computational environment where scriptable objects live and interact. Captures the MUD/MOO spirit (ontology not objectives, emergence not design) without game-coding it. The schemaless flexibility isn't a limitation, it's the point - habitats support diverse life, not rigid schemas. 7 letters, immediately evocative, perfectly describes "a place where computational things inhabit."
 
-#### **Canopy → dusklight**
+#### **Dusklight → dusklight**
 - **Current**: Universal UI client with control plane for any data source
 - **Issues**: Covering/view metaphor weak, botanical
 - **Critical context**: This is THE foundational interface for the entire ecosystem - the main way people interact with everything. Not just "a UI tool" but the primary interaction layer that holds the whole experience together.
@@ -251,7 +251,7 @@ Tracking potential project renames before crates.io publication.
 - **Status**: dusklight is the decision
 - **Rationale**: This is THE foundational interface - everyone starts here, it's central not peripheral. Per naming gradient, human-facing tools need warmth and approachability, and this is the MOST human-facing tool. The name needs to feel right even if semantic connection isn't literal. **Semantic reading of dusklight:** dusk = transition, softness, slowing down (not harsh/demanding); light = perception, visibility, legibility, approachability (UI/interface aspect); **dusklight = visibility without intensity**. Perfect for gentle exploration interface: calm, approachable, not demanding/intense, weightless soft bright feeling (like exploring at twilight - gentle light, peaceful, unhurried). The name captures both the feel (freedom, weightlessness, gentle bright) AND the purpose (visibility/approachability/interface) through poetic resonance rather than literal description. 9 letters, gentle, memorable. For THE interface everyone uses, dusklight sets the right tone: approachable, calm, illuminating without overwhelming.
 
-#### **Frond**
+#### **Playmate**
 - **Current**: Game design primitives library (state machines, controllers, common patterns)
 - **Issues**: Leaf → game design has no connection, unclear what it even is ("game logic pieces in general")
 - **Alternatives considered**:
@@ -259,9 +259,9 @@ Tracking potential project renames before crates.io publication.
   - **playmate** - ✓ available, play + mate (companion), friendly/itch.io vibe, 8 letters
 - **Requirements**: Should evoke game development patterns, itch.io-adjacent casual tone okay
 - **Status**: playmate is leading candidate (Playboy association not a concern in game dev context)
-- **Rationale**: Frond (leaf) has zero connection to game design primitives. Playmate works: it's your companion for play/game development. The library provides reusable patterns (state machines, controllers) so you don't reinvent them every project. Friendly, approachable tone fits the itch.io indie game dev audience. The Playboy magazine association isn't a concern in game development context where "play" is the primary semantic anchor.
+- **Rationale**: Playmate (leaf) has zero connection to game design primitives. Playmate works: it's your companion for play/game development. The library provides reusable patterns (state machines, controllers) so you don't reinvent them every project. Friendly, approachable tone fits the itch.io indie game dev audience. The Playboy magazine association isn't a concern in game development context where "play" is the primary semantic anchor.
 
-#### **Cambium → paraphase**
+#### **Paraphase → paraphase**
 - **Current**: Pipeline orchestrator for data conversion
 - **Issues**: Growth layer → pipelines connection unclear, obscure, botanical
 - **Key aspects**: Type-driven routing/pathfinding, general data transformation (not just preservation - supports archival, composition, stream manipulation, metadata ops), data → other data. Fundamentally: you define start and end, it figures out the path.
@@ -279,9 +279,9 @@ Tracking potential project renames before crates.io publication.
   - **paraphase** - ✓ available, para (alongside/parallel) + phase (state transformation), 9 letters, gentle phase transition metaphor
 - **Requirements**: Should evoke data format transformation/routing that's clear but not mechanical/industrial
 - **Status**: paraphase is the decision
-- **Rationale**: This is infrastructure so per naming gradient, semantic clarity is appropriate. The fundamental insight: Cambium does type-driven routing/pathfinding between data formats - you define start and end, it figures out the middle path. "Reformer" was too mechanical/factory-coded (industrial reforming). "Paraphase" = para (alongside/parallel) + phase (state/format transformation). Intentionally semantically adjacent to/hijacking "paraphrase" - just as paraphrasing re-expresses meaning in different words, paraphasing re-expresses data in different formats while preserving meaning. The parallel is helpful for intuition. Captures the transformation aspect through gentler metaphor of phase transitions (like matter changing states) rather than mechanical reforming. Phase transitions in nature are softer, more fluid than industrial processes. The "para-" prefix suggests parallel formats/phases being bridged. Clear enough for infrastructure (compound neologism is okay for substrate layer), softer than reformer, available. Potential weakness: emphasizes transformation more than routing/pathfinding aspect, but the phase transition metaphor is natural and approachable.
+- **Rationale**: This is infrastructure so per naming gradient, semantic clarity is appropriate. The fundamental insight: Paraphase does type-driven routing/pathfinding between data formats - you define start and end, it figures out the middle path. "Reformer" was too mechanical/factory-coded (industrial reforming). "Paraphase" = para (alongside/parallel) + phase (state/format transformation). Intentionally semantically adjacent to/hijacking "paraphrase" - just as paraphrasing re-expresses meaning in different words, paraphasing re-expresses data in different formats while preserving meaning. The parallel is helpful for intuition. Captures the transformation aspect through gentler metaphor of phase transitions (like matter changing states) rather than mechanical reforming. Phase transitions in nature are softer, more fluid than industrial processes. The "para-" prefix suggests parallel formats/phases being bridged. Clear enough for infrastructure (compound neologism is okay for substrate layer), softer than reformer, available. Potential weakness: emphasizes transformation more than routing/pathfinding aspect, but the phase transition metaphor is natural and approachable.
 
-#### **Canopy**
+#### **Dusklight**
 - **Current**: Universal UI client with control plane
 - **Issues**: Covering/view metaphor is weak for "universal client"
 - **Alternatives considered**:
@@ -342,21 +342,21 @@ Can you mentally model the system from the names alone? Infrastructure should te
 ## Historical Context
 
 - **Dew**: Originally "Sap" (lifeblood of plants → expression flow), but friend owns `sap` crate
-- **Trellis → server-less**: Botanical metaphor unclear, new name is literal and available
+- **Server-Less → server-less**: Botanical metaphor unclear, new name is literal and available
 - **rescribe**: Moved from Related to main projects, kept descriptive name
 
 ## Moving Projects Into Org
 
 **Decision:** Bring these projects into rhi-zone org (follow unification pattern):
 - **ooxml** - Office format parsing (ooxml crate taken, use different crate names like rhi-ooxml-core)
-- **burn-models** - Model zoo/inference (needs rename first - see below)
+- **sketchpad** - Model zoo/inference (needs rename first - see below)
 
 **Keep External:**
 - **claude-code-hub** - Development meta-tooling
 
-### burn-models → sketchpad
+### sketchpad → sketchpad
 
-- **Current**: burn-models (too tied to Burn framework name)
+- **Current**: sketchpad (too tied to Burn framework name)
 - **Context**: Burn is the framework, this is the model zoo/collection that uses it (like PyTorch vs diffusers/transformers). Primarily generative models (Stable Diffusion, FLUX, etc.)
 - **Requirements**: Gentle/cozy for user-facing tool, doesn't oversell genAI capabilities, respects skeptics' concerns
 - **Alternatives considered**:
@@ -378,23 +378,23 @@ Can you mentally model the system from the names alone? Infrastructure should te
 When ready to execute the full ecosystem rename (rhizome → rhi, all project renames):
 
 ### Documentation Updates
-- [ ] Rename all docs in this repo (~/git/rhizome-lab-github-io)
+- [ ] Rename all docs in this repo (~/git/rhi-zone-github-io)
   - [ ] docs/about.md, docs/projects/*, README.md, CLAUDE.md
   - [ ] .vitepress/config.ts navigation
-- [ ] Rename all docs in ~/git/rhizome-lab-github/
-- [ ] Update ~/.claude/projects/ directory names (EXCEPT rhizome-lab-github-io)
+- [ ] Rename all docs in ~/git/rhi-zone-github/
+- [ ] Update ~/.claude/projects/ directory names (EXCEPT rhi-zone-github-io)
 
 ### Repository Moves
-- [ ] Move all ~/git/ directories to new names (EXCEPT rhizome-lab-github-io - we're in it)
-  - moss, resin→polymorphine/manyfold, dew, etc.
+- [ ] Move all ~/git/ directories to new names (EXCEPT rhi-zone-github-io - we're in it)
+  - normalize, unshape→polymorphine/manyfold, dew, etc.
 - [ ] Execute `gh repo rename` for all repos in rhi-zone org
 - [ ] Update git remote origin for all repos
 
 ### Code Updates (Per Repo)
-- [ ] Update Cargo.toml crate names (rhizome- → rhi- prefix where needed)
+- [ ] Update Cargo.toml crate names (rhi- → rhi- prefix where needed)
 - [ ] Update internal imports/references
 - [ ] Update git dependencies in Cargo.toml (repo URLs)
-- [ ] Grep validate: search for "rhizome-lab", "rhizome-", old project names
+- [ ] Grep validate: search for "rhi-zone", "rhi-", old project names
 - [ ] Update CLAUDE.md if present
 - [ ] Update README.md
 

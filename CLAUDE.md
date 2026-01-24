@@ -1,10 +1,10 @@
 # CLAUDE.md
 
-Behavioral rules for Claude Code in the Rhizome ecosystem docs repository.
+Behavioral rules for Claude Code in the rhi ecosystem docs repository.
 
 ## Ecosystem
 
-This is the organization-level documentation site for the Rhizome ecosystem.
+This is the organization-level documentation site for the rhi ecosystem.
 
 ### Projects
 
@@ -12,59 +12,59 @@ This is the organization-level documentation site for the Rhizome ecosystem.
 
 | Project | Path | Description |
 |---------|------|-------------|
-| **Moss** | `~/git/moss` | Structural code intelligence |
+| **Normalize** | `~/git/normalize` | Structural code intelligence |
 
 **Generation**
 
 | Project | Path | Description |
 |---------|------|-------------|
-| **Resin** | `~/git/resin` | Constructive media generation |
+| **Unshape** | `~/git/unshape` | Constructive media generation |
 | **Dew** | `~/git/dew` | Minimal expression language |
 
 **Games & Worlds**
 
 | Project | Path | Description |
 |---------|------|-------------|
-| **Frond** | `~/git/frond` | Game design primitives library |
-| **Hypha** | `~/git/hypha` | Federation protocol for persistent worlds |
+| **Playmate** | `~/git/playmate` | Game design primitives library |
+| **Interconnect** | `~/git/interconnect` | Federation protocol for persistent worlds |
 
 **Data Transformation**
 
 | Project | Path | Description |
 |---------|------|-------------|
-| **Cambium** | `~/git/cambium` | Pipeline orchestrator for data conversion |
+| **Paraphase** | `~/git/paraphase` | Pipeline orchestrator for data conversion |
 | **rescribe** | `~/git/rescribe` | Lossless document conversion library |
-| **Liana** | `~/git/liana` | API bindings IR and codegen |
-| **Siphon** | `~/git/siphon` | Legacy software lifting framework |
+| **Concord** | `~/git/concord` | API bindings IR and codegen |
+| **Resurrect** | `~/git/resurrect` | Legacy software lifting framework |
 
 **Runtime & Interface**
 
 | Project | Path | Description |
 |---------|------|-------------|
-| **Spore** | `~/git/spore` | Lua runtime with plugin system |
-| **Canopy** | `~/git/canopy` | Universal UI client with control plane |
+| **Moonlet** | `~/git/moonlet` | Lua runtime with plugin system |
+| **Dusklight** | `~/git/dusklight` | Universal UI client with control plane |
 
 **Infrastructure**
 
 | Project | Path | Description |
 |---------|------|-------------|
-| **Nursery** | `~/git/nursery` | Ecosystem orchestrator |
-| **Pith** | `~/git/pith` | Standard library interfaces |
-| **Flora** | `~/git/flora` | Lua-based tools, scaffolds, and orchestration |
+| **Myenv** | `~/git/myenv` | Ecosystem orchestrator |
+| **Portals** | `~/git/portals` | Standard library interfaces |
+| **Zone** | `~/git/zone` | Lua-based tools, scaffolds, and orchestration |
 | **server-less** | `~/git/server-less` | Derive macros: one impl → many protocols |
 
 ### Org Resources
 
 | Resource | Path | Description |
 |----------|------|-------------|
-| **.github** | `~/git/rhizome-lab-github` | Org-wide GitHub config, templates |
-| **Docs site** | `~/git/rhizome-lab-github-io` | This repo - org documentation |
+| **.github** | `~/git/rhi-zone-github` | Org-wide GitHub config, templates |
+| **Docs site** | `~/git/rhi-zone-github-io` | This repo - org documentation |
 
 ### External / Related Repos
 
 | Project | Path | Description |
 |---------|------|-------------|
-| **burn-models** | `~/git/burn-models` | Stable Diffusion in pure Rust (burn) |
+| **sketchpad** | `~/git/sketchpad` | Stable Diffusion in pure Rust (burn) |
 | **ooxml** | `~/git/ooxml` | Office Open XML library for Rust |
 | **claude-code-hub** | `~/git/claude-code-hub` | Orchestration hub for Claude Code agents |
 
@@ -116,21 +116,23 @@ sed -i 's/PROJECT_DESCRIPTION/Description here/g' ~/git/new-project/flake.nix
 
 ### Crate Naming Convention
 
-Rust crates use `rhizome-` prefix when the unprefixed name is taken on crates.io:
-- `rhizome-moss-core`, `rhizome-spore-core`, etc. (moss, spore are taken)
-- `rescribe`, `server-less` (available names, no prefix needed)
-- Binary names should NOT be prefixed (just `moss`, `spore`, `rescribe`, `server-less`, etc.)
+Rust crates use NO prefix (names are available on crates.io):
+- `normalize-core`, `moonlet-core`, `unshape-backend`, etc.
+- `rescribe`, `server-less`, `dew` (standalone names)
+- Binary names match project names (just `normalize`, `moonlet`, `rescribe`, `server-less`, etc.)
+
+All project names were carefully selected to avoid conflicts on crates.io.
 
 ### Docs Site Conventions
 
 **Monorepo docs should link back to the main ecosystem site:**
 
-When a monorepo (moss, spore, resin, etc.) has its own docs site, include a navbar link back to the main Rhizome docs. In VitePress config:
+When a monorepo (normalize, moonlet, unshape, etc.) has its own docs site, include a navbar link back to the main rhi docs. In VitePress config:
 
 ```ts
 nav: [
   // ... other nav items
-  { text: 'Rhizome', link: 'https://rhizome-lab.github.io/' },
+  { text: 'rhi', link: 'https://rhi.zone/' },
 ]
 ```
 
@@ -138,10 +140,10 @@ This ensures users can navigate between project-specific docs and the ecosystem 
 
 ## Tools
 
-**Moss** for structural code/doc exploration:
+**Normalize** for structural code/doc exploration:
 ```bash
-~/git/moss/target/debug/moss view <file>     # structural outline with line numbers
-~/git/moss/target/debug/moss view <dir>      # directory structure
+~/git/normalize/target/debug/normalize view <file>     # structural outline with line numbers
+~/git/normalize/target/debug/normalize view <dir>      # directory structure
 ```
 
 Especially useful for large files - get the structure first, then read specific sections.

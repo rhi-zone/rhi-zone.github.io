@@ -2,7 +2,7 @@
 layout: home
 
 hero:
-  name: "Rhizome"
+  name: "rhi"
   text: "Tools for programmable creativity"
   tagline: "Code intelligence, persistent worlds, constructive media, and more."
   actions:
@@ -12,51 +12,51 @@ hero:
 
 features:
   # Code Intelligence
-  - title: Moss
+  - title: Normalize
     details: Structural code intelligence. AST-aware navigation, editing, and analysis across 98 languages.
-    link: /projects/moss
+    link: /projects/normalize
   # Generation
-  - title: Resin
+  - title: Unshape
     details: Constructive media. Procedural meshes, audio, textures, vector art, and rigging.
-    link: /projects/resin
+    link: /projects/unshape
   - title: Dew
     details: Minimal expression language. Small, ephemeral, perfectly formed.
     link: /projects/dew
   # Games & Worlds
-  - title: Frond
+  - title: Playmate
     details: Game design primitives. State machines, character controllers, camera systems.
-    link: /projects/frond
-  - title: Hypha
+    link: /projects/playmate
+  - title: Interconnect
     details: Federation protocol. Authoritative handoff for interconnected persistent worlds.
-    link: /projects/hypha
+    link: /projects/interconnect
   # Data Transformation
-  - title: Cambium
+  - title: Paraphase
     details: Pipeline orchestrator. Type-driven route planning for asset conversion.
-    link: /projects/cambium
-  - title: Liana
+    link: /projects/paraphase
+  - title: Concord
     details: API bindings IR. Unified representation for cross-language codegen.
-    link: /projects/liana
-  - title: Siphon
+    link: /projects/concord
+  - title: Resurrect
     details: Legacy lifting. Extract and transform software from obsolete runtimes.
-    link: /projects/siphon
+    link: /projects/resurrect
   # Runtime & Interface
-  - title: Spore
-    details: Lua runtime with plugin system for the Rhizome ecosystem.
-    link: /projects/spore
-  - title: Canopy
+  - title: Moonlet
+    details: Lua runtime with plugin system for the rhi ecosystem.
+    link: /projects/moonlet
+  - title: Dusklight
     details: Universal UI with control plane. View, mutate, and control any data source.
-    link: /projects/canopy
+    link: /projects/dusklight
   # Infrastructure
-  - title: Nursery
+  - title: Myenv
     details: Unified tool configuration and project scaffolding from seeds.
-    link: /projects/nursery
-  - title: Pith
+    link: /projects/myenv
+  - title: Portals
     details: Standard library interfaces. Capability-based APIs inspired by WASI.
-    link: /projects/pith
-  - title: Flora
+    link: /projects/portals
+  - title: Zone
     details: Lua-based tools, seeds, and orchestration scripts for the ecosystem.
-    link: /projects/flora
-  - title: Trellis
+    link: /projects/zone
+  - title: Server-Less
     details: Composable derive macros. Progressive disclosure from zero-config to full control.
-    link: /projects/trellis
+    link: /projects/server-less
 ---

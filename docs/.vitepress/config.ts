@@ -3,7 +3,7 @@ import { withMermaid } from 'vitepress-plugin-mermaid'
 
 export default withMermaid(
   defineConfig({
-    title: 'Rhizome',
+    title: 'rhi',
     description: 'Tools for programmable creativity',
 
     themeConfig: {
@@ -15,30 +15,30 @@ export default withMermaid(
           text: 'Docs',
           items: [
             { text: 'Code Intelligence', items: [
-              { text: 'Moss', link: 'https://rhizome-lab.github.io/moss/' },
+              { text: 'Normalize', link: 'https://rhi.zone/normalize/' },
             ]},
             { text: 'Generation', items: [
-              { text: 'Resin', link: 'https://rhizome-lab.github.io/resin/' },
-              { text: 'Dew', link: 'https://rhizome-lab.github.io/dew/' },
+              { text: 'Unshape', link: 'https://rhi.zone/unshape/' },
+              { text: 'Dew', link: 'https://rhi.zone/dew/' },
             ]},
             { text: 'Games & Worlds', items: [
-              { text: 'Frond', link: 'https://rhizome-lab.github.io/frond/' },
-              { text: 'Hypha', link: 'https://rhizome-lab.github.io/hypha/' },
+              { text: 'Playmate', link: 'https://rhi.zone/playmate/' },
+              { text: 'Interconnect', link: 'https://rhi.zone/interconnect/' },
             ]},
             { text: 'Data Transformation', items: [
-              { text: 'Cambium', link: 'https://rhizome-lab.github.io/cambium/' },
-              { text: 'Liana', link: 'https://rhizome-lab.github.io/liana/' },
-              { text: 'Siphon', link: 'https://rhizome-lab.github.io/siphon/' },
+              { text: 'Paraphase', link: 'https://rhi.zone/paraphase/' },
+              { text: 'Concord', link: 'https://rhi.zone/concord/' },
+              { text: 'Resurrect', link: 'https://rhi.zone/resurrect/' },
             ]},
             { text: 'Runtime & Interface', items: [
-              { text: 'Spore', link: 'https://rhizome-lab.github.io/spore/' },
-              { text: 'Canopy', link: 'https://rhizome-lab.github.io/canopy/' },
+              { text: 'Moonlet', link: 'https://rhi.zone/moonlet/' },
+              { text: 'Dusklight', link: 'https://rhi.zone/dusklight/' },
             ]},
             { text: 'Infrastructure', items: [
-              { text: 'Nursery', link: 'https://rhizome-lab.github.io/nursery/' },
-              { text: 'Pith', link: 'https://rhizome-lab.github.io/pith/' },
-              { text: 'Flora', link: 'https://rhizome-lab.github.io/flora/' },
-              { text: 'Trellis', link: 'https://rhizome-lab.github.io/trellis/' },
+              { text: 'Myenv', link: 'https://rhi.zone/myenv/' },
+              { text: 'Portals', link: 'https://rhi.zone/portals/' },
+              { text: 'Zone', link: 'https://rhi.zone/zone/' },
+              { text: 'Server-Less', link: 'https://rhi.zone/server-less/' },
             ]},
           ]
         },
@@ -62,14 +62,14 @@ export default withMermaid(
             text: 'Code Intelligence',
             collapsed: true,
             items: [
-              { text: 'Moss', link: '/projects/moss' },
+              { text: 'Normalize', link: '/projects/normalize' },
             ]
           },
           {
             text: 'Generation',
             collapsed: true,
             items: [
-              { text: 'Resin', link: '/projects/resin' },
+              { text: 'Unshape', link: '/projects/unshape' },
               { text: 'Dew', link: '/projects/dew' },
             ]
           },
@@ -77,35 +77,35 @@ export default withMermaid(
             text: 'Games & Worlds',
             collapsed: true,
             items: [
-              { text: 'Frond', link: '/projects/frond' },
-              { text: 'Hypha', link: '/projects/hypha' },
+              { text: 'Playmate', link: '/projects/playmate' },
+              { text: 'Interconnect', link: '/projects/interconnect' },
             ]
           },
           {
             text: 'Data Transformation',
             collapsed: true,
             items: [
-              { text: 'Cambium', link: '/projects/cambium' },
-              { text: 'Liana', link: '/projects/liana' },
-              { text: 'Siphon', link: '/projects/siphon' },
+              { text: 'Paraphase', link: '/projects/paraphase' },
+              { text: 'Concord', link: '/projects/concord' },
+              { text: 'Resurrect', link: '/projects/resurrect' },
             ]
           },
           {
             text: 'Runtime & Interface',
             collapsed: true,
             items: [
-              { text: 'Spore', link: '/projects/spore' },
-              { text: 'Canopy', link: '/projects/canopy' },
+              { text: 'Moonlet', link: '/projects/moonlet' },
+              { text: 'Dusklight', link: '/projects/dusklight' },
             ]
           },
           {
             text: 'Infrastructure',
             collapsed: true,
             items: [
-              { text: 'Nursery', link: '/projects/nursery' },
-              { text: 'Pith', link: '/projects/pith' },
-              { text: 'Flora', link: '/projects/flora' },
-              { text: 'Trellis', link: '/projects/trellis' },
+              { text: 'Myenv', link: '/projects/myenv' },
+              { text: 'Portals', link: '/projects/portals' },
+              { text: 'Zone', link: '/projects/zone' },
+              { text: 'Server-Less', link: '/projects/server-less' },
             ]
           },
           {
@@ -118,7 +118,7 @@ export default withMermaid(
       },
 
       socialLinks: [
-        { icon: 'github', link: 'https://github.com/rhizome-lab' }
+        { icon: 'github', link: 'https://github.com/rhi-zone' }
       ],
 
       search: {

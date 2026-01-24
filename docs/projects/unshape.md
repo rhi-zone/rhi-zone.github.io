@@ -1,8 +1,8 @@
-# Resin
+# Unshape
 
 **Constructive media generation in Rust.**
 
-Resin provides composable primitives for procedural generation of meshes, audio, textures, vector graphics, and skeletal animation.
+Unshape provides composable primitives for procedural generation of meshes, audio, textures, vector graphics, and skeletal animation.
 
 ## Key Features
 
@@ -15,9 +15,9 @@ Resin provides composable primitives for procedural generation of meshes, audio,
 
 ## Philosophy
 
-Resin treats media as data structures that can be composed, transformed, and evaluated lazily. Rather than imperative drawing commands, you build up descriptions that are rendered on demand.
+Unshape treats media as data structures that can be composed, transformed, and evaluated lazily. Rather than imperative drawing commands, you build up descriptions that are rendered on demand.
 
 ## Links
 
-- [GitHub](https://github.com/rhizome-lab/resin)
-- [Documentation](https://rhizome-lab.github.io/resin/)
+- [GitHub](https://github.com/rhi-zone/unshape)
+- [Documentation](https://rhi.zone/unshape/)

@@ -1,6 +1,6 @@
-# About Rhizome
+# About rhi
 
-Rhizome is an ecosystem of tools unified by a single pattern: **finding common abstractions across fragmented domains**.
+rhi is an ecosystem of tools unified by a single pattern: **finding common abstractions across fragmented domains**.
 
 ## Philosophy
 
@@ -13,26 +13,26 @@ Fragmentation is the default state of software:
 - Incompatible protocols for the same purposes
 - Different capability interfaces across every language runtime
 
-Most tools pick one variant and ignore the rest, or build specialized solutions for each. Rhizome projects find the common abstraction and unify the domain.
+Most tools pick one variant and ignore the rest, or build specialized solutions for each. rhi projects find the common abstraction and unify the domain.
 
 | Domain | Fragmentation | Unified Abstraction |
 |--------|--------------|---------------------|
-| **Language support** | 98 languages with different parsers/tooling | **Moss**: Unified `Language` trait and AST interface |
-| **AI session logs** | Claude Code, Gemini, OpenAI Codex (JSONL, JSON) | **Moss**: Unified `Session` type across agent formats |
-| **Package ecosystems** | apt, brew, npm, crates.io, pip (different APIs) | **Moss**: Unified `Ecosystem` and `PackageIndex` traits |
-| **Development tools** | Different linters, formatters, type checkers | **Moss**: Unified tool interface with SARIF/JSON output |
-| **Media generation** | Separate APIs for textures, audio, meshes | **Resin**: `Field<I, O>` trait for any continuous domain |
+| **Language support** | 98 languages with different parsers/tooling | **Normalize**: Unified `Language` trait and AST interface |
+| **AI session logs** | Claude Code, Gemini, OpenAI Codex (JSONL, JSON) | **Normalize**: Unified `Session` type across agent formats |
+| **Package ecosystems** | apt, brew, npm, crates.io, pip (different APIs) | **Normalize**: Unified `Ecosystem` and `PackageIndex` traits |
+| **Development tools** | Different linters, formatters, type checkers | **Normalize**: Unified tool interface with SARIF/JSON output |
+| **Media generation** | Separate APIs for textures, audio, meshes | **Unshape**: `Field<I, O>` trait for any continuous domain |
 | **Expression languages** | WGSL, Cranelift, Lua, shader languages | **Dew**: Single AST compiles to all backends |
-| **API specifications** | OpenAPI, gRPC, headers, Thrift | **Liana**: One IR, generate bindings for all |
-| **Format conversion** | Hunt for exotic tools per format pair | **Cambium**: Type-driven route planning |
+| **API specifications** | OpenAPI, gRPC, headers, Thrift | **Concord**: One IR, generate bindings for all |
+| **Format conversion** | Hunt for exotic tools per format pair | **Paraphase**: Type-driven route planning |
 | **Document formats** | Lossy pandoc conversions | **rescribe**: Lossless IR preserves round-trip fidelity |
 | **Service protocols** | Rewrite for HTTP, CLI, MCP, WebSocket | **server-less**: Write impl once, derive all protocols |
-| **Data sources** | Different UIs for every API/database | **Canopy**: Universal client with control plane |
-| **Runtime interfaces** | Every language has different stdlib | **Pith**: Capability interfaces on WASI foundation |
-| **Game patterns** | Reinvent state machines every project | **Frond**: Common patterns as reusable primitives |
-| **Distributed worlds** | Incompatible server architectures | **Hypha**: Federation protocol for handoff |
-| **Tool configuration** | Every tool has different config format | **Nursery**: Schema-validated manifests |
-| **Legacy runtimes** | Flash, Java applets, obsolete VMs | **Siphon**: Lift to modern web runtimes |
+| **Data sources** | Different UIs for every API/database | **Dusklight**: Universal client with control plane |
+| **Runtime interfaces** | Every language has different stdlib | **Portals**: Capability interfaces on WASI foundation |
+| **Game patterns** | Reinvent state machines every project | **Playmate**: Common patterns as reusable primitives |
+| **Distributed worlds** | Incompatible server architectures | **Interconnect**: Federation protocol for handoff |
+| **Tool configuration** | Every tool has different config format | **Myenv**: Schema-validated manifests |
+| **Legacy runtimes** | Flash, Java applets, obsolete VMs | **Resurrect**: Lift to modern web runtimes |
 
 This is why the projects don't need deep technical integration—each unifies its own domain. They share a solution pattern, not a codebase.
 
@@ -45,9 +45,9 @@ Unification requires finding common structure. Text requires parsing; structure 
 
 **Lazy by Default**
 Unified abstractions shouldn't pay for what they don't use. Build descriptions, evaluate on demand:
-- **Resin**: Procedural fields materialize only when rendered
-- **Moss**: Skeleton views extract structure without loading entire files
-- **Spore**: Plugins load on demand
+- **Unshape**: Procedural fields materialize only when rendered
+- **Normalize**: Skeleton views extract structure without loading entire files
+- **Moonlet**: Plugins load on demand
 
 **Works Anywhere**
 Unification means handling the messy reality, not imposing constraints:
@@ -70,14 +70,14 @@ Same user, different moments: keyboard vs click, tired vs focused, familiar vs e
 
 Current approach forces interpretation of unstructured things: AI reads screenshots, LLMs parse docs, humans hunt for format converters. This is fragile, slow, lossy, requires guessing.
 
-Rhizome's approach: **make the world structured, don't force interpretation.**
+rhi's approach: **make the world structured, don't force interpretation.**
 
-The specs already exist—OpenAPI, headers, WASI, ASTs. The structure is there. Rhizome projects make it accessible through unified abstractions.
+The specs already exist—OpenAPI, headers, WASI, ASTs. The structure is there. rhi projects make it accessible through unified abstractions.
 
 **Compose With What Exists**
 Tools should fit your infrastructure, not replace it. Vendor lock-in is framed as exit friction, but it's also *entry* friction—you have to adopt their whole stack to try one thing.
 
-Rhizome projects are tools, not platforms. Use them with whatever else you have. No parallel universes of state.
+rhi projects are tools, not platforms. Use them with whatever else you have. No parallel universes of state.
 
 ## The Name
 
@@ -91,45 +91,45 @@ Our projects are designed the same way: independent tools that compose well toge
 
 | Project | Key Idea |
 |---------|----------|
-| [Moss](/projects/moss) | AST-aware navigation and editing across 98 languages |
+| [Normalize](/projects/normalize) | AST-aware navigation and editing across 98 languages |
 
 ### Generation
 
 | Project | Key Idea |
 |---------|----------|
-| [Resin](/projects/resin) | Composable procedural primitives for meshes, audio, textures |
+| [Unshape](/projects/unshape) | Composable procedural primitives for meshes, audio, textures |
 | [Dew](/projects/dew) | Minimal expression language (WGSL, Cranelift, Lua) |
 
 ### Games & Worlds
 
 | Project | Key Idea |
 |---------|----------|
-| [Frond](/projects/frond) | State machines, controllers, common gameplay patterns |
-| [Hypha](/projects/hypha) | Authoritative handoff protocol for persistent worlds |
+| [Playmate](/projects/playmate) | State machines, controllers, common gameplay patterns |
+| [Interconnect](/projects/interconnect) | Authoritative handoff protocol for persistent worlds |
 
 ### Data Transformation
 
 | Project | Key Idea |
 |---------|----------|
-| [Cambium](/projects/cambium) | Type-driven route planning for data conversion |
+| [Paraphase](/projects/paraphase) | Type-driven route planning for data conversion |
 | [rescribe](/projects/rescribe) | Lossless document IR for format translation |
-| [Liana](/projects/liana) | IR and codegen for cross-language bindings |
-| [Siphon](/projects/siphon) | Legacy software lifting from obsolete runtimes |
+| [Concord](/projects/concord) | IR and codegen for cross-language bindings |
+| [Resurrect](/projects/resurrect) | Legacy software lifting from obsolete runtimes |
 
 ### Runtime & Interface
 
 | Project | Key Idea |
 |---------|----------|
-| [Spore](/projects/spore) | Lua runtime with plugin system for ecosystem integration |
-| [Canopy](/projects/canopy) | Universal client with control plane for any data source |
+| [Moonlet](/projects/moonlet) | Lua runtime with plugin system for ecosystem integration |
+| [Dusklight](/projects/dusklight) | Universal client with control plane for any data source |
 
 ### Infrastructure
 
 | Project | Key Idea |
 |---------|----------|
-| [Nursery](/projects/nursery) | Unified tool config and project scaffolding from seeds |
-| [Pith](/projects/pith) | Capability-based interfaces inspired by WASI |
-| [Flora](/projects/flora) | Lua-based tools, scaffolds, and orchestration |
+| [Myenv](/projects/myenv) | Unified tool config and project scaffolding from seeds |
+| [Portals](/projects/portals) | Capability-based interfaces inspired by WASI |
+| [Zone](/projects/zone) | Lua-based tools, scaffolds, and orchestration |
 | [server-less](/projects/server-less) | Derive macros: one impl → many protocols |
 
 ## Composition
@@ -137,16 +137,16 @@ Our projects are designed the same way: independent tools that compose well toge
 The projects are independent tools that can compose when useful:
 
 **Actual integrations:**
-- **Resin** uses **Dew** for procedural expressions (library dependency)
-- **Spore** has plugins for **Moss** (runtime bindings)
-- **Spore** uses **Pith** capability interfaces (shared trait definitions)
+- **Unshape** uses **Dew** for procedural expressions (library dependency)
+- **Moonlet** has plugins for **Normalize** (runtime bindings)
+- **Moonlet** uses **Portals** capability interfaces (shared trait definitions)
 
 **Potential compositions:**
-- **Nursery** could coordinate tool configs via manifests
-- **Canopy** could provide UIs for any structured data source
-- **Cambium** could orchestrate conversions between any unified formats
-- **Liana** could generate bindings for Rhizome project APIs
-- **Moss** could analyze any project's codebase
+- **Myenv** could coordinate tool configs via manifests
+- **Dusklight** could provide UIs for any structured data source
+- **Paraphase** could orchestrate conversions between any unified formats
+- **Concord** could generate bindings for rhi project APIs
+- **Normalize** could analyze any project's codebase
 
 These projects don't form a deeply integrated technical ecosystem. They're independent solutions to different fragmentation problems. The commonality is the pattern: find the abstraction, unify the domain.
 
@@ -158,17 +158,17 @@ Other projects that follow the unification pattern:
 
 | Project | Domain | Unification |
 |---------|--------|-------------|
-| [burn-models](https://github.com/pterror/burn-models) | ML inference | Pure Rust ML unifies backends (CPU, GPU, WebGPU) |
+| [sketchpad](https://github.com/pterror/sketchpad) | ML inference | Pure Rust ML unifies backends (CPU, GPU, WebGPU) |
 | [ooxml](https://github.com/pterror/ooxml) | Office formats | Structural parsing unifies docx/xlsx/pptx handling |
 
 ## Special Thanks
 
-Rhizome builds on the shoulders of giants. We're grateful to these projects and communities:
+rhi builds on the shoulders of giants. We're grateful to these projects and communities:
 
 ### Core Technologies
 - [Rust](https://www.rust-lang.org/) - The language that makes safe systems programming practical
-- [LuaJIT](https://luajit.org/) - Lightning-fast scripting runtime powering Spore
-- [tree-sitter](https://tree-sitter.github.io/) - Incremental parsing powering Moss
+- [LuaJIT](https://luajit.org/) - Lightning-fast scripting runtime powering Moonlet
+- [tree-sitter](https://tree-sitter.github.io/) - Incremental parsing powering Normalize
 - [Arborium](https://arborium.bearcove.eu/) - Curated tree-sitter grammars
 
 ### Development Tools
@@ -186,7 +186,7 @@ Rhizome builds on the shoulders of giants. We're grateful to these projects and 
 - [mlua](https://github.com/mlua-rs/mlua) - Lua/LuaJIT bindings
 
 ### Domain-Specific
-- [wgpu](https://wgpu.rs/) - Cross-platform GPU API (Resin)
+- [wgpu](https://wgpu.rs/) - Cross-platform GPU API (Unshape)
 - [Burn](https://burn.dev/) - Deep learning framework
 - [libsql](https://github.com/tursodatabase/libsql) - SQLite fork with async support
 - [rig](https://github.com/0xPlaygrounds/rig) - LLM application framework
@@ -196,5 +196,5 @@ Rhizome builds on the shoulders of giants. We're grateful to these projects and 
 
 ### Inspiration
 - [Pandoc](https://pandoc.org/) - Universal document converter inspiring rescribe
-- [WASI](https://wasi.dev/) - Capability-based interfaces inspiring Pith
+- [WASI](https://wasi.dev/) - Capability-based interfaces inspiring Portals
 - The broader open source community for showing us what's possible

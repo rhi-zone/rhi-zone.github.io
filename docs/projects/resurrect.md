@@ -1,13 +1,13 @@
-# Siphon
+# Resurrect
 
 **Legacy software lifting framework in Rust.**
 
-Siphon extracts and transforms applications from obsolete runtimes into modern web-based equivalents.
+Resurrect extracts and transforms applications from obsolete runtimes into modern web-based equivalents.
 
 ## Key Features
 
 - **Explant** - Bytecode extraction and decompilation for Flash, Director, VB6, and more
-- **Hypha** - Game translation with UI overlay replacement
+- **Interconnect** - Game translation with UI overlay replacement
 - **Multi-tier approach** - Native patching for hard targets, runtime replacement for scriptable engines
 
 ## Supported Targets
@@ -19,9 +19,9 @@ Siphon extracts and transforms applications from obsolete runtimes into modern w
 
 ## Philosophy
 
-Siphon works on **bytecode and script**, not native binaries. The goal is accurate preservation, not improvement—make the old thing work as it was, in a modern runtime.
+Resurrect works on **bytecode and script**, not native binaries. The goal is accurate preservation, not improvement—make the old thing work as it was, in a modern runtime.
 
 ## Links
 
-- [GitHub](https://github.com/rhizome-lab/siphon)
-- [Documentation](https://rhizome-lab.github.io/siphon/)
+- [GitHub](https://github.com/rhi-zone/resurrect)
+- [Documentation](https://rhi.zone/resurrect/)

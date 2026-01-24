@@ -5,11 +5,11 @@ This augments the checklist in NAMING.md with detailed technical validation step
 
 ## ⚠️ Critical Caveats
 
-**This repo (rhizome-lab-github-io):**
+**This repo (rhi-zone-github-io):**
 - ✅ DO rename on GitHub (`gh repo rename`)
 - ✅ DO update content inside (docs, README, etc.)
 - ❌ DON'T `mv` the local folder (we're currently working in it!)
-- ❌ DON'T rename ~/.claude/projects/rhizome-lab-github-io
+- ❌ DON'T rename ~/.claude/projects/rhi-zone-github-io
 
 **All other repos:**
 - ✅ DO `mv ~/git/old-name ~/git/new-name`
@@ -26,27 +26,27 @@ This augments the checklist in NAMING.md with detailed technical validation step
 ## Repo & Org Ops
 
 ### Repos Under Different Orgs (Transfer First)
-- [ ] Transfer burn-models (→ sketchpad) if not already in rhizome-lab
+- [ ] Transfer sketchpad (→ sketchpad) if not already in rhi-zone
   - [ ] Via GitHub web UI: Settings → Transfer ownership → rhi-zone
-  - [ ] OR via API: `gh api repos/{owner}/burn-models/transfer -f new_owner=rhi-zone`
+  - [ ] OR via API: `gh api repos/{owner}/sketchpad/transfer -f new_owner=rhi-zone`
   - [ ] Wait for transfer confirmation
-- [ ] Transfer rescribe if not already in rhizome-lab (part of ecosystem - document unification)
+- [ ] Transfer rescribe if not already in rhi-zone (part of ecosystem - document unification)
 - [ ] Note: ooxml and claude-code-hub remain external (not part of rhi ecosystem)
 
 ### All Repos (Rename)
 - [ ] Execute `gh repo rename` for all repos in rhi-zone org
-- [ ] **THIS REPO**: `gh repo rename rhizome-lab-github-io rhi-docs` (or chosen name)
+- [ ] **THIS REPO**: `gh repo rename rhi-zone-github-io rhi-docs` (or chosen name)
   - DON'T mv the local folder!
 - [ ] **OTHER REPOS**: `mv ~/git/old-name ~/git/new-name` for each
 - [ ] Update all git remotes in local checkouts
 - [ ] Update org README + pinned repos
-- [ ] Update ~/.claude/projects/ directory names (EXCEPT rhizome-lab-github-io)
+- [ ] Update ~/.claude/projects/ directory names (EXCEPT rhi-zone-github-io)
 
 ## Code Changes (Per Repo)
 
 ### Cargo Configuration
 - [ ] Update `Cargo.toml` (workspace root + all crates):
-  - [ ] `name` (rhizome- → rhi- prefix)
+  - [ ] `name` (rhi- → rhi- prefix)
   - [ ] `repository` URL
   - [ ] `homepage` URL
   - [ ] `documentation` URL
@@ -67,7 +67,7 @@ This augments the checklist in NAMING.md with detailed technical validation step
 - [ ] Update `CLAUDE.md` (project context, paths)
 - [ ] Update docs content (VitePress sites where applicable)
 
-## Ecosystem Docs (rhizome-lab-github-io)
+## Ecosystem Docs (rhi-zone-github-io)
 
 - [ ] Rename all project references:
   - [ ] `docs/about.md`
@@ -76,11 +76,11 @@ This augments the checklist in NAMING.md with detailed technical validation step
   - [ ] `CLAUDE.md` (project table, paths)
 - [ ] Update `.vitepress/config.ts` navigation
 - [ ] Update `docs/index.md` hero features
-- [ ] Rename org references (rhizome-lab → rhi-zone)
+- [ ] Rename org references (rhi-zone → rhi-zone)
 
 ## Org-Wide GitHub Config
 
-- [ ] Update `~/git/rhizome-lab-github/` (org config repo):
+- [ ] Update `~/git/rhi-zone-github/` (org config repo):
   - [ ] README.md
   - [ ] Issue/PR templates
   - [ ] Org profile
@@ -88,9 +88,9 @@ This augments the checklist in NAMING.md with detailed technical validation step
 ## Validation
 
 ### Search Sweep
-- [ ] `rg rhizome-lab` (should only be historical references)
-- [ ] `rg rhizome-` (catch stray prefixes)
-- [ ] `rg` for each old project name (Moss, Canopy, Spore, etc.)
+- [ ] `rg rhi-zone` (should only be historical references)
+- [ ] `rg rhi-` (catch stray prefixes)
+- [ ] `rg` for each old project name (Normalize, Dusklight, Moonlet, etc.)
 
 ### Build Integrity
 - [ ] `cargo build` all workspaces
@@ -101,8 +101,8 @@ This augments the checklist in NAMING.md with detailed technical validation step
 ### CI & Deployment
 - [ ] CI passes for all repos
 - [ ] Docs sites deploy correctly
-  - [ ] Main ecosystem docs (rhizome-lab-github-io)
-  - [ ] Per-project docs (moss, spore, etc.)
+  - [ ] Main ecosystem docs (rhi-zone-github-io)
+  - [ ] Per-project docs (normalize, moonlet, etc.)
 
 ### Git Infrastructure
 - [ ] Git remotes point to rhi-zone org

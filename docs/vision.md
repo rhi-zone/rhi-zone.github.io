@@ -1,8 +1,8 @@
 # Vision
 
-## What Rhizome Actually Is
+## What rhi Actually Is
 
-Rhizome isn't a master plan, or a city, or THE solution, or a polished product.
+rhi isn't a master plan, or a city, or THE solution, or a polished product.
 
 It's "I made some stuff." Hacky prototypes. Experiments that might fail. Things built to see what happens, based on conversations (some with LLMs giving questionable ideas).
 
@@ -21,7 +21,7 @@ The real, fundamental goal: **subsuming virtually all interaction with a compute
 
 This is the "what if?" question carried to its logical extreme. Not "this will win" but "if it did, what would it be?"
 
-Everything else in Rhizome is in service of this question. Structure for agents, so computers understand themselves. Tags not hierarchies, so everything's findable. Hyper-modularity, so you compose what you need. The exploration itself is valuable, even if the destination is unreachable.
+Everything else in rhi is in service of this question. Structure for agents, so computers understand themselves. Tags not hierarchies, so everything's findable. Hyper-modularity, so you compose what you need. The exploration itself is valuable, even if the destination is unreachable.
 
 ## Questioning Accepted Tradeoffs
 
@@ -227,7 +227,7 @@ The point is the same: because I like doing it. Society just decided one is a va
 
 ## Who Might Care
 
-You might find Rhizome useful if you:
+You might find rhi useful if you:
 
 - Build tools and want structural primitives (ASTs, specs, pipelines)
 - Work with multiple languages/platforms and want codegen from specs
@@ -242,4 +242,4 @@ You probably won't care if you want polished, production-ready software today, o
 
 - [Philosophy](/about#philosophy) - Design principles shared across projects
 - [Projects](/projects/) - What exists today
-- [Flora Design Brainstorm](https://rhizome-lab.github.io/flora/design/servers-brainstorm) - The 5000-line conversation this page was distilled from
+- [Zone Design Brainstorm](https://rhi.zone/zone/design/servers-brainstorm) - The 5000-line conversation this page was distilled from

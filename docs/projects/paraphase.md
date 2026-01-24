@@ -1,12 +1,12 @@
-# Cambium
+# Paraphase
 
 **Pipeline orchestrator for data conversion.**
 
-Cambium is a type-driven route planner for asset pipelines. Instead of writing conversion recipes, you declare source and destination—Cambium finds the path.
+Paraphase is a type-driven route planner for asset pipelines. Instead of writing conversion recipes, you declare source and destination—Paraphase finds the path.
 
 ## Key Features
 
-- **Route planning** - Declare intent, Cambium finds the conversion path
+- **Route planning** - Declare intent, Paraphase finds the conversion path
 - **Normalized options** - One vocabulary maps to tool-specific flags
 - **Plugin architecture** - Converters are dynamic libraries
 - **Agent-friendly** - Two-phase plan→execute for LLM integration
@@ -17,8 +17,8 @@ Cambium is a type-driven route planner for asset pipelines. Instead of writing c
 # Task runner: you write the recipe
 blender --background --python export.py -- input.blend output.glb
 
-# Cambium: you declare intent
-cambium convert model.blend optimized.glb --optimize
+# Paraphase: you declare intent
+paraphase convert model.blend optimized.glb --optimize
 ```
 
 ## Use Cases
@@ -30,5 +30,5 @@ cambium convert model.blend optimized.glb --optimize
 
 ## Links
 
-- [GitHub](https://github.com/rhizome-lab/cambium)
-- [Documentation](https://rhizome-lab.github.io/cambium/)
+- [GitHub](https://github.com/rhi-zone/paraphase)
+- [Documentation](https://rhi.zone/paraphase/)

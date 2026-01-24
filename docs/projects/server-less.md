@@ -1,12 +1,12 @@
-# Trellis
+# Server-Less
 
 Composable derive macros for Rust.
 
-**Repository:** [github.com/rhizome-lab/trellis](https://github.com/rhizome-lab/trellis)
+**Repository:** [github.com/rhi-zone/server-less](https://github.com/rhi-zone/server-less)
 
 ## Overview
 
-Trellis is a collection of composable derive macros for common Rust patterns. The name comes from garden trellises—lattice structures that support climbing plants, providing structure while remaining flexible.
+Server-Less is a collection of composable derive macros for common Rust patterns. The name comes from garden server-lesses—lattice structures that support climbing plants, providing structure while remaining flexible.
 
 The primary goal is minimizing barrier to entry: "I just want a server" should be trivially simple.
 
@@ -52,23 +52,23 @@ struct MyServer;
 
 Extensions are separate derives that compose with core:
 ```rust
-#[derive(ServerCore, OpenApi, Anubis, Serve)]  // Anubis from trellis-anubis crate
+#[derive(ServerCore, OpenApi, Anubis, Serve)]  // Anubis from server-less-anubis crate
 struct MyServer;
 ```
 
 ## Structure
 
 ```
-trellis/
+server-less/
 ├── crates/
-│   ├── trellis/              # Main crate (re-exports all macros)
-│   ├── trellis-derive/       # Proc macro implementations
-│   ├── trellis-server/       # Server-related macros
-│   └── trellis-*/            # Other macro categories
+│   ├── server-less/              # Main crate (re-exports all macros)
+│   ├── server-less-derive/       # Proc macro implementations
+│   ├── server-less-server/       # Server-related macros
+│   └── server-less-*/            # Other macro categories
 └── docs/                     # VitePress documentation
 ```
 
 ## Links
 
-- [GitHub](https://github.com/rhizome-lab/trellis)
-- [Spore](/projects/spore) - Uses trellis for server setup
+- [GitHub](https://github.com/rhi-zone/server-less)
+- [Moonlet](/projects/moonlet) - Uses server-less for server setup

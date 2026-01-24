@@ -144,21 +144,21 @@ What kind of world embodies our values?
 Instead of "pick names from a category," build a **cohesive world** where all our tools naturally exist as things/concepts in that world.
 
 **Challenge:** What cozy/pastel world naturally contains:
-- Structural code intelligence (Moss)
-- Procedural generation (Resin)
-- API bindings (Liana)
-- Data transformation (Cambium)
-- Runtime orchestration (Spore)
+- Structural code intelligence (Normalize)
+- Procedural generation (Unshape)
+- API bindings (Concord)
+- Data transformation (Paraphase)
+- Runtime orchestration (Moonlet)
 - Format conversion (rescribe)
-- Federation protocols (Hypha)
+- Federation protocols (Interconnect)
 - Object stores (Lotus)
 - Expression language (Dew)
-- Game primitives (Frond)
-- Tool configuration (Nursery)
-- Universal UI (Canopy)
-- Capability interfaces (Pith)
-- Legacy lifting (Siphon)
-- Multi-protocol derives (Trellis)
+- Game primitives (Playmate)
+- Tool configuration (Myenv)
+- Universal UI (Dusklight)
+- Capability interfaces (Portals)
+- Legacy lifting (Resurrect)
+- Multi-protocol derives (Server-Less)
 
 ### Theme Explorations (Pastel-Fluffy Lens)
 
@@ -235,21 +235,21 @@ Instead of "pick names from a category," build a **cohesive world** where all ou
 **The world:** Intimate small forest. Not grand wilderness - a gentle woodland glade. Small creatures, soft phenomena, folk tale magic. Harpy Hare / Yaelokre coded.
 
 **Why this works:**
-- ✅ Fluffy/soft aesthetic (moths, down, moss)
+- ✅ Fluffy/soft aesthetic (moths, down, normalize)
 - ✅ Gentle/hushed (whispers, rustles, murmurs)
 - ✅ Small-scale, intimate
 - ✅ Whimsical but calm
 - ✅ Nature as break from technology ("touch grass" energy)
 - ✅ Pastel-friendly (muted forest colors, dusk light)
-- ✅ Rhizome (underground network) fits perfectly
+- ✅ rhi (underground network) fits perfectly
 - ✅ Creative but unhurried (natural growth, seasonal time)
 
 **Combining three sub-themes:**
 
 ### 🦋 Small Forest Creatures/Elements
-- moth, fern, moss, acorn, twig, lichen, spore
+- moth, fern, normalize, acorn, twig, lichen, moonlet
 - Gentle, small-scale nature
-- Lives in the understory, not the canopy
+- Lives in the understory, not the dusklight
 
 ### 🌫️ Soft Phenomena (weather/light/sound)
 - wisp, rustle, flutter, murmur, shimmer, haze, glow, glimmer
@@ -262,7 +262,7 @@ Instead of "pick names from a category," build a **cohesive world** where all ou
 - Fluffy energy
 
 **Example names from this world:**
-moth, fern, wisp, rustle, flutter, murmur, velvet, down, shimmer, haze, glow, moss, dusk, mist
+moth, fern, wisp, rustle, flutter, murmur, velvet, down, shimmer, haze, glow, normalize, dusk, mist
 
 **Aesthetic references:**
 - Yaelokre "Harpy Hare" (small forest folk tales)
@@ -287,7 +287,7 @@ Let's map each project to the Small Woodland Whispers world and see how names fe
 - **rescribe** (document conversion) - not woodland but already good, keep it
 - **zone** (monorepo) - decided for branding, keep it
 
-### Code Intelligence (Moss → ?)
+### Code Intelligence (Normalize → ?)
 **What it does:** Structural intelligence across 98 languages, sessions, packages, tools
 **Current issue:** normalize too corporate
 **Woodland options:**
@@ -296,7 +296,7 @@ Let's map each project to the Small Woodland Whispers world and see how names fe
 - **lichen** - composite organism (symbiosis of different things unified)
 **Leaning:** moth (navigation, pattern-seeking, gentle)
 
-### Procedural Generation (Resin → ?)
+### Procedural Generation (Unshape → ?)
 **What it does:** Composable primitives for meshes, audio, textures
 **Current issue:** polymorphine/manyfold too scientific
 **Woodland options:**
@@ -305,7 +305,7 @@ Let's map each project to the Small Woodland Whispers world and see how names fe
 - **wisp** - ethereal, transformative, magical manifestation
 **Leaning:** petal (compositional, soft, beautiful)
 
-### Lua Runtime (Spore → ?)
+### Lua Runtime (Moonlet → ?)
 **What it does:** Batteries-included Lua runtime, orchestrates ecosystem
 **Current issue:** infectious connotation
 **Woodland options:**
@@ -314,7 +314,7 @@ Let's map each project to the Small Woodland Whispers world and see how names fe
 - **hollow** - cozy protected space (tree hollow)
 **Leaning:** glow (small, welcoming, runtime = provides light to work)
 
-### API Bindings (Liana → ?)
+### API Bindings (Concord → ?)
 **What it does:** Unified IR for OpenAPI/gRPC/etc, generate bindings
 **Current:** concord works but not woodland
 **Woodland options:**
@@ -323,16 +323,16 @@ Let's map each project to the Small Woodland Whispers world and see how names fe
 - **rustle** - gentle interaction, things touching
 **Leaning:** flutter (communication/connection, gentle, pastel-friendly)
 
-### Federation Protocol (Hypha → ?)
+### Federation Protocol (Interconnect → ?)
 **What it does:** Connect persistent worlds, potential CRDT collaboration
 **Current:** interconnect too corporate
 **Woodland options:**
-- **moss** - spreads and connects, network organism
+- **normalize** - spreads and connects, network organism
 - **web** - natural connection structure (spider web with dew)
 - **mycel** - shortened mycelium, underground network (too on-the-nose for rhizome?)
-**Leaning:** moss (network, gentle, pastel green)
+**Leaning:** normalize (network, gentle, pastel green)
 
-### Capability Interfaces (Pith → ?)
+### Capability Interfaces (Portals → ?)
 **What it does:** Interface definitions, capability patterns, not authoritative
 **Current:** portals borderline
 **Woodland options:**
@@ -341,7 +341,7 @@ Let's map each project to the Small Woodland Whispers world and see how names fe
 - **threshold** - between spaces, capability as crossing
 **Leaning:** keep portal or try gate
 
-### Pipeline Orchestrator (Cambium → ?)
+### Pipeline Orchestrator (Paraphase → ?)
 **What it does:** Type-driven data transformation, archival, composition
 **Current:** reformer too serious
 **Woodland options:**
@@ -350,7 +350,7 @@ Let's map each project to the Small Woodland Whispers world and see how names fe
 - **mist** - transformation (water to air), soft, ephemeral
 **Leaning:** mist (transformation, soft, pastel)
 
-### Legacy Software Lifting (Siphon → ?)
+### Legacy Software Lifting (Resurrect → ?)
 **What it does:** Flash/Java applets → modern runtimes
 **Current:** resurrect too theatrical
 **Woodland options:**
@@ -359,7 +359,7 @@ Let's map each project to the Small Woodland Whispers world and see how names fe
 - **revive** - soft word for resurrection
 **Leaning:** bloom (gentle rebirth, hopeful)
 
-### Game Primitives (Frond → ?)
+### Game Primitives (Playmate → ?)
 **What it does:** State machines, controllers, patterns
 **Current:** playmate works but not woodland
 **Woodland options:**
@@ -368,7 +368,7 @@ Let's map each project to the Small Woodland Whispers world and see how names fe
 - **skip** - playful movement pattern
 **Leaning:** skip (playful, game-coded, gentle)
 
-### Universal UI (Canopy → ?)
+### Universal UI (Dusklight → ?)
 **What it does:** Control plane for any data source
 **Current:** polarizer too technical
 **Woodland options:**
@@ -386,7 +386,7 @@ Let's map each project to the Small Woodland Whispers world and see how names fe
 - **dell** - small valley, sheltered
 **Leaning:** grove (habitat for objects, gentle)
 
-### Config Management (Nursery → ?)
+### Config Management (Myenv → ?)
 **What it does:** Type-safe unified config management
 **Current:** typedrc too technical
 **Woodland options:**
@@ -395,7 +395,7 @@ Let's map each project to the Small Woodland Whispers world and see how names fe
 - **stem** - central organizing structure
 **Leaning:** seed (configs as seeds that grow into setup)
 
-### Multi-protocol Derives (Trellis → ?)
+### Multi-protocol Derives (Server-Less → ?)
 **What it does:** One impl → many protocols
 **Current:** server-less good but not woodland
 **Woodland options:**
@@ -406,7 +406,7 @@ Let's map each project to the Small Woodland Whispers world and see how names fe
 
 ### ❌ Taken or Problematic
 - **moth** - [taken](https://crates.io/crates/moth)
-- **moss** - [taken](https://crates.io/crates/moss) (our current name!)
+- **normalize** - [taken](https://crates.io/crates/normalize) (our current name!)
 - **flutter** - [Flutter framework ecosystem](https://crates.io/crates/flutter_rust_bridge) would cause massive confusion
 
 ### ✅ Likely Available (need verification)
@@ -421,7 +421,7 @@ Let's map each project to the Small Woodland Whispers world and see how names fe
 
 ### Alternatives Needed For:
 - **Code intelligence** (moth taken): wisp, fern, lichen, haze?
-- **Federation** (moss taken, it's our current name!): web, mycel, weave?
+- **Federation** (normalize taken, it's our current name!): web, mycel, weave?
 - **API bindings** (flutter conflicts with Flutter): rustle, murmur, whisper?
 
 ## Key Learnings from Exploration
