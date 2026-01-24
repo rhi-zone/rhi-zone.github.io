@@ -227,21 +227,29 @@ Tracking potential project renames before crates.io publication.
 - **Status**: habitat is the decision
 - **Rationale**: Lotus is taken and botanical. What this project really is: a digital habitat - a place you inhabit, not progress through. Not a database (too static/sterile), not a game (too goal-oriented), but a persistent computational environment where scriptable objects live and interact. Captures the MUD/MOO spirit (ontology not objectives, emergence not design) without game-coding it. The schemaless flexibility isn't a limitation, it's the point - habitats support diverse life, not rigid schemas. 7 letters, immediately evocative, perfectly describes "a place where computational things inhabit."
 
-#### **Canopy**
+#### **Canopy → dusklight**
 - **Current**: Universal UI client with control plane for any data source
 - **Issues**: Covering/view metaphor weak, botanical
-- **Key aspects**: Frontend architecture/pattern (not specific implementation), universal data source client, control plane (view + control), similar to Postman/Wireshark/imhex universality
+- **Critical context**: This is THE foundational interface for the entire ecosystem - the main way people interact with everything. Not just "a UI tool" but the primary interaction layer that holds the whole experience together.
+- **Key aspects**: Frontend architecture/pattern (not specific implementation), universal data source client, gentle exploration + viewing + interaction, effortless weightless movement through data (like Warframe/Feather flying), similar to Postman/Wireshark/imhex universality but approachable
 - **Alternatives considered**:
   - dashboard, panel, console (don't convey universality)
   - cartographer (too passive, just mapping)
   - lens, prism, optic (FP optics collision)
   - refractor (taken), refractory (wrong connotation)
   - monocle, spyglass (viewing only, no control)
-  - **polarizer** - ✓ available, filters/orients light (controls presentation), 9 letters - BUT wrong framing: control instrument, not exploration interface
-  - diffractor (available but more passive, 10 letters)
-- **Requirements**: Should evoke universal viewing + gentle exploration + world interaction, NOT control/manipulation
-- **Status**: polarizer probably wrong metaphor
-- **Rationale**: This is a human-facing tool (exploration/interaction) so per naming gradient, gentleness and approachability matter most. Polarizer frames it as a "control instrument" - filtering, orienting, manipulating. But the actual purpose is more like: gentle universal viewing, exploration interface, world interaction agent (like Postman/Wireshark but approachable). Polarizer emphasizes control/technical precision when we want gentle exploration. Need metaphor that conveys "gentle universal viewing/interaction" not "precise optical control." Canopy (covering/view) was too passive. What's in between?
+  - polarizer (available, filters/orients light) - BUT wrong framing: control instrument not exploration, too technical
+  - bridge (ship's bridge = viewing + navigation + interaction) - taken, also industrial/heavy not weightless
+  - cupola (ISS observation module, weightless viewing) - too specific/technical
+  - flowpod, flowzone, flowspace (flow state + place) - flow dominates, structure word gets lost
+  - mypod, unipod (personal/unified pod) - impersonal, clinical product feel
+  - interweave, weave, trace (exploration/connection) - hard to compound naturally without being taken
+  - bubble, shell, veil, pocket, layer, window (portable interface layer you carry) - exploring this direction
+  - skylight (freedom, weightless, bright window) - taken, also too harsh
+  - **dusklight** - ✓ available, soft twilight illumination, 9 letters, gentle visibility
+- **Requirements**: Must capture THE foundational interface - gentle, approachable, effortless exploration, visibility without intensity
+- **Status**: dusklight is the decision
+- **Rationale**: This is THE foundational interface - everyone starts here, it's central not peripheral. Per naming gradient, human-facing tools need warmth and approachability, and this is the MOST human-facing tool. The name needs to feel right even if semantic connection isn't literal. **Semantic reading of dusklight:** dusk = transition, softness, slowing down (not harsh/demanding); light = perception, visibility, legibility, approachability (UI/interface aspect); **dusklight = visibility without intensity**. Perfect for gentle exploration interface: calm, approachable, not demanding/intense, weightless soft bright feeling (like exploring at twilight - gentle light, peaceful, unhurried). The name captures both the feel (freedom, weightlessness, gentle bright) AND the purpose (visibility/approachability/interface) through poetic resonance rather than literal description. 9 letters, gentle, memorable. For THE interface everyone uses, dusklight sets the right tone: approachable, calm, illuminating without overwhelming.
 
 #### **Frond**
 - **Current**: Game design primitives library (state machines, controllers, common patterns)
