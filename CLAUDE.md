@@ -67,6 +67,7 @@ This is the organization-level documentation site for the rhi ecosystem.
 | **sketchpad** | `~/git/rhizone/sketchpad` | Stable Diffusion in pure Rust (burn) |
 | **ooxml** | `~/git/ooxml` | Office Open XML library for Rust |
 | **claude-code-hub** | `~/git/claude-code-hub` | Orchestration hub for Claude Code agents |
+| **hologram** | `~/git/hologram` | Discord RP bot with knowledge graph and RAG |
 
 ## Responsibilities
 
@@ -95,8 +96,8 @@ Template files are in `scaffolding/` directory. Copy and replace placeholders:
 
 ```bash
 cp -r scaffolding/. ~/git/rhizone/new-project/
-sed -i 's/PROJECT_NAME/new-project/g' ~/git/rhizone/new-project/flake.nix ~/git/rhizone/new-project/docs/package.json
-sed -i 's/PROJECT_DESCRIPTION/Description here/g' ~/git/rhizone/new-project/flake.nix
+sed -i 's/PROJECT_NAME/new-project/g' ~/git/rhizone/new-project/flake.nix ~/git/rhizone/new-project/docs/package.json ~/git/rhizone/new-project/CLAUDE.md
+sed -i 's/PROJECT_DESCRIPTION/Description here/g' ~/git/rhizone/new-project/flake.nix ~/git/rhizone/new-project/CLAUDE.md
 ```
 
 **Included templates:**
@@ -108,11 +109,12 @@ sed -i 's/PROJECT_DESCRIPTION/Description here/g' ~/git/rhizone/new-project/flak
 - `.github/workflows/deploy-docs.yml` - VitePress deployment
 - `flake.nix` - Nix dev shell
 - `docs/package.json` - VitePress + mermaid
+- `CLAUDE.md` - standard behavioral rules (Core Rules, Design Principles, Commit Convention, Negative Constraints)
+- `README.md` - project readme
 
 **Still need manually:**
 - `Cargo.toml` + `crates/`
 - `docs/.vitepress/config.ts` + `docs/index.md`
-- `CLAUDE.md`
 
 ### Crate Naming Convention
 
