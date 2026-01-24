@@ -79,9 +79,9 @@ Tracking potential project renames before crates.io publication.
 - **Status**: concord is the decision
 - **Rationale**: When you generate bindings for an external API, you're establishing concord - reaching agreement between your code and their specification. Has that diplomatic "first contact" feeling without framing external services as foreign/alien. Works perfectly: "reaching concord with external APIs."
 
-#### **Resin**
+#### **Resin → unshape**
 - **Current**: Composable procedural primitives for meshes, audio, textures
-- **Issues**: Taken on crates.io
+- **Issues**: Taken on crates.io, botanical
 - **Key aspects to capture**:
   - Procedural generation (procgen)
   - Graph-based / node-based (like Pure Data, Houdini, modular synths)
@@ -89,6 +89,7 @@ Tracking potential project renames before crates.io publication.
   - Field<I,O> abstraction (functional transformation)
   - VR/spatial manipulation capability
   - Operations/functions as values
+  - Compositional - infinite variations from primitives
 - **Alternatives considered**:
   - amber, forge, cast, weave (all taken)
   - resculpt (tentative, "re-" prefix less obvious fit than rescribe)
@@ -97,10 +98,13 @@ Tracking potential project renames before crates.io publication.
   - fieldgen (too generic, vague jargon)
   - transmute (taken, plus std::mem::transmute collision)
   - patchwork, patch (taken)
-  - **polymorphine** (from Noita transformation potion) - ✓ available, captures transformation/many forms, alchemical creative vibe, 11 letters - BUT arcane/esoteric = intimidating
-  - **manyfold** - ✓ available, multiple transformations/variations, mathematical feel, 8 letters, exotic but evocative - more approachable but still not obviously playful/gentle
-- **Status**: Leaning back towards manyfold, but neither is perfect
-- **Rationale**: Resin is fundamentally about transformation through composition. You build procedural primitives (Fields) and compose them into infinite variations. This is a creative/generative tool (human-facing layer) so warmth/gentleness matters. Polymorphine is too arcane/intimidating despite creative vibe. Manyfold is more approachable but still not obviously playful. Per naming gradient: human-facing tools should prioritize gentleness. May need third option that's both warm AND clearly compositional.
+  - polymorphine (from Noita transformation potion) - ✓ available, alchemical creative vibe, 11 letters - BUT arcane/esoteric = intimidating for human-facing tool
+  - manyfold - ✓ available, multiple transformations/variations, 8 letters - more approachable but still not obviously playful/gentle
+  - interweave - ✓ available, weaving primitives together, 10 letters - considered but too long/technical
+  - impress - ✓ available, making impressions/patterns - BUT "impress me" expectation pressure, wrong for gentle creative tool
+  - **unshape** - ✓ available, releasing from fixed forms, 7 letters, gentle liberating creation
+- **Status**: unshape is the decision
+- **Rationale**: This is a human-facing creative tool so per naming gradient, warmth and approachability matter most. Resin is fundamentally about compositional procedural generation - infinite variations from primitives. Think Houdini (procedural node-based 3D), Pure Data (audio patching), modular synths - that's the reference context for what this does. "Unshape" = releasing from fixed/rigid forms, enabling fluid compositional creation. Not destructive (that would be "deshape") but liberating - freeing forms to be malleable, composed, infinitely varied. The name leans creative/expressive rather than substrate/technical, but that's appropriate for a creative tool. The "un-" prefix carries slight risk of negative connotation, but in context it reads as opening/liberating (like unfurl, unfold) rather than destroying. Short (7 letters), gentle, creative, available. Captures the freedom and fluidity of procedural composition without being arcane (polymorphine) or too technical (manyfold/interweave).
 
 ### ⚠️ Needs Rename (High Priority)
 
