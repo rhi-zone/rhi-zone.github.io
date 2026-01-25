@@ -29,7 +29,7 @@ Myenv manages tool configs from a single `myenv.toml` manifest and scaffolds new
 
 ```
 myenv.toml  →  myenv generate  →  .moonlet/config.toml
-                                  →  .resurrect/config.toml
+                                  →  .reincarnate/config.toml
                                   →  .dew/config.toml
 ```
 
@@ -46,7 +46,7 @@ version = "0.1.0"
 [variables]
 assets = "./assets"
 
-[resurrect]
+[reincarnate]
 source = "./dump/game.exe"
 output = "{{assets}}/raw"
 
@@ -56,13 +56,13 @@ input = "{{assets}}/raw"
 output = "{{assets}}/processed"
 ```
 
-Running `myenv generate` creates `.resurrect/config.toml` and `.dew/config.toml`. Tools read their native configs—no special runtime behavior.
+Running `myenv generate` creates `.reincarnate/config.toml` and `.dew/config.toml`. Tools read their native configs—no special runtime behavior.
 
 ## Seeds
 
 Pre-configured starter templates:
 
-- **seed-archaeology** — Lifting legacy games (resurrect + unshape)
+- **seed-archaeology** — Lifting legacy games (reincarnate + unshape)
 - **seed-creation** — New game projects from scratch
 - **seed-lab** — Full ecosystem sandbox
 

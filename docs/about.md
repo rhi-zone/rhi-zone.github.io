@@ -32,7 +32,7 @@ Most tools pick one variant and ignore the rest, or build specialized solutions 
 | **Game patterns** | Reinvent state machines every project | **playmate**: Common patterns as reusable primitives |
 | **Distributed worlds** | Incompatible server architectures | **interconnect**: Federation protocol for handoff |
 | **Tool configuration** | Every tool has different config format | **myenv**: Schema-validated manifests |
-| **Legacy runtimes** | Flash, Java applets, obsolete VMs | **resurrect**: Lift to modern web runtimes |
+| **Legacy runtimes** | Flash, Java applets, obsolete VMs | **reincarnate**: Lift to modern web runtimes |
 
 This is why the projects don't need deep technical integration—each unifies its own domain. They share a solution pattern, not a codebase.
 
@@ -114,7 +114,7 @@ Our projects are designed the same way: independent tools that compose well toge
 | [paraphase](/projects/paraphase) | Type-driven route planning for data conversion |
 | [rescribe](/projects/rescribe) | Lossless document IR for format translation |
 | [concord](/projects/concord) | IR and codegen for cross-language bindings |
-| [resurrect](/projects/resurrect) | Legacy software lifting from obsolete runtimes |
+| [reincarnate](/projects/reincarnate) | Legacy software lifting from obsolete runtimes |
 
 ### Runtime & interface
 

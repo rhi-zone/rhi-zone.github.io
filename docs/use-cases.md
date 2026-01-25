@@ -236,7 +236,7 @@ The key insight isn't one specific approach - it's that agents should work with 
 **The problem:** Old software dies. Flash is gone. HyperCard is gone. Director projects rot. The artifacts exist but can't run.
 
 **What rhi provides:**
-- **Resurrect** - Lift legacy software into modern web runtimes. Extract structure, not just emulate.
+- **Reincarnate** - Lift legacy software into modern web runtimes. Extract structure, not just emulate.
 - **Normalize** - Understand legacy codebases before rewriting.
 - **Paraphase** - Convert legacy formats to modern ones.
 
@@ -246,7 +246,7 @@ The key insight isn't one specific approach - it's that agents should work with 
 - Migrate ancient codebases by understanding them structurally first
 - Archive interactive media in playable, preservable form
 
-**Status:** Resurrect is early research. Paraphase exists. Normalize can help understand legacy code.
+**Status:** Reincarnate is early research. Paraphase exists. Normalize can help understand legacy code.
 
 ---
 

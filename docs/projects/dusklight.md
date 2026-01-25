@@ -29,7 +29,7 @@ Dusklight is an infinitely configurable UI for viewing, mutating, and controllin
 For rhi projects, Dusklight becomes the unified dashboard:
 
 - View habitat world state, trigger actions
-- Monitor Resurrect extraction progress
+- Monitor Reincarnate extraction progress
 - Inspect Paraphase pipeline status
 - Control any data-producing system
 

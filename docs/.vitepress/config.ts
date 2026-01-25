@@ -28,7 +28,7 @@ export default withMermaid(
             { text: 'Data Transformation', items: [
               { text: 'Paraphase', link: 'https://docs.rhi.zone/paraphase/' },
               { text: 'Concord', link: 'https://docs.rhi.zone/concord/' },
-              { text: 'Resurrect', link: 'https://docs.rhi.zone/resurrect/' },
+              { text: 'Reincarnate', link: 'https://docs.rhi.zone/reincarnate/' },
             ]},
             { text: 'Runtime & Interface', items: [
               { text: 'Moonlet', link: 'https://docs.rhi.zone/moonlet/' },
@@ -98,7 +98,7 @@ export default withMermaid(
             items: [
               { text: 'Paraphase', link: '/projects/paraphase' },
               { text: 'Concord', link: '/projects/concord' },
-              { text: 'Resurrect', link: '/projects/resurrect' },
+              { text: 'Reincarnate', link: '/projects/reincarnate' },
             ]
           },
           {

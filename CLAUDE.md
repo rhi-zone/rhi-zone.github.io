@@ -35,7 +35,7 @@ This is the organization-level documentation site for the rhi ecosystem.
 | **Paraphase** | `~/git/rhizone/paraphase` | Pipeline orchestrator for data conversion |
 | **rescribe** | `~/git/rhizone/rescribe` | Lossless document conversion library |
 | **Concord** | `~/git/rhizone/concord` | API bindings IR and codegen |
-| **Resurrect** | `~/git/rhizone/resurrect` | Legacy software lifting framework |
+| **Reincarnate** | `~/git/rhizone/reincarnate` | Legacy software lifting framework |
 
 **Runtime & Interface**
 

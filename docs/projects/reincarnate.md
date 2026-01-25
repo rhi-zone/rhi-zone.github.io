@@ -1,4 +1,4 @@
-# Resurrect
+# Reincarnate
 
 **Legacy software lifting framework in Rust.**
 
@@ -6,12 +6,12 @@
 Clear vision and well-articulated design (tier 1 native patching vs. tier 2 runtime replacement). Deployed docs site with comprehensive introduction. Zero implementation—no Rust code written, only workspace configuration and documentation scaffolding.
 :::
 
-Resurrect extracts and transforms applications from obsolete runtimes into modern web-based equivalents.
+Reincarnate extracts and transforms applications from obsolete runtimes into modern web-based equivalents.
 
 ## Key features
 
 - **Explant** - Bytecode extraction and decompilation for Flash, Director, VB6, and more
-- **Interconnect** - Game translation with UI overlay replacement
+- **Hypha** - Game translation with UI overlay replacement
 - **Multi-tier approach** - Native patching for hard targets, runtime replacement for scriptable engines
 
 ## Supported targets
@@ -23,9 +23,9 @@ Resurrect extracts and transforms applications from obsolete runtimes into moder
 
 ## Philosophy
 
-Resurrect works on **bytecode and script**, not native binaries. The goal is accurate preservation, not improvement—make the old thing work as it was, in a modern runtime.
+Reincarnate works on **bytecode and script**, not native binaries. The goal is accurate preservation, not improvement—make the old thing work as it was, in a modern runtime.
 
 ## Links
 
-- [GitHub](https://github.com/rhi-zone/resurrect)
-- [Documentation](https://rhi.zone/resurrect/)
+- [GitHub](https://github.com/rhi-zone/reincarnate)
+- [Documentation](https://rhi.zone/reincarnate/)

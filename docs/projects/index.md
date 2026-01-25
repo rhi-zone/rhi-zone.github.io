@@ -17,7 +17,7 @@ rhi is a glue layer for computers—removing boundaries between you and what you
 | [Zone](/projects/zone) | Lua-based tools, scaffolds, and scripts | <span class="badge-layer layer-orchestration">Orchestration</span> | <span class="badge-domain domain-core">Core</span> |
 | [Dusklight](/projects/dusklight) | Universal UI client with control plane | <span class="badge-layer layer-interface">Interface</span> | <span class="badge-domain domain-core">Core</span> |
 | [Interconnect](/projects/interconnect) | Federation protocol for persistent worlds | <span class="badge-layer layer-federation">Federation</span> | <span class="badge-domain domain-worlds">Worlds</span> |
-| [Resurrect](/projects/resurrect) | Lift legacy software to modern web runtimes | <span class="badge-layer layer-legacy">Legacy</span> | <span class="badge-domain domain-data">Data</span> |
+| [Reincarnate](/projects/reincarnate) | Lift legacy software to modern web runtimes | <span class="badge-layer layer-legacy">Legacy</span> | <span class="badge-domain domain-data">Data</span> |
 
 ## By Layer
 

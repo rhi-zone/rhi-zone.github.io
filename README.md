@@ -33,7 +33,7 @@ A glue layer for computers. Removing boundaries between you and your computer.
 | [paraphase](https://github.com/rhi-zone/paraphase) | Pipeline orchestrator for data conversion |
 | [rescribe](https://github.com/rhi-zone/rescribe) | Lossless document conversion library |
 | [concord](https://github.com/rhi-zone/concord) | API bindings IR and code generation |
-| [resurrect](https://github.com/rhi-zone/resurrect) | Legacy software lifting framework |
+| [reincarnate](https://github.com/rhi-zone/reincarnate) | Legacy software lifting framework |
 
 ### Runtime & Interface
 

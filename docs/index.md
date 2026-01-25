@@ -39,9 +39,9 @@ features:
   - title: "concord ◔"
     details: API bindings IR. Unified representation for cross-language codegen.
     link: /projects/concord
-  - title: "resurrect ○"
+  - title: "reincarnate ○"
     details: Legacy lifting. Extract and transform software from obsolete runtimes.
-    link: /projects/resurrect
+    link: /projects/reincarnate
   # Runtime & Interface
   - title: "moonlet ◐"
     details: Lua runtime with plugin system for the rhi ecosystem.

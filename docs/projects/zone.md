@@ -28,7 +28,7 @@ Zone provides seed templates for myenv scaffolding:
 | Seed | Description |
 |------|-------------|
 | `creation` | New project from scratch |
-| `archaeology` | Lift a legacy game with resurrect + dew |
+| `archaeology` | Lift a legacy game with reincarnate + dew |
 | `lab` | Full ecosystem sandbox with all tools |
 
 ### Using seeds
