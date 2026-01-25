@@ -139,7 +139,8 @@ Graph topology problems:
 | Shape problem | What it means |
 |---------------|---------------|
 | **Over-connected nodes** | One state has too many outgoing edges. Decision paralysis. The 50-item menu |
-| **Sparse regions** | Areas with few affordances. "You can get here but there's nothing to do" |
+| **Sparse connections** | Related things are many hops apart. Long path lengths between nodes that should be neighbors |
+| **Barren nodes** | States with few outgoing edges. "You can get here but there's nothing to do" |
 | **Bottleneck nodes** | Everything routes through one point. Single point of navigation failure |
 | **Unbalanced depth** | Some features 1 click away, others buried 7 levels deep. Arbitrary hierarchy |
 | **Missing shortcuts** | Common operations require too many hops. No direct edges for frequent paths |
