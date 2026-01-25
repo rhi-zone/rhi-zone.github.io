@@ -1,5 +1,7 @@
 # Affordance Opacity
 
+**See also:** [Interaction Graph](/interaction-graph) (the solution concept), [Problems](/problems) (broader context), [Vision](/vision) (what we're exploring)
+
 The hidden commands problem. Why software feels like it's keeping secrets from you.
 
 ## The Core Problem
@@ -94,8 +96,3 @@ Opaque software is for experts who already know, or for users who accept the flo
 
 The interaction graph isn't just a design pattern. It's a statement: software should be honest about what it can do.
 
-## See Also
-
-- [Interaction Graph](/interaction-graph) - The solution concept
-- [Problems](/problems) - Why people don't do things, and what software has to do with it
-- [Vision](/vision) - What we're exploring

@@ -1,5 +1,7 @@
 # Collaboration
 
+**See also:** [Problems](/problems) (why this matters), [Vision](/vision) (philosophy this serves)
+
 Why is it hard? What does implementing it actually look like?
 
 ## The Technology Is Solved
@@ -226,7 +228,3 @@ The technology is solved. The developer experience isn't.
 
 We're not there. The pieces exist. The bridge doesn't.
 
-## See Also
-
-- [Problems](/problems) - Why collaboration matters
-- [Vision](/vision) - Philosophy this serves

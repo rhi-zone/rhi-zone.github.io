@@ -1,5 +1,7 @@
 # Use Cases
 
+**See also:** [Vision](/vision) (why rhi exists), [Projects](/projects/) (what exists today), [Philosophy](/about#philosophy) (design principles)
+
 What kinds of projects benefit from rhi? This is both a guide and a wishlist - some of these work today, some are aspirational.
 
 ## Overarching Goals
@@ -291,10 +293,3 @@ Things we want to enable but aren't there yet.
 
 - **Agent orchestration layer** - Built on Claude's Agent SDK. Non-terminal interface, multi-agent coordination (spawn to different repos, track, coordinate), smarter context management (not linear), configurable autonomy, meta-analysis, automatic refinement loops. Addresses Claude Code's weaknesses while using its core capabilities. Tailscale-friendly - access your agents from anywhere.
 
----
-
-## See Also
-
-- [Vision](/vision) - Why rhi exists
-- [Projects](/projects/) - What exists today
-- [Philosophy](/about#philosophy) - Design principles

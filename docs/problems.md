@@ -4,6 +4,8 @@ Before solutions. Before tools. What's actually wrong?
 
 This isn't about software. It's about people.
 
+**See also:** [Vision](/vision) (what we're exploring), [Affordance Opacity](/affordance-opacity) (why software hides), [Interaction Graph](/interaction-graph) (making affordances explicit), [Use Cases](/use-cases) (what we want to enable)
+
 ## Why Do People Not Do Things?
 
 They want to create. They have ideas. They don't start. Or they start and don't finish. Why?
@@ -228,9 +230,3 @@ Not a solution. Just... not adding to the problem.
 
 This isn't a product spec. It's a set of values. A filter for decisions.
 
-## See Also
-
-- [Affordance Opacity](/affordance-opacity) - Why software hides what it can do
-- [Interaction Graph](/interaction-graph) - Making affordances explicit
-- [Vision](/vision) - What we're exploring
-- [Use Cases](/use-cases) - What we want to enable

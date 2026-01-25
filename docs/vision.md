@@ -1,5 +1,7 @@
 # Vision
 
+**See also:** [Problems](/problems) (what's actually wrong), [Affordance Opacity](/affordance-opacity) (why software hides), [Interaction Graph](/interaction-graph) (making affordances explicit), [Philosophy](/about#philosophy) (design principles), [Projects](/projects/) (what exists), [Zone Brainstorm](https://rhi.zone/zone/design/servers-brainstorm) (source conversation)
+
 ## What rhi Actually Is
 
 rhi isn't a master plan, or a city, or THE solution, or a polished product.
@@ -238,11 +240,3 @@ You might find rhi useful if you:
 
 You probably won't care if you want polished, production-ready software today, or need stability over experimentation, or are looking for a product rather than a toolkit.
 
-## See Also
-
-- [Problems](/problems) - What's actually wrong
-- [Affordance Opacity](/affordance-opacity) - Why software hides what it can do
-- [Interaction Graph](/interaction-graph) - Making affordances explicit
-- [Philosophy](/about#philosophy) - Design principles shared across projects
-- [Projects](/projects/) - What exists today
-- [Zone Design Brainstorm](https://rhi.zone/zone/design/servers-brainstorm) - The 5000-line conversation this page was distilled from

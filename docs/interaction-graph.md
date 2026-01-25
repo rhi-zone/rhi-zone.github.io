@@ -1,5 +1,7 @@
 # Interaction Graph
 
+**See also:** [Affordance Opacity](/affordance-opacity) (the problem this solves), [Problems](/problems) (broader context), [Vision](/vision) (what we're exploring), [Zone Brainstorm](https://rhi.zone/zone/design/servers-brainstorm) (source conversation)
+
 The interaction graph is a core design concept in rhi: **affordances as explicit, queryable data**.
 
 ## The Problem It Solves
@@ -121,8 +123,3 @@ A well-designed system has a clean graph:
 
 Structure informs design. The interaction graph isn't "render the relationship data." It's "use relationship data to determine importance, placement, affordances."
 
-## See Also
-
-- [Vision](/vision) - The "what if?" question this serves
-- [Problems](/problems) - What we're trying to solve
-- [Zone Design Brainstorm](https://rhi.zone/zone/design/servers-brainstorm) - Original conversation where this crystallized
