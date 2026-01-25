@@ -66,6 +66,7 @@ export default withMermaid(
             items: [
               { text: 'Affordance Opacity', link: '/affordance-opacity' },
               { text: 'Explorations', link: '/explorations' },
+              { text: 'Prior Art', link: '/prior-art' },
             ]
           },
           {

@@ -1,6 +1,6 @@
 # Affordance Opacity
 
-**See also:** [Why software is hard](/why-software-is-hard) (accessible version), [Interaction graph](/interaction-graph) (the diagnostic lens), [Explorations](/explorations) (related hypotheses), [Problems](/problems) (broader context)
+**See also:** [Why software is hard](/why-software-is-hard) (accessible version), [Interaction graph](/interaction-graph) (the diagnostic lens), [Explorations](/explorations) (related hypotheses), [Prior art](/prior-art) (things that got it right), [Problems](/problems) (broader context)
 
 The hidden commands problem. Why software feels like it's keeping secrets from you.
 
@@ -26,7 +26,7 @@ This isn't a minor UX annoyance. It's a fundamental architectural choice that sh
 
 **Feature discovery by accident.** "Wait, you can do that?" "Yeah, just hold Shift while dragging." "How was I supposed to know that?" "I don't know, I found it on Reddit."
 
-**The tutorial dependency.** Software so opaque that tutorials are mandatory. Not for complex tasks - for basic usage. The tutorial isn't teaching you a skill, it's revealing secrets the UI hides.
+**The tutorial dependency.** Software so opaque that tutorials are mandatory. Not for complex tasks - for basic usage. The tutorial isn't teaching you a skill, it's revealing secrets the UI hides. See also: [todepond's "Just"](https://www.todepond.com/wikiblogarden/better-computing/just/) on how "just do X" hides enormous assumed knowledge.
 
 ## Consequences
 

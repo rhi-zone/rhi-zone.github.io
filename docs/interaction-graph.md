@@ -1,6 +1,6 @@
 # Interaction graph
 
-**See also:** [Why software is hard](/why-software-is-hard) (the problem, accessible), [Affordance opacity](/affordance-opacity) (the problem, technical), [Explorations](/explorations) (related hypotheses), [Problems](/problems) (broader context), [Zone Brainstorm](https://rhi.zone/zone/design/servers-brainstorm) (source conversation)
+**See also:** [Why software is hard](/why-software-is-hard) (the problem, accessible), [Affordance opacity](/affordance-opacity) (the problem, technical), [Explorations](/explorations) (related hypotheses), [Prior art](/prior-art) (things that got it right), [Problems](/problems) (broader context), [Zone Brainstorm](https://rhi.zone/zone/design/servers-brainstorm) (source conversation)
 
 **Every affordance is an edge in the graph.**
 
@@ -140,6 +140,6 @@ Context filtering isn't a solution for bad design - it's a coping mechanism. The
 
 **Case study:** Normalize (code intelligence) started with dozens of specialized commands - discoverability wasn't the problem, there was just too much to discover. The fix wasn't better surfacing. It was collapsing them into three primitives: `view`, `edit`, `analyze`. Now there's less to discover in the first place.
 
-This is "generalize, don't multiply" - fewer concepts that compose beats many specialized concepts that don't.
+This is "generalize, don't multiply" - fewer concepts that compose beats many specialized concepts that don't. See also: [100 Rabbits / Uxn](https://100r.co/site/uxn.html) - a VM you can hold in your head. Comprehensible systems are possible when simplicity is the goal.
 
 Structure informs design. The interaction graph isn't "render the relationship data." It's "use relationship data to determine importance, placement, affordances."

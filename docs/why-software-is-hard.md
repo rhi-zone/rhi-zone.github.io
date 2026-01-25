@@ -1,6 +1,6 @@
 # Why software is hard
 
-**See also:** [Interaction graph](/interaction-graph) (a diagnostic lens), [Affordance opacity](/affordance-opacity) (technical version), [Explorations](/explorations) (related hypotheses), [Problems](/problems) (broader context)
+**See also:** [Interaction graph](/interaction-graph) (a diagnostic lens), [Affordance opacity](/affordance-opacity) (technical version), [Explorations](/explorations) (related hypotheses), [Prior art](/prior-art) (things that got it right), [Problems](/problems) (broader context)
 
 You're not bad at computers. Software is actually hard to use. Here's why.
 
@@ -45,6 +45,8 @@ Then it froze. The paradigm calcified before anyone questioned whether it was ac
 Worse: the toolkits locked it in. Windows gives developers `CreateMenu()` but not `CreateRadialMenu()`. So everyone uses linear menus - not because they're better, but because they're *there*. The paradigm calcified around what happened to be implemented in 1990.
 
 We once had spatial interfaces (the original Mac Finder remembered where each folder's window was - you knew where things lived). We threw them away for "efficiency." Now we hunt through identical-looking folders because the toolkits didn't support anything else.
+
+We once had [HyperCard](https://en.wikipedia.org/wiki/HyperCard) - anyone could build interactive things, and many did. Apple neglected it to death. The dream of "everyone can make software" died with it. See [prior art](/prior-art#accessible-creation) for what we lost.
 
 We inherited the paradigm, not the reasoning behind it.
 
