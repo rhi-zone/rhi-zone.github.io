@@ -14,7 +14,7 @@ Server-Less is a collection of composable derive macros for common Rust patterns
 
 The primary goal is minimizing barrier to entry: "I just want a server" should be trivially simple.
 
-## Supported Protocols
+## Supported protocols
 
 | Category | Macros | Description |
 |----------|--------|-------------|
@@ -26,7 +26,7 @@ Write your impl once, derive handlers for any combination of protocols.
 
 ## Philosophy
 
-### Progressive Disclosure
+### Progressive disclosure
 
 Complexity only appears when needed:
 
@@ -48,7 +48,7 @@ struct MyServer;
 // Level 4: Escape hatch - drop to manual code
 ```
 
-### Two-Tier Design
+### Two-tier design
 
 **Blessed preset** - batteries included:
 ```rust
@@ -62,7 +62,7 @@ struct MyServer;
 struct MyServer;
 ```
 
-### Third-Party Extensions
+### Third-party extensions
 
 Extensions are separate derives that compose with core:
 ```rust

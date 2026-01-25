@@ -8,7 +8,7 @@
 
 Normalize provides tools for understanding, navigating, and modifying code at a structural level (AST, control flow, dependencies) rather than treating code as text.
 
-## Key Features
+## Key features
 
 - **98 Languages** - Tree-sitter grammars for comprehensive language support
 - **Structural Editing** - AST-based code modifications with fuzzy matching
@@ -16,7 +16,7 @@ Normalize provides tools for understanding, navigating, and modifying code at a 
 - **Shadow Git** - Hunk-level edit tracking in `.normalize/.git`
 - **Session Analysis** - Parse and analyze AI agent logs (Claude Code, Gemini CLI, etc.)
 
-## Three Primitives
+## Three primitives
 
 | Command | Purpose | Example |
 |---------|---------|---------|
@@ -34,21 +34,21 @@ Normalize provides tools for understanding, navigating, and modifying code at a 
 | `normalize-core` | Foundational traits (`Merge`, etc.) |
 | `normalize-derive` | Procedural macros |
 
-### Language Support
+### Language support
 
 | Crate | Description |
 |-------|-------------|
 | `normalize-languages` | 98 languages via tree-sitter grammars |
 | `normalize-surface-syntax` | Syntax translation between languages (TS ↔ Lua ↔ Python) |
 
-### Code Analysis
+### Code analysis
 
 | Crate | Description |
 |-------|-------------|
 | `normalize-rules` | Syntax-based linting with tree-sitter queries |
 | `normalize-tools` | Unified interface for external tools (oxlint, ruff, prettier, etc.) |
 
-### Type Generation
+### Type generation
 
 | Crate | Description |
 |-------|-------------|
@@ -56,20 +56,20 @@ Normalize provides tools for understanding, navigating, and modifying code at a 
 | `normalize-jsonschema` | JSON Schema codegen |
 | `normalize-openapi` | OpenAPI client codegen |
 
-### Package Management
+### Package management
 
 | Crate | Description |
 |-------|-------------|
 | `normalize-packages` | Package registry queries for 12+ ecosystems |
 
-### Agent Support
+### Agent support
 
 | Crate | Description |
 |-------|-------------|
 | `normalize-sessions` | Session log parsing (Claude Code, Gemini CLI, etc.) |
 | `normalize-cli-parser` | Parse CLI `--help` output |
 
-## Quick Start
+## Quick start
 
 ```bash
 git clone https://github.com/rhi-zone/normalize

@@ -2,7 +2,7 @@
 
 **See also:** [Problems](/problems) (what's actually wrong), [Affordance Opacity](/affordance-opacity) (why software hides), [Interaction Graph](/interaction-graph) (making affordances explicit), [Philosophy](/about#philosophy) (design principles), [Projects](/projects/) (what exists), [Zone Brainstorm](https://rhi.zone/zone/design/servers-brainstorm) (source conversation)
 
-## What rhi Actually Is
+## What rhi actually is
 
 rhi isn't a master plan, or a city, or THE solution, or a polished product.
 
@@ -12,7 +12,7 @@ ARPANET energy: "This technically works, we don't know if it scales, it's held t
 
 The original hacker spirit, actually. Before it got stolen. Just making things because you can. No grand claims. See what sticks. Maybe some of it will be useful. Maybe it won't. But the making is the point.
 
-## The "What If?" Question
+## The "what if?" question
 
 The real, fundamental goal: **subsuming virtually all interaction with a computer.**
 
@@ -25,7 +25,7 @@ This is the "what if?" question carried to its logical extreme. Not "this will w
 
 Everything else in rhi is in service of this question. Structure for agents, so computers understand themselves. Tags not hierarchies, so everything's findable. Hyper-modularity, so you compose what you need. The exploration itself is valuable, even if the destination is unreachable.
 
-## Questioning Accepted Tradeoffs
+## Questioning accepted tradeoffs
 
 Lots of software makes tradeoffs. Some do things well. But in general:
 
@@ -42,7 +42,7 @@ Lots of software makes tradeoffs. Some do things well. But in general:
 
 These are all "accepted" tradeoffs that maybe shouldn't be accepted. The question isn't "can we make software" - it's "can we make software that doesn't make these tradeoffs?" Or at least makes different ones.
 
-## Objects, Not Documents
+## Objects, not documents
 
 Hot take: notes apps are paper skeuomorphism on the most interactive medium ever created.
 
@@ -62,7 +62,7 @@ The thesis, clarified:
 
 Not a second brain. A living system.
 
-## Substrate, Not Platform
+## Substrate, not platform
 
 Don't try to be the destination. Be the infrastructure. Let others build the destinations on top.
 
@@ -80,9 +80,9 @@ The hope: someone uses the tools to build something. The realistic version: we b
 
 The pattern: **they have specific creative outputs**. Minecraft has builds. SCP has articles. AO3 has fics. "General social" has no artifact - just ephemeral engagement. Platforms won general social because there's nothing to *build*. The alternatives that work are ones where you're building something together.
 
-## Prior Art
+## Prior art
 
-### Systems That Dared To Be Different
+### Systems that dared to be different
 
 Prior art not because they're all good or relevant, but because they tried something other than the mainstream.
 
@@ -100,7 +100,7 @@ Common threads: coherence (one paradigm carried through), simplicity (fewer conc
 
 Why they didn't win: network effects, ecosystem ("where are the apps?"), "good enough" incumbents, sometimes genuinely worse at common tasks. But they proved *alternatives exist*. The current way isn't the only way.
 
-### Where Did HyperCard Go?
+### Where did HyperCard go?
 
 HyperCard (1987) - "Anyone can make interactive things." It worked. Regular people made things. Then Apple killed it.
 
@@ -110,7 +110,7 @@ Flash is dead. Scratch has a ceiling too low ("for kids"). No-code tools are ven
 
 We've had decades to reinvent it. To stand on shoulders of giants. To make something *better*. Instead: professional developers vs everyone else. The gap widened, not narrowed.
 
-### The Early Web Spirit
+### The early web spirit
 
 What the early web had:
 - **Ownership** - your space, your rules
@@ -128,7 +128,7 @@ The spirit never fully died - nightfall.city, the IF community, Neocities, the s
 
 Non-linear tools (wikis, MOO, spatial interfaces) give you agency. You choose what to look at next. You make your own paths. The connections are *yours*.
 
-### Learning From Failure
+### Learning from failure
 
 It's 2026. We have all the prior art in the world. Not just research - all shipped software, all the code ever written, all tutorials, blog posts, Stack Overflow answers, all hacky weekend projects and abandoned repos.
 
@@ -162,9 +162,9 @@ Common threads: infrastructure not end-user apps, filled genuine gaps (not "slig
 
 The question isn't "why hasn't someone built X" but "who specifically would have built X, and why didn't they?" These people are rare, busy, or working on other things. Maybe things don't exist because the people who could build them are occupied elsewhere.
 
-## Why Things Don't Exist
+## Why things don't exist
 
-### Bridge Problems
+### Bridge problems
 
 Most missing tools are bridge problems - they require crossing between specializations, and specialists rarely cross.
 
@@ -172,7 +172,7 @@ Building something ambitious needs multiple disciplines: systems programming, in
 
 Plus incentives work against it: open source maintainers burn out, companies optimize for features not polish, academia rewards novelty not accessibility.
 
-### Taste and Drive
+### Taste and drive
 
 LLMs collapse the skill barrier. You don't need to *be* a proc macro expert if you can collaborate with one. The bridge becomes walkable.
 
@@ -182,7 +182,7 @@ LLMs help with execution, not vision. The person still needs to notice the gap, 
 
 The bottleneck isn't time either. 100k Discord messages prove time exists. It's the allocation that doesn't.
 
-### Incumbents Won By Showing Up
+### Incumbents won by showing up
 
 The uncomfortable truth: incumbents often won by showing up first, not by being good.
 
@@ -192,7 +192,7 @@ The median software experience is buggy, bloated, half-finished, user-hostile, f
 
 Good software exists - SQLite, ffmpeg, Linux kernel - because the right person happened to care. Most problems don't get their Hipp or their obsessive. They get abandoned side projects and half-baked enterprise solutions. Pockets of excellence in a sea of mediocrity.
 
-### Ideas Aren't Rare, Completion Is
+### Ideas aren't rare, completion is
 
 The intuitions behind most "missing" software are years old. Thousands of people probably had the same ideas. Where did they go?
 
@@ -208,7 +208,7 @@ Ideas aren't the bottleneck. Completion is rare. Good completion is rarer. The s
 
 But also: **the dream is still available.** Nobody's claimed it yet.
 
-### The Stolen Word
+### The stolen word
 
 There's no "doodling" for programming. No word that means "I make little programs for fun, not for work, don't ask about my career."
 
@@ -227,7 +227,7 @@ We lost the word. And with it, the framing.
 
 The point is the same: because I like doing it. Society just decided one is a valid hobby and one is weird.
 
-## Who Might Care
+## Who might care
 
 You might find rhi useful if you:
 

@@ -6,7 +6,7 @@ This isn't about software. It's about people.
 
 **See also:** [Vision](/vision) (what we're exploring), [Why Software Is Hard](/why-software-is-hard) (accessible explainer), [Interaction Graph](/interaction-graph) (making affordances explicit), [Use Cases](/use-cases) (what we want to enable)
 
-## Why Do People Not Do Things?
+## Why do people not do things?
 
 They want to create. They have ideas. They don't start. Or they start and don't finish. Why?
 
@@ -26,7 +26,7 @@ Some of these are ancient. Some were created by software. The infinite scroll di
 
 Software has power. It's been used to create these problems. Could it be used to address them?
 
-## Why Are People Sad?
+## Why are people sad?
 
 Not clinically. Just... the ambient background sadness that seems everywhere.
 
@@ -45,7 +45,7 @@ And the **parasocial relationship** is new at scale. You feel like you know some
 
 Software created new forms of sadness. It amplified existing ones. That means software has power here too.
 
-## Why Are Some Games Good?
+## Why are some games good?
 
 Not all. Some. What makes them work?
 
@@ -60,7 +60,7 @@ Not all. Some. What makes them work?
 
 Good games are designed around what makes humans feel good. Not what extracts the most from them.
 
-## Why Is Social Media The Worst Game?
+## Why is social media the worst game?
 
 It's a game. It has mechanics, rewards, feedback loops. But optimized for what?
 
@@ -77,7 +77,7 @@ It's a game. It has mechanics, rewards, feedback loops. But optimized for what?
 
 The worst game because it uses all the techniques of good games - but inverted. Exploiting instead of serving.
 
-## Why Does Discord Work?
+## Why does Discord work?
 
 Not perfect. But different. And the difference matters.
 
@@ -96,7 +96,7 @@ Still has problems. Moderation is hard. Discoverability is weird. Notifications 
 
 You're fine *because of the design choices*. Not because the problems don't exist. People on Twitter/Instagram/TikTok are experiencing something fundamentally different. The medium shapes the experience. You might not understand why social media is toxic - because yours isn't.
 
-## Why Does Software Often Make Things Worse?
+## Why does software often make things worse?
 
 Not all software. But a lot of it.
 
@@ -111,7 +111,7 @@ Not all software. But a lot of it.
 
 None of this is inevitable. It's choices made by people. Different choices are possible.
 
-## What Would Actually Help?
+## What would actually help?
 
 Not convenience. Not "slightly easier." Actual change.
 
@@ -130,7 +130,7 @@ Wrong question. That's the "one paradigm" trap. It doesn't have to be one form. 
 
 It's a philosophy. A way of thinking about how software should work. The rhi tools are one expression of it - but someone else could build completely different things that embody the same values. The philosophy is the thing. The tools are just what happens when you try to live it.
 
-## Why Isn't This Obvious?
+## Why isn't this obvious?
 
 If these values are good, why aren't they the default? Even in FOSS, where profit motive is absent?
 
@@ -183,7 +183,7 @@ What can be done? The technology is "solved" - CRDTs exist (Yjs, Automerge), rea
 
 For rhi, there's no "foundation" to add collaboration to yet - just pieces. So it's less about pivoting and more about not closing doors: web-based where possible (share a link is free), CRDT-friendly data structures, local-first but syncable by design, don't assume single-user. Keep the door open instead of accidentally building walls.
 
-## Where rhi Actually Is
+## Where rhi actually is
 
 Honest assessment.
 
@@ -215,7 +215,7 @@ The projects exist. They embody the philosophy (sometimes). But they're not infr
 
 This is honest. Not pessimistic - exploration matters. But not pretending that Normalize solves loneliness or Unshape makes creation fun. They're things someone made while thinking about these problems. Not solutions. Not even foundations. Just... work.
 
-## What Would "Not Making It Worse" Look Like?
+## What would "not making it worse" look like?
 
 Not a solution. Just... not adding to the problem.
 

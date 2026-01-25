@@ -8,7 +8,7 @@
 
 Concord provides a unified intermediate representation for API definitions, enabling code generation across languages and frameworks.
 
-## Key Features
+## Key features
 
 - **Language-agnostic IR** - Core types represent APIs independent of target language
 - **Multi-target codegen** - Generate bindings for Rust, TypeScript, Lua, etc.

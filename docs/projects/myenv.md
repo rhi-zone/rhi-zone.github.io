@@ -10,20 +10,20 @@ Myenv manages tool configs from a single `myenv.toml` manifest and scaffolds new
 
 **Repository:** [github.com/rhi-zone/myenv](https://github.com/rhi-zone/myenv)
 
-## What Myenv Does
+## What Myenv does
 
 - **Generate** — `myenv.toml` → per-tool native configs
 - **Validate** — Check configs against tool schemas before writing
 - **Template** — Variable substitution, shared values across tools
 - **Scaffold** — Create new projects from seed templates
 
-## What Myenv Does NOT Do
+## What Myenv does NOT do
 
 - **Run tools** — That's moonlet's job
 - **Manage execution order** — That's moonlet's job
 - **Install tools** — Use your package manager
 
-## The Invisible Manifest
+## The invisible manifest
 
 `myenv.toml` is the **source of truth** but is **invisible at runtime**. Tools never read it directly—they only read their generated native configs.
 
@@ -35,7 +35,7 @@ myenv.toml  →  myenv generate  →  .moonlet/config.toml
 
 This keeps tools simple and decoupled from myenv.
 
-## Example Manifest
+## Example manifest
 
 ```toml
 # myenv.toml

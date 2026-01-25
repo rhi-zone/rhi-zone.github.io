@@ -31,7 +31,7 @@ Zone provides seed templates for myenv scaffolding:
 | `archaeology` | Lift a legacy game with resurrect + dew |
 | `lab` | Full ecosystem sandbox with all tools |
 
-### Using Seeds
+### Using seeds
 
 ```bash
 # Scaffold a new project
@@ -47,14 +47,14 @@ The agent project implements autonomous task execution:
 - **Session management**: Checkpoints, logs, memory persistence
 - **Context building**: Smart context for different task types
 
-### Running the Agent
+### Running the agent
 
 ```bash
 # Run via moonlet
 moonlet zone/agent --task "Implement feature X"
 ```
 
-## Key Integrations
+## Key integrations
 
 - **myenv**: Reads seeds from zone for project scaffolding
 - **moonlet**: Runs Lua projects with LLM integration

@@ -1,8 +1,8 @@
-# Architecture Overview
+# Architecture overview
 
 How rhi projects are structured and how they relate.
 
-## Project Landscape
+## Project landscape
 
 ```mermaid
 graph TB
@@ -30,7 +30,7 @@ graph TB
     end
 ```
 
-## Normalize Architecture
+## Normalize architecture
 
 Structural code intelligence with three primitives:
 
@@ -111,7 +111,7 @@ Key components:
 - **Capability System**: Fine-grained permissions per entity
 - **JSON-RPC**: Headless core, any frontend can connect
 
-## Unshape Architecture
+## Unshape architecture
 
 Constructive media generation with lazy evaluation:
 
@@ -154,11 +154,11 @@ Key components:
 - **Expression System**: AST with optional JIT compilation
 - **Domain Crates**: Independent crates per media type
 
-## Shared Patterns
+## Shared patterns
 
 All projects follow common architectural patterns:
 
-### Plugin Architecture
+### Plugin architecture
 
 ```mermaid
 graph LR
@@ -170,7 +170,7 @@ graph LR
 
 Core defines contracts; plugins provide implementations. Built-in features use the same interface as third-party extensions.
 
-### Lazy Evaluation
+### Lazy evaluation
 
 ```mermaid
 sequenceDiagram
@@ -188,7 +188,7 @@ sequenceDiagram
 
 Build descriptions, evaluate on demand. Defer computation until needed.
 
-### Graceful Degradation
+### Graceful degradation
 
 ```mermaid
 flowchart TD

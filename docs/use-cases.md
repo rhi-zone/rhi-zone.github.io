@@ -4,11 +4,11 @@
 
 What kinds of projects benefit from rhi? This is both a guide and a wishlist - some of these work today, some are aspirational.
 
-## Overarching Goals
+## Overarching goals
 
 These are the north stars. The specific use-cases below serve these larger goals.
 
-### Subsume Virtually All Computer Interaction
+### Subsume virtually all computer interaction
 
 The absurd moonshot. Not that it'll happen, but: what would it look like?
 
@@ -23,7 +23,7 @@ The absurd moonshot. Not that it'll happen, but: what would it look like?
 
 ---
 
-### Objects, Not Documents
+### Objects, not documents
 
 Things that live, not sit. Active, not passive.
 
@@ -37,7 +37,7 @@ Things that live, not sit. Active, not passive.
 
 ---
 
-### Social With Artifacts
+### Social with artifacts
 
 Not ephemeral posting. Building together, things persist.
 
@@ -51,7 +51,7 @@ Not ephemeral posting. Building together, things persist.
 
 ---
 
-### First Creative Step Trivially Easy
+### First creative step trivially easy
 
 Low floor, high ceiling, ownership.
 
@@ -65,7 +65,7 @@ Low floor, high ceiling, ownership.
 
 ---
 
-### Personal Creative Spaces, Connected to Others
+### Personal creative spaces, connected to others
 
 Early web spirit.
 
@@ -79,7 +79,7 @@ Early web spirit.
 
 ---
 
-## By Persona
+## By persona
 
 Real workflows, real problems.
 
@@ -136,13 +136,13 @@ Real workflows, real problems.
 
 ---
 
-## Specific Use-Cases
+## Specific use-cases
 
 These serve the goals above. Some work today, some are aspirational.
 
 ---
 
-## Developer Tools That Understand Structure
+## Developer tools that understand structure
 
 **The problem:** Most dev tools operate on text. Grep doesn't know what a function is. Regex can't refactor safely. You're pattern-matching strings when you want to query structure.
 
@@ -164,7 +164,7 @@ These serve the goals above. Some work today, some are aspirational.
 
 ---
 
-## Procedural Content Pipelines
+## Procedural content pipelines
 
 **The problem:** Procedural generation is either locked in proprietary tools (Houdini, Substance) or requires building everything from scratch. Results are often non-deterministic, hard to serialize, and don't compose.
 
@@ -186,7 +186,7 @@ These serve the goals above. Some work today, some are aspirational.
 
 ---
 
-## Games With Deep Moddable Systems
+## Games with deep moddable systems
 
 **The problem:** Most games are closed. Modding requires reverse engineering or limited mod APIs. Multiplayer is centralized. Worlds don't persist meaningfully.
 
@@ -206,7 +206,7 @@ These serve the goals above. Some work today, some are aspirational.
 
 ---
 
-## AI-Integrated Applications
+## AI-integrated applications
 
 **The problem:** AI gets context through chat history (linear, lossy) or by reading screenshots/docs (interpretation-heavy). There's no structured way to inject world state.
 
@@ -231,7 +231,7 @@ The key insight isn't one specific approach - it's that agents should work with 
 
 ---
 
-## Legacy Software Preservation
+## Legacy software preservation
 
 **The problem:** Old software dies. Flash is gone. HyperCard is gone. Director projects rot. The artifacts exist but can't run.
 
@@ -250,7 +250,7 @@ The key insight isn't one specific approach - it's that agents should work with 
 
 ---
 
-## Format Conversion Without Hunting
+## Format conversion without hunting
 
 **The problem:** Converting between formats means hunting for exotic tools, praying they exist, and dealing with lossy conversions that don't preserve structure.
 
@@ -269,7 +269,7 @@ The key insight isn't one specific approach - it's that agents should work with 
 
 ---
 
-## The Wishlist
+## The wishlist
 
 Things we want to enable but aren't there yet.
 
@@ -278,18 +278,18 @@ Things we want to enable but aren't there yet.
 - **Collaboration primitives, cross-ecosystem** - Not just JS. Yjs for browser, yrs for Rust, Lua bindings via Moonlet. The bridge to humans should work across languages, not lock you into one ecosystem. `sharedRef()` energy but polyglot.
 - **Social with artifacts** - Not ephemeral posting. Building things together that persist.
 
-### Interface & Access
+### Interface & access
 
 - **Universal UI client** (Dusklight) - User-defined projections onto any data source. Escape from WIMP by making the paradigm user-defined.
 - **Multiple interfaces, same backend** - CLI on desktop, mobile-native on phone, same context/state. Tailscale works. SSH works. But a terminal on phone is miserable. The tool shouldn't be locked to one interface - different projections of the same thing. Sometimes the glue exists: Claude's Agent SDK exposes Claude Code as a library - same tools, same context, you build the UI. Mobile frontend to your agent session becomes feasible without reimplementing everything.
 - **Inspectable software** - See how things work while they're working. Smalltalk/MOO energy.
 
-### Creative Entry Points
+### Creative entry points
 
 - **Low-floor creative tools** - Start with a fragment, not a blank canvas. Constraints as permission to be imperfect.
 - **Interactive learning infrastructure** - Between quiz platforms and game engines. Primitives for challenges, progression, feedback.
 
-### AI Agents
+### AI agents
 
 - **Agent orchestration layer** - Built on Claude's Agent SDK. Non-terminal interface, multi-agent coordination (spawn to different repos, track, coordinate), smarter context management (not linear), configurable autonomy, meta-analysis, automatic refinement loops. Addresses Claude Code's weaknesses while using its core capabilities. Tailscale-friendly - access your agents from anywhere.
 

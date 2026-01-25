@@ -8,13 +8,13 @@ Clear vision and well-articulated design (tier 1 native patching vs. tier 2 runt
 
 Resurrect extracts and transforms applications from obsolete runtimes into modern web-based equivalents.
 
-## Key Features
+## Key features
 
 - **Explant** - Bytecode extraction and decompilation for Flash, Director, VB6, and more
 - **Interconnect** - Game translation with UI overlay replacement
 - **Multi-tier approach** - Native patching for hard targets, runtime replacement for scriptable engines
 
-## Supported Targets
+## Supported targets
 
 - **Interactive Media** - Flash, Director/Shockwave, Authorware
 - **Enterprise** - Visual Basic 6, Silverlight, Java Applets

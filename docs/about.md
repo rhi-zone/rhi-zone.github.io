@@ -4,7 +4,7 @@ rhi is an ecosystem of tools unified by a single pattern: **finding common abstr
 
 ## Philosophy
 
-### Unification Through Abstraction
+### Unification through abstraction
 
 Fragmentation is the default state of software:
 - 98 programming languages with incompatible tooling
@@ -36,7 +36,7 @@ Most tools pick one variant and ignore the rest, or build specialized solutions 
 
 This is why the projects don't need deep technical integration—each unifies its own domain. They share a solution pattern, not a codebase.
 
-### Principles That Follow
+### Principles that follow
 
 The unification principle drives other design decisions:
 
@@ -79,7 +79,7 @@ Tools should fit your infrastructure, not replace it. Vendor lock-in is framed a
 
 rhi projects are tools, not platforms. Use them with whatever else you have. No parallel universes of state.
 
-## The Name
+## The name
 
 A rhizome is a root system that grows horizontally, sending out shoots at intervals. Unlike trees with a single trunk, rhizomes form interconnected networks where any point can connect to any other.
 
@@ -87,7 +87,7 @@ Our projects are designed the same way: independent tools that compose well toge
 
 ## Projects
 
-### Code Intelligence
+### Code intelligence
 
 | Project | Key Idea |
 |---------|----------|
@@ -100,14 +100,14 @@ Our projects are designed the same way: independent tools that compose well toge
 | [unshape](/projects/unshape) | Composable procedural primitives for meshes, audio, textures |
 | [dew](/projects/dew) | Minimal expression language (WGSL, Cranelift, Lua) |
 
-### Games & Worlds
+### Games & worlds
 
 | Project | Key Idea |
 |---------|----------|
 | [playmate](/projects/playmate) | State machines, controllers, common gameplay patterns |
 | [interconnect](/projects/interconnect) | Authoritative handoff protocol for persistent worlds |
 
-### Data Transformation
+### Data transformation
 
 | Project | Key Idea |
 |---------|----------|
@@ -116,7 +116,7 @@ Our projects are designed the same way: independent tools that compose well toge
 | [concord](/projects/concord) | IR and codegen for cross-language bindings |
 | [resurrect](/projects/resurrect) | Legacy software lifting from obsolete runtimes |
 
-### Runtime & Interface
+### Runtime & interface
 
 | Project | Key Idea |
 |---------|----------|
@@ -152,7 +152,7 @@ These projects don't form a deeply integrated technical ecosystem. They're indep
 
 Use any project standalone. Compose them when it makes sense. No vendor lock-in.
 
-## Related Projects
+## Related projects
 
 Other projects that follow the unification pattern:
 
@@ -161,23 +161,23 @@ Other projects that follow the unification pattern:
 | [sketchpad](https://github.com/rhi-zone/sketchpad) | ML inference | Pure Rust ML unifies backends (CPU, GPU, WebGPU) |
 | [ooxml](https://github.com/pterror/ooxml) | Office formats | Structural parsing unifies docx/xlsx/pptx handling |
 
-## Special Thanks
+## Special thanks
 
 rhi builds on the shoulders of giants. We're grateful to these projects and communities:
 
-### Core Technologies
+### Core technologies
 - [Rust](https://www.rust-lang.org/) - The language that makes safe systems programming practical
 - [LuaJIT](https://luajit.org/) - Lightning-fast scripting runtime powering moonlet
 - [tree-sitter](https://tree-sitter.github.io/) - Incremental parsing powering normalize
 - [Arborium](https://arborium.bearcove.eu/) - Curated tree-sitter grammars
 
-### Development Tools
+### Development tools
 - [Nix](https://nixos.org/) - Reproducible development environments
 - [direnv](https://direnv.net/) - Environment switcher for the shell
 - [VitePress](https://vitepress.dev/) - Modern documentation framework
 - [GitHub Actions](https://github.com/features/actions) - CI/CD infrastructure
 
-### Rust Ecosystem Core
+### Rust ecosystem core
 - [Tokio](https://tokio.rs/) - Async runtime
 - [Axum](https://github.com/tokio-rs/axum) - Ergonomic web framework
 - [serde](https://serde.rs/) - Serialization framework
@@ -185,7 +185,7 @@ rhi builds on the shoulders of giants. We're grateful to these projects and comm
 - [thiserror](https://docs.rs/thiserror/) - Error handling
 - [mlua](https://github.com/mlua-rs/mlua) - Lua/LuaJIT bindings
 
-### Domain-Specific
+### Domain-specific
 - [wgpu](https://wgpu.rs/) - Cross-platform GPU API (unshape)
 - [Burn](https://burn.dev/) - Deep learning framework
 - [libsql](https://github.com/tursodatabase/libsql) - SQLite fork with async support

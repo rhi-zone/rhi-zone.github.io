@@ -8,14 +8,14 @@
 
 rescribe is a universal document conversion library inspired by Pandoc, but focused on lossless round-trip fidelity through a rich intermediate representation. Preserves document semantics across ~50 formats.
 
-## Key Features
+## Key features
 
 - **Lossless IR** - Rich intermediate representation preserves formatting and structure
 - **Round-trip fidelity** - Convert back and forth without information loss
 - **Format support** - Office formats (DOCX, XLSX, PPTX), markup (Markdown, HTML), and more
 - **Library-first** - Designed for integration into pipelines and tools
 
-## Use Cases
+## Use cases
 
 - Document format migration without data loss
 - Content extraction from legacy formats

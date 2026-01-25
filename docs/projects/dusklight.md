@@ -8,7 +8,7 @@ Well-developed design documentation (philosophy, architecture, plugin system). T
 
 Dusklight is an infinitely configurable UI for viewing, mutating, and controlling data—static files, network streams, video, audio, binary formats, and more.
 
-## Key Features
+## Key features
 
 - **Format-agnostic** - JSON, JSONL, protobuf, msgpack, SSE, video, audio, binary
 - **Source-agnostic** - Filesystem, HTTP, WebSocket, stdin
@@ -16,7 +16,7 @@ Dusklight is an infinitely configurable UI for viewing, mutating, and controllin
 - **User-configurable** - Define custom views for any data shape
 - **Live updates** - Streaming data with real-time rendering
 
-## Use Cases
+## Use cases
 
 - **Log viewers and debuggers** - View and interact with running systems
 - **API explorers** - Inspect and trigger endpoints
@@ -24,7 +24,7 @@ Dusklight is an infinitely configurable UI for viewing, mutating, and controllin
 - **Project hubs** - Unified dashboard for rhi workflows
 - **Binary inspectors** - Format-agnostic data exploration
 
-## Project Hub
+## Project hub
 
 For rhi projects, Dusklight becomes the unified dashboard:
 

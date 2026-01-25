@@ -4,15 +4,15 @@
 
 Why is it hard? What does implementing it actually look like?
 
-## The Technology Is Solved
+## The technology is solved
 
 CRDTs exist. Yjs, Automerge, yrs (Rust port). Mature, multi-language, production-ready. The *research* is done. The *libraries* exist.
 
 So why isn't everything collaborative?
 
-## Why Is Collaboration Hard To Implement?
+## Why is collaboration hard to implement?
 
-### Most Software Assumes Single User
+### Most software assumes single user
 
 The default assumption everywhere:
 - One cursor
@@ -23,7 +23,7 @@ The default assumption everywhere:
 
 These assumptions are baked deep. Not in one place you can swap out - everywhere.
 
-### State Management Wasn't Designed For It
+### State management wasn't designed for it
 
 Typical app state:
 ```
@@ -40,7 +40,7 @@ show what others are doing → don't flicker
 
 The complexity isn't the CRDT. It's everything around it.
 
-### What Do You Have To Tear Out?
+### What do you have to tear out?
 
 Depends on how the app was built:
 
@@ -52,7 +52,7 @@ Depends on how the app was built:
 
 **Undo/redo:** Single user: stack of operations, pop to undo. Multi-user: whose undo? Undo *your* action even if others acted after? Operational transform territory.
 
-### The Network Layer
+### The network layer
 
 Once state syncs, you need:
 - Transport (WebSocket, WebRTC, etc.)
@@ -63,7 +63,7 @@ Once state syncs, you need:
 
 Yjs handles the CRDT part. The network part is still on you (though y-websocket, y-webrtc exist).
 
-### The UI Layer
+### The UI layer
 
 Multi-user UI needs:
 - Multiple cursors, labeled
@@ -74,7 +74,7 @@ Multi-user UI needs:
 
 None of this is free. Each is a feature to build.
 
-## Framework-Specific: Vue Reactivity
+## Framework-specific: Vue reactivity
 
 Vue's reactivity is proxy-based - it wraps objects and detects mutations. How does this interact with CRDTs?
 
@@ -139,7 +139,7 @@ The pattern works, but it's work. Every project reinvents some of this.
 
 This is one example. React has different issues (immutability assumptions vs CRDT mutation). Svelte has others (compile-time reactivity). Each framework has its own friction with the CRDT model.
 
-## Framework Dependency
+## Framework dependency
 
 How hard this is depends enormously on your starting point:
 
@@ -154,7 +154,7 @@ How hard this is depends enormously on your starting point:
 
 Games often have it easier because multiplayer was always a possibility. The architecture accounts for network state. Most productivity software never considered it.
 
-## What Would "Easy Collaboration" Look Like?
+## What would "easy collaboration" look like?
 
 If we're bridging CRDTs to humans, what's needed?
 
@@ -172,7 +172,7 @@ If we're bridging CRDTs to humans, what's needed?
 
 This is the "bridge to humans" layer. Yjs handles the CRDT. Something needs to handle everything else.
 
-## Prior Art
+## Prior art
 
 - **Yjs ecosystem** - y-websocket, y-webrtc, y-indexeddb. Building blocks but still requires assembly.
 - **Liveblocks** - Hosted service, nice DX, but vendor lock-in and not self-hostable.
@@ -182,7 +182,7 @@ This is the "bridge to humans" layer. Yjs handles the CRDT. Something needs to h
 
 All of these are closer to "for developers who know what they're doing" than "for anyone building an app."
 
-## Is This Solvable?
+## Is this solvable?
 
 On paper, mostly yes. What "solved" means varies by ecosystem:
 
@@ -220,7 +220,7 @@ The harder problem: Yjs document in browser ↔ yrs in Rust backend ↔ mobile c
 
 "Solved" = collaboration is a property you add to state, not an architecture you adopt. Like how `async` infected everything it touched, but eventually became manageable. Collaboration should be a modifier, not a rewrite.
 
-## The Gap
+## The gap
 
 The technology is solved. The developer experience isn't.
 

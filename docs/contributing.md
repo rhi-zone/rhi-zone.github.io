@@ -2,9 +2,9 @@
 
 Guidelines for contributing to rhi projects.
 
-## Development Setup
+## Development setup
 
-### Standard Setup
+### Standard setup
 
 Most projects need Rust and/or Bun:
 
@@ -29,7 +29,7 @@ nix develop
 
 This ensures exact versions of all dependencies but isn't required.
 
-## Commit Conventions
+## Commit conventions
 
 We use [Conventional Commits](https://www.conventionalcommits.org/):
 
@@ -55,7 +55,7 @@ docs(api): document Field trait combinators
 refactor(mesh): extract half-edge operations to module
 ```
 
-## Code Style
+## Code style
 
 ### Rust
 
@@ -71,7 +71,7 @@ refactor(mesh): extract half-edge operations to module
 - Prefer functional patterns
 - Types are required, no `any`
 
-## Pull Requests
+## Pull requests
 
 1. Fork the repository
 2. Create a feature branch from `master`
@@ -91,7 +91,7 @@ bun run dev
 
 When adding features, update relevant documentation. Prefer updating existing docs over creating new files.
 
-## Project-Specific Guidelines
+## Project-specific guidelines
 
 - **Normalize**: See `CLAUDE.md` for detailed behavioral rules and design philosophy
 - **habitat**: Check `docs/development.md` for build instructions

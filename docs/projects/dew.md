@@ -8,7 +8,7 @@
 
 Dew is a domain-specific expression language designed for procedural generation workflows. Small, ephemeral, perfectly formed—like a droplet condensed from logic. Just dew it.
 
-## Key Features
+## Key features
 
 - **Multi-backend** - 10 code generation targets from one expression
 - **Math-focused** - Scalar, linear algebra, complex, quaternion domains
@@ -16,7 +16,7 @@ Dew is a domain-specific expression language designed for procedural generation 
 - **Extensible** - Custom functions via FunctionRegistry, generic over numeric types
 - **Embeddable** - Library-first design for integration into other tools
 
-## Domain Libraries
+## Domain libraries
 
 | Crate | Description |
 |-------|-------------|

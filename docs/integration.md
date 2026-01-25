@@ -25,7 +25,7 @@ graph TD
     end
 ```
 
-## Normalize + Any Project
+## Normalize + any project
 
 Normalize provides code intelligence for any Rust or TypeScript codebase:
 
@@ -47,7 +47,7 @@ normalize view unshape/ --type impl
 
 Unshape generates procedural assets that habitat worlds can use:
 
-### Procedural Textures for Rooms
+### Procedural textures for rooms
 
 ```rust
 // Unshape: Generate a procedural wall texture
@@ -67,7 +67,7 @@ wall.render(512, 512).save("wall.png");
 room.texture = "/assets/wall.png"
 ```
 
-### Procedural Audio for Ambience
+### Procedural audio for ambience
 
 ```rust
 // Unshape: Generate ambient sounds
@@ -82,7 +82,7 @@ let rain = impulse_train(8.0)
 mix(wind, rain).render_to("ambience.wav", 44100, 10.0);
 ```
 
-### Procedural Meshes for Objects
+### Procedural meshes for objects
 
 ```rust
 // Unshape: Generate a procedural gem
@@ -93,7 +93,7 @@ let gem = icosphere(2)
 gem.export("gem.glb");
 ```
 
-## Future: habitat Hosts Unshape Editor
+## Future: habitat hosts Unshape editor
 
 A longer-term integration: habitat as a persistent backend for a Unshape node graph editor.
 
@@ -119,7 +119,7 @@ Benefits:
 - **Scripting**: Lua scripts can manipulate graphs programmatically
 - **Versioning**: Entity revision history provides undo/branching
 
-## Library Usage
+## Library usage
 
 All projects expose their core as Rust libraries:
 

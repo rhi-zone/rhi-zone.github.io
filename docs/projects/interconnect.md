@@ -8,14 +8,14 @@ Conceptually mature with excellent documentation (protocol design, security mode
 
 Interconnect enables habitat servers to form interconnected networks where players can travel between worlds owned by different authorities.
 
-## Key Features
+## Key features
 
 - **Authoritative Handoff** - Single server owns each world, no state merging
 - **Intent-Based Protocol** - Clients send intent, servers compute results
 - **Two-Layer Architecture** - Replicated substrate (static), authoritative simulation (dynamic)
 - **Import Policies** - Customs validation for player transfers between worlds
 
-## Why Not State Merging?
+## Why not state merging?
 
 Traditional federation (like Matrix) merges state from multiple servers. This creates attack surfaces:
 
@@ -25,7 +25,7 @@ Traditional federation (like Matrix) merges state from multiple servers. This cr
 
 Interconnect avoids these by using single-authority ownership. When you move between worlds, you disconnect from Server A and connect to Server B.
 
-## Ghost Mode
+## Ghost mode
 
 When authority connection is lost:
 - World desaturates visually

@@ -8,7 +8,7 @@ Well-planned project in early execution. Comprehensive architecture docs, design
 
 Playmate provides reusable game design primitives for common gameplay patterns. Built with game development in mind, it integrates well with engines like Bevy.
 
-## Key Features
+## Key features
 
 - **State Machines** - Game logic primitives for AI, animation, and gameplay
 - **Character Controllers** - Movement systems for various game types

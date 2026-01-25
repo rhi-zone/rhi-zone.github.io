@@ -12,7 +12,7 @@
 
 Portals provides capability-based, async-first interfaces inspired by WASI, designed to be implementable across runtimes.
 
-## Interface Crates (23)
+## Interface crates (23)
 
 | Category | Interfaces |
 |----------|------------|
@@ -33,7 +33,7 @@ Each interface has multiple backend implementations:
 | **Mock** | 3 | Testing implementations for clocks, HTTP, random |
 | **Portable** | 2 | cron, encoding (work on native + WASM) |
 
-## Design Principles
+## Design principles
 
 - **Capability-based**: Access is granted through capability objects, not ambient authority
 - **Async-first**: Operations that may block return futures

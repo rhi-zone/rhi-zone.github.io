@@ -4,7 +4,7 @@
 
 The interaction graph is a core design concept in rhi: **affordances as explicit, queryable data**.
 
-## The Problem It Solves
+## The problem it solves
 
 Software hides what you can do. Commands live in menus you have to hunt through. Features hide behind modifier keys you'll never discover. The interaction is implicit - buried in UI code, not queryable, not shareable.
 
@@ -12,7 +12,7 @@ This creates real problems: decision paralysis (too many unlabeled options), ste
 
 See [Why Software Is Hard](/why-software-is-hard) for an accessible take, or [Affordance Opacity](/affordance-opacity) for the technical deep dive.
 
-## What It Is
+## What it is
 
 Every affordance is an edge in the graph:
 
@@ -28,7 +28,7 @@ Every affordance is an edge in the graph:
 
 The interaction graph is **affordance structure**: what can you DO at any moment, and what does it lead to.
 
-## Not Data Graphs
+## Not data graphs
 
 This is explicitly *not* what Obsidian or Dendron show:
 
@@ -43,7 +43,7 @@ Obsidian rendered a graph. And? Visual noise, not insight. "Look, your notes are
 
 The interaction graph is about the UI itself. What's available NOW. What's contextually relevant. What should be surfaced vs hidden.
 
-## Why It Matters
+## Why it matters
 
 WIMP hides commands in menus. You hunt through File → Edit → View hoping to find what you need. The commands exist, but they're implicit - buried in UI code, not queryable.
 
@@ -55,7 +55,7 @@ But command palettes are still typically:
 - Not composable (can't chain commands)
 - Not introspectable (can't ask "what commands exist that operate on X?")
 
-## Discoverability at Scale
+## Discoverability at scale
 
 "Discoverability doesn't scale" is wrong. The problem isn't having thousands of actions. It's *showing* thousands of actions.
 
@@ -72,7 +72,7 @@ Then:
 
 This is what Blender modes *almost* do. Edit mode shows edit tools, sculpt mode shows sculpt tools. But it's coarse - still dozens per mode. Finer-grained context filtering could narrow to what's actually relevant *right now*.
 
-## First-Class Citizen
+## First-class citizen
 
 The insight: **interaction graph as first-class citizen**. Not just "UI has actions" but actions-as-data, queryable, composable.
 
@@ -92,7 +92,7 @@ What this enables:
 
 Same graph, different rendering. The "paradigm" is the graph, not the pixels.
 
-## Architecture Implications
+## Architecture implications
 
 If the interaction graph is explicit:
 - Object sources are pluggable (not hardcoded integrations)
@@ -102,7 +102,7 @@ If the interaction graph is explicit:
 
 This is why rhi projects are designed as headless cores with frontend-agnostic interfaces. The interaction graph lives in the server (MOO verbs, entity affordances, command capabilities). Frontends just project it.
 
-## Graph Visualization (Separately)
+## Graph visualization (separately)
 
 Graph *visualization* is worth exploring - but for different reasons:
 - Navigate by relationship
@@ -112,7 +112,7 @@ Graph *visualization* is worth exploring - but for different reasons:
 
 Not "here's all your notes as dots" (useless), but "from here, what's related, and what can I do about it?"
 
-## Clean Graphs, Not Filtered Messy Graphs
+## Clean graphs, not filtered messy graphs
 
 If the interaction graph is too connected, the problem isn't filtering. It's architecture.
 

@@ -4,7 +4,7 @@
 
 The hidden commands problem. Why software feels like it's keeping secrets from you.
 
-## The Core Problem
+## The core problem
 
 Software hides what you can do.
 
@@ -42,7 +42,7 @@ This isn't a minor UX annoyance. It's a fundamental architectural choice that sh
 
 **Software feels adversarial.** Like it's keeping secrets. Like there's a club of people who know, and you're not in it. The UI is a wall, not a guide.
 
-## Why It Happens
+## Why it happens
 
 **UI code mixes concerns.** In most codebases, the button that does a thing and the logic for the thing are intertwined. The action isn't data - it's code. You can't query "what actions exist?" because they're not stored anywhere queryable. They're scattered across components, defined alongside rendering.
 
@@ -56,7 +56,7 @@ This isn't a minor UX annoyance. It's a fundamental architectural choice that sh
 
 **Interaction design isn't valued.** In FOSS especially, clever code and features get praise. "The UX is confusing" is seen as a user problem. Interaction design is dismissed as "not real engineering." So it doesn't get engineering effort.
 
-## Partial Solutions That Exist
+## Partial solutions that exist
 
 **Command palettes.** Ctrl+K (or Cmd+Shift+P, or whatever) opens a searchable list of commands. Revolutionary when VSCode popularized it. You can *search* for what you want. The interaction graph becomes queryable - at least by text search.
 
@@ -72,7 +72,7 @@ Limitations: still app-specific (each has its own palette), usually flat (no con
 
 **Documentation.** Read the manual. Separate from the app, out of context, often outdated. The answer to "how do I X?" shouldn't be "leave the app and search the docs."
 
-## What Full Transparency Would Look Like
+## What full transparency would look like
 
 The [interaction graph](/interaction-graph) makes affordances explicit.
 
@@ -88,7 +88,7 @@ The [interaction graph](/interaction-graph) makes affordances explicit.
 
 **Learnable by inspection.** You can explore the capability space directly. Not through trial and error - through a map of what exists.
 
-## The Deeper Point
+## The deeper point
 
 Affordance opacity isn't just a UX problem. It's about who software is *for*.
 
