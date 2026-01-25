@@ -117,6 +117,25 @@ Applying this lens to existing software reveals patterns:
 
 **Linear feeds control thought sequence.** If creativity is connection-making, and the platform chooses what sequence you see things in, the platform shapes which connections you make. Graph/spatial navigation gives you agency over your input stream. This reframes "platforms are bad for attention" into "platforms are bad for cognition."
 
+## Failure modes
+
+When an interaction graph is broken, it manifests in predictable ways:
+
+| Failure mode | What it looks like |
+|--------------|-------------------|
+| **Hidden features** | Capabilities exist but are only discoverable via docs, forums, or accident. "Did you know you can Shift+drag to..." Worse when docs are online-only |
+| **Modal confusion** | Current mode unclear. Actions do unexpected things because you're in the wrong state. Vim's modes done badly |
+| **Actions far from targets** | The thing you want to affect and the action that affects it are distant. Menu bar commands for canvas objects |
+| **Inconsistent patterns** | Same gesture does different things in different contexts. Right-click behavior varies arbitrarily |
+| **Invisible state** | System state that affects behavior but isn't shown. Why did that command fail? What mode am I in? |
+| **No undo** | Actions are irreversible, or undo is partial/broken. Fear of exploration |
+| **Destructive defaults** | Dangerous actions are easy to trigger, safe actions require confirmation |
+| **Search as only navigation** | The only way to find features is search. No spatial/structural navigation. Command palette as entire UI |
+| **Orphaned affordances** | Features that exist but connect to nothing. Dead ends in the graph |
+| **Circular dependencies** | To do A you need B, to do B you need A. Onboarding traps |
+
+These aren't just UX complaints. They're structural problems in the interaction graph: missing edges, hidden nodes, broken connections, unclear state. The lens helps diagnose *what's actually wrong* rather than just "it feels bad."
+
 ## Graph visualization (separately)
 
 Graph *visualization* is worth exploring - but for different reasons:
