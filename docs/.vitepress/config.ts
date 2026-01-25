@@ -52,12 +52,19 @@ export default withMermaid(
               { text: 'About', link: '/about' },
               { text: 'Vision', link: '/vision' },
               { text: 'Problems', link: '/problems' },
-              { text: 'Affordance Opacity', link: '/affordance-opacity' },
+              { text: 'Why Software Is Hard', link: '/why-software-is-hard' },
               { text: 'Interaction Graph', link: '/interaction-graph' },
               { text: 'Collaboration', link: '/collaboration' },
               { text: 'Use Cases', link: '/use-cases' },
               { text: 'Architecture', link: '/architecture' },
               { text: 'Integration', link: '/integration' },
+            ]
+          },
+          {
+            text: 'Concepts',
+            collapsed: true,
+            items: [
+              { text: 'Affordance Opacity', link: '/affordance-opacity' },
             ]
           },
           {

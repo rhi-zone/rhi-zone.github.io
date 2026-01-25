@@ -1,6 +1,6 @@
 # Interaction Graph
 
-**See also:** [Affordance Opacity](/affordance-opacity) (the problem this solves), [Problems](/problems) (broader context), [Vision](/vision) (what we're exploring), [Zone Brainstorm](https://rhi.zone/zone/design/servers-brainstorm) (source conversation)
+**See also:** [Why Software Is Hard](/why-software-is-hard) (the problem, accessible), [Affordance Opacity](/affordance-opacity) (the problem, technical), [Problems](/problems) (broader context), [Zone Brainstorm](https://rhi.zone/zone/design/servers-brainstorm) (source conversation)
 
 The interaction graph is a core design concept in rhi: **affordances as explicit, queryable data**.
 
@@ -10,7 +10,7 @@ Software hides what you can do. Commands live in menus you have to hunt through.
 
 This creates real problems: decision paralysis (too many unlabeled options), steep learning curves (figure out what's even possible), expertise as tribal knowledge ("did you know Ctrl+Shift+K does...?"), collaboration friction (can't share context about what actions exist).
 
-See [Affordance Opacity](/affordance-opacity) for the full problem statement.
+See [Why Software Is Hard](/why-software-is-hard) for an accessible take, or [Affordance Opacity](/affordance-opacity) for the technical deep dive.
 
 ## What It Is
 

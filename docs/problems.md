@@ -4,7 +4,7 @@ Before solutions. Before tools. What's actually wrong?
 
 This isn't about software. It's about people.
 
-**See also:** [Vision](/vision) (what we're exploring), [Affordance Opacity](/affordance-opacity) (why software hides), [Interaction Graph](/interaction-graph) (making affordances explicit), [Use Cases](/use-cases) (what we want to enable)
+**See also:** [Vision](/vision) (what we're exploring), [Why Software Is Hard](/why-software-is-hard) (accessible explainer), [Interaction Graph](/interaction-graph) (making affordances explicit), [Use Cases](/use-cases) (what we want to enable)
 
 ## Why Do People Not Do Things?
 
