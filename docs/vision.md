@@ -1,6 +1,6 @@
 # Vision
 
-**See also:** [Problems](/problems) (what's actually wrong), [Affordance Opacity](/affordance-opacity) (why software hides), [Interaction Graph](/interaction-graph) (making affordances explicit), [Philosophy](/about#philosophy) (design principles), [Projects](/projects/) (what exists), [Zone Brainstorm](https://rhi.zone/zone/design/servers-brainstorm) (source conversation)
+**See also:** [Problems](/problems) (what's actually wrong), [Affordance opacity](/affordance-opacity) (why software hides), [Interaction graph](/interaction-graph) (making affordances explicit), [Philosophy](/about#philosophy) (design principles), [Projects](/projects/) (what exists), [Zone Brainstorm](https://rhi.zone/zone/design/servers-brainstorm) (source conversation)
 
 ## What rhi actually is
 

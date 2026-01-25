@@ -1,6 +1,6 @@
 # Affordance Opacity
 
-**See also:** [Why Software Is Hard](/why-software-is-hard) (accessible version), [Interaction Graph](/interaction-graph) (the solution), [Problems](/problems) (broader context)
+**See also:** [Why software is hard](/why-software-is-hard) (accessible version), [Interaction graph](/interaction-graph) (the solution), [Problems](/problems) (broader context)
 
 The hidden commands problem. Why software feels like it's keeping secrets from you.
 

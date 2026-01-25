@@ -1,16 +1,16 @@
 # Interaction Graph
 
-**See also:** [Why Software Is Hard](/why-software-is-hard) (the problem, accessible), [Affordance Opacity](/affordance-opacity) (the problem, technical), [Problems](/problems) (broader context), [Zone Brainstorm](https://rhi.zone/zone/design/servers-brainstorm) (source conversation)
+**See also:** [Why software is hard](/why-software-is-hard) (the problem, accessible), [Affordance opacity](/affordance-opacity) (the problem, technical), [Problems](/problems) (broader context), [Zone Brainstorm](https://rhi.zone/zone/design/servers-brainstorm) (source conversation)
 
-The interaction graph is a core design concept in rhi: **affordances as explicit, queryable data**.
+The interaction graph is a lens for understanding software: **what can you do, and how do you know?**
 
-## The problem it solves
+## The problem it reveals
 
-Software hides what you can do. Commands live in menus you have to hunt through. Features hide behind modifier keys you'll never discover. The interaction is implicit - buried in UI code, not queryable, not shareable.
+Most software hides its interaction graph. Commands live in menus you have to hunt through. Features hide behind modifier keys you'll never discover. The graph is implicit - buried in UI code, not queryable, not shareable.
 
-This creates real problems: decision paralysis (too many unlabeled options), steep learning curves (figure out what's even possible), expertise as tribal knowledge ("did you know Ctrl+Shift+K does...?"), collaboration friction (can't share context about what actions exist).
+This framing explains why software feels hard: decision paralysis (too many unlabeled options), steep learning curves (figure out what's even possible), expertise as tribal knowledge ("did you know Ctrl+Shift+K does...?"), collaboration friction (can't share context about what actions exist).
 
-See [Why Software Is Hard](/why-software-is-hard) for an accessible take, or [Affordance Opacity](/affordance-opacity) for the technical deep dive.
+See [Why software is hard](/why-software-is-hard) for an accessible take, or [Affordance opacity](/affordance-opacity) for the technical deep dive.
 
 ## What it is
 
@@ -92,15 +92,15 @@ What this enables:
 
 Same graph, different rendering. The "paradigm" is the graph, not the pixels.
 
-## Architecture implications
+## What explicit graphs enable
 
-If the interaction graph is explicit:
+Software that makes its interaction graph explicit:
 - Object sources are pluggable (not hardcoded integrations)
 - Views are ALSO pluggable (swap renderers without changing logic)
 - Layout is user-controlled (not app-dictated)
 - The backend owns the affordances; frontends just render them
 
-This is why rhi projects are designed as headless cores with frontend-agnostic interfaces. The interaction graph lives in the server (MOO verbs, entity affordances, command capabilities). Frontends just project it.
+This is the direction rhi projects aim for: headless cores with frontend-agnostic interfaces. The graph lives in the server (verbs, entity affordances, command capabilities). Frontends project it.
 
 ## Graph visualization (separately)
 

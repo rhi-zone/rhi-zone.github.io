@@ -1,6 +1,6 @@
 # Why software is hard
 
-**See also:** [Interaction Graph](/interaction-graph) (one solution), [Problems](/problems) (broader context)
+**See also:** [Interaction graph](/interaction-graph) (one solution), [Problems](/problems) (broader context)
 
 You're not bad at computers. Software is actually hard to use. Here's why.
 
