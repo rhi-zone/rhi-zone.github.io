@@ -1,6 +1,6 @@
 # Why software is hard
 
-**See also:** [Interaction graph](/interaction-graph) (one solution), [Problems](/problems) (broader context)
+**See also:** [Interaction graph](/interaction-graph) (a diagnostic lens), [Affordance opacity](/affordance-opacity) (technical version), [Problems](/problems) (broader context)
 
 You're not bad at computers. Software is actually hard to use. Here's why.
 
@@ -42,7 +42,9 @@ The way software works - windows, icons, menus, clicking - was invented in the 1
 
 Then it froze. The paradigm calcified before anyone questioned whether it was actually good. We've been doing the same thing for 50 years, adding features on top, never rethinking the foundation.
 
-Alternative approaches exist. Some are better for some tasks. But they never get traction because everything is built assuming WIMP, everyone learns WIMP, and "different" means "incompatible."
+Worse: the toolkits locked it in. Windows gives developers `CreateMenu()` but not `CreateRadialMenu()`. So everyone uses linear menus - not because they're better, but because they're *there*. The paradigm calcified around what happened to be implemented in 1990.
+
+We once had spatial interfaces (the original Mac Finder remembered where each folder's window was - you knew where things lived). We threw them away for "efficiency." Now we hunt through identical-looking folders because the toolkits didn't support anything else.
 
 We inherited the paradigm, not the reasoning behind it.
 

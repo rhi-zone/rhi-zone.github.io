@@ -1,6 +1,6 @@
 # Affordance Opacity
 
-**See also:** [Why software is hard](/why-software-is-hard) (accessible version), [Interaction graph](/interaction-graph) (the solution), [Problems](/problems) (broader context)
+**See also:** [Why software is hard](/why-software-is-hard) (accessible version), [Interaction graph](/interaction-graph) (the diagnostic lens), [Problems](/problems) (broader context)
 
 The hidden commands problem. Why software feels like it's keeping secrets from you.
 
@@ -50,6 +50,8 @@ This isn't a minor UX annoyance. It's a fundamental architectural choice that sh
 
 **Historical accident.** WIMP (Windows, Icons, Menus, Pointer) emerged in the 1970s-80s. It was revolutionary then. It calcified into "how software works" before anyone questioned whether menus were the right abstraction. We inherited the paradigm, not the reasoning.
 
+**Toolkits locked it in.** Win32 gives you `CreateMenu()` but not `CreateRadialMenu()`. So 99% of developers use linear menus - not because they're better, but because they're *there*. Radial menus are faster (Fitts's Law: all options equidistant from cursor) and more memorable (direction vs position), but the toolkit didn't provide them. The paradigm calcified around what happened to be implemented.
+
 **Complexity as moat.** Cynically: hard to learn = hard to leave. If you've invested in mastering the hiding places, switching costs are high. Some companies benefit from this. Not a conspiracy, just misaligned incentives.
 
 **Features ship, organization doesn't.** Adding a feature is one PR. Reorganizing the entire menu structure is a project. Features accumulate. Organization debt compounds. The result: software that grew without a plan.
@@ -59,6 +61,8 @@ This isn't a minor UX annoyance. It's a fundamental architectural choice that sh
 ## Partial solutions that exist
 
 **Command palettes.** Ctrl+K (or Cmd+Shift+P, or whatever) opens a searchable list of commands. Revolutionary when VSCode popularized it. You can *search* for what you want. The interaction graph becomes queryable - at least by text search.
+
+But command palettes are also a crutch: "we don't have a proper place for this, so put it in the giant bag of every other action." The best affordances don't require searching - things are where you expect them. A command palette that contains everything is admitting the UI failed to organize.
 
 Limitations: still app-specific (each has its own palette), usually flat (no context, no relationships), not composable (can't chain commands), discovery requires knowing what to search for.
 
@@ -72,27 +76,28 @@ Limitations: still app-specific (each has its own palette), usually flat (no con
 
 **Documentation.** Read the manual. Separate from the app, out of context, often outdated. The answer to "how do I X?" shouldn't be "leave the app and search the docs."
 
-## What full transparency would look like
+## What transparency would require
 
-The [interaction graph](/interaction-graph) makes affordances explicit.
+The [interaction graph](/interaction-graph) lens suggests what explicit affordances would look like - whether this is achievable at scale is an open question.
 
-**Actions are data.** Every command, every capability exists as a queryable entity. Not buried in UI code - structured, introspectable.
+**Actions as data.** Every command, every capability would exist as a queryable entity. Not buried in UI code - structured, introspectable.
 
-**Context-aware filtering.** At any moment, the system knows what's relevant: current mode, selection, state, recent actions. Show 5-10 relevant actions, not 500 in a menu hierarchy.
+**Context-aware filtering.** The system would know what's relevant: current mode, selection, state, recent actions. Show 5-10 relevant actions, not 500 in a menu hierarchy.
 
 **Intelligent surfacing.** Frecency (frequency + recency), relevance to current task, likelihood of intent. The command palette, but smarter - ordered by what you probably want, not alphabetically.
 
-**Relationships are visible.** Not just "these commands exist" but "this leads to that." The graph of possibilities, navigable.
+**Relationships visible.** Not just "these commands exist" but "this leads to that." The graph of possibilities, navigable.
 
-**Shareable context.** "Here's what I can do right now" is something you can show someone else. The interaction state is data, not just pixels on a screen.
+**Shareable context.** "Here's what I can do right now" as data you can show someone else. The interaction state is data, not just pixels on a screen.
 
-**Learnable by inspection.** You can explore the capability space directly. Not through trial and error - through a map of what exists.
+**Learnable by inspection.** Explore the capability space directly. Not through trial and error - through a map of what exists.
+
+VSCode approximates some of this: commands are first-class, context-aware (Git commands appear in repos, language commands appear for that language), frecency-ordered. It proves the approach is tractable. Most software just doesn't bother.
 
 ## The deeper point
 
 Affordance opacity isn't just a UX problem. It's about who software is *for*.
 
-Opaque software is for experts who already know, or for users who accept the floor. Transparent software is for everyone - experts move faster, beginners can actually learn, the middle ground doesn't require years of tribal knowledge.
+Opaque software is for experts who already know, or for users who accept the floor. Transparent software would be for everyone - experts move faster, beginners can actually learn, the middle ground doesn't require years of tribal knowledge.
 
-The interaction graph isn't just a design pattern. It's a statement: software should be honest about what it can do.
-
+The [interaction graph](/interaction-graph) lens helps diagnose *why* software feels opaque. Whether making affordances fully explicit is achievable - or even desirable at scale - remains an open question. But recognizing the problem is the first step.
