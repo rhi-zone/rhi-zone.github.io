@@ -52,6 +52,7 @@ export default withMermaid(
               { text: 'About', link: '/about' },
               { text: 'Vision', link: '/vision' },
               { text: 'Problems', link: '/problems' },
+              { text: 'Interaction Graph', link: '/interaction-graph' },
               { text: 'Collaboration', link: '/collaboration' },
               { text: 'Use Cases', link: '/use-cases' },
               { text: 'Architecture', link: '/architecture' },
