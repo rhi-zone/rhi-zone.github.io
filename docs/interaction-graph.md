@@ -134,6 +134,17 @@ When an interaction graph is broken, it manifests in predictable ways:
 | **Orphaned affordances** | Features that exist but connect to nothing. Dead ends in the graph |
 | **Circular dependencies** | To do A you need B, to do B you need A. Onboarding traps |
 
+Graph topology problems:
+
+| Shape problem | What it means |
+|---------------|---------------|
+| **Over-connected nodes** | One state has too many outgoing edges. Decision paralysis. The 50-item menu |
+| **Sparse regions** | Areas with few affordances. "You can get here but there's nothing to do" |
+| **Bottleneck nodes** | Everything routes through one point. Single point of navigation failure |
+| **Unbalanced depth** | Some features 1 click away, others buried 7 levels deep. Arbitrary hierarchy |
+| **Missing shortcuts** | Common operations require too many hops. No direct edges for frequent paths |
+| **Disconnected subgraphs** | Features that don't connect to the rest of the system. Siloed functionality |
+
 These aren't just UX complaints. They're structural problems in the interaction graph: missing edges, hidden nodes, broken connections, unclear state. The lens helps diagnose *what's actually wrong* rather than just "it feels bad."
 
 ## Graph visualization (separately)
