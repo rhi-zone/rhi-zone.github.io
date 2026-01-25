@@ -2,6 +2,10 @@
 
 **Minimal expression language for procedural generation.**
 
+::: info Status: Potentially Mature ●
+~51K lines of Rust across 8 crates. Production-ready core language with 4 domain crates (scalar, linalg, complex, quaternion) and 10 code generation backends (WGSL, GLSL, OpenCL, CUDA, HIP, Rust, C, TokenStream, Lua, Cranelift). Exhaustive tests, property-based testing, editor support. Web playground is the only incomplete UX piece.
+:::
+
 Dew is a domain-specific expression language designed for procedural generation workflows. Small, ephemeral, perfectly formed—like a droplet condensed from logic. Just dew it.
 
 ## Key Features
@@ -17,7 +21,7 @@ Dew is a domain-specific expression language designed for procedural generation 
 |---------|----------|
 | WGSL | GPU shader evaluation for textures, particles |
 | Cranelift | CPU JIT for fast evaluation |
-| Lua | Scripting integration with Lotus |
+| Lua | Scripting integration with habitat |
 
 ## Links
 

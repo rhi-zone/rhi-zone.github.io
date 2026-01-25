@@ -2,6 +2,10 @@
 
 **API bindings IR and code generation.**
 
+::: info Status: Growing ◔
+~1.2K lines of Rust across 2 crates (concord-core, concord-codegen). Working MVP with functional OpenAPI → Rust codegen, dogfood tested on petstore. Clear architecture and documented design decisions. Remaining: inline/anonymous enums, integer enums, multi-language codegen.
+:::
+
 Concord provides a unified intermediate representation for API definitions, enabling code generation across languages and frameworks.
 
 ## Key Features

@@ -14,7 +14,7 @@ graph TB
     end
 
     subgraph "Runtime"
-        L[Lotus]
+        L[habitat]
         L --> ES[Entity System]
         L --> LUA[Lua Scripting]
         L --> PS[Persistence]
@@ -70,7 +70,7 @@ Key components:
 - **File Index**: SQLite symbol/call graph with background daemon
 - **Shadow Git**: Hunk-level edit tracking in `.normalize/.git`
 
-## Lotus Architecture
+## habitat Architecture
 
 Persistent multiplayer world runtime:
 

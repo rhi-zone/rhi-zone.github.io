@@ -1,6 +1,10 @@
 # Server-Less
 
-Composable derive macros for Rust.
+**Composable derive macros for Rust.**
+
+::: info Status: Fleshed Out ◐
+~17K lines of Rust across 6 crates, 187 tests. Multiple protocol implementations (HTTP, CLI, MCP, WebSocket, JSON-RPC, GraphQL, gRPC schema generation). Comprehensive docs with tutorials. Phase 4 of OpenAPI composition in progress. HTTP/CLI/MCP stable; remaining: middleware, streaming, client generation.
+:::
 
 **Repository:** [github.com/rhi-zone/server-less](https://github.com/rhi-zone/server-less)
 

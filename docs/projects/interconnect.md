@@ -2,7 +2,11 @@
 
 **Federation protocol for persistent worlds.**
 
-Interconnect enables Lotus servers to form interconnected networks where players can travel between worlds owned by different authorities.
+::: info Status: Idea ○
+Conceptually mature with excellent documentation (protocol design, security model, import policies, architecture). Zero implementation—the hard problem (protocol design) is solved and documented, ready for implementation of `interconnect-core` and basic protocol types.
+:::
+
+Interconnect enables habitat servers to form interconnected networks where players can travel between worlds owned by different authorities.
 
 ## Key Features
 

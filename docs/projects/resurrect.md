@@ -2,6 +2,10 @@
 
 **Legacy software lifting framework in Rust.**
 
+::: info Status: Idea ○
+Clear vision and well-articulated design (tier 1 native patching vs. tier 2 runtime replacement). Deployed docs site with comprehensive introduction. Zero implementation—no Rust code written, only workspace configuration and documentation scaffolding.
+:::
+
 Resurrect extracts and transforms applications from obsolete runtimes into modern web-based equivalents.
 
 ## Key Features

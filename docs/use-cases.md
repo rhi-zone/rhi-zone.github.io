@@ -29,7 +29,7 @@ Things that live, not sit. Active, not passive.
 - Data with behavior, not just content
 - Things that connect and relate, not isolated files
 
-**What we have:** Lotus (in Zone) explores this - object graphs with state, behavior, connections. Moonlet provides the runtime for objects to have behavior (Lua scripting).
+**What we have:** habitat (in Zone) explores this - object graphs with state, behavior, connections. Moonlet provides the runtime for objects to have behavior (Lua scripting).
 
 **What's missing:** A usable frontend. The object graph exists but there's no good way to interact with it yet. Also: proving this is actually better than files, not just different.
 
@@ -43,9 +43,9 @@ Not ephemeral posting. Building together, things persist.
 - Shared spaces where creations accumulate
 - "Here's a thing I made" not "here's what I'm thinking"
 
-**What we have:** Interconnect for federation (your server, connected to others). Lotus for persistent objects. The philosophy is clear.
+**What we have:** Interconnect for federation (your server, connected to others). habitat for persistent objects. The philosophy is clear.
 
-**What's missing:** An actual deployed thing people can use. The MOO-ish experience where you build together and stumble on things others made months ago. Needs Interconnect + Lotus + frontend + community.
+**What's missing:** An actual deployed thing people can use. The MOO-ish experience where you build together and stumble on things others made months ago. Needs Interconnect + habitat + frontend + community.
 
 ---
 
@@ -90,7 +90,7 @@ Real workflows, real problems.
 - rescribe for format conversion that preserves structure (not just visual appearance).
 - A living system where ideas connect and surface when relevant.
 
-**What exists today:** rescribe is in progress. Lotus (object graphs) is in development. Honestly, not much usable for writers yet.
+**What exists today:** rescribe is in progress. habitat (object graphs) is in development. Honestly, not much usable for writers yet.
 
 ---
 
@@ -212,7 +212,7 @@ These serve the goals above. Some work today, some are aspirational.
 - The "Structure for Agents" philosophy: make systems structured, don't force interpretation.
 - **Normalize** - AI can query code structure, not just read files.
 - **Wisteria** (Zone) - Agent task execution, spun out from Normalize. Traditional memory approaches (modifiable context, retrieval).
-- **Lotus** (Zone) - Object graph with state, behavior, connections. Persistent world state for interactive/roleplay contexts.
+- **habitat** (Zone) - Object graph with state, behavior, connections. Persistent world state for interactive/roleplay contexts.
 - **Iris** (Zone) - Session analysis.
 - RAG-like retrieval for relevant context injection (planned).
 - Structured specs everywhere: OpenAPI, JSON Schema, ASTs.
@@ -225,7 +225,7 @@ The key insight isn't one specific approach - it's that agents should work with 
 - Agents that can query and modify structured data, not just generate text
 - Tools with `--schema` flags so agents can discover capabilities
 
-**Status:** Normalize works. Zone subprojects (Wisteria, Lotus, Iris) are in various stages of development. The philosophy is baked into everything.
+**Status:** Normalize works. Zone subprojects (Wisteria, habitat, Iris) are in various stages of development. The philosophy is baked into everything.
 
 ---
 

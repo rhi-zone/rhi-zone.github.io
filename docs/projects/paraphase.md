@@ -2,6 +2,10 @@
 
 **Pipeline orchestrator for data conversion.**
 
+::: info Status: Fleshed Out ◐
+~82K lines of Rust across 7 crates (core, plugin, serde, image, video, audio, cli). Production-ready CLI with 18 serialization formats, 14 image formats, memory budgeting, and comprehensive documentation including ADRs. Main gaps: audio/video encoders and schema-dependent formats.
+:::
+
 Paraphase is a type-driven route planner for asset pipelines. Instead of writing conversion recipes, you declare source and destination—Paraphase finds the path.
 
 ## Key Features

@@ -2,6 +2,10 @@
 
 **Universal UI client with control plane.**
 
+::: info Status: Idea ○
+Well-developed design documentation (philosophy, architecture, plugin system). TypeScript/bun setup ready. Zero implementation code—past the raw idea stage due to strong documentation, but no working codebase yet to validate the design.
+:::
+
 Dusklight is an infinitely configurable UI for viewing, mutating, and controlling data—static files, network streams, video, audio, binary formats, and more.
 
 ## Key Features
@@ -24,7 +28,7 @@ Dusklight is an infinitely configurable UI for viewing, mutating, and controllin
 
 For rhi projects, Dusklight becomes the unified dashboard:
 
-- View Lotus world state, trigger actions
+- View habitat world state, trigger actions
 - Monitor Resurrect extraction progress
 - Inspect Paraphase pipeline status
 - Control any data-producing system

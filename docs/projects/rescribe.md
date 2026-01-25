@@ -2,6 +2,10 @@
 
 **Lossless document conversion library.**
 
+::: info Status: Fleshed Out ◐
+~62K lines of Rust across 124 crates: 1 core IR, 54 readers, 64 writers, 2 node type crates, CLI, and transforms. Massive format surface area with solid architecture (open IR, extensible node kinds, fidelity tracking). Currently in quality audit phase—breadth is there, depth/hardening ongoing.
+:::
+
 rescribe is a universal document conversion library inspired by Pandoc, but focused on lossless round-trip fidelity through a rich intermediate representation. Preserves document semantics across ~50 formats.
 
 ## Key Features

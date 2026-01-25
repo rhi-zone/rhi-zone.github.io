@@ -2,6 +2,10 @@
 
 **Unified tool configuration and project scaffolding.**
 
+::: info Status: Fleshed Out ◐
+~4.4K lines of Rust across 4 crates (cli, core, seed, store). Core features implemented: tool dependency management, config generation, watch/diff modes, manifest parsing, seed scaffolding, variable resolution. Backlog: tool registry integration, format auto-detection.
+:::
+
 Myenv manages tool configs from a single `myenv.toml` manifest and scaffolds new projects from seed templates.
 
 **Repository:** [github.com/rhi-zone/myenv](https://github.com/rhi-zone/myenv)

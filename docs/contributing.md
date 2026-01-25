@@ -94,9 +94,9 @@ When adding features, update relevant documentation. Prefer updating existing do
 ## Project-Specific Guidelines
 
 - **Normalize**: See `CLAUDE.md` for detailed behavioral rules and design philosophy
-- **Lotus**: Check `docs/development.md` for build instructions
+- **habitat**: Check `docs/development.md` for build instructions
 - **Unshape**: See `docs/philosophy.md` for design principles
-- **Sap**: Expression language; see crate docs
+- **Dew**: Expression language; see crate docs
 - **Concord**: API bindings; see `concord-core` for IR types
 - **Paraphase**: See `docs/philosophy.md` for pipeline design
 - **Dusklight**: See `CLAUDE.md` for UI design principles

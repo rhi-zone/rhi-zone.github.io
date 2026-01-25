@@ -10,12 +10,12 @@ While each project is useful standalone, they're designed to compose:
 graph TD
     subgraph Development
         DEV[Developer] --> |uses| NORMALIZE[Normalize]
-        NORMALIZE --> |navigates| LOTUS_CODE[Lotus codebase]
+        NORMALIZE --> |navigates| LOTUS_CODE[habitat codebase]
         NORMALIZE --> |navigates| UNSHAPE_CODE[Unshape codebase]
     end
 
     subgraph Runtime
-        LOTUS[Lotus World] --> |generates| UNSHAPE[Unshape]
+        LOTUS[habitat World] --> |generates| UNSHAPE[Unshape]
         UNSHAPE --> |assets| LOTUS
     end
 
@@ -30,11 +30,11 @@ graph TD
 Normalize provides code intelligence for any Rust or TypeScript codebase:
 
 ```bash
-# Navigate Lotus's entity system
-normalize view lotus/crates/core/src/entity.rs
+# Navigate habitat's entity system
+normalize view habitat/crates/core/src/entity.rs
 
-# Find all Lua bindings in Lotus
-normalize view lotus/ --calls "lua.*"
+# Find all Lua bindings in habitat
+normalize view habitat/ --calls "lua.*"
 
 # Analyze Unshape's complexity hotspots
 normalize analyze unshape/crates/ --complexity
@@ -43,9 +43,9 @@ normalize analyze unshape/crates/ --complexity
 normalize view unshape/ --type impl
 ```
 
-## Unshape + Lotus
+## Unshape + habitat
 
-Unshape generates procedural assets that Lotus worlds can use:
+Unshape generates procedural assets that habitat worlds can use:
 
 ### Procedural Textures for Rooms
 
@@ -63,7 +63,7 @@ wall.render(512, 512).save("wall.png");
 ```
 
 ```lua
--- Lotus: Use the texture in a room
+-- habitat: Use the texture in a room
 room.texture = "/assets/wall.png"
 ```
 
@@ -93,20 +93,20 @@ let gem = icosphere(2)
 gem.export("gem.glb");
 ```
 
-## Future: Lotus Hosts Unshape Editor
+## Future: habitat Hosts Unshape Editor
 
-A longer-term integration: Lotus as a persistent backend for a Unshape node graph editor.
+A longer-term integration: habitat as a persistent backend for a Unshape node graph editor.
 
 ```mermaid
 sequenceDiagram
     participant User
     participant Editor as Web Editor
-    participant Lotus
+    participant habitat
     participant Unshape
 
     User->>Editor: Edit node graph
-    Editor->>Lotus: Save graph entity
-    Lotus->>Lotus: Persist to SQLite
+    Editor->>habitat: Save graph entity
+    habitat->>habitat: Persist to SQLite
     User->>Editor: Request preview
     Editor->>Unshape: Evaluate graph
     Unshape->>Editor: Return image/audio
@@ -114,7 +114,7 @@ sequenceDiagram
 ```
 
 Benefits:
-- **Persistence**: Graph saved as Lotus entity with full history
+- **Persistence**: Graph saved as habitat entity with full history
 - **Collaboration**: Multiple users edit the same graph
 - **Scripting**: Lua scripts can manipulate graphs programmatically
 - **Versioning**: Entity revision history provides undo/branching
@@ -127,7 +127,7 @@ All projects expose their core as Rust libraries:
 # Cargo.toml
 [dependencies]
 normalize = { git = "https://github.com/rhi-zone/normalize" }
-lotus-core = { git = "https://github.com/rhi-zone/lotus" }
+habitat-core = { git = "https://github.com/rhi-zone/habitat" }
 unshape = { git = "https://github.com/rhi-zone/unshape" }
 ```
 
@@ -136,7 +136,7 @@ This allows building custom tools that combine capabilities:
 ```rust
 use normalize::view::skeleton;
 use unshape::texture::perlin;
-use lotus_core::entity::Entity;
+use habitat_core::entity::Entity;
 
 // Analyze code structure, generate assets, store in world
 ```

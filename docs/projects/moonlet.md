@@ -1,6 +1,10 @@
 # Moonlet
 
-Lua runtime with plugin system for the rhi ecosystem.
+**Lua runtime with plugin system for the rhi ecosystem.**
+
+::: info Status: Fleshed Out ◐
+~138K lines of Rust across 11 crates. Modular plugin architecture with 8 working integrations (fs, libm, normalize, packages, sessions, tools, llm, embed). Feature-complete for core mission (multi-provider LLM client + Lua runtime). One architectural task remaining: abstract LLM APIs to reduce rig coupling.
+:::
 
 **Repository:** [github.com/rhi-zone/moonlet](https://github.com/rhi-zone/moonlet)
 
