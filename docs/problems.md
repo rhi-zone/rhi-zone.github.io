@@ -230,5 +230,7 @@ This isn't a product spec. It's a set of values. A filter for decisions.
 
 ## See Also
 
+- [Affordance Opacity](/affordance-opacity) - Why software hides what it can do
+- [Interaction Graph](/interaction-graph) - Making affordances explicit
 - [Vision](/vision) - What we're exploring
 - [Use Cases](/use-cases) - What we want to enable

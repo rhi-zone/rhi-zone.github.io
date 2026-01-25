@@ -2,6 +2,14 @@
 
 The interaction graph is a core design concept in rhi: **affordances as explicit, queryable data**.
 
+## The Problem It Solves
+
+Software hides what you can do. Commands live in menus you have to hunt through. Features hide behind modifier keys you'll never discover. The interaction is implicit - buried in UI code, not queryable, not shareable.
+
+This creates real problems: decision paralysis (too many unlabeled options), steep learning curves (figure out what's even possible), expertise as tribal knowledge ("did you know Ctrl+Shift+K does...?"), collaboration friction (can't share context about what actions exist).
+
+See [Affordance Opacity](/affordance-opacity) for the full problem statement.
+
 ## What It Is
 
 Every affordance is an edge in the graph:

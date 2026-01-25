@@ -240,6 +240,9 @@ You probably won't care if you want polished, production-ready software today, o
 
 ## See Also
 
+- [Problems](/problems) - What's actually wrong
+- [Affordance Opacity](/affordance-opacity) - Why software hides what it can do
+- [Interaction Graph](/interaction-graph) - Making affordances explicit
 - [Philosophy](/about#philosophy) - Design principles shared across projects
 - [Projects](/projects/) - What exists today
 - [Zone Design Brainstorm](https://rhi.zone/zone/design/servers-brainstorm) - The 5000-line conversation this page was distilled from
