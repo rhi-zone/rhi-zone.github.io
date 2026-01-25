@@ -12,54 +12,54 @@ hero:
 
 features:
   # Code Intelligence
-  - title: "Normalize ◐"
+  - title: "normalize ◐"
     details: Structural code intelligence. AST-aware navigation, editing, and analysis across 98 languages.
     link: /projects/normalize
   # Generation
-  - title: "Unshape ●"
+  - title: "unshape ●"
     details: Constructive media. Procedural meshes, audio, textures, vector art, and rigging.
     link: /projects/unshape
-  - title: "Dew ●"
+  - title: "dew ●"
     details: Minimal expression language. Small, ephemeral, perfectly formed.
     link: /projects/dew
   # Games & Worlds
-  - title: "Playmate ◔"
+  - title: "playmate ◔"
     details: Game design primitives. State machines, character controllers, camera systems.
     link: /projects/playmate
-  - title: "Interconnect ○"
+  - title: "interconnect ○"
     details: Federation protocol. Authoritative handoff for interconnected persistent worlds.
     link: /projects/interconnect
   # Data Transformation
-  - title: "Paraphase ◐"
+  - title: "paraphase ◐"
     details: Pipeline orchestrator. Type-driven route planning for asset conversion.
     link: /projects/paraphase
   - title: "rescribe ◐"
     details: Lossless document conversion. Rich IR preserves formatting across ~50 formats.
     link: /projects/rescribe
-  - title: "Concord ◔"
+  - title: "concord ◔"
     details: API bindings IR. Unified representation for cross-language codegen.
     link: /projects/concord
-  - title: "Resurrect ○"
+  - title: "resurrect ○"
     details: Legacy lifting. Extract and transform software from obsolete runtimes.
     link: /projects/resurrect
   # Runtime & Interface
-  - title: "Moonlet ◐"
+  - title: "moonlet ◐"
     details: Lua runtime with plugin system for the rhi ecosystem.
     link: /projects/moonlet
-  - title: "Dusklight ○"
+  - title: "dusklight ○"
     details: Universal UI with control plane. View, mutate, and control any data source.
     link: /projects/dusklight
   # Infrastructure
-  - title: "Myenv ◐"
+  - title: "myenv ◐"
     details: Unified tool configuration and project scaffolding from seeds.
     link: /projects/myenv
-  - title: "Portals ◐"
+  - title: "portals ◐"
     details: Standard library interfaces. Capability-based APIs inspired by WASI.
     link: /projects/portals
-  - title: "Zone ◔"
+  - title: "zone ◔"
     details: Lua-based tools, seeds, and orchestration scripts for the ecosystem.
     link: /projects/zone
-  - title: "Server-Less ◐"
+  - title: "server-less ◐"
     details: Composable derive macros. Progressive disclosure from zero-config to full control.
     link: /projects/server-less
 ---
