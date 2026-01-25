@@ -1,6 +1,6 @@
 # Interaction graph
 
-**See also:** [Why software is hard](/why-software-is-hard) (the problem, accessible), [Affordance opacity](/affordance-opacity) (the problem, technical), [Problems](/problems) (broader context), [Zone Brainstorm](https://rhi.zone/zone/design/servers-brainstorm) (source conversation)
+**See also:** [Why software is hard](/why-software-is-hard) (the problem, accessible), [Affordance opacity](/affordance-opacity) (the problem, technical), [Explorations](/explorations) (related hypotheses), [Problems](/problems) (broader context), [Zone Brainstorm](https://rhi.zone/zone/design/servers-brainstorm) (source conversation)
 
 **Every affordance is an edge in the graph.**
 

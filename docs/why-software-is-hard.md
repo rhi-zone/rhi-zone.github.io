@@ -1,6 +1,6 @@
 # Why software is hard
 
-**See also:** [Interaction graph](/interaction-graph) (a diagnostic lens), [Affordance opacity](/affordance-opacity) (technical version), [Problems](/problems) (broader context)
+**See also:** [Interaction graph](/interaction-graph) (a diagnostic lens), [Affordance opacity](/affordance-opacity) (technical version), [Explorations](/explorations) (related hypotheses), [Problems](/problems) (broader context)
 
 You're not bad at computers. Software is actually hard to use. Here's why.
 
