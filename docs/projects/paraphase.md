@@ -32,6 +32,10 @@ paraphase convert model.blend optimized.glb --optimize
 - Format migration
 - Any "I have X, I need Y" transformation
 
+## Related projects
+
+- [rescribe](/projects/rescribe) - Lossless document conversion (complementary transformation domain)
+
 ## Links
 
 - [GitHub](https://github.com/rhi-zone/paraphase)

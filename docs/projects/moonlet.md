@@ -46,6 +46,12 @@ runtime.register(&NormalizeIntegration::new("."))?;
 runtime.run_file(Path::new("scripts/analyze.lua"))?;
 ```
 
+## Related projects
+
+- [Normalize](/projects/normalize) - Code analysis integration via `moonlet-normalize`
+- [Zone](/projects/zone) - Lua projects that run on Moonlet
+- [Server-Less](/projects/server-less) - Derive macros for server setup
+
 ## Links
 
 - [GitHub](https://github.com/rhi-zone/moonlet)

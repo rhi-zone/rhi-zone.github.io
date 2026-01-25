@@ -33,6 +33,10 @@ When authority connection is lost:
 - Static world data (substrate) remains visible
 - Universe pauses, doesn't disappear
 
+## Related projects
+
+- [Playmate](/projects/playmate) - Game design primitives for world interactions
+
 ## Links
 
 - [GitHub](https://github.com/rhi-zone/interconnect)

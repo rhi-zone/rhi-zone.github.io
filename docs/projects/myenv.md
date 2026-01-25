@@ -66,6 +66,10 @@ Pre-configured starter templates:
 - **seed-creation** — New game projects from scratch
 - **seed-lab** — Full ecosystem sandbox
 
+## Related projects
+
+- [Zone](/projects/zone) - Provides seed templates for scaffolding
+
 ## Links
 
 - [GitHub](https://github.com/rhi-zone/myenv)

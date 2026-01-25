@@ -18,6 +18,11 @@ Playmate provides reusable game design primitives for common gameplay patterns. 
 
 Playmate extracts common patterns from game development into reusable, composable primitives. Rather than building everything from scratch, you assemble gameplay systems from well-tested building blocks.
 
+## Related projects
+
+- [Unshape](/projects/unshape) - Procedural asset generation for games
+- [Interconnect](/projects/interconnect) - Federation protocol for multiplayer worlds
+
 ## Links
 
 - [GitHub](https://github.com/rhi-zone/playmate)

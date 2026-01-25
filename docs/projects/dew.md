@@ -43,6 +43,10 @@ Dew is a domain-specific expression language designed for procedural generation 
 | TokenStream | Rust proc-macro codegen |
 | Lua | Scripting and hot-reload |
 
+## Related projects
+
+- [Unshape](/projects/unshape) - Procedural media generation using Dew expressions
+
 ## Links
 
 - [GitHub](https://github.com/rhi-zone/dew)

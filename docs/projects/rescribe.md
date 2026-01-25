@@ -22,6 +22,10 @@ rescribe is a universal document conversion library inspired by Pandoc, but focu
 - Pipeline integration for document workflows
 - Format normalization for analysis
 
+## Related projects
+
+- [Paraphase](/projects/paraphase) - Pipeline orchestration for asset conversion
+
 ## Links
 
 - [GitHub](https://github.com/rhi-zone/rescribe)

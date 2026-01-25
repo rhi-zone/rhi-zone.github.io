@@ -27,6 +27,10 @@ Unshape treats media as data structures that can be composed, transformed, and e
 
 **Ops as values** - Every operation is a serializable struct first, enabling project files, undo/redo, and node graphs.
 
+## Related projects
+
+- [Dew](/projects/dew) - Expression language for shader and procedural expressions
+
 ## Links
 
 - [GitHub](https://github.com/rhi-zone/unshape)

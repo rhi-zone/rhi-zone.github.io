@@ -19,6 +19,10 @@ Concord provides a unified intermediate representation for API definitions, enab
 - **concord-core** - IR types and traversal
 - **concord-codegen** - Code generation backends
 
+## Related projects
+
+- [Server-Less](/projects/server-less) - Derive macros for protocol implementations
+
 ## Links
 
 - [GitHub](https://github.com/rhi-zone/concord)
