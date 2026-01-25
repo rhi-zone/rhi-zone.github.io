@@ -1,6 +1,6 @@
 # Explorations
 
-**See also:** [Interaction graph](/interaction-graph) (more developed lens), [Why software is hard](/why-software-is-hard), [Affordance opacity](/affordance-opacity), [Prior art](/prior-art) (things that got it right)
+**See also:** [Interaction graph](/interaction-graph) (more developed lens), [Why software is hard](/why-software-is-hard), [Affordance opacity](/affordance-opacity), [Prior art](/prior-art) (things that got it right), [Problems](/problems) (broader context)
 
 Diagnostic lenses and hypotheses that haven't been fully developed. Any of these could graduate to their own page if they prove useful.
 

@@ -1,5 +1,7 @@
 # Integration
 
+**See also:** [Architecture](/architecture) (project structure), [Projects](/projects/) (individual project details)
+
 How rhi projects work together.
 
 ## Overview

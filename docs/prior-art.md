@@ -2,7 +2,7 @@
 
 Things worth knowing about, learning from, or appreciating. This isn't comprehensive - it's what's informed the thinking here.
 
-**See also:** [Explorations](/explorations), [Interaction graph](/interaction-graph)
+**See also:** [Why software is hard](/why-software-is-hard) (the diagnosis), [Interaction graph](/interaction-graph) (making affordances explicit), [Affordance opacity](/affordance-opacity) (why software hides), [Explorations](/explorations) (related hypotheses), [Problems](/problems) (broader context)
 
 ---
 

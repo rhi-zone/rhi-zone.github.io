@@ -1,5 +1,7 @@
 # Architecture overview
 
+**See also:** [Integration](/integration) (how projects work together), [Projects](/projects/) (individual project details)
+
 How rhi projects are structured and how they relate.
 
 ## Project landscape
