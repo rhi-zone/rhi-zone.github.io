@@ -26,8 +26,14 @@ Moonlet provides a Lua execution environment with integrations for other rhi pro
 
 | Crate | Description |
 |-------|-------------|
-| `moonlet-normalize` | Adds [Normalize](/projects/normalize) code analysis to Lua |
-| `moonlet-llm` | Adds LLM client APIs to Lua |
+| `moonlet-embed` | Embedding generation |
+| `moonlet-fs` | Filesystem with capability-based security |
+| `moonlet-libsql` | LibSQL/SQLite with vector support |
+| `moonlet-llm` | LLM client APIs |
+| `moonlet-normalize` | [Normalize](/projects/normalize) code analysis |
+| `moonlet-packages` | Package management |
+| `moonlet-sessions` | Session log parsing |
+| `moonlet-tools` | External tools integration |
 
 ## Usage
 

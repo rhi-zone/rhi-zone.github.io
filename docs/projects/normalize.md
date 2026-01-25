@@ -24,6 +24,51 @@ Normalize provides tools for understanding, navigating, and modifying code at a 
 | `edit` | Modify code | `normalize edit src/foo.rs/func --delete` |
 | `analyze` | Compute metrics | `normalize analyze --complexity` |
 
+## Crates
+
+### Core
+
+| Crate | Description |
+|-------|-------------|
+| `normalize` | CLI binary and main library |
+| `normalize-core` | Foundational traits (`Merge`, etc.) |
+| `normalize-derive` | Procedural macros |
+
+### Language Support
+
+| Crate | Description |
+|-------|-------------|
+| `normalize-languages` | 98 languages via tree-sitter grammars |
+| `normalize-surface-syntax` | Syntax translation between languages (TS ↔ Lua ↔ Python) |
+
+### Code Analysis
+
+| Crate | Description |
+|-------|-------------|
+| `normalize-rules` | Syntax-based linting with tree-sitter queries |
+| `normalize-tools` | Unified interface for external tools (oxlint, ruff, prettier, etc.) |
+
+### Type Generation
+
+| Crate | Description |
+|-------|-------------|
+| `normalize-typegen` | Polyglot type/validator generation from schemas |
+| `normalize-jsonschema` | JSON Schema codegen |
+| `normalize-openapi` | OpenAPI client codegen |
+
+### Package Management
+
+| Crate | Description |
+|-------|-------------|
+| `normalize-packages` | Package registry queries for 12+ ecosystems |
+
+### Agent Support
+
+| Crate | Description |
+|-------|-------------|
+| `normalize-sessions` | Session log parsing (Claude Code, Gemini CLI, etc.) |
+| `normalize-cli-parser` | Parse CLI `--help` output |
+
 ## Quick Start
 
 ```bash

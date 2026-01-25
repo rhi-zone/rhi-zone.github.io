@@ -10,9 +10,19 @@
 
 ## Overview
 
-Server-Less is a collection of composable derive macros for common Rust patterns. The name comes from garden server-lesses—lattice structures that support climbing plants, providing structure while remaining flexible.
+Server-Less is a collection of composable derive macros for common Rust patterns. The name comes from garden trellises—lattice structures that support climbing plants, providing structure while remaining flexible.
 
 The primary goal is minimizing barrier to entry: "I just want a server" should be trivially simple.
+
+## Supported Protocols
+
+| Category | Macros | Description |
+|----------|--------|-------------|
+| **Runtime** | `#[http]`, `#[cli]`, `#[mcp]`, `#[ws]`, `#[jsonrpc]`, `#[graphql]` | Generate working servers |
+| **Schema** | `#[grpc]`, `#[capnp]`, `#[thrift]`, `#[smithy]`, `#[connect]` | Generate IDL files |
+| **Specs** | `#[openapi]`, `#[openrpc]`, `#[asyncapi]`, `#[jsonschema]`, `#[markdown]` | Generate API docs |
+
+Write your impl once, derive handlers for any combination of protocols.
 
 ## Philosophy
 

@@ -8,18 +8,24 @@
 
 Unshape provides composable primitives for procedural generation of meshes, audio, textures, vector graphics, and skeletal animation.
 
-## Key Features
+## Domains
 
-- **Meshes** - Procedural 3D geometry with primitives, deformation, and indexed mesh representation
-- **Audio** - Synthesis oscillators (sine, saw, square, triangle) with anti-aliasing
-- **Textures & Noise** - Lazy Field trait with Perlin, Simplex, fBm and composable combinators
-- **2D Vector** - SVG-like paths with bezier curves, shapes, and boolean operations
-- **Rigging** - Skeletal animation with bones, poses, and GPU-friendly skinning weights
-- **Node Graphs** - Dynamic evaluation with type-safe connections and topological execution
+| Domain | Crates | Capabilities |
+|--------|--------|--------------|
+| **3D Geometry** | mesh, gltf, pointcloud, voxel, spline, curve, surface | Primitives, booleans, subdivision, LOD, NURBS |
+| **Audio** | audio, spectral | FM/wavetable/granular synthesis, FFT, 3D HRTF, time-stretch |
+| **2D Vector** | vector | SVG paths, bezier, boolean ops, gradients, hatching |
+| **Image** | image, color | Convolution, color grading, normal maps, pyramids |
+| **Animation** | rig, motion, motion-fn, easing | Skeleton IK, motion graphics, 31 easing functions |
+| **Physics** | physics, spring, particle, fluid | Rigid/soft body, cloth, SPH fluids |
+| **Procgen** | noise, automata, procgen, lsystem, rd, space-colonization | Noise, WFC, mazes, L-systems, reaction-diffusion |
+| **Core** | core, op, field, geometry, transform, spatial | Node graphs, lazy fields, 9 spatial structures |
 
 ## Philosophy
 
 Unshape treats media as data structures that can be composed, transformed, and evaluated lazily. Rather than imperative drawing commands, you build up descriptions that are rendered on demand.
+
+**Ops as values** - Every operation is a serializable struct first, enabling project files, undo/redo, and node graphs.
 
 ## Links
 

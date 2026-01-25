@@ -10,18 +10,38 @@ Dew is a domain-specific expression language designed for procedural generation 
 
 ## Key Features
 
-- **Multi-backend** - WGSL shaders, Cranelift JIT, or Lua interpreter
-- **Math-focused** - Linear algebra primitives built-in
+- **Multi-backend** - 10 code generation targets from one expression
+- **Math-focused** - Scalar, linear algebra, complex, quaternion domains
 - **Composable** - Expressions compose into larger expressions
+- **Extensible** - Custom functions via FunctionRegistry, generic over numeric types
 - **Embeddable** - Library-first design for integration into other tools
+
+## Domain Libraries
+
+| Crate | Description |
+|-------|-------------|
+| `dew-core` | Core AST and parsing |
+| `dew-scalar` | Scalar math (sin, cos, lerp, smoothstep, etc.) |
+| `dew-linalg` | Linear algebra (Vec2-4, Mat2-4, dot, cross, normalize) |
+| `dew-complex` | Complex numbers (exp, log, polar, conjugate) |
+| `dew-quaternion` | Quaternions (slerp, axis-angle, rotate) |
+| `dew-cond` | Conditional backend helpers |
+| `dew-all` | Unified value type for domain composition |
 
 ## Backends
 
 | Backend | Use Case |
 |---------|----------|
-| WGSL | GPU shader evaluation for textures, particles |
-| Cranelift | CPU JIT for fast evaluation |
-| Lua | Scripting integration with habitat |
+| WGSL | GPU shaders (WebGPU) |
+| GLSL | GPU shaders (OpenGL/Vulkan) |
+| OpenCL | GPU compute (cross-platform) |
+| CUDA | GPU compute (NVIDIA) |
+| HIP | GPU compute (AMD ROCm) |
+| Cranelift | Native JIT compilation |
+| Rust | Rust source code generation |
+| C | C source code generation |
+| TokenStream | Rust proc-macro codegen |
+| Lua | Scripting and hot-reload |
 
 ## Links
 

@@ -12,17 +12,26 @@
 
 Portals provides capability-based, async-first interfaces inspired by WASI, designed to be implementable across runtimes.
 
-## Crates
+## Interface Crates (23)
 
-| Crate | Description | WASI Equivalent |
-|-------|-------------|-----------------|
-| `portals-clocks` | Wall clock, monotonic clock | `wasi:clocks` |
-| `portals-cli` | Args, environment, stdio | `wasi:cli` |
-| `portals-filesystem` | Files, directories | `wasi:filesystem` |
-| `portals-http` | HTTP client/server | `wasi:http` |
-| `portals-io` | Streams, polling | `wasi:io` |
-| `portals-random` | Secure and insecure RNG | `wasi:random` |
-| `portals-sockets` | TCP, UDP, DNS | `wasi:sockets` |
+| Category | Interfaces |
+|----------|------------|
+| **WASI-aligned** | clocks, filesystem, http, io, random, sockets |
+| **Storage** | blobstore, cache, keyvalue, sql |
+| **Network** | dns, websocket, messaging |
+| **Security** | crypto (SHA2, HMAC, AES-GCM, Ed25519, Argon2) |
+| **Utilities** | config, cron, encoding, logging, markdown, nanoid, observe, snowflake, timezone |
+
+## Backends
+
+Each interface has multiple backend implementations:
+
+| Type | Count | Examples |
+|------|-------|----------|
+| **Native** | 19 | tokio-based sockets, reqwest HTTP, libsql |
+| **WASM** | 5 | gloo-net HTTP, web-sys console logging |
+| **Mock** | 3 | Testing implementations for clocks, HTTP, random |
+| **Portable** | 2 | cron, encoding (work on native + WASM) |
 
 ## Design Principles
 
