@@ -1,4 +1,4 @@
-# About rhi
+# About
 
 rhi is an ecosystem of tools unified by a single pattern: **finding common abstractions across fragmented domains**.
 
