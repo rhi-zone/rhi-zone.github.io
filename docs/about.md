@@ -2,7 +2,7 @@
 
 rhi is an ecosystem of tools unified by a single pattern: **finding common abstractions across fragmented domains**.
 
-See also [exo-place](https://exo-place.github.io/about) — biomes built on any substrate (places, identities, worlds).
+See also [exo-place](https://docs.exo.place/about) — biomes built on any substrate (places, identities, worlds).
 
 ## Philosophy
 
