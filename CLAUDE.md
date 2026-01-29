@@ -68,6 +68,7 @@ This is the organization-level documentation site for the rhi ecosystem.
 | **ooxml** | `~/git/ooxml` | Office Open XML library for Rust |
 | **claude-code-hub** | `~/git/claude-code-hub` | Orchestration hub for Claude Code agents |
 | **hologram** | `~/git/exo-place/hologram` | Discord RP bot with knowledge graph and RAG |
+| **aspect** | `~/git/exo-place/aspect` | Card-based identity exploration sandbox |
 
 ## Responsibilities
 
