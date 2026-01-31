@@ -36,6 +36,22 @@ cd docs && bun dev # Local docs
 
 **Separate niche from shared.** Don't bloat shared config with feature-specific data. Use separate files for specialized data.
 
+## Workflow
+
+**Batch cargo commands** to minimize round-trips:
+```bash
+cargo clippy --all-targets --all-features -- -D warnings && cargo test
+```
+After editing multiple files, run the full check once — not after each edit. Formatting is handled automatically by the pre-commit hook (`cargo fmt`).
+
+**When making the same change across multiple crates**, edit all files first, then build once.
+
+**`normalize view` is available** for structural outlines of files and directories:
+```bash
+~/git/rhizone/normalize/target/debug/normalize view <file>    # outline with line numbers
+~/git/rhizone/normalize/target/debug/normalize view <dir>     # directory structure
+```
+
 ## Commit Convention
 
 Use conventional commits: `type(scope): message`

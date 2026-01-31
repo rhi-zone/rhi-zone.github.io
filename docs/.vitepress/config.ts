@@ -120,6 +120,14 @@ export default withMermaid(
             ]
           },
           {
+            text: 'Introspection',
+            collapsed: true,
+            items: [
+              { text: 'Overview', link: '/introspection/' },
+              { text: 'Session Analysis', link: '/introspection/session-analysis' },
+            ]
+          },
+          {
             text: 'Community',
             items: [
               { text: 'Contributing', link: '/contributing' },

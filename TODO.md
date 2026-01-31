@@ -75,6 +75,37 @@ Pattern: `rhi.zone/{project-initial}/{topic}`
 - [ ] Build landing page
 - [ ] Create playground infrastructure
 
+## Session Analysis: Sessions to Investigate
+
+Identified via `normalize sessions show --analyze`. These sessions have high rework, context pressure, or unusual patterns worth deeper analysis (especially once `show --analyze` is improved).
+
+### High-Rework Sessions
+
+- **dew** `28d418c3` - 455 turns, 6 corrections, 8 build failures, 20 touches on a single Cargo.toml. Peak context 141.7K. The poster child for file thrashing.
+- **normalize** `6b847726` - 283 turns, 4 corrections, 17 command failures, 217 parallelizable API calls. Context hit 131K. Shows sequential Bash chain waste at scale.
+- **normalize** `bc20cfe9` - Second-most-recent normalize session, likely similar patterns.
+
+### High-Cost-Per-Session Repos
+
+These repos have the highest $/session and deserve per-session deep dives:
+
+- **sketchpad** - $7.78/session avg, 96.8K avg context. Any recent session worth analyzing.
+- **ooxml** - $5.01/session avg, 92K avg context.
+- **rescribe** - $4.58/session avg, 89.5K avg context.
+
+### Agent Sessions (hub-spawned)
+
+- **server-less** `agent-af3501f`, `agent-aefeb60`, `agent-acbd5a3` - Hub-spawned agents; compare efficiency to interactive sessions.
+- **dew** `agent-a904a54`, `agent-a92d4e2` - Same.
+- **parents** `agent-a82a79f`, `agent-aa8010c` - Same.
+
+### TODO
+
+- [ ] Re-run analysis after `show --analyze` improvements land in normalize
+- [ ] Compare agent-spawned vs interactive session efficiency
+- [ ] Track per-repo $/session trends over time
+- [ ] Identify which CLAUDE.md changes actually reduce Bash chain length
+
 ## Myenv Integration: `--schema` Support
 
 Add `--schema` flag to CLI tools for Myenv integration per [tool-integration.md](https://github.com/rhi-zone/myenv/blob/master/docs/tool-integration.md).
