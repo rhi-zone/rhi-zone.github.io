@@ -75,36 +75,74 @@ Pattern: `rhi.zone/{project-initial}/{topic}`
 - [ ] Build landing page
 - [ ] Create playground infrastructure
 
-## Session Analysis: Sessions to Investigate
+## Session Analysis
 
-Identified via `normalize sessions show --analyze`. These sessions have high rework, context pressure, or unusual patterns worth deeper analysis (especially once `show --analyze` is improved).
+Re-analyzed 2026-01-31 using normalize `ac34fe00` (command breakdown + retry hotspot detection).
 
-### High-Rework Sessions
+### High-Rework Sessions (re-analyzed)
 
-- **dew** `28d418c3` - 455 turns, 6 corrections, 8 build failures, 20 touches on a single Cargo.toml. Peak context 141.7K. The poster child for file thrashing.
-- **normalize** `6b847726` - 283 turns, 4 corrections, 17 command failures, 217 parallelizable API calls. Context hit 131K. Shows sequential Bash chain waste at scale.
-- **normalize** `bc20cfe9` - Second-most-recent normalize session, likely similar patterns.
+**dew `28d418c3`** — $18.39, 455 turns, 252 parallel opportunities
+- Cargo.toml thrashing confirmed: 5 crate Cargo.toml files each touched 16-20 times (reads + edits)
+- `dew-linalg/Cargo.toml` worst at 20 touches. Each `src/lib.rs` also hit 11-14 times.
+- Command mix: 54 git, 51 cargo test, 16 cargo clippy/fmt — testing dominated
+- 6 corrections, 8 build failures (compile errors + fmt diffs + bad git flags)
+- Peak context 154.7K. Context hit warning zone at turn 90.
+- **Root cause**: Iterative dependency wiring across 5 crates without batching edits.
 
-### High-Cost-Per-Session Repos
+**normalize `6b847726`** — $9.17, 293 turns, 243 parallel opportunities
+- `sessions/show.rs` had 33 touches (12 reads, 19 edits, 2 writes) — single-file churn
+- Top Bash commands: `normalize` (30 calls), `grep` (17 calls via Bash instead of Grep tool)
+- 4 corrections, 17 command failures (compile errors, missing `cargo-insta`, fmt diffs)
+- Context approached limit at turns 145, 174, 203 — recovered after summarization at 232
+- **Root cause**: Using Bash grep instead of Grep tool (17 calls), sequential tool chains
 
-These repos have the highest $/session and deserve per-session deep dives:
+**normalize `bc20cfe9`** — $1.42, 74 turns, 51 parallel opportunities
+- Continuation of `6b847726`. Same file (`sessions/mod.rs`, `show.rs`) + plan file churn.
+- 1 correction, 4 command failures. Context stayed under 80K.
+- Compact session, well-behaved compared to predecessor.
 
-- **sketchpad** - $7.78/session avg, 96.8K avg context. Any recent session worth analyzing.
-- **ooxml** - $5.01/session avg, 92K avg context.
-- **rescribe** - $4.58/session avg, 89.5K avg context.
+### High-Cost-Per-Session Repos (re-analyzed)
 
-### Agent Sessions (hub-spawned)
+Previous averages were skewed by outlier sessions:
 
-- **server-less** `agent-af3501f`, `agent-aefeb60`, `agent-acbd5a3` - Hub-spawned agents; compare efficiency to interactive sessions.
-- **dew** `agent-a904a54`, `agent-a92d4e2` - Same.
-- **parents** `agent-a82a79f`, `agent-aa8010c` - Same.
+- **rescribe** `036d34ec` — **$85.81**, 2078 turns, 1549 parallel opportunities. Monster session: 698 edits, 565 Bash calls, 257 writes, 148 cargo tests, 101 git commits. Context hit 154K multiple times. This single session inflated the repo's $/session average.
+- **sketchpad** `ab4ca8dd` — $0.19, 16 turns. Mostly git/gh operations. The high average likely came from agent sessions.
+- **ooxml** `4739e0ce` — $0.04, 7 turns, 3 Bash calls. Tiny commit session. High average from other sessions.
+
+### Agent vs Interactive Comparison
+
+These hub-spawned sessions were from testing non-interactive functionality in claude-code-hub, not production usage.
+
+| Session | Type | Turns | Tools | Cost | Notes |
+|---------|------|-------|-------|------|-------|
+| server-less `agent-af3501f` | agent | 384 | 383 | $5.51 | **376 `ls` commands** — test run |
+| server-less `agent-aefeb60` | agent | 1 | 0 | $0.02 | Warmup test |
+| server-less `agent-acbd5a3` | agent | 1 | 0 | $0.02 | Warmup test |
+| dew `agent-a904a54` | agent | 4 | 3 | $0.01 | 2 Glob + 1 Read, then stopped |
+| dew `agent-a92d4e2` | agent | 1 | 0 | $0.00 | Warmup test |
+| server-less `742e1e3a` | interactive | 44 | 38 | $1.05 | Compact, efficient |
+| server-less `35376b4a` | interactive | 136 | 126 | $5.31 | Used Task tool, higher context |
+
+Most agent sessions were non-interactive functionality tests, not failed productive sessions. The `agent-af3501f` session's 376 `ls` calls reflect early hub development iteration.
+
+### Actionable Patterns for CLAUDE.md
+
+Based on the analysis, these patterns cause the most waste:
+
+1. **Cargo.toml thrashing** (dew): Batch dependency changes across crates instead of editing one-by-one. Plan all changes, then apply. Already addressed in scaffolding template's Workflow section.
+2. **Bash grep instead of Grep tool** (normalize): 17 `grep` calls via Bash instead of using the Grep tool. May already be fixed by Claude Code's own tool preference improvements — needs verification on newer sessions.
+3. **Sequential tool chains** (all sessions): 198-376 parallelizable calls per session. The biggest single source of wasted API calls.
+4. **Single-file edit churn** (normalize): 33 touches on one file. Read-plan-edit-once pattern needed.
 
 ### TODO
 
-- [ ] Re-run analysis after `show --analyze` improvements land in normalize
-- [ ] Compare agent-spawned vs interactive session efficiency
-- [ ] Track per-repo $/session trends over time
-- [ ] Identify which CLAUDE.md changes actually reduce Bash chain length
+- [x] Re-run analysis after `show --analyze` improvements land in normalize
+- [x] Compare agent-spawned vs interactive session efficiency
+- [ ] Track per-repo $/session trends over time (need periodic re-runs)
+- [ ] Identify which CLAUDE.md changes actually reduce Bash chain length (need before/after data)
+- [ ] Investigate rescribe `036d34ec` in detail (101 commits in one session — what was it doing?)
+- [ ] Add CLAUDE.md rules: batch Cargo.toml edits, minimize single-file edit churn
+- [ ] Verify Bash grep vs Grep tool issue on recent sessions (may be resolved by Claude Code updates)
 
 ## Myenv Integration: `--schema` Support
 

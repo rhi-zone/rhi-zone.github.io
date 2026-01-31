@@ -125,6 +125,7 @@ export default withMermaid(
             items: [
               { text: 'Overview', link: '/introspection/' },
               { text: 'Session Analysis', link: '/introspection/session-analysis' },
+              { text: 'Session Deep Dives', link: '/introspection/session-deep-dives' },
             ]
           },
           {

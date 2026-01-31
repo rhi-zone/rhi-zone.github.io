@@ -7,3 +7,4 @@ These pages are generated from [Normalize](https://docs.rhi.zone/normalize/) ses
 ## Pages
 
 - [Session Analysis](./session-analysis) - Comprehensive analysis of 2329 Claude Code sessions across the ecosystem (January 2026)
+- [Session Deep Dives](./session-deep-dives) - Per-session analysis of flagged high-rework, high-cost, and agent sessions
