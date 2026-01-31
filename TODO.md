@@ -140,9 +140,9 @@ Based on the analysis, these patterns cause the most waste:
 - [x] Compare agent-spawned vs interactive session efficiency
 - [ ] Track per-repo $/session trends over time (need periodic re-runs)
 - [ ] Identify which CLAUDE.md changes actually reduce Bash chain length (need before/after data)
-- [ ] Investigate rescribe `036d34ec` in detail (101 commits in one session — what was it doing?)
-- [ ] Add CLAUDE.md rules: batch Cargo.toml edits, minimize single-file edit churn
-- [ ] Verify Bash grep vs Grep tool issue on recent sessions (may be resolved by Claude Code updates)
+- [x] Investigate rescribe `036d34ec` in detail — greenfield build, 20+ crates scaffolded, 184 touches on one Cargo.toml, 66 corrections, 159 failures. Documented in session-deep-dives.md.
+- [x] Add CLAUDE.md rules: "Minimize file churn" rolled out to 16 repos (rescribe blocked by ooxml-wml dep)
+- [x] Verify Bash grep vs Grep tool issue — partially structural. normalize sessions use bash grep inside shell loops (cross-repo ops), other repos use Grep tool normally. Not a CLAUDE.md issue.
 
 ## Myenv Integration: `--schema` Support
 

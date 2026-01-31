@@ -109,7 +109,7 @@ Previous analysis flagged sketchpad ($7.78/session), ooxml ($5.01/session), and 
 
 ### rescribe `036d34ec` — $85.81, 2078 turns
 
-The outlier that inflated rescribe's per-session average. A single marathon session:
+The outlier that inflated rescribe's per-session average. A greenfield build session that scaffolded the entire rescribe document conversion library — 20+ reader/writer crates — in one marathon sitting.
 
 | Metric | Value |
 |--------|-------|
@@ -117,12 +117,52 @@ The outlier that inflated rescribe's per-session average. A single marathon sess
 | Edits | 698 |
 | Bash calls | 565 |
 | Writes | 257 |
+| Corrections ("Let me fix") | 66 |
+| Command failures | 159 |
 | Cargo tests | 148 |
 | Git commits | 101 |
+| `mkdir` calls | 50 |
+| WebSearch + WebFetch | 37 |
 | Peak context | 154.7K |
 | Cost | $85.81 (Sonnet) |
 
-101 commits in a single session. Context hit 154K (the limit) multiple times, with several summarization resets visible in the context growth pattern. The session likely should have been broken into 5-10 focused sessions.
+**The worst file churn in the ecosystem:**
+
+| File | Reads | Edits | Writes | Total |
+|------|-------|-------|--------|-------|
+| `crates/rescribe/Cargo.toml` | 27 | 157 | 0 | **184** |
+| `Cargo.toml` (workspace) | 25 | 55 | 0 | 80 |
+| `crates/rescribe-cli/src/main.rs` | 8 | 67 | 0 | 75 |
+| `crates/rescribe/src/lib.rs` | 16 | 50 | 0 | 66 |
+| `FORMATS.md` | 9 | 33 | 1 | 43 |
+
+157 edits to a single Cargo.toml — roughly one edit every 13 turns. Each new reader/writer crate needed its dependency added to the main library, the workspace, and the CLI. The pattern repeated for ipynb, odt, docbook, fb2, pod, fountain, bibtex, csl-json, markdown (two backends), and many more.
+
+**What was happening:** For each format, the agent:
+1. `mkdir` the crate directory
+2. Write `Cargo.toml` and `lib.rs`
+3. Edit workspace `Cargo.toml` to register the crate
+4. Edit `crates/rescribe/Cargo.toml` to add the dependency
+5. Edit `crates/rescribe/src/lib.rs` to add the re-export
+6. `cargo build` → fail → fix → repeat
+7. `cargo test` → fail → fix → repeat
+8. `cargo clippy` → fix warnings
+9. WebSearch/WebFetch format specifications mid-implementation
+10. `git add` + `git commit`
+
+With 20+ formats, this cycle repeated the entire session. One correction every ~31 turns, one command failure every ~13 turns. Context hit 154K (the limit) at turns 207, 621, 1242 — at least 3 summarization resets, each losing accumulated context about the codebase structure.
+
+**The longest unbroken tool chain** was turns 506-633: **128 consecutive single-tool API calls** without any user interaction or parallelization. This single stretch could theoretically have been compressed to 1 batched call.
+
+**Context growth pattern** shows the session was effectively 5+ sub-sessions stitched together by summarization resets:
+- Turns 0-207: 14.6K → 101.3K (format readers phase 1)
+- Turns 207-621: reset → 136.9K (format readers phase 2)
+- Turns 621-828: reset → 58.6K (recovery, writers)
+- Turns 828-1242: → 136.3K (more writers + transforms)
+- Turns 1242-1863: → 42.6K (cleanup, integration)
+- Turns 1863-2078: final stretch
+
+Each reset lost context about previously created crates, forcing re-reads (280 Read calls total). Breaking this into per-format sessions would have avoided the resets entirely and produced better code with less rework.
 
 ### sketchpad `ab4ca8dd` — $0.19, 16 turns
 
