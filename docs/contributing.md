@@ -96,7 +96,7 @@ When adding features, update relevant documentation. Prefer updating existing do
 - **Normalize**: See `CLAUDE.md` for detailed behavioral rules and design philosophy
 - **habitat**: Check `docs/development.md` for build instructions
 - **Unshape**: See `docs/philosophy.md` for design principles
-- **Dew**: Expression language; see crate docs
+- **Wick**: Expression language; see crate docs
 - **Concord**: API bindings; see `concord-core` for IR types
 - **Paraphase**: See `docs/philosophy.md` for pipeline design
 - **Dusklight**: See `CLAUDE.md` for UI design principles

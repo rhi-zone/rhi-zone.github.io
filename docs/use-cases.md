@@ -102,10 +102,10 @@ Real workflows, real problems.
 
 **What rhi wants to offer:**
 - Unshape for procedural generation - textures, patterns, meshes, audio.
-- Dew as a simple expression language for defining transforms.
+- Wick as a simple expression language for defining transforms.
 - Deterministic output: same seed = same result, shareable as recipes.
 
-**What exists today:** Unshape has 40+ crates of primitives. Dew is early. No friendly frontend yet - currently code-level access only.
+**What exists today:** Unshape has 40+ crates of primitives. Wick is early. No friendly frontend yet - currently code-level access only.
 
 ---
 
@@ -170,7 +170,7 @@ These serve the goals above. Some work today, some are aspirational.
 
 **What rhi provides:**
 - **Unshape** - 40+ crates of procedural primitives: noise, meshes, audio, particles, fluids, L-systems, physics.
-- **Dew** - Minimal expression language for defining fields and transforms.
+- **Wick** - Minimal expression language for defining fields and transforms.
 - Lazy evaluation: define the recipe, materialize on demand.
 - Deterministic: same seed = same output, always.
 - Portable: runs on CPU, can target GPU.
@@ -182,7 +182,7 @@ These serve the goals above. Some work today, some are aspirational.
 - Generative art that's deterministic and can be shared as recipes, not just outputs
 - VFX systems (particles, fluids) that replay identically
 
-**Status:** Unshape core exists. Many primitives implemented. Dew is early. GPU backend is WIP.
+**Status:** Unshape core exists. Many primitives implemented. Wick is early. GPU backend is WIP.
 
 ---
 

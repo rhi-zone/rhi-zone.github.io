@@ -54,7 +54,7 @@ Migrate from "rhizome" branding to "rhi" to match rhi.zone domain:
 Landing page options:
 - Interactive project switcher with ecosystem visualization
 - Live demos of each project in action
-- Playground: Try Dew expressions, Normalize queries, Unshape generation in-browser
+- Playground: Try Wick expressions, Normalize queries, Unshape generation in-browser
 - Status dashboard: Build status, release versions across projects
 
 ### Short URLs
@@ -81,7 +81,7 @@ Re-analyzed 2026-01-31 using normalize `ac34fe00` (command breakdown + retry hot
 
 ### High-Rework Sessions (re-analyzed)
 
-**dew `28d418c3`** — $18.39, 455 turns, 252 parallel opportunities
+**wick `28d418c3`** — $18.39, 455 turns, 252 parallel opportunities
 - Cargo.toml thrashing confirmed: 5 crate Cargo.toml files each touched 16-20 times (reads + edits)
 - `dew-linalg/Cargo.toml` worst at 20 touches. Each `src/lib.rs` also hit 11-14 times.
 - Command mix: 54 git, 51 cargo test, 16 cargo clippy/fmt — testing dominated
@@ -118,8 +118,8 @@ These hub-spawned sessions were from testing non-interactive functionality in cl
 | server-less `agent-af3501f` | agent | 384 | 383 | $5.51 | **376 `ls` commands** — test run |
 | server-less `agent-aefeb60` | agent | 1 | 0 | $0.02 | Warmup test |
 | server-less `agent-acbd5a3` | agent | 1 | 0 | $0.02 | Warmup test |
-| dew `agent-a904a54` | agent | 4 | 3 | $0.01 | 2 Glob + 1 Read, then stopped |
-| dew `agent-a92d4e2` | agent | 1 | 0 | $0.00 | Warmup test |
+| wick `agent-a904a54` | agent | 4 | 3 | $0.01 | 2 Glob + 1 Read, then stopped |
+| wick `agent-a92d4e2` | agent | 1 | 0 | $0.00 | Warmup test |
 | server-less `742e1e3a` | interactive | 44 | 38 | $1.05 | Compact, efficient |
 | server-less `35376b4a` | interactive | 136 | 126 | $5.31 | Used Task tool, higher context |
 
@@ -129,7 +129,7 @@ Most agent sessions were non-interactive functionality tests, not failed product
 
 Based on the analysis, these patterns cause the most waste:
 
-1. **Cargo.toml thrashing** (dew): Batch dependency changes across crates instead of editing one-by-one. Plan all changes, then apply. Already addressed in scaffolding template's Workflow section.
+1. **Cargo.toml thrashing** (wick): Batch dependency changes across crates instead of editing one-by-one. Plan all changes, then apply. Already addressed in scaffolding template's Workflow section.
 2. **Bash grep instead of Grep tool** (normalize): 17 `grep` calls via Bash instead of using the Grep tool. May already be fixed by Claude Code's own tool preference improvements — needs verification on newer sessions.
 3. **Sequential tool chains** (all sessions): 198-376 parallelizable calls per session. The biggest single source of wasted API calls.
 4. **Single-file edit churn** (normalize): 33 touches on one file. Read-plan-edit-once pattern needed.
@@ -155,7 +155,7 @@ When invoked with `--schema`, the tool prints a JSON Schema describing its confi
 - [x] **normalize** - Code intelligence CLI
 - [ ] **lotus** - World runtime CLI
 - [ ] **paraphase** - Pipeline orchestrator (no CLI yet)
-- [ ] **dew** - Expression language (no CLI yet)
+- [ ] **wick** - Expression language (no CLI yet)
 - [ ] **myenv** - Ecosystem orchestrator (has CLI, needs schema)
 
 ### Implementation

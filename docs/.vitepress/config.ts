@@ -20,7 +20,7 @@ export default withMermaid(
             ]},
             { text: 'Generation', items: [
               { text: 'Unshape', link: 'https://docs.rhi.zone/unshape/' },
-              { text: 'Dew', link: 'https://docs.rhi.zone/dew/' },
+              { text: 'Wick', link: 'https://docs.rhi.zone/wick/' },
             ]},
             { text: 'Games & Worlds', items: [
               { text: 'Playmate', link: 'https://docs.rhi.zone/playmate/' },
@@ -83,7 +83,7 @@ export default withMermaid(
             collapsed: true,
             items: [
               { text: 'Unshape', link: '/projects/unshape' },
-              { text: 'Dew', link: '/projects/dew' },
+              { text: 'Wick', link: '/projects/wick' },
             ]
           },
           {

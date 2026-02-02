@@ -20,7 +20,7 @@ This is the organization-level documentation site for the rhi ecosystem.
 | Project | Path | Description |
 |---------|------|-------------|
 | **Unshape** | `~/git/rhizone/unshape` | Constructive media generation |
-| **Dew** | `~/git/rhizone/dew` | Minimal expression language |
+| **Wick** | `~/git/rhizone/wick` | Minimal expression language |
 
 **Games & Worlds**
 
@@ -122,7 +122,7 @@ sed -i 's/PROJECT_DESCRIPTION/Description here/g' ~/git/rhizone/new-project/flak
 
 Rust crates use NO prefix (names are available on crates.io):
 - `normalize-core`, `moonlet-core`, `unshape-backend`, etc.
-- `rescribe`, `server-less`, `dew` (standalone names)
+- `rescribe`, `server-less`, `wick` (standalone names)
 - Binary names match project names (just `normalize`, `moonlet`, `rescribe`, `server-less`, etc.)
 
 All project names were carefully selected to avoid conflicts on crates.io.

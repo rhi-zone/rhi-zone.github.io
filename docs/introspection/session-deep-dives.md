@@ -4,7 +4,7 @@ Follow-up analysis of specific sessions flagged in the [aggregate analysis](./se
 
 ## High-Rework Sessions
 
-### dew `28d418c3` — $18.39, 455 turns
+### wick `28d418c3` — $18.39, 455 turns
 
 The poster child for **Cargo.toml thrashing**.
 
@@ -181,14 +181,14 @@ The hub-spawned agent sessions (`agent-*`) were **non-interactive functionality 
 | `agent-af3501f` | server-less | 384 | 383 | $5.51 | 376 `ls` commands (early test iteration) |
 | `agent-aefeb60` | server-less | 1 | 0 | $0.02 | Warmup test |
 | `agent-acbd5a3` | server-less | 1 | 0 | $0.02 | Warmup test |
-| `agent-a904a54` | dew | 4 | 3 | $0.01 | Glob + Read, then stopped |
-| `agent-a92d4e2` | dew | 1 | 0 | $0.00 | Warmup test |
+| `agent-a904a54` | wick | 4 | 3 | $0.01 | Glob + Read, then stopped |
+| `agent-a92d4e2` | wick | 1 | 0 | $0.00 | Warmup test |
 
 Not meaningful for efficiency comparison — these reflect hub development iteration, not failed productive sessions. The `agent-af3501f` session's 376 sequential `ls` calls are an artifact of early non-interactive mode testing.
 
 ## Key Takeaways
 
-1. **Cargo.toml batching works.** The scaffolding template already addresses the dew session's core problem. Repos that adopted the "edit all files first, then build once" rule should show improvement.
+1. **Cargo.toml batching works.** The scaffolding template already addresses the wick session's core problem. Repos that adopted the "edit all files first, then build once" rule should show improvement.
 
 2. **Session length correlates with cost superlinearly.** The normalize continuation session (`bc20cfe9`, 74 turns, $1.42) did similar work to a chunk of its predecessor (`6b847726`, 293 turns, $9.17) but at a fraction of the cost. Context accumulation is the main driver.
 

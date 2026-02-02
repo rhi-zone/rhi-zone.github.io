@@ -29,7 +29,7 @@ Unshape treats media as data structures that can be composed, transformed, and e
 
 ## Related projects
 
-- [Dew](/projects/dew) - Expression language for shader and procedural expressions
+- [Wick](/projects/wick) - Expression language for shader and procedural expressions
 
 ## Links
 

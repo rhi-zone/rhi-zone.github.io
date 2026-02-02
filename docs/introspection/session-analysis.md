@@ -44,7 +44,7 @@ Bash dominates at 40%. This is partially inherent (Rust repos need `cargo` for b
 | io | 321 | $332 | $1.03 | 12,123 | 71,438 |
 | sketchpad | 41 | $319 | **$7.78** | 7,769 | **96,781** |
 | ooxml | 58 | $291 | **$5.01** | 7,933 | **91,974** |
-| dew | 117 | $225 | $1.92 | 6,278 | 84,418 |
+| wick | 117 | $225 | $1.92 | 6,278 | 84,418 |
 | parents | 237 | $201 | $0.85 | 8,920 | 62,981 |
 | server-less | 59 | $181 | $3.07 | 5,553 | 84,800 |
 | zone | 124 | $150 | $1.21 | 4,525 | 78,821 |
@@ -81,7 +81,7 @@ The dominant tool pattern in nearly every repo is long `Bash -> Bash -> Bash -> 
 | io | 1,583 | dominant |
 | normalize | 1,358 | dominant |
 | zone | 1,013 | dominant |
-| dew | 1,002 | dominant |
+| wick | 1,002 | dominant |
 | moonlet | 959 | dominant |
 | ooxml | 1,105 | dominant |
 
@@ -99,7 +99,7 @@ Several repos show chains of 5+ consecutive Glob calls as a top pattern:
 | pad | 982 |
 | paraphase | 969 |
 | hologram | 893 |
-| dew | 767 |
+| wick | 767 |
 | io | 699 |
 | rescribe | 681 |
 
@@ -109,7 +109,7 @@ Several repos show chains of 5+ consecutive Glob calls as a top pattern:
 
 ## Pain Point 3: Repeated File Thrashing
 
-Individual session analysis reveals excessive re-reading and re-editing of the same files. The worst example from a dew session:
+Individual session analysis reveals excessive re-reading and re-editing of the same files. The worst example from a wick session:
 
 | File | Reads | Edits | Total touches |
 |------|-------|-------|---------------|
@@ -131,7 +131,7 @@ Sessions regularly approach the ~155K token context limit:
 
 | Session | Repo | Peak context | Effect |
 |---------|------|-------------|--------|
-| 28d418c3 | dew | 141.7K | Approaching limit |
+| 28d418c3 | wick | 141.7K | Approaching limit |
 | 6b847726 | normalize | 131.0K | Approaching limit |
 | (aggregate) | sketchpad | avg 96.8K | Consistently high |
 | (aggregate) | ooxml | avg 92.0K | Consistently high |
@@ -147,7 +147,7 @@ Sessions regularly approach the ~155K token context limit:
 
 | Session | Repo | Corrections | Build errors |
 |---------|------|-------------|--------------|
-| 28d418c3 | dew | 6 | 8 command failures |
+| 28d418c3 | wick | 6 | 8 command failures |
 | 6b847726 | normalize | 4 | 17 command failures |
 | b70ecf3d | unshape | 1 | file-not-found, token limit |
 
@@ -179,7 +179,7 @@ Based on this analysis, the following changes have been rolled out across ecosys
 
 **Why:** A huge portion of the Bash chains were `cargo fmt --check` → fail → `cargo fmt` → re-stage → retry. The agent no longer needs to think about formatting at all — it's handled at commit time.
 
-**Affected repos:** All Rust repos in the ecosystem (normalize, unshape, dew, moonlet, paraphase, rescribe, concord, reincarnate, server-less, playmate, portals, zone, myenv, interconnect, ooxml). Scaffolding template updated.
+**Affected repos:** All Rust repos in the ecosystem (normalize, unshape, wick, moonlet, paraphase, rescribe, concord, reincarnate, server-less, playmate, portals, zone, myenv, interconnect, ooxml). Scaffolding template updated.
 
 ### 2. Cargo Command Batching
 
