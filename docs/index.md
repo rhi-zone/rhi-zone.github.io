@@ -15,6 +15,9 @@ features:
   - title: "normalize ◐"
     details: Structural code intelligence. AST-aware navigation, editing, and analysis across 98 languages.
     link: /projects/normalize
+  - title: "gels ○"
+    details: Grammar inference. Detect syntactic traits and synthesize tree-sitter grammars.
+    link: /projects/gels
   # Generation
   - title: "unshape ●"
     details: Constructive media. Procedural meshes, audio, textures, vector art, and rigging.

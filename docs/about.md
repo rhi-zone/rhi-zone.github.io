@@ -20,6 +20,7 @@ Most tools pick one variant and ignore the rest, or build specialized solutions 
 | Domain | Fragmentation | Unified Abstraction |
 |--------|--------------|---------------------|
 | **Language support** | 98 languages with different parsers/tooling | **normalize**: Unified `Language` trait and AST interface |
+| **Grammar inference** | Hand-write grammars for every new language | **gels**: Detect syntactic traits, synthesize tree-sitter grammars |
 | **AI session logs** | Claude Code, Gemini, OpenAI Codex (JSONL, JSON) | **normalize**: Unified `Session` type across agent formats |
 | **Package ecosystems** | apt, brew, npm, crates.io, pip (different APIs) | **normalize**: Unified `Ecosystem` and `PackageIndex` traits |
 | **Development tools** | Different linters, formatters, type checkers | **normalize**: Unified tool interface with SARIF/JSON output |
@@ -94,6 +95,7 @@ Our projects are designed the same way: independent tools that compose well toge
 | Project | Key Idea |
 |---------|----------|
 | [normalize](/projects/normalize) | AST-aware navigation and editing across 98 languages |
+| [gels](/projects/gels) | Trait-based grammar inference targeting tree-sitter |
 
 ### Generation
 
