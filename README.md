@@ -12,6 +12,7 @@ A glue layer for computers. Removing boundaries between you and your computer.
 |---------|-------------|
 | [normalize](https://github.com/rhi-zone/normalize) | Structural code intelligence for humans and AI agents |
 | [gels](https://github.com/rhi-zone/gels) | Trait-based grammar inference engine |
+| [motif](https://github.com/rhi-zone/motif) | Structural exploration of mathematics |
 
 ### Generation
 

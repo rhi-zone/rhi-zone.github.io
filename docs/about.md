@@ -19,6 +19,7 @@ Most tools pick one variant and ignore the rest, or build specialized solutions 
 
 | Domain | Fragmentation | Unified Abstraction |
 |--------|--------------|---------------------|
+| **Mathematical fields** | Siloed disciplines, incompatible notations | **motif**: Structural invariants and cross-field translation |
 | **Language support** | 98 languages with different parsers/tooling | **normalize**: Unified `Language` trait and AST interface |
 | **Grammar inference** | Hand-write grammars for every new language | **gels**: Detect syntactic traits, synthesize tree-sitter grammars |
 | **AI session logs** | Claude Code, Gemini, OpenAI Codex (JSONL, JSON) | **normalize**: Unified `Session` type across agent formats |
@@ -96,6 +97,7 @@ Our projects are designed the same way: independent tools that compose well toge
 |---------|----------|
 | [normalize](/projects/normalize) | AST-aware navigation and editing across 98 languages |
 | [gels](/projects/gels) | Trait-based grammar inference targeting tree-sitter |
+| [motif](/projects/motif) | Structural exploration of mathematics across fields |
 
 ### Generation
 

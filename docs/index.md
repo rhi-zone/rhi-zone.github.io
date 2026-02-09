@@ -18,6 +18,9 @@ features:
   - title: "gels ○"
     details: Grammar inference. Detect syntactic traits and synthesize tree-sitter grammars.
     link: /projects/gels
+  - title: "motif ○"
+    details: Structural math exploration. Cross-field translation and invariant detection.
+    link: /projects/motif
   # Generation
   - title: "unshape ●"
     details: Constructive media. Procedural meshes, audio, textures, vector art, and rigging.

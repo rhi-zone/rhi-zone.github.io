@@ -17,6 +17,7 @@ export default withMermaid(
             { text: 'Code Intelligence', items: [
               { text: 'Normalize', link: 'https://docs.rhi.zone/normalize/' },
               { text: 'Gels', link: 'https://docs.rhi.zone/gels/' },
+              { text: 'Motif', link: 'https://docs.rhi.zone/motif/' },
             ]},
             { text: 'Generation', items: [
               { text: 'Unshape', link: 'https://docs.rhi.zone/unshape/' },
@@ -76,6 +77,7 @@ export default withMermaid(
             items: [
               { text: 'Normalize', link: '/projects/normalize' },
               { text: 'Gels', link: '/projects/gels' },
+              { text: 'Motif', link: '/projects/motif' },
             ]
           },
           {

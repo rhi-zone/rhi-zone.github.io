@@ -14,6 +14,7 @@ This is the organization-level documentation site for the rhi ecosystem.
 |---------|------|-------------|
 | **Normalize** | `~/git/rhizone/normalize` | Structural code intelligence |
 | **Gels** | `~/git/rhizone/gels` | Trait-based grammar inference engine |
+| **Motif** | `~/git/rhizone/motif` | Structural exploration of mathematics |
 
 **Generation**
 
