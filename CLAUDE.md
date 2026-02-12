@@ -69,8 +69,9 @@ This is the organization-level documentation site for the rhi ecosystem.
 | **sketchpad** | `~/git/rhizone/sketchpad` | Stable Diffusion in pure Rust (burn) |
 | **ooxml** | `~/git/ooxml` | Office Open XML library for Rust |
 | **claude-code-hub** | `~/git/claude-code-hub` | Orchestration hub for Claude Code agents |
-| **hologram** | `~/git/exo-place/hologram` | Discord RP bot with knowledge graph and RAG |
-| **aspect** | `~/git/exo-place/aspect` | Card-based identity exploration sandbox |
+| **hologram** | `~/git/exoplace/hologram` | Discord RP bot with knowledge graph and RAG |
+| **aspect** | `~/git/exoplace/aspect` | Card-based identity exploration sandbox |
+| **existence** | `~/git/paragarden/existence` | Text-based HTML5 game — power anti-fantasy |
 
 ## Responsibilities
 
