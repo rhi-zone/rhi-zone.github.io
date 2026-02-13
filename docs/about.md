@@ -37,6 +37,7 @@ Most tools pick one variant and ignore the rest, or build specialized solutions 
 | **Distributed worlds** | Incompatible server architectures | **interconnect**: Federation protocol for handoff |
 | **Tool configuration** | Every tool has different config format | **myenv**: Schema-validated manifests |
 | **Legacy runtimes** | Flash, Java applets, obsolete VMs | **reincarnate**: Lift to modern web runtimes |
+| **File access** | Separate apps for browsing, viewing, editing, sharing | **deskspace**: One surface for all file interactions |
 
 This is why the projects don't need deep technical integration—each unifies its own domain. They share a solution pattern, not a codebase.
 
@@ -128,6 +129,7 @@ Our projects are designed the same way: independent tools that compose well toge
 |---------|----------|
 | [moonlet](/projects/moonlet) | Lua runtime with plugin system for ecosystem integration |
 | [dusklight](/projects/dusklight) | Universal client with control plane for any data source |
+| [deskspace](/projects/deskspace) | Unified file workspace — browse, view, edit, share as one surface |
 
 ### Infrastructure
 

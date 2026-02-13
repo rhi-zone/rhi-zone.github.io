@@ -55,6 +55,9 @@ features:
   - title: "dusklight ○"
     details: Universal UI with control plane. View, mutate, and control any data source.
     link: /projects/dusklight
+  - title: "deskspace ○"
+    details: Unified file workspace. Browse, view, edit, share — one surface, no mode switching.
+    link: /projects/deskspace
   # Infrastructure
   - title: "myenv ◐"
     details: Unified tool configuration and project scaffolding from seeds.

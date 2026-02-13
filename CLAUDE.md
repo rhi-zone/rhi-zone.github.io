@@ -45,6 +45,7 @@ This is the organization-level documentation site for the rhi ecosystem.
 |---------|------|-------------|
 | **Moonlet** | `~/git/rhizone/moonlet` | Lua runtime with plugin system |
 | **Dusklight** | `~/git/rhizone/dusklight` | Universal UI client with control plane |
+| **Deskspace** | `~/git/rhizone/deskspace` | Unified file workspace server |
 
 **Infrastructure**
 
@@ -93,16 +94,22 @@ When projects change:
 - Update `README.md` project table
 - Update sidebar/nav in `.vitepress/config.ts`
 - Update hero page features in `docs/index.md`
+- Update the project table in `docs/projects/index.md`
+- Update the org profile README at `~/git/rhizone/profile/profile/README.md`
+- Update the ecosystem project list in this file (`CLAUDE.md`)
 
 ### Scaffolding New Repos
 
 Template files are in `scaffolding/` directory. Copy and replace placeholders:
 
 ```bash
+cp -r ~/git/0000000_pterror/.git ~/git/rhizone/new-project/.git
 cp -r scaffolding/. ~/git/rhizone/new-project/
 sed -i 's/PROJECT_NAME/new-project/g' ~/git/rhizone/new-project/flake.nix ~/git/rhizone/new-project/docs/package.json ~/git/rhizone/new-project/CLAUDE.md
 sed -i 's/PROJECT_DESCRIPTION/Description here/g' ~/git/rhizone/new-project/flake.nix ~/git/rhizone/new-project/CLAUDE.md
 ```
+
+The git repo should be copied from `~/git/0000000_pterror` (template repo with proper git history/config) — do NOT use `git init`.
 
 **Included templates:**
 - `.cargo/config.toml` - target bloat reduction + mold hint
@@ -119,6 +126,32 @@ sed -i 's/PROJECT_DESCRIPTION/Description here/g' ~/git/rhizone/new-project/flak
 **Still need manually:**
 - `Cargo.toml` + `crates/`
 - `docs/.vitepress/config.ts` + `docs/index.md`
+
+### Creating the GitHub Repo
+
+After scaffolding, create the GitHub repo and configure it:
+
+```bash
+gh repo create ORG/PROJECT_NAME --public --source ~/git/ORG_PATH/PROJECT_NAME --description "PROJECT_DESCRIPTION" --push
+gh repo edit ORG/PROJECT_NAME --homepage "https://docs.rhi.zone/PROJECT_NAME/"
+gh repo edit ORG/PROJECT_NAME --topics rust,TOPIC1,TOPIC2
+```
+
+Enable GitHub Pages (if the repo has a docs site):
+```bash
+gh api repos/ORG/PROJECT_NAME/pages -X POST -f "build_type=workflow"
+```
+
+### GitHub Org Mapping
+
+| Org (GitHub) | Disk Path | Domain |
+|--------------|-----------|--------|
+| **rhi-zone** | `~/git/rhizone/` | infrastructure, tooling, libraries, protocols |
+| **exo-place** | `~/git/exoplace/` | biomes, places, platforms |
+| **ptera-world** | `~/git/pteraworld/` | — |
+| **para-garden** | `~/git/paragarden/` | concrete games, experiences, creative works |
+
+When scaffolding repos for any of these orgs, use the appropriate GitHub org name and disk path.
 
 ### Crate Naming Convention
 

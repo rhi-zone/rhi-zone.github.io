@@ -43,6 +43,7 @@ A glue layer for computers. Removing boundaries between you and your computer.
 |---------|-------------|
 | [moonlet](https://github.com/rhi-zone/moonlet) | Lua runtime with plugin system |
 | [dusklight](https://github.com/rhi-zone/dusklight) | Universal UI client with control plane |
+| [deskspace](https://github.com/rhi-zone/deskspace) | Unified file workspace server |
 
 ### Infrastructure
 
