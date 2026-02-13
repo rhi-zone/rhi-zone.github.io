@@ -134,7 +134,7 @@ After scaffolding, create the GitHub repo and configure it:
 ```bash
 gh repo create ORG/PROJECT_NAME --public --source ~/git/ORG_PATH/PROJECT_NAME --description "PROJECT_DESCRIPTION" --push
 gh repo edit ORG/PROJECT_NAME --homepage "https://docs.rhi.zone/PROJECT_NAME/"
-gh repo edit ORG/PROJECT_NAME --topics rust,TOPIC1,TOPIC2
+gh repo edit ORG/PROJECT_NAME --add-topic rust --add-topic TOPIC1 --add-topic TOPIC2
 ```
 
 Enable GitHub Pages (if the repo has a docs site):
