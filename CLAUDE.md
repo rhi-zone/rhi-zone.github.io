@@ -44,6 +44,7 @@ This is the organization-level documentation site for the rhi ecosystem.
 | Project | Path | Description |
 |---------|------|-------------|
 | **Moonlet** | `~/git/rhizone/moonlet` | Lua runtime with plugin system |
+| **Crescent** | `~/git/rhizone/crescent` | Comprehensive LuaJIT ecosystem |
 | **Dusklight** | `~/git/rhizone/dusklight` | Universal UI client with control plane |
 | **Deskspace** | `~/git/rhizone/deskspace` | Unified file workspace server |
 

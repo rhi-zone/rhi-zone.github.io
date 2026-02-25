@@ -38,6 +38,7 @@ Most tools pick one variant and ignore the rest, or build specialized solutions 
 | **Tool configuration** | Every tool has different config format | **myenv**: Schema-validated manifests |
 | **Legacy runtimes** | Flash, Java applets, obsolete VMs | **reincarnate**: Lift to modern web runtimes |
 | **File access** | Separate apps for browsing, viewing, editing, sharing | **deskspace**: One surface for all file interactions |
+| **Lua ecosystem** | Barren stdlib, abandoned packages, no typechecker | **crescent**: Comprehensive vendorable LuaJIT libraries |
 
 This is why the projects don't need deep technical integration—each unifies its own domain. They share a solution pattern, not a codebase.
 
@@ -128,6 +129,7 @@ Our projects are designed the same way: independent tools that compose well toge
 | Project | Key Idea |
 |---------|----------|
 | [moonlet](/projects/moonlet) | Lua runtime with plugin system for ecosystem integration |
+| [crescent](/projects/crescent) | Comprehensive LuaJIT ecosystem — stdlib, typechecker, package manager |
 | [dusklight](/projects/dusklight) | Universal client with control plane for any data source |
 | [deskspace](/projects/deskspace) | Unified file workspace — browse, view, edit, share as one surface |
 

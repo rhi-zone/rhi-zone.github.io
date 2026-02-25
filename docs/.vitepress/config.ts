@@ -34,6 +34,7 @@ export default withMermaid(
             ]},
             { text: 'Runtime & Interface', items: [
               { text: 'Moonlet', link: 'https://docs.rhi.zone/moonlet/' },
+              { text: 'Crescent', link: 'https://docs.rhi.zone/crescent/' },
               { text: 'Dusklight', link: 'https://docs.rhi.zone/dusklight/' },
               { text: 'Deskspace', link: 'https://docs.rhi.zone/deskspace/' },
             ]},
@@ -111,6 +112,7 @@ export default withMermaid(
             collapsed: true,
             items: [
               { text: 'Moonlet', link: '/projects/moonlet' },
+              { text: 'Crescent', link: '/projects/crescent' },
               { text: 'Dusklight', link: '/projects/dusklight' },
               { text: 'Deskspace', link: '/projects/deskspace' },
             ]

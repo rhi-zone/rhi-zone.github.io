@@ -42,6 +42,7 @@ A glue layer for computers. Removing boundaries between you and your computer.
 | Project | Description |
 |---------|-------------|
 | [moonlet](https://github.com/rhi-zone/moonlet) | Lua runtime with plugin system |
+| [crescent](https://github.com/rhi-zone/crescent) | Comprehensive LuaJIT ecosystem |
 | [dusklight](https://github.com/rhi-zone/dusklight) | Universal UI client with control plane |
 | [deskspace](https://github.com/rhi-zone/deskspace) | Unified file workspace server |
 
