@@ -53,6 +53,12 @@ Projects stay active when they have **external pull** — a reason to keep worki
 - **On hold / forgotten**: pad (file workspace — forgotten about)
 - **Waiting for demand**: playmate (game primitives without a game that needs them), interconnect (federation protocol without services to federate), concord (API codegen without APIs to bind)
 
+### Architecture: tools, not repos
+
+The ecosystem is highly modular. normalize has 30 crates — 10+ are standalone tools with their own CLIs that are *also* composed into a single meta-CLI. server-less is the mechanism that makes this cheap (one impl → many protocols, derive CLI/API/library interfaces from one implementation).
+
+This means repos are organizational boundaries, not product boundaries. "What do you work on next" isn't "which repo" — it's "what capability do you add to the toolbelt." The dormant repos aren't stalled projects; they're namespaces containing crates that can be pulled in as dependencies when something needs them.
+
 ### The scaffolding question
 
 The Jan 5–25 explosion (1→14→19 active repos in 3 weeks) scaffolded the full vision cheaply — most repos got <50 commits. Having structure ready means starting instantly when demand appears. The cost of premature scaffolding is low; the cost of not having it when needed is context-switching to set up infrastructure.
