@@ -44,7 +44,7 @@ Projects stay active when they have **external pull** — a reason to keep worki
 
 ### Why things go dormant
 
-- **Feature complete**: wick (expression language), keybinds (keybind/command palette library, used in ptera.world and reincarnate)
+- **Feature complete**: wick (expression language), keybinds (keybind/command palette library, used in ptera.world and reincarnate), ooxml (Office Open XML — codegen'd from schemas)
 - **Sufficient for now**: unshape — fleshed out, no pressing use case to push further
 - **Dependency chains**: zone → moonlet → portals all went dormant together. Zone (Lua tooling) lacked a pressing use case, so its runtime (moonlet) and its capability system (portals) had nothing to serve
 - **Superseded by sibling**: aspect (card-based identity exploration) set aside for existence; moue (BDCC fork) set aside for existence
@@ -66,3 +66,20 @@ The Jan 5–25 explosion (1→14→19 active repos in 3 weeks) scaffolded the fu
 ### Focus strategy
 
 "Two at a time" emerged naturally by Feb 9 — pick two projects with real pull, in complementary cognitive modes (systems/compiler + creative/design). Active repo count dropped from 19 to 6. The remaining repos get maintenance touches, not feature pushes.
+
+### Project maturity (as of Feb 26, 2026)
+
+**Shipped / feature complete:**
+- wick, keybinds, ooxml, unshape (sufficient)
+
+**Active, with clear trajectory:**
+- **normalize** — daily-use tool, grows with the ecosystem. No "done" state — it's the meta-tool.
+- **reincarnate** — Harlowe frontend mostly complete. SugarCube, GML, Flash in progress. Goal: support many major runtimes (Ren'Py, RPG Maker, Inform, etc.). Long runway.
+- **existence** — open-ended by design. Core systems mostly set in stone but perpetually fleshable. Technically usable now.
+- **server-less** — actively gaining features. normalize will consume it.
+- **rescribe** — 30+ formats, growing fixture coverage. No product consuming it yet.
+- **hologram** — stable, active users.
+- **crescent** — just scaffolded, initial import done.
+
+**Scaffolded, waiting for demand:**
+- gels, motif, deskspace, concord, interconnect, playmate, dusklight, moonlet, portals, zone
