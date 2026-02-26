@@ -46,6 +46,7 @@ Projects stay active when they have **external pull** — a reason to keep worki
 - **Feature complete**: wick — expression language is done
 - **Sufficient for now**: unshape — fleshed out, no pressing use case to push further
 - **Dependency chains**: zone → moonlet → portals all went dormant together. Zone (Lua tooling) lacked a pressing use case, so its runtime (moonlet) and its capability system (portals) had nothing to serve
+- **Superseded by sibling**: aspect (card-based identity exploration) — set aside in favor of existence, which is more tangible
 - **Waiting for demand**: playmate (game primitives without a game that needs them), interconnect (federation protocol without services to federate), concord (API codegen without APIs to bind)
 
 ### The scaffolding question
