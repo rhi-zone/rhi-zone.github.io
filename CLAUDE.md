@@ -75,6 +75,7 @@ This is the organization-level documentation site for the rhi ecosystem.
 | **aspect** | `~/git/exoplace/aspect` | Card-based identity exploration sandbox |
 | **existence** | `~/git/paragarden/existence` | Text-based HTML5 game — power anti-fantasy |
 | **keybinds** | `~/git/keybinds` | Keybind/command palette library (used in ptera.world, reincarnate) |
+| **ascent-interpreter** | `~/git/ascent-interpreter` | Interpreted Ascent (Datalog); used in normalize alongside AOT ascent |
 
 ## Responsibilities
 

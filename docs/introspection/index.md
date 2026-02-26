@@ -47,7 +47,10 @@ Projects stay active when they have **external pull** — a reason to keep worki
 - **Feature complete**: wick (expression language), keybinds (keybind/command palette library, used in ptera.world and reincarnate)
 - **Sufficient for now**: unshape — fleshed out, no pressing use case to push further
 - **Dependency chains**: zone → moonlet → portals all went dormant together. Zone (Lua tooling) lacked a pressing use case, so its runtime (moonlet) and its capability system (portals) had nothing to serve
-- **Superseded by sibling**: aspect (card-based identity exploration) — set aside in favor of existence, which is more tangible
+- **Superseded by sibling**: aspect (card-based identity exploration) set aside for existence; moue (BDCC fork) set aside for existence
+- **Decomposed into other projects**: lotus (MOO framework) → reed → normalize-surface-syntax; lotus's capability-based runtime → moonlet + portals
+- **Sunsetted**: herbarium (repology-but-worse — repology already did the hard unification work, unusable due to licensing); prose (program synthesis experiment — concluded writing programs is hard, needs more disciplined approach grounded in prior art)
+- **On hold / forgotten**: pad (file workspace — forgotten about)
 - **Waiting for demand**: playmate (game primitives without a game that needs them), interconnect (federation protocol without services to federate), concord (API codegen without APIs to bind)
 
 ### The scaffolding question
