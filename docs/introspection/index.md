@@ -37,6 +37,7 @@ Projects stay active when they have **external pull** — a reason to keep worki
 |-----------|----------|-------------|
 | **Daily tool use** | normalize | You use it to analyze your own work |
 | **External community** | reincarnate, ooxml | GameMaker porting community; Office format users |
+| **Active users** | hologram | Discord RP community using it daily |
 | **The work demands content** | existence | The game itself needs writing |
 | **Concrete format coverage** | rescribe | Measurable — N formats supported, fixture pass rates |
 
