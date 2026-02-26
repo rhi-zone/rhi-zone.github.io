@@ -178,6 +178,23 @@ nav: [
 
 This ensures users can navigate between project-specific docs and the ecosystem overview.
 
+## Session Data & Activity Logs
+
+Claude Code deletes session `.jsonl` files older than ~30 days (undocumented). Back up before they're lost.
+
+**Backup location:** `/mnt/ssd/ai/claude-sessions/`
+
+**Before running any session analysis:**
+1. Re-backup: `cp -a ~/.claude/projects/ /mnt/ssd/ai/claude-sessions/projects/ && cp -a ~/.claude/history.jsonl /mnt/ssd/ai/claude-sessions/history.jsonl`
+2. Run analyses from `/mnt/ssd/ai/claude-sessions/`, not `~/.claude/`
+
+**Session analysis with normalize:**
+```bash
+~/git/rhizone/normalize/target/debug/normalize sessions stats --all-projects --limit 0 --group-by project,day --since YYYY-MM-DD --until YYYY-MM-DD --compact
+```
+
+**Activity log entries** go in `docs/introspection/log/` — one file per snapshot, named by end date.
+
 ## Tools
 
 **Normalize** for structural code/doc exploration:

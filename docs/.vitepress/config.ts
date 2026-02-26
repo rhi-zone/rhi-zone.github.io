@@ -134,6 +134,19 @@ export default withMermaid(
               { text: 'Overview', link: '/introspection/' },
               { text: 'Session Analysis', link: '/introspection/session-analysis' },
               { text: 'Session Deep Dives', link: '/introspection/session-deep-dives' },
+              { text: 'Activity Log', collapsed: true, items: [
+                { text: 'Dec 15–21', link: '/introspection/log/2025-12-21' },
+                { text: 'Dec 22–28', link: '/introspection/log/2025-12-28' },
+                { text: 'Dec 29–Jan 4', link: '/introspection/log/2026-01-04' },
+                { text: 'Jan 5–11', link: '/introspection/log/2026-01-11' },
+                { text: 'Jan 12–18', link: '/introspection/log/2026-01-18' },
+                { text: 'Jan 19–25', link: '/introspection/log/2026-01-25' },
+                { text: 'Jan 26–Feb 1', link: '/introspection/log/2026-02-01' },
+                { text: 'Feb 2–8', link: '/introspection/log/2026-02-08' },
+                { text: 'Feb 9–15', link: '/introspection/log/2026-02-15' },
+                { text: 'Feb 16–22', link: '/introspection/log/2026-02-22' },
+                { text: 'Feb 23–26', link: '/introspection/log/2026-02-25' },
+              ]},
             ]
           },
           {
