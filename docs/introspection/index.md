@@ -40,10 +40,11 @@ Projects stay active when they have **external pull** — a reason to keep worki
 | **Active users** | hologram | Discord RP community using it daily |
 | **The work demands content** | existence | The game itself needs writing |
 | **Concrete format coverage** | rescribe | Measurable — N formats supported, fixture pass rates |
+| **Upstream dependency** | server-less | normalize will consume it; actively gaining features |
 
 ### Why things go dormant
 
-- **Feature complete**: wick — expression language is done
+- **Feature complete**: wick (expression language), keybinds (keybind/command palette library, used in ptera.world and reincarnate)
 - **Sufficient for now**: unshape — fleshed out, no pressing use case to push further
 - **Dependency chains**: zone → moonlet → portals all went dormant together. Zone (Lua tooling) lacked a pressing use case, so its runtime (moonlet) and its capability system (portals) had nothing to serve
 - **Superseded by sibling**: aspect (card-based identity exploration) — set aside in favor of existence, which is more tangible

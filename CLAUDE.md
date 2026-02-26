@@ -74,6 +74,7 @@ This is the organization-level documentation site for the rhi ecosystem.
 | **hologram** | `~/git/exoplace/hologram` | Discord RP bot with knowledge graph and RAG |
 | **aspect** | `~/git/exoplace/aspect` | Card-based identity exploration sandbox |
 | **existence** | `~/git/paragarden/existence` | Text-based HTML5 game — power anti-fantasy |
+| **keybinds** | `~/git/keybinds` | Keybind/command palette library (used in ptera.world, reincarnate) |
 
 ## Responsibilities
 
