@@ -182,7 +182,7 @@ This ensures users can navigate between project-specific docs and the ecosystem 
 
 ## Session Data & Activity Logs
 
-Claude Code deletes session `.jsonl` files older than ~30 days (undocumented). Back up before they're lost.
+Claude Code deletes session `.jsonl` files based on `cleanupPeriodDays` in `~/.claude/settings.json` (default: 30 days). Currently set to `999999` to prevent deletion. Cannot use `0` (intended to mean "never clean up") due to [bug #23710](https://github.com/anthropics/claude-code/issues/23710) — `0` silently disables all transcript persistence.
 
 **Backup location:** `/mnt/ssd/ai/claude-sessions/`
 
