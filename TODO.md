@@ -144,6 +144,19 @@ Based on the analysis, these patterns cause the most waste:
 - [x] Add CLAUDE.md rules: "Minimize file churn" rolled out to 16 repos (rescribe blocked by ooxml-wml dep)
 - [x] Verify Bash grep vs Grep tool issue — partially structural. normalize sessions use bash grep inside shell loops (cross-repo ops), other repos use Grep tool normally. Not a CLAUDE.md issue.
 
+## Essay threads from session logs
+
+Thematic threads to mine from session transcripts and distill into essays (pteraworld or elsewhere). Source: `~/.claude/projects/` session .jsonl files + `~/.claude/history.jsonl` (prompts only, back to Dec 16 2025). Backup: `/mnt/ssd/ai/claude-sessions/`. Use `grep` across project directories to find relevant sessions. Also check `git log --all --oneline --grep=KEYWORD` across repos for commit messages that reference relevant topics.
+
+- [ ] **Why software is shaped wrong** — flora sessions (Jan 19-20, project path: `flora`). Notes apps, spreadsheets, game makers, freeform-vs-structured, "paper on a screen." Grep: `notes`, `freeform`, `spreadsheet`, `paper`
+- [ ] **Can programs write programs?** — prose sessions (Dec 16-17, project path: `prose`). Fractal nature of code, recursive problem decomposition, program synthesis. Session transcripts lost, but history.jsonl has prompts. Grep: `fractal`, `synthesis`, `recursive`
+- [ ] **What counts as vibe coding?** — moss session (Jan 21, project path: `moss`). Whether AI-assisted coding is fundamentally flawed. Grep: `vibe coding`, `hallucinate`
+- [ ] **The NIH instinct** — scattered across sessions. Reinventing not from ego but from "what if" thinking. Grep: `NIH`, `reinvent`, `from scratch`
+- [ ] **Why nothing feels special anymore** — github-io session (Feb 25). Connects to existing pteraworld essays "what is art?" and "why is perfectionism a trap?" Grep: `special`, `safe`
+- [ ] **Architect vs inhabit** — github-io session (Feb 26-27) + `~/what_do_i_want`. Building systems vs living in them, emergence as the bridge, reciprocity. Partially captured in pteraworld essay "why do i build tools?" Grep: `architect`, `inhabit`, `emergence`
+- [ ] **Semantic-free core** — aspect session (Jan 29, project path: `aspect`). Meaning lives in portable world packs, not in the engine. Grep: `semantic-free`, `world packs`
+- [ ] **When should you stop building and start using?** — existence sessions (Feb 12-13, project path: `existence`). Visceral design rejections, construction-site-vs-building tension. Grep: `fail state`, `state collapse`, `no wtf`
+
 ## Myenv Integration: `--schema` Support
 
 Add `--schema` flag to CLI tools for Myenv integration per [tool-integration.md](https://github.com/rhi-zone/myenv/blob/master/docs/tool-integration.md).
