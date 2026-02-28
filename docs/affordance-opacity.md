@@ -94,10 +94,26 @@ The [interaction graph](/interaction-graph) lens suggests what explicit affordan
 
 VSCode approximates some of this: commands are first-class, context-aware (Git commands appear in repos, language commands appear for that language), frecency-ordered. It proves the approach is tractable. Most software just doesn't bother.
 
+## Agents have the same problem
+
+Everything above is about humans. But consider what happens when an AI agent sits in front of a computer.
+
+It faces the exact same opacity. Menus are hidden. Capabilities are implicit. There's no way to ask "what can I do here?" - the same question humans can't answer, agents can't answer either.
+
+The difference: humans can muddle through. You memorize the maze. You develop muscle memory for where things are. You accumulate years of tribal knowledge about which menu contains which command. It's inefficient, but it works because humans are persistent and patient.
+
+Agents can't do this. They don't have years. They don't build muscle memory. They need the structure to be explicit *right now* or they're blind. An opaque interface that a human can slowly learn is an interface an agent simply cannot use.
+
+MCP (Model Context Protocol) is one attempt to solve this: expose tool schemas so agents know what's available. But it often manifests as the agent equivalent of settings sprawl - hundreds of tool definitions dumped into context, thousands of tokens of schema, no sense of what's relevant. It's the menu problem in a different costume: the capabilities are technically enumerated, but not organized, not filtered, not contextual. "Here are 400 tools" is barely more useful than "here are 400 menu items."
+
+The interesting implication: solving affordance opacity for humans would also solve it for agents. Not as a side effect - as the same solution. Actions as data, context-aware filtering, relationships visible - these are exactly what agents need. The [interaction graph](/interaction-graph) isn't just a UX concept. It's the interface that both humans and agents are missing.
+
+The problems were always the same problems. Software hides what it can do, and it doesn't matter whether the user is a person or a process.
+
 ## The deeper point
 
 Affordance opacity isn't just a UX problem. It's about who software is *for*.
 
-Opaque software is for experts who already know, or for users who accept the floor. Transparent software would be for everyone - experts move faster, beginners can actually learn, the middle ground doesn't require years of tribal knowledge.
+Opaque software is for experts who already know, or for users who accept the floor. Transparent software would be for everyone - experts move faster, beginners can actually learn, the middle ground doesn't require years of tribal knowledge. And agents - which have no tribal knowledge at all - could participate.
 
 The [interaction graph](/interaction-graph) lens helps diagnose *why* software feels opaque. Whether making affordances fully explicit is achievable - or even desirable at scale - remains an open question. But recognizing the problem is the first step.
