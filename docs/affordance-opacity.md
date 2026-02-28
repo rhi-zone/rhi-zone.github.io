@@ -114,6 +114,6 @@ The problems were always the same problems. Software hides what it can do, and i
 
 Affordance opacity isn't just a UX problem. It's about who software is *for*.
 
-Opaque software is for experts who already know, or for users who accept the floor. Transparent software would be for everyone - experts move faster, beginners can actually learn, the middle ground doesn't require years of tribal knowledge. And agents - which have no tribal knowledge at all - could participate.
+Opaque software is for experts who already know, or for users who accept the floor. Transparent software would be for everyone - experts move faster, beginners can actually learn, the middle ground doesn't require years of tribal knowledge. And agents - whose tribal knowledge is frozen, secondhand, and unverifiable against the actual current state - could participate on equal footing.
 
 The [interaction graph](/interaction-graph) lens helps diagnose *why* software feels opaque. Whether making affordances fully explicit is achievable - or even desirable at scale - remains an open question. But recognizing the problem is the first step.
