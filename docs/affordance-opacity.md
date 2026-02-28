@@ -100,9 +100,9 @@ Everything above is about humans. But consider what happens when an AI agent sit
 
 It faces the exact same opacity. Menus are hidden. Capabilities are implicit. There's no way to ask "what can I do here?" - the same question humans can't answer, agents can't answer either.
 
-The difference: humans can muddle through. You memorize the maze. You develop muscle memory for where things are. You accumulate years of tribal knowledge about which menu contains which command. It's inefficient, but it works because humans are persistent and patient.
+The difference is smaller than it seems. Humans muddle through by accumulating tribal knowledge - memorizing the maze, building muscle memory, years of "oh right, it's under *that* menu." Agents do the same thing, just differently. They absorb general knowledge from training data, and build project-specific knowledge through session after session of exploration and correction. The ramp-up time is roughly the same. There's no shortcut to "I've worked with this codebase for months."
 
-Agents can't do this. They don't have years. They don't build muscle memory. They need the structure to be explicit *right now* or they're blind. An opaque interface that a human can slowly learn is an interface an agent simply cannot use.
+But both are workarounds. Human tribal knowledge and agent context accumulation are both compensating for the same thing: software that won't tell you what it can do. The knowledge shouldn't need to be accumulated at all. An opaque interface that requires months of tribal knowledge - human or agent - is an interface that's failing at its job.
 
 MCP (Model Context Protocol) is one attempt to solve this: expose tool schemas so agents know what's available. But it often manifests as the agent equivalent of settings sprawl - hundreds of tool definitions dumped into context, thousands of tokens of schema, no sense of what's relevant. It's the menu problem in a different costume: the capabilities are technically enumerated, but not organized, not filtered, not contextual. "Here are 400 tools" is barely more useful than "here are 400 menu items."
 
@@ -114,6 +114,6 @@ The problems were always the same problems. Software hides what it can do, and i
 
 Affordance opacity isn't just a UX problem. It's about who software is *for*.
 
-Opaque software is for experts who already know, or for users who accept the floor. Transparent software would be for everyone - experts move faster, beginners can actually learn, the middle ground doesn't require years of tribal knowledge. And agents - whose tribal knowledge is frozen, secondhand, and unverifiable against the actual current state - could participate on equal footing.
+Opaque software is for experts who already know, or for users who accept the floor. Transparent software would be for everyone - experts move faster, beginners can actually learn, the middle ground doesn't require years of tribal knowledge. And agents - who can build tribal knowledge but at the same human cost of time and exploration - wouldn't need to.
 
 The [interaction graph](/interaction-graph) lens helps diagnose *why* software feels opaque. Whether making affordances fully explicit is achievable - or even desirable at scale - remains an open question. But recognizing the problem is the first step.
