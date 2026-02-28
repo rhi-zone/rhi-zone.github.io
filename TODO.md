@@ -167,7 +167,7 @@ When invoked with `--schema`, the tool prints a JSON Schema describing its confi
 
 - [x] **normalize** - Code intelligence CLI
 - [ ] **lotus** - World runtime CLI
-- [ ] **paraphase** - Pipeline orchestrator (no CLI yet)
+- [ ] **paraphase** - Format conversion route planner (no CLI yet)
 - [ ] **wick** - Expression language (no CLI yet)
 - [ ] **myenv** - Ecosystem orchestrator (has CLI, needs schema)
 
