@@ -2,8 +2,8 @@
 
 **Structural code intelligence for humans and AI agents.**
 
-::: info Status: Fleshed Out ◐
-~128K lines of Rust across 14 crates. Core functionality is solid with extensive language support (98 languages via tree-sitter), comprehensive CLI, and rich documentation. Remaining work is capability expansion (typegen input parsers, surface-syntax) rather than foundation building.
+::: info Status: Potentially Mature ●
+~128K lines of Rust across 14 crates, 2281 commits. Core functionality is solid with extensive language support (98 languages via tree-sitter), comprehensive CLI, and rich documentation. Active feature development (budget, test-ratio, clusters, session analysis). Remaining work is capability expansion rather than foundation building.
 :::
 
 Normalize provides tools for understanding, navigating, and modifying code at a structural level (AST, control flow, dependencies) rather than treating code as text.

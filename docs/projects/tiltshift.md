@@ -2,8 +2,8 @@
 
 **Iterative structure extraction from opaque binary data.**
 
-::: info Status: Scaffolding ○
-No implementation yet. Design phase.
+::: info Status: Growing ◔
+28 commits, 21 Rust files. Signal detection pipeline with chi-square uniformity, alignment map, TLV sequence, padding run, and ngram frequency detectors. Core architecture in place, expanding signal coverage.
 :::
 
 tiltshift progressively uncovers the structure of binary formats through signal analysis. each pass informs the next, converging on a structural model of whatever you feed it — without needing to know what the format is in advance.

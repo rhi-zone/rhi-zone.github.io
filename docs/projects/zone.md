@@ -2,8 +2,8 @@
 
 **rhi ecosystem monorepo: Lua-based tools, scaffolds, and orchestration.**
 
-::: info Status: Growing ◔
-~584 lines of Rust (habitat core + server) plus substantial Lua (~34KB Wisteria agent). Functional object store with query API, working HTTP+WebSocket server. Multiple projects at different stages (habitat concrete, Iris in-progress, Wisteria in development). Foundation solid, execution ongoing.
+::: info Status: Fleshed Out ◐
+279 commits. Rust core plus substantial Lua codebase. Functional object store with query API, working HTTP+WebSocket server. Cross-project integration with server-less, keybinds, normalize. Seeds for myenv scaffolding. Foundation solid, active development.
 :::
 
 **Repository:** [github.com/rhi-zone/zone](https://github.com/rhi-zone/zone)

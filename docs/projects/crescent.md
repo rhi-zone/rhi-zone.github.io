@@ -2,8 +2,8 @@
 
 **Comprehensive LuaJIT ecosystem — stdlib, typechecker, package manager.**
 
-::: info Status: Idea ○
-No code yet—project just scaffolded.
+::: info Status: Fleshed Out ◐
+44 commits, 287 Lua files. Type inference engine with structural operator dispatch, discriminated unions, generics, and metatable slot handling. Test infrastructure in place. Active development on type system features.
 :::
 
 Crescent is a monorepo of composable LuaJIT libraries, inspired by [thi.ng/umbrella](https://thi.ng/umbrella). All libraries are vendorable: copy what you need into your project and own it.

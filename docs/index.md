@@ -12,7 +12,7 @@ hero:
 
 features:
   # Code Intelligence
-  - title: "normalize ◐"
+  - title: "normalize ●"
     details: Structural code intelligence. AST-aware navigation, editing, and analysis across 98 languages.
     link: /projects/normalize
   - title: "gels ○"
@@ -45,10 +45,10 @@ features:
   - title: "concord ◔"
     details: API bindings IR. Unified representation for cross-language codegen.
     link: /projects/concord
-  - title: "tiltshift ○"
+  - title: "tiltshift ◔"
     details: Binary format analysis. Iterative structure extraction from opaque binary data.
     link: /projects/tiltshift
-  - title: "reincarnate ○"
+  - title: "reincarnate ◐"
     details: Legacy lifting. Extract and transform software from obsolete runtimes.
     link: /projects/reincarnate
   # Runtime & Interface
@@ -58,7 +58,7 @@ features:
   - title: "dusklight ○"
     details: Universal UI with control plane. View, mutate, and control any data source.
     link: /projects/dusklight
-  - title: "crescent ○"
+  - title: "crescent ◐"
     details: Comprehensive LuaJIT ecosystem. Stdlib, typechecker, vendor-first package manager.
     link: /projects/crescent
   - title: "deskspace ○"
@@ -71,10 +71,10 @@ features:
   - title: "portals ◐"
     details: Standard library interfaces. Capability-based APIs inspired by WASI.
     link: /projects/portals
-  - title: "zone ◔"
+  - title: "zone ◐"
     details: Lua-based tools, seeds, and orchestration scripts for the ecosystem.
     link: /projects/zone
-  - title: "server-less ◐"
+  - title: "server-less ●"
     details: Composable derive macros. Progressive disclosure from zero-config to full control.
     link: /projects/server-less
 ---

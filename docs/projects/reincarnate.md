@@ -2,8 +2,8 @@
 
 **Legacy software lifting framework in Rust.**
 
-::: info Status: Idea ○
-Clear vision and well-articulated design (tier 1 native patching vs. tier 2 runtime replacement). Deployed docs site with comprehensive introduction. Zero implementation—no Rust code written, only workspace configuration and documentation scaffolding.
+::: info Status: Fleshed Out ◐
+1096 commits, 195 Rust files across multi-crate workspace. Active GameMaker and Flash lifting with TypeScript backend. IR-level transforms including type narrowing, const folding, and logical operator normalization. Real-world testing against production games (Dead Estate). Remaining work: additional runtime targets and format coverage.
 :::
 
 Reincarnate extracts and transforms applications from obsolete runtimes into modern web-based equivalents.

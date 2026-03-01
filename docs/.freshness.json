@@ -1,0 +1,143 @@
+{
+  "normalize": {
+    "status": "●",
+    "label": "Potentially Mature",
+    "checked_at": "2b506d6e",
+    "checked_at_full": "2b506d6ea5fe476db8464ccbc17c3a5be3dc0efc",
+    "checked_date": "2026-03-01"
+  },
+  "gels": {
+    "status": "○",
+    "label": "Sketch",
+    "checked_at": "758ce1f",
+    "checked_at_full": "758ce1f992072695b9f04d993903bfc2ca59471b",
+    "checked_date": "2026-03-01"
+  },
+  "motif": {
+    "status": "○",
+    "label": "Sketch",
+    "checked_at": "ba3c12d",
+    "checked_at_full": "ba3c12d7f5dc39318d4b3eadf1d5e8efbb7a2380",
+    "checked_date": "2026-03-01"
+  },
+  "unshape": {
+    "status": "●",
+    "label": "Potentially Mature",
+    "checked_at": "3510cfc",
+    "checked_at_full": "3510cfcd7857e96d05ce346848a5432244cc0f25",
+    "checked_date": "2026-03-01"
+  },
+  "wick": {
+    "status": "●",
+    "label": "Potentially Mature",
+    "checked_at": "5d26ee2",
+    "checked_at_full": "5d26ee2d7d0bead9c24cbe2f6d240060eaed47b0",
+    "checked_date": "2026-03-01"
+  },
+  "playmate": {
+    "status": "◔",
+    "label": "Growing",
+    "checked_at": "71a2a38",
+    "checked_at_full": "71a2a38db932796173138e997ba9ce08880e2767",
+    "checked_date": "2026-03-01"
+  },
+  "interconnect": {
+    "status": "○",
+    "label": "Idea",
+    "checked_at": "6db0b60",
+    "checked_at_full": "6db0b60c669d730f222b24f36e742cc74728561d",
+    "checked_date": "2026-03-01"
+  },
+  "paraphase": {
+    "status": "◐",
+    "label": "Fleshed Out",
+    "checked_at": "152e209",
+    "checked_at_full": "152e20923d04c08eb84f2c980ffe890879391278",
+    "checked_date": "2026-03-01"
+  },
+  "rescribe": {
+    "status": "◐",
+    "label": "Fleshed Out",
+    "checked_at": "35ca196",
+    "checked_at_full": "35ca196bbc2dfdecfb9278e745c84d4b8e5b482b",
+    "checked_date": "2026-03-01",
+    "note": "Kept at ◐ despite 112 commits / 207 Rust files — needs hardening and verification before ●"
+  },
+  "concord": {
+    "status": "◔",
+    "label": "Growing",
+    "checked_at": "88e9e2c",
+    "checked_at_full": "88e9e2c4d2bc125e45a5461105cbcd771f621864",
+    "checked_date": "2026-03-01"
+  },
+  "tiltshift": {
+    "status": "◔",
+    "label": "Growing",
+    "checked_at": "e84e249",
+    "checked_at_full": "e84e2499dfdfce7cdedd678db5771a422103d79a",
+    "checked_date": "2026-03-01"
+  },
+  "reincarnate": {
+    "status": "◐",
+    "label": "Fleshed Out",
+    "checked_at": "f651a65",
+    "checked_at_full": "f651a65b69195d6350ae2377ad33d8e55788a276",
+    "checked_date": "2026-03-01"
+  },
+  "moonlet": {
+    "status": "◐",
+    "label": "Fleshed Out",
+    "checked_at": "3653576",
+    "checked_at_full": "365357648d02eeca20a15a43cff3622bf8227b35",
+    "checked_date": "2026-03-01"
+  },
+  "dusklight": {
+    "status": "○",
+    "label": "Idea",
+    "checked_at": "d36f5f7",
+    "checked_at_full": "d36f5f75f55613459eedef9570395395997b758d",
+    "checked_date": "2026-03-01"
+  },
+  "crescent": {
+    "status": "◐",
+    "label": "Fleshed Out",
+    "checked_at": "deb2594",
+    "checked_at_full": "deb25944c636c483343cca41168143d009706ac3",
+    "checked_date": "2026-03-01"
+  },
+  "deskspace": {
+    "status": "○",
+    "label": "Idea",
+    "checked_at": "4c2ef61",
+    "checked_at_full": "4c2ef611422ccac8bd911ce6bc3b05bccef8f12d",
+    "checked_date": "2026-03-01"
+  },
+  "myenv": {
+    "status": "◐",
+    "label": "Fleshed Out",
+    "checked_at": "c19b7c2",
+    "checked_at_full": "c19b7c2f24fb5315693806ec10d573c18d40dc18",
+    "checked_date": "2026-03-01"
+  },
+  "portals": {
+    "status": "◐",
+    "label": "Fleshed Out",
+    "checked_at": "1ddc906",
+    "checked_at_full": "1ddc906e3d57f373bebeb1e3584a51d04960bb20",
+    "checked_date": "2026-03-01"
+  },
+  "zone": {
+    "status": "◐",
+    "label": "Fleshed Out",
+    "checked_at": "4856dd2",
+    "checked_at_full": "4856dd2bd83b0f1cb2ddb7b53674297df3239620",
+    "checked_date": "2026-03-01"
+  },
+  "server-less": {
+    "status": "●",
+    "label": "Potentially Mature",
+    "checked_at": "9a51d12",
+    "checked_at_full": "9a51d12b170c10c6c5b953790f387c1ecaae00c7",
+    "checked_date": "2026-03-01"
+  }
+}
