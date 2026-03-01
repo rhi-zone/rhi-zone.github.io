@@ -216,15 +216,18 @@ Especially useful for large files - get the structure first, then read specific 
 
 ### Session Handoff
 
-When a task is fully complete (committed, pushed, docs updated), you can
-initiate a clean handoff by entering plan mode. Before doing so:
+Use plan mode as a handoff mechanism when:
+- A task is fully complete (committed, pushed, docs updated)
+- The session has drifted from its original purpose
+- Context has accumulated enough that a fresh start would help
 
+Before entering plan mode:
 - Update TODO.md in affected repos with any remaining work
 - Update memory files with anything worth preserving across sessions
 
 Then enter plan mode and write a plan file that either:
 - Proposes the next task if it's clear: "next up: X — see TODO.md in Y repo"
-- Flags that direction is needed: "task complete, next step unclear — see TODO.md"
+- Flags that direction is needed: "task complete / session drifted — see TODO.md"
 
 ExitPlanMode hands control back to the user to approve, redirect, or stop.
 
