@@ -34,6 +34,7 @@ This is the organization-level documentation site for the rhi ecosystem.
 
 | Project | Path | Description |
 |---------|------|-------------|
+| **Tiltshift** | `~/git/rhizone/tiltshift` | Iterative structure extraction from opaque binary data |
 | **Paraphase** | `~/git/rhizone/paraphase` | Type-driven route planner for format conversion |
 | **rescribe** | `~/git/rhizone/rescribe` | Lossless document conversion library |
 | **Concord** | `~/git/rhizone/concord` | API bindings IR and codegen |

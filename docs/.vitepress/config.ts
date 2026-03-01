@@ -28,6 +28,7 @@ export default withMermaid(
               { text: 'Interconnect', link: 'https://docs.rhi.zone/interconnect/' },
             ]},
             { text: 'Data Transformation', items: [
+              { text: 'Tiltshift', link: 'https://docs.rhi.zone/tiltshift/' },
               { text: 'Paraphase', link: 'https://docs.rhi.zone/paraphase/' },
               { text: 'Concord', link: 'https://docs.rhi.zone/concord/' },
               { text: 'Reincarnate', link: 'https://docs.rhi.zone/reincarnate/' },
@@ -102,6 +103,7 @@ export default withMermaid(
             text: 'Data Transformation',
             collapsed: true,
             items: [
+              { text: 'Tiltshift', link: '/projects/tiltshift' },
               { text: 'Paraphase', link: '/projects/paraphase' },
               { text: 'Concord', link: '/projects/concord' },
               { text: 'Reincarnate', link: '/projects/reincarnate' },

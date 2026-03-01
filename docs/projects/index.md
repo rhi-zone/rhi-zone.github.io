@@ -14,6 +14,7 @@ rhi is a glue layer for computers—removing boundaries between you and what you
 | [Unshape](/projects/unshape) | Procedural meshes, audio, textures, vector art | <span class="badge-layer layer-execution">Execution</span> | <span class="badge-domain domain-media">Media</span> |
 | [Playmate](/projects/playmate) | Game design primitives and patterns | <span class="badge-layer layer-execution">Execution</span> | <span class="badge-domain domain-games">Games</span> |
 | [Moonlet](/projects/moonlet) | Lua runtime with plugin system | <span class="badge-layer layer-execution">Execution</span> | <span class="badge-domain domain-core">Core</span> |
+| [Tiltshift](/projects/tiltshift) | Iterative structure extraction from opaque binary data | <span class="badge-layer layer-semantics">Semantics</span> | <span class="badge-domain domain-data">Data</span> |
 | [Paraphase](/projects/paraphase) | Type-driven format conversion route planner | <span class="badge-layer layer-orchestration">Orchestration</span> | <span class="badge-domain domain-data">Data</span> |
 | [Myenv](/projects/myenv) | Unified tool config and project scaffolding | <span class="badge-layer layer-orchestration">Orchestration</span> | <span class="badge-domain domain-core">Core</span> |
 | [Zone](/projects/zone) | Lua-based tools, scaffolds, and scripts | <span class="badge-layer layer-orchestration">Orchestration</span> | <span class="badge-domain domain-core">Core</span> |

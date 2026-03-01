@@ -28,6 +28,7 @@ Most tools pick one variant and ignore the rest, or build specialized solutions 
 | **Media generation** | Separate APIs for textures, audio, meshes | **unshape**: `Field<I, O>` trait for any continuous domain |
 | **Expression languages** | WGSL, Cranelift, Lua, shader languages | **wick**: Single AST compiles to all backends |
 | **API specifications** | OpenAPI, gRPC, headers, Thrift | **concord**: One IR, generate bindings for all |
+| **Unknown binary formats** | Each format requires bespoke RE expertise | **tiltshift**: Iterative structure extraction from opaque binary data |
 | **Format conversion** | Hunt for exotic tools per format pair | **paraphase**: Type-driven route planning |
 | **Document formats** | Lossy pandoc conversions | **rescribe**: Lossless IR preserves round-trip fidelity |
 | **Service protocols** | Rewrite for HTTP, CLI, MCP, WebSocket | **server-less**: Write impl once, derive all protocols |
@@ -119,6 +120,7 @@ Our projects are designed the same way: independent tools that compose well toge
 
 | Project | Key Idea |
 |---------|----------|
+| [tiltshift](/projects/tiltshift) | Iterative structure extraction from opaque binary data |
 | [paraphase](/projects/paraphase) | Type-driven route planning for data conversion |
 | [rescribe](/projects/rescribe) | Lossless document IR for format translation |
 | [concord](/projects/concord) | IR and codegen for cross-language bindings |

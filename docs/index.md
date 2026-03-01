@@ -45,6 +45,9 @@ features:
   - title: "concord ◔"
     details: API bindings IR. Unified representation for cross-language codegen.
     link: /projects/concord
+  - title: "tiltshift ○"
+    details: Binary format analysis. Iterative structure extraction from opaque binary data.
+    link: /projects/tiltshift
   - title: "reincarnate ○"
     details: Legacy lifting. Extract and transform software from obsolete runtimes.
     link: /projects/reincarnate
