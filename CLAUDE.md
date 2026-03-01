@@ -214,6 +214,20 @@ Claude Code deletes session `.jsonl` files based on `cleanupPeriodDays` in `~/.c
 
 Especially useful for large files - get the structure first, then read specific sections.
 
+### Session Handoff
+
+When a task is fully complete (committed, pushed, docs updated), you can
+initiate a clean handoff by entering plan mode. Before doing so:
+
+- Update TODO.md in affected repos with any remaining work
+- Update memory files with anything worth preserving across sessions
+
+Then enter plan mode and write a plan file that either:
+- Proposes the next task if it's clear: "next up: X — see TODO.md in Y repo"
+- Flags that direction is needed: "task complete, next step unclear — see TODO.md"
+
+ExitPlanMode hands control back to the user to approve, redirect, or stop.
+
 ## Core Rules
 
 **Note things down immediately:**
