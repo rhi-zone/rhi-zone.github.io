@@ -146,6 +146,12 @@ Enable GitHub Pages (if the repo has a docs site):
 gh api repos/ORG/PROJECT_NAME/pages -X POST -f "build_type=workflow"
 ```
 
+After updating ecosystem docs, push the docs site and org profile:
+```bash
+cd ~/git/rhizone/github-io && git push
+cd ~/git/rhizone/profile && git push
+```
+
 ### GitHub Org Mapping
 
 | Org (GitHub) | Disk Path | Domain |
