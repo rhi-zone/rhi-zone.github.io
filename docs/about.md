@@ -34,6 +34,7 @@ Most tools pick one variant and ignore the rest, or build specialized solutions 
 | **Service protocols** | Rewrite for HTTP, CLI, MCP, WebSocket | **server-less**: Write impl once, derive all protocols |
 | **Data sources** | Different UIs for every API/database | **dusklight**: Universal client with control plane |
 | **Runtime interfaces** | Every language has different stdlib | **portals**: Capability interfaces on WASI foundation |
+| **UI state** | Imperative synchronization, no algebra | **rainbow**: Optics as first-class values, reactivity grounded in laws |
 | **Game patterns** | Reinvent state machines every project | **playmate**: Common patterns as reusable primitives |
 | **Distributed worlds** | Incompatible server architectures | **interconnect**: Federation protocol for handoff |
 | **Tool configuration** | Every tool has different config format | **myenv**: Schema-validated manifests |

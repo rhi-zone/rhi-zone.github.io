@@ -34,6 +34,7 @@ export default withMermaid(
               { text: 'Reincarnate', link: 'https://docs.rhi.zone/reincarnate/' },
             ]},
             { text: 'Runtime & Interface', items: [
+              { text: 'Rainbow', link: 'https://docs.rhi.zone/rainbow/' },
               { text: 'Moonlet', link: 'https://docs.rhi.zone/moonlet/' },
               { text: 'Crescent', link: 'https://docs.rhi.zone/crescent/' },
               { text: 'Dusklight', link: 'https://docs.rhi.zone/dusklight/' },
@@ -113,6 +114,7 @@ export default withMermaid(
             text: 'Runtime & Interface',
             collapsed: true,
             items: [
+              { text: 'Rainbow', link: '/projects/rainbow' },
               { text: 'Moonlet', link: '/projects/moonlet' },
               { text: 'Crescent', link: '/projects/crescent' },
               { text: 'Dusklight', link: '/projects/dusklight' },
