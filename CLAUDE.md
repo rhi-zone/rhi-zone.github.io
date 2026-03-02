@@ -192,7 +192,34 @@ This ensures users can navigate between project-specific docs and the ecosystem 
 
 **`docs/introspection/log/`** — weekly snapshots of ecosystem activity. **Read the most recent entry first when evaluating direction, focus, or what's been active.** Each file is named by end date (e.g. `2026-02-25.md`) and contains commit volume, cost breakdown, focus pattern, and observations.
 
+**`docs/introspection/log/daily/`** — daily session summaries auto-generated from raw Claude Code session messages. Named `YYYY-MM-DD.md`. Each covers one day's sessions across all projects.
+
+**`docs/introspection/log/synthesis-*.md`** — cross-cutting pattern analysis synthesized from daily logs over a date range.
+
 These logs are the canonical record of what was being worked on and why. Check them before asking "what should we work on?" or "what were we focused on?"
+
+### Updating Daily Logs
+
+Run this checklist to bring daily logs up to date:
+
+1. **Backup sessions first:**
+   ```bash
+   cp -a ~/.claude/projects/ /mnt/ssd/ai/claude-sessions/projects/ && cp -a ~/.claude/history.jsonl /mnt/ssd/ai/claude-sessions/history.jsonl
+   ```
+
+2. **Find missing days:** List files in `docs/introspection/log/daily/` and compare against today's date to find gaps.
+
+3. **Spawn haiku agents in parallel** — one per missing day:
+   ```bash
+   ~/git/rhizone/normalize/target/debug/normalize sessions messages --all-projects --role user --since YYYY-MM-DD --until YYYY-MM-DD+1 --limit 0
+   ```
+   Each agent: observe what's interesting, write to `docs/introspection/log/daily/YYYY-MM-DD.md`. If no messages, note it as a quiet day.
+
+4. **Add new days to sidebar** in `docs/.vitepress/config.ts` under the Daily Logs section.
+
+5. **Update synthesis if significant new material** (a week or more of new days): spawn an opus agent to read all daily logs and write/update `docs/introspection/log/synthesis-<start>-<end>.md`. Tell it patterns and CLAUDE.md conventions may have evolved over the period.
+
+6. **Commit and push.**
 
 ## Session Data
 
