@@ -188,7 +188,13 @@ nav: [
 
 This ensures users can navigate between project-specific docs and the ecosystem overview.
 
-## Session Data & Activity Logs
+## Activity Logs
+
+**`docs/introspection/log/`** — weekly snapshots of ecosystem activity. **Read the most recent entry first when evaluating direction, focus, or what's been active.** Each file is named by end date (e.g. `2026-02-25.md`) and contains commit volume, cost breakdown, focus pattern, and observations.
+
+These logs are the canonical record of what was being worked on and why. Check them before asking "what should we work on?" or "what were we focused on?"
+
+## Session Data
 
 Claude Code deletes session `.jsonl` files based on `cleanupPeriodDays` in `~/.claude/settings.json` (default: 30 days). Currently set to `999999` to prevent deletion. Cannot use `0` (intended to mean "never clean up") due to [bug #23710](https://github.com/anthropics/claude-code/issues/23710) — `0` silently disables all transcript persistence.
 
@@ -202,8 +208,6 @@ Claude Code deletes session `.jsonl` files based on `cleanupPeriodDays` in `~/.c
 ```bash
 ~/git/rhizone/normalize/target/debug/normalize sessions stats --all-projects --limit 0 --group-by project,day --since YYYY-MM-DD --until YYYY-MM-DD --compact
 ```
-
-**Activity log entries** go in `docs/introspection/log/` — one file per snapshot, named by end date.
 
 ## Tools
 
