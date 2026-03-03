@@ -171,3 +171,63 @@ The patterns that emerge -- CLAUDE.md as accumulated behavioral rules, paralleli
 The developer is not using Claude Code as a code generator. They are using it as an execution layer for a technical vision that spans too many projects for one person to implement manually. The CLAUDE.md files, the TODO.md queues, the session handoff protocols -- these are the governance structures of a one-person organization that delegates implementation to AI agents while retaining architectural control.
 
 Whether this scales, and whether the architectural control is actually maintained as the codebase grows, is the open question these logs pose but cannot answer.
+
+## Token usage patterns
+
+The daily logs now include per-session token breakdowns (output counts, cache read/create volumes, hit ratios). Across 33 days with data, the quantitative story is consistent with the qualitative narrative but adds dimensions the prose alone could not surface.
+
+### The scale of the operation
+
+Daily token consumption varies by two orders of magnitude:
+
+| Day | Total Tokens | Sessions | Character |
+|-----|-------------|----------|-----------|
+| Jan 28 | 3.09B | 51 | Heaviest single day -- Hologram feature sprint |
+| Jan 31 | 1.58B | 83 | Aspect Y.js migration + Hologram polish |
+| Mar 1 | 1.39B | 93 | Normalize analysis commands + tiltshift + rescribe |
+| Mar 2 | 995M | 80 | Corpus validation + introspection tooling |
+| Feb 22 | 1.08B | 58 | Reincarnate test suite + existence design |
+| Feb 3 | 1.2M | 1 | Quietest day -- single brief session |
+| Feb 18 | ~0 | 0 | Model switch only, no substantive work |
+
+The median active day runs 250--650M tokens. The billion-token days correspond to sustained multi-project sprints with high parallelism, not just longer hours.
+
+### Cache efficiency tells a story about workflow
+
+The headline number -- 96--99% cache hit ratios on most days -- is remarkably stable. But the consistency is the finding, not the number itself. What it reveals:
+
+**Prompt caching works extraordinarily well for this workflow.** The ecosystem's CLAUDE.md files, project structures, and codebase context are loaded into every session. With 30--90 sessions per day branching off similar codebases, the first session pays the context cost and every subsequent session reads from cache. The developer's parallelization strategy (many concurrent sessions across related projects) is essentially a cache-warming pattern, whether intentionally designed as one or not.
+
+**The floor is informative.** The lowest per-session cache hit ratios cluster at 46--79%, and these consistently correspond to either: (a) single-turn sessions with no opportunity for cache reuse, (b) first sessions of the day establishing fresh context, or (c) cross-cutting changes like ecosystem-wide CLAUDE.md propagation that load novel content across many repos. Session `06a796ad` on Feb 8 (46% cache, 2 output tokens, 1 turn) is the extreme -- a session that barely started. The structural minimum for any multi-turn session is around 85%.
+
+**Cache efficiency improved slightly over time.** Early period (Jan 28--Feb 5) averages 92--97% cache hit ratios. Late period (Feb 19--Mar 2) averages 97--99%. This likely reflects accumulated CLAUDE.md content and project structure stabilizing -- as the ecosystem's documentation hardens, more of each session's context is invariant and cacheable.
+
+### Output token volume correlates with work type, not session length
+
+The heaviest output sessions are not necessarily the longest by turn count:
+
+- **Jan 28, session 7ce416ac**: 2.43M output tokens, the single largest session in the dataset -- Hologram feature development with massive code generation
+- **Feb 22, session 09050a8b**: 296K output, 58 turns -- reincarnate test suite integration
+- **Feb 24, session 036d34ec**: 968K output, 70 turns -- sustained multi-project architectural work
+- **Mar 1, session 0a4aedd1**: 648K output, 58 turns -- normalize analysis command implementation
+- **Feb 20, session 1e13057d**: 58K output, 216 turns -- sensory prose design (highest turn count, modest output)
+
+The pattern: implementation sessions (writing code, generating tests, scaffolding) produce high output-per-turn. Design sessions (the sensory prose marathon, existence identity systems, architecture debates) produce many turns with lower output-per-turn. The 216-turn sensory prose session averaged ~270 tokens per turn -- the agent was responding to design questions, not generating code. The 70-turn architectural session on Feb 24 averaged ~13.8K tokens per turn -- it was producing implementations.
+
+This distinction is invisible in the qualitative logs, which describe both session types as "intensive." The token data reveals that "intensive" means different things: intensive design is conversation-heavy and token-light; intensive implementation is conversation-light and token-heavy.
+
+### The reincarnate period stands out quantitatively
+
+Feb 6--22 (the reincarnate-dominated stretch) shows the highest sustained daily output token volumes: 160K--860K output tokens per day, with multiple sessions regularly exceeding 40K output each. This matches the qualitative narrative -- the Flash decompiler required generating IR pipelines, type inference engines, codegen backends, and runtime implementations in rapid succession. It was the most code-generative period in the dataset.
+
+By contrast, the infrastructure/introspection phase (Feb 24--Mar 2) shows higher total token volumes (due to more sessions) but lower output-per-session. The work shifted from "generate large code artifacts" to "analyze, validate, and refactor existing code" -- which consumes context (cache reads) but produces less new content (output).
+
+### What the numbers add that the narrative does not
+
+1. **Feb 3 was genuinely quiet.** The qualitative log says "quiet day" and the token data confirms it: 1.2M total tokens, a single session, 71 output tokens. The developer stopped for a day. In a dataset of 30--90 session days, this is the only true rest day.
+
+2. **The cost of parallelism is mostly cache, not output.** A 93-session day (Mar 1) consumed 1.39B tokens but only 5.2M were output. The remaining 99.6% was context loading -- reading the same codebases into dozens of parallel sessions. The actual "work" (measured by generated tokens) is a thin layer atop a massive context substrate.
+
+3. **Marathon sessions have diminishing output returns.** The 216-turn sensory prose session (Feb 20) and the 100-turn reincarnate macro debugging session (Feb 21) both show output per turn declining as the session progresses -- the agent is doing more reading and less writing as context accumulates. This is the quantitative signature of the context overflow pattern described in the qualitative logs.
+
+4. **The billion-token days are not the most productive days.** Jan 28 (3.09B tokens) was dominated by two sessions that together produced 4.27M output tokens but spent most of their budget on cache reads. Feb 14 (624.6M tokens, 83 sessions) produced 864K output tokens with tighter cache efficiency. Raw token volume measures resource consumption, not output. The most efficient days by output-per-token-consumed are the moderate-parallelism days (Feb 13, Feb 17) where 10--40 focused sessions produce substantial output without the overhead of 80+ concurrent contexts.
