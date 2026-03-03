@@ -24,6 +24,7 @@ rhi is a glue layer for computers—removing boundaries between you and what you
 | [Deskspace](/projects/deskspace) | Unified file workspace server | <span class="badge-layer layer-interface">Interface</span> | <span class="badge-domain domain-data">Data</span> |
 | [Interconnect](/projects/interconnect) | Federation protocol for persistent worlds | <span class="badge-layer layer-federation">Federation</span> | <span class="badge-domain domain-worlds">Worlds</span> |
 | [Reincarnate](/projects/reincarnate) | Lift legacy software to modern web runtimes | <span class="badge-layer layer-legacy">Legacy</span> | <span class="badge-domain domain-data">Data</span> |
+| [Scribble](/projects/scribble) | Sketch-level creative environment for games, art, and interactive pieces | <span class="badge-layer layer-execution">Execution</span> | <span class="badge-domain domain-games">Games</span> |
 
 ## By Layer
 

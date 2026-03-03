@@ -116,6 +116,7 @@ Our projects are designed the same way: independent tools that compose well toge
 |---------|----------|
 | [playmate](/projects/playmate) | State machines, controllers, common gameplay patterns |
 | [interconnect](/projects/interconnect) | Authoritative handoff protocol for persistent worlds |
+| [scribble](/projects/scribble) | Sketch-level creative environment — games, art, notes, interactive pieces |
 
 ### Data transformation
 

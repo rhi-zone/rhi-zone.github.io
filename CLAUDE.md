@@ -29,6 +29,7 @@ This is the organization-level documentation site for the rhi ecosystem.
 |---------|------|-------------|
 | **Playmate** | `~/git/rhizone/playmate` | Game design primitives library |
 | **Interconnect** | `~/git/rhizone/interconnect` | Federation protocol for persistent worlds |
+| **Scribble** | `~/git/rhizone/scribble` | Sketch-level creative environment |
 
 **Data Transformation**
 

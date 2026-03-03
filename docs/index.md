@@ -35,6 +35,9 @@ features:
   - title: "interconnect ○"
     details: Federation protocol. Authoritative handoff for interconnected persistent worlds.
     link: /projects/interconnect
+  - title: "scribble ○"
+    details: Sketch-level creative environment. Games, art, notes, and interactive pieces — editor and runtime dissolve into one.
+    link: /projects/scribble
   # Data Transformation
   - title: "paraphase ◐"
     details: Pipeline orchestrator. Type-driven route planning for asset conversion.
