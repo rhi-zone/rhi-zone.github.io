@@ -212,7 +212,7 @@ Run this checklist to bring daily logs up to date:
 
 3. **Spawn haiku agents in parallel** — one per missing day:
    ```bash
-   ~/git/rhizone/normalize/target/debug/normalize sessions messages --all-projects --role user --since YYYY-MM-DD --until YYYY-MM-DD+1 --limit 0 --show-usage
+   CLAUDE_SESSIONS_DIR=/mnt/ssd/ai/claude-sessions/projects ~/git/rhizone/normalize/target/debug/normalize sessions messages --all-projects --role user --since YYYY-MM-DD --until YYYY-MM-DD+1 --limit 0 --show-usage
    ```
    Each agent: observe what's interesting, write to `docs/introspection/log/daily/YYYY-MM-DD.md`. If no messages, note it as a quiet day. Include a `## Token Usage` section with per-session output tokens and cache hit ratios.
 
@@ -232,11 +232,11 @@ Claude Code deletes session `.jsonl` files based on `cleanupPeriodDays` in `~/.c
 
 **Before running any session analysis:**
 1. Re-backup: `rsync -a --update ~/.claude/projects/ /mnt/ssd/ai/claude-sessions/projects/ && rsync -a --update ~/.claude/history.jsonl /mnt/ssd/ai/claude-sessions/history.jsonl`
-2. Run analyses from `/mnt/ssd/ai/claude-sessions/`, not `~/.claude/`
+2. Run analyses with `CLAUDE_SESSIONS_DIR=/mnt/ssd/ai/claude-sessions/projects` prefix, not from `~/.claude/`
 
 **Session analysis with normalize:**
 ```bash
-~/git/rhizone/normalize/target/debug/normalize sessions stats --all-projects --limit 0 --group-by project,day --since YYYY-MM-DD --until YYYY-MM-DD --compact
+CLAUDE_SESSIONS_DIR=/mnt/ssd/ai/claude-sessions/projects ~/git/rhizone/normalize/target/debug/normalize sessions stats --all-projects --limit 0 --group-by project,day --since YYYY-MM-DD --until YYYY-MM-DD --compact
 ```
 
 ## Tools
