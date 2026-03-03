@@ -130,7 +130,7 @@ The git repo should be copied from `~/git/0000000_pterror` (template repo with p
 - `README.md` - project readme
 
 **Still need manually:**
-- `Cargo.toml` + `crates/`
+- `Cargo.toml` + `crates/` — create a workspace with a single dummy crate (`crates/PROJECT_NAME-core/`) so the pre-commit hook (cargo fmt + clippy) passes on first commit
 - `docs/.vitepress/config.ts` + `docs/index.md`
 
 ### Creating the GitHub Repo
