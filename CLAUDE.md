@@ -212,9 +212,11 @@ Run this checklist to bring daily logs up to date:
 
 3. **Spawn haiku agents in parallel** — one per missing day:
    ```bash
-   ~/git/rhizone/normalize/target/debug/normalize sessions messages --all-projects --role user --since YYYY-MM-DD --until YYYY-MM-DD+1 --limit 0
+   ~/git/rhizone/normalize/target/debug/normalize sessions messages --all-projects --role user --since YYYY-MM-DD --until YYYY-MM-DD+1 --limit 0 --show-usage
    ```
-   Each agent: observe what's interesting, write to `docs/introspection/log/daily/YYYY-MM-DD.md`. If no messages, note it as a quiet day.
+   Each agent: observe what's interesting, write to `docs/introspection/log/daily/YYYY-MM-DD.md`. If no messages, note it as a quiet day. Include a `## Token Usage` section with per-session output tokens and cache hit ratios.
+
+   **If synthesis insights feel thin:** re-run agents on existing logs passing `--show-usage` output and the existing log as reference, instructing them to flag token outliers (e.g. high churn from debugging, poor cache efficiency on cold-start sessions, output spikes from architectural sprints). Then re-run the opus synthesis.
 
 4. **Add new days to sidebar** in `docs/.vitepress/config.ts` under the Daily Logs section.
 
