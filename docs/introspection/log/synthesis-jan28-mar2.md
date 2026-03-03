@@ -231,3 +231,23 @@ By contrast, the infrastructure/introspection phase (Feb 24--Mar 2) shows higher
 3. **Marathon sessions have diminishing output returns.** The 216-turn sensory prose session (Feb 20) and the 100-turn reincarnate macro debugging session (Feb 21) both show output per turn declining as the session progresses -- the agent is doing more reading and less writing as context accumulates. This is the quantitative signature of the context overflow pattern described in the qualitative logs.
 
 4. **The billion-token days are not the most productive days.** Jan 28 (3.09B tokens) was dominated by two sessions that together produced 4.27M output tokens but spent most of their budget on cache reads. Feb 14 (624.6M tokens, 83 sessions) produced 864K output tokens with tighter cache efficiency. Raw token volume measures resource consumption, not output. The most efficient days by output-per-token-consumed are the moderate-parallelism days (Feb 13, Feb 17) where 10--40 focused sessions produce substantial output without the overhead of 80+ concurrent contexts.
+
+---
+
+## Quantitative analysis: cross-session patterns
+
+*Derived from `normalize sessions messages --sort-by-tokens` across the full period (Dec 31, 2025 -- Mar 3, 2026): 1,502 sessions, 14,472 user turns.*
+
+**Scale:** 14.2B cache_read tokens, 1.1B cache_create tokens, 32.5M output tokens. Cache reads are the dominant cost by volume; at Sonnet pricing they account for ~47% of spend, with the remainder split between cache creation, output, and Opus usage.
+
+**Context continuations dominate the heaviest turns.** 799 "session is being continued" turns consumed 3.2B cache_read tokens (22% of total), and 462 handoff plan turns consumed another 1.9B (14%). These 8.7% of turns drove 36% of all cache reads — because each one re-reads an entire accumulated conversation history. The longest-lived sessions paid this tax repeatedly: `7ce416ac` (402 turns, Jan 7--15) hit the context limit 49 times; `117e8a69` accumulated 673M cache_read tokens across 9 days.
+
+**The handoff pattern is the right tradeoff.** 19% of sessions were interrupted on turn 0 — the plan-mode handoff pattern, where a session generates a plan and hands off immediately to a fresh context. This looks like overhead but isn't: one cache_create to start fresh is far cheaper than accumulating 50K+ tokens of cache_read on every subsequent turn in a session approaching its context limit. Handoff usage exploded over the period (66 in January, 288 in February, 110 in the first 3 days of March) as the pattern matured.
+
+**The 82M token warmup.** The single largest cache_read on any turn was 82M tokens on a subagent warmup message containing just the word "Warmup." Agent spawning inherits parent context. The Jan 28 agent-spawning experiments created 199 agent sessions in one day; 69 warmup turns total consumed 228M cache_read tokens before doing any work.
+
+**Retry waste is real but concentrated.** `ls` failed 1,068 out of 1,693 attempts (63%), burning an estimated 51.7M output tokens in retry cycles — this is the server-less agent-af3501f pattern (376 `ls` calls) now quantified across all sessions. `Glob` had a 39% success rate. These are sandbox/permission issues in agent subprocesses, not tool failures in interactive sessions.
+
+**February's interactive character shows in the numbers.** February averaged 1,372 output tokens/turn vs January's 3,572 and early March's 4,439. More turns, less output per turn — the quantitative signature of design and discussion work rather than implementation sprints. Long sessions are more token-efficient (output-to-cache-read ratio nearly 2× that of short sessions), but they also hit context limits, making clean handoffs the better long-run strategy.
+
+**March 2 cost spike: ~$331, more than double any prior day.** Driven by 50 handoff plan executions in one day generating 1.3M output tokens, and cascading context accumulation in the normalize v2 parser and rescribe format work. The ecosystem building tools to understand itself turned out to be one of the most expensive days of the period.
