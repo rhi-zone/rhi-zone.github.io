@@ -132,6 +132,7 @@ The git repo should be copied from `~/git/0000000_pterror` (template repo with p
 **Still need manually:**
 - `Cargo.toml` + `crates/` — create a workspace with a single dummy crate (`crates/PROJECT_NAME-core/`) so the pre-commit hook (cargo fmt + clippy) passes on first commit
 - `docs/.vitepress/config.ts` + `docs/index.md`
+- **Fill in the `## Origin` section** — why the project exists, naming rationale, key design decisions from the scaffolding conversation. An agent spun up in the new repo has no access to that conversation; if it's not in CLAUDE.md, it's gone.
 
 ### Creating the GitHub Repo
 
