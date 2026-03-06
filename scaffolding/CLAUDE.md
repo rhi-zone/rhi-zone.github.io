@@ -13,7 +13,8 @@ Part of the [rhi ecosystem](https://rhi.zone).
 <!-- Why does this project exist? What problem does it solve?
      What key decisions were made when it was created?
      What should a new agent know to not be lost on first session?
-     Naming rationale, design philosophy, relationship to other projects. -->
+     Naming rationale, design philosophy, relationship to other projects.
+     Also consider a TODO.md with initial directions (can be high-level). -->
 
 ## Architecture
 
