@@ -133,6 +133,7 @@ The git repo should be copied from `~/git/0000000_pterror` (template repo with p
 - `Cargo.toml` + `crates/` — create a workspace with a single dummy crate (`crates/PROJECT_NAME-core/`) so the pre-commit hook (cargo fmt + clippy) passes on first commit
 - `docs/.vitepress/config.ts` + `docs/index.md`
 - **Copy `.envrc`** from `scaffolding/` — easy to forget since it's gitignored and won't show up in git status
+- **Copy `flake.nix`** from `scaffolding/` — also easy to forget
 - **Fill in the `## Origin` section** — why the project exists, naming rationale, key design decisions from the scaffolding conversation. An agent spun up in the new repo has no access to that conversation; if it's not in CLAUDE.md, it's gone.
 - **Optionally add a `TODO.md`** with initial directions from the scaffolding conversation — can be as high-level ("explore X, decide on Y") or as detailed as warranted.
 
