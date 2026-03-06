@@ -8,6 +8,13 @@ PROJECT_DESCRIPTION
 
 Part of the [rhi ecosystem](https://rhi.zone).
 
+## Origin
+
+<!-- Why does this project exist? What problem does it solve?
+     What key decisions were made when it was created?
+     What should a new agent know to not be lost on first session?
+     Naming rationale, design philosophy, relationship to other projects. -->
+
 ## Architecture
 
 <!-- Project-specific architecture notes -->
