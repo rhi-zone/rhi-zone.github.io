@@ -1,5 +1,6 @@
 {
   "name": "PROJECT_NAME-docs",
+  "type": "module",
   "private": true,
   "scripts": {
     "dev": "vitepress dev",
