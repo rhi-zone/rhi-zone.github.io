@@ -77,6 +77,7 @@ This is the organization-level documentation site for the rhi ecosystem.
 | **hologram** | `~/git/exoplace/hologram` | Discord RP bot with knowledge graph and RAG |
 | **aspect** | `~/git/exoplace/aspect` | Card-based identity exploration sandbox |
 | **existence** | `~/git/paragarden/existence` | Text-based HTML5 game — power anti-fantasy |
+| **hubris** | `~/git/paragarden/hubris` | Worldbuilding project — humanity is dangerous for humanity |
 | **keybinds** | `~/git/keybinds` | Keybind/command palette library (used in ptera.world, reincarnate) |
 | **ascent-interpreter** | `~/git/ascent-interpreter` | Interpreted Ascent (Datalog); used in normalize alongside AOT ascent |
 
