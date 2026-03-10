@@ -210,9 +210,10 @@ Run this checklist to bring daily logs up to date:
 
 1. **Backup sessions first:**
    ```bash
-   rsync -a --update ~/.claude/projects/ /mnt/ssd/ai/claude-sessions/projects/ && rsync -a --update ~/.claude/history.jsonl /mnt/ssd/ai/claude-sessions/history.jsonl
+   rsync -a --update ~/.claude/projects/ /mnt/ssd/ai/claude-sessions/projects/ && rsync -a --update ~/.claude/history.jsonl /mnt/ssd/ai/claude-sessions/history.jsonl && rsync -a --update ~/.claude/usage-data/ /mnt/ssd/ai/claude-sessions/usage-data/
    ```
    (`--update` skips destination files newer than source, safe for incremental runs)
+   (`usage-data/` contains pre-computed `/insights` facets — incremental, worth preserving)
 
 2. **Find missing days:** List files in `docs/introspection/log/daily/` and compare against today's date to find gaps.
 
@@ -237,7 +238,7 @@ Claude Code deletes session `.jsonl` files based on `cleanupPeriodDays` in `~/.c
 **Backup location:** `/mnt/ssd/ai/claude-sessions/`
 
 **Before running any session analysis:**
-1. Re-backup: `rsync -a --update ~/.claude/projects/ /mnt/ssd/ai/claude-sessions/projects/ && rsync -a --update ~/.claude/history.jsonl /mnt/ssd/ai/claude-sessions/history.jsonl`
+1. Re-backup: `rsync -a --update ~/.claude/projects/ /mnt/ssd/ai/claude-sessions/projects/ && rsync -a --update ~/.claude/history.jsonl /mnt/ssd/ai/claude-sessions/history.jsonl && rsync -a --update ~/.claude/usage-data/ /mnt/ssd/ai/claude-sessions/usage-data/`
 2. Run analyses with `CLAUDE_SESSIONS_DIR=/mnt/ssd/ai/claude-sessions/projects` prefix, not from `~/.claude/`
 
 **Session analysis with normalize:**
