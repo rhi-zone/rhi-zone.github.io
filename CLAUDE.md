@@ -77,7 +77,7 @@ This is the organization-level documentation site for the rhi ecosystem.
 | **hologram** | `~/git/exoplace/hologram` | Discord RP bot with knowledge graph and RAG |
 | **aspect** | `~/git/exoplace/aspect` | Card-based identity exploration sandbox |
 | **existence** | `~/git/paragarden/existence` | Text-based HTML5 game — power anti-fantasy |
-| **hubris** | `~/git/paragarden/hubris` | Worldbuilding project — humanity is dangerous for humanity |
+| **legacy** | `~/git/paragarden/legacy` | Worldbuilding project — what humanity left behind |
 | **keybinds** | `~/git/keybinds` | Keybind/command palette library (used in ptera.world, reincarnate) |
 | **ascent-interpreter** | `~/git/ascent-interpreter` | Interpreted Ascent (Datalog); used in normalize alongside AOT ascent |
 
@@ -158,6 +158,18 @@ After updating ecosystem docs, push the docs site and org profile:
 cd ~/git/rhizone/github-io && git push
 cd ~/git/rhizone/profile && git push
 ```
+
+### Renaming Repos
+
+When renaming a repo:
+
+1. Rename on GitHub: `gh repo rename NEW_NAME -R ORG/OLD_NAME --yes`
+2. Update git remote: `git remote set-url origin https://github.com/ORG/NEW_NAME.git`
+3. Move local directory: `mv ~/git/ORG_PATH/OLD_NAME ~/git/ORG_PATH/NEW_NAME`
+4. Move Claude project dir: `mv ~/.claude/projects/-home-me-git-ORG_PATH-OLD_NAME ~/.claude/projects/-home-me-git-ORG_PATH-NEW_NAME`
+5. Update repo settings: `gh repo edit ORG/NEW_NAME --homepage "..." --description "..."`
+6. Update all in-repo references (site config, package.json, CLAUDE.md, README, etc.)
+7. Update ecosystem docs (this file, memory, org profile)
 
 ### GitHub Org Mapping
 
