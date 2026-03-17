@@ -275,13 +275,7 @@ Use plan mode as a handoff mechanism when:
 - The session has drifted from its original purpose
 - Context has accumulated enough that a fresh start would help
 
-Before entering plan mode:
-- Update TODO.md in affected repos with any remaining work
-- Update memory files with anything worth preserving across sessions
-
-Then enter plan mode and write a plan file that either:
-- Proposes the next task if it's clear: "next up: X — see TODO.md in Y repo"
-- Flags that direction is needed: "task complete / session drifted — see TODO.md"
+**For handoffs:** flush TODO.md and memory files, then enter plan mode and write a plan containing only: next tasks, blocked/pending items, and what was done this session (only if it directly affects what comes next). Nothing else — no commands, no build steps, no context summaries. Those belong in CLAUDE.md or TODO.md. The next session reads both fresh.
 
 ExitPlanMode hands control back to the user to approve, redirect, or stop.
 
@@ -297,6 +291,7 @@ ExitPlanMode hands control back to the user to approve, redirect, or stop.
 ## Negative Constraints
 
 Do not:
+- Suggest project names — LLMs are historically bad at this; let the user come up with names
 - Announce actions ("I will now...") - just do them
 - Leave work uncommitted
 - Make ecosystem changes without checking all affected repos
