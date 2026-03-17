@@ -169,7 +169,7 @@ When renaming a repo:
 4. Move Claude project dir: `mv ~/.claude/projects/-home-me-git-ORG_PATH-OLD_NAME ~/.claude/projects/-home-me-git-ORG_PATH-NEW_NAME`
 5. Update repo settings: `gh repo edit ORG/NEW_NAME --homepage "..." --description "..."`
 6. Update all in-repo references (site config, package.json, CLAUDE.md, README, etc.)
-7. Update ecosystem docs (this file, memory, org profile)
+7. Update ecosystem docs (this file, org profile)
 
 ### GitHub Org Mapping
 
@@ -275,7 +275,7 @@ Use plan mode as a handoff mechanism when:
 - The session has drifted from its original purpose
 - Context has accumulated enough that a fresh start would help
 
-**For handoffs:** flush TODO.md and memory files, then enter plan mode and write a plan containing only: next tasks, blocked/pending items, and what was done this session (only if it directly affects what comes next). Nothing else — no commands, no build steps, no context summaries. Those belong in CLAUDE.md or TODO.md. The next session reads both fresh.
+**For handoffs:** flush TODO.md, then enter plan mode and write a plan containing only: next tasks, blocked/pending items, and what was done this session (only if it directly affects what comes next). Nothing else — no commands, no build steps, no context summaries. Those belong in CLAUDE.md or TODO.md. The next session reads both fresh.
 
 ExitPlanMode hands control back to the user to approve, redirect, or stop.
 
@@ -291,7 +291,8 @@ ExitPlanMode hands control back to the user to approve, redirect, or stop.
 ## Negative Constraints
 
 Do not:
-- Suggest project names — LLMs are historically bad at this; let the user come up with names
+- Use Claude Code's auto-memory system (`~/.claude/projects/.*./memory/`) — it is unversioned, invisible to the user, and can't be diffed or backed up. Write behavioral changes directly to CLAUDE.md instead
+- Suggest project names — LLMs are historically bad at this; let the user come up with names. If the user asks for naming directions, help refine the conceptual space only — never suggest actual names
 - Announce actions ("I will now...") - just do them
 - Leave work uncommitted
 - Make ecosystem changes without checking all affected repos
