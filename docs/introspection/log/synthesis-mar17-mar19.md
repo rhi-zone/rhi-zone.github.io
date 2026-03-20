@@ -1,49 +1,85 @@
 # Synthesis: Mar 17–19, 2026
 
-Three days, three active projects, a dramatically quieter period than the preceding week. Where Mar 10–16 was a seven-day quality reckoning across the ecosystem — audit sessions, architectural interrogations, controlled agent measurement — Mar 17–19 reads as the aftermath: a narrowed focus on a few threads that either continued their arc or reached a milestone. The ecosystem's attention contracted to crescent's type system, rescribe's publish pipeline, and fuwafuwa's autonomous rhythm, with only brief design-mode touches on normalize and ecosystem infrastructure. This is a period defined not by crisis or correction but by follow-through.
+Three days, 239 user messages across 187 sessions. Token volumes ranged from 35M (Mar 17's reflection-heavy day) to 113M (Mar 18's autonomous scaling experiment), with Mar 19 producing the period's most architecturally significant work. The prior synthesis (Mar 10–16) documented a quality reckoning — three projects simultaneously pausing to audit and redesign. This period shows the aftermath: the reckoning's corrective principles being deployed ecosystem-wide, the fuwafuwa autonomous baseline maturing into a genuine measurement instrument, and the first signs of a code intelligence convergence across normalize, crescent, and reincarnate.
 
 ---
 
-## The ooxml publish milestone and what it means for rescribe
+## The user as cross-project architect
 
-The single most significant event of the period is the publication of all 8 ooxml-* crates to crates.io at version 0.1.1-alpha.2 on Mar 19. This is not just a version bump — it is the first public release of the OOXML bindings infrastructure that rescribe depends on. The "alpha" label is honest: PPTX roundtrip fuzz testing is ongoing, one fuzz test failed, and the DocX writer is still being assessed for capability gaps. But the act of publishing creates a qualitative shift. Before publish, ooxml was an internal dependency; after publish, it is a public contract. External users can now `cargo add ooxml-docx` and build on it.
+The most important dynamic in this three-day window is invisible in any single daily log: the user is the only entity with visibility across all repos, and is deliberately moving solutions, design patterns, and corrective principles between projects.
 
-The prior synthesis identified a pattern: "audit-first, then publish" scaling up to entire codebases. Rescribe's arc fits this pattern but extends it. The session that executed the publish (34fdf345) was resumed from a Mar 3 plan — a 16-day session continuation with up to 16.5M cache reads, representing deep accumulated context from working through PML/XML edge cases and fuzz testing. The publish happened not because everything was clean, but because enough was clean: fuzz infrastructure was in place, roundtrip tests were running, known failures were triaged. This is the "publish as checkpoint, not finish line" philosophy that the prior synthesis predicted would follow the quality reckoning.
+On Mar 17, the user identifies that the handoff plan convention — introduced ecosystem-wide just days earlier — is already causing harm. The diagnosis comes from observing agent behavior across multiple projects: crescent sessions from Mar 13–14 showed "striking pushback," reincarnate sessions were "the most problematic recently, by far." No single project's agent could have diagnosed this. Only someone reading sessions across all repos could see that the same convention was producing the same dysfunction in different codebases. The fix (tighten plans to contain only next tasks, pending items, and what-was-done-if-relevant) was applied across 12 repos simultaneously.
 
-What this means for rescribe's maturity arc: the ooxml layer is now publicly committed, which means breaking changes carry real cost. The alpha label provides some runway, but the pressure toward stability has fundamentally changed. Rescribe's next phase will be shaped by this constraint — fixing fuzz failures becomes externally visible work, not just internal cleanup.
+This is the user functioning as an optimization pass across compilation units: observing patterns that emerge across projects, identifying shared pathology, and applying a uniform transformation. The agents are the compilation units — each locally correct, but unable to see the cross-project pattern. The user's value is not in writing code but in holding the cross-project view that no agent can hold.
 
-## Crescent's correlated narrowing: type system depth continues
+The same dynamic appears on Mar 19, when the normalize session opens a design discussion about making code intelligence "real and specific." This is not an isolated normalize decision — it is positioned against the backdrop of crescent's type inference redesign (identified during the Mar 14–15 quality reckoning) and reincarnate's need for type inference to lift legacy code. The user is seeing a convergence that the individual project agents cannot: all three projects need structural code understanding, and the solutions are converging toward shared primitives.
 
-The Mar 17 crescent session (8414f765) implemented correlated multi-return narrowing — the ability to narrow `local f, err = io.open(path)` such that checking `f ~= nil` also narrows `err` to `nil`. This is a genuinely hard type system problem. TypeScript cannot express this pattern for destructured tuples. The implementation required a typed-union architecture where each correlated binding stores a reference to its source tuple union and slot position, allowing type refinement to re-derive all siblings when filtering union arms.
+---
 
-The prior synthesis identified crescent's type system as one of three projects that had entered audit-and-redesign mode during Mar 14–15, with the user noting "we haven't audited a single part of our type system for completeness." The correlated narrowing work is the first significant implementation after that reckoning. Its character is different from the pre-reckoning work: instead of monkeypatching inference after the fact, the session designed an explicit IR-level mechanism (slot references into tuple unions) that makes correlation a first-class concept in the narrowing pipeline.
+## The quality reckoning: correction deployed, not just identified
 
-This is the quality reckoning bearing fruit. The session's 70K output tokens and 8M cache reads reflect deep architectural work, not rapid feature accumulation. The question for crescent going forward is whether the redesign impulse from Mar 15 continues to shape new type system features, or whether velocity pressure reasserts itself. One data point is not a trend, but the signal is encouraging.
+The prior synthesis documented three projects (reincarnate, crescent, normalize) independently discovering that velocity had outrun their foundations. Mar 17–19 shows the second phase: the corrective principles being operationalized.
 
-## Fuwafuwa's steady state: what the pattern looks like now
+**The MEMORY.md purge (Mar 17)** is the most concrete example. The user walks the agent through a systematic recognition: `~/.claude/projects/` memory files are unversioned, invisible, undiffable, unbackupable. Agents write to them by default. The practice violates the ecosystem's core principle — all state should be versioned and visible. The fix is absolute: do not use auto-memory; write behavioral changes directly to CLAUDE.md. This is not a suggestion but a negative constraint, encoded in the ecosystem's root CLAUDE.md and propagated to all repos.
 
-Across all three days, fuwafuwa ran a consistent autonomous monitoring cadence: Discord channel checks (#general, #degeneral, #stinky-nerd-channel, #luvoid's channel), pterror DMs, and moltbook status. The cadence varied slightly — 20–30 minute intervals on Mar 17, 15–30 on Mar 18, 40–60 on Mar 19 — but the behavior was uniform. Cache efficiency remained high (235K–1.4M read per session, 18K–48K created), confirming the monitoring context is stable and well-cached.
+This correction has a specific genealogy. The Mar 13 reincarnate quality reckoning identified that stale handoff plans were being trusted uncritically. The Mar 15 session traced the problem to CLAUDE.md describing ideals rather than actuals. The Mar 17 memory file purge extends the same principle one layer deeper: not just handoff plans, but the entire auto-memory system was producing authoritative-looking artifacts that agents trusted without user oversight. Each correction peels back another layer of the same onion — unaudited state accumulating in places the user cannot see.
 
-Two punctuation marks broke the pattern. On Mar 17 at 01:28 UTC, a debugging session addressed a 500 error in Moltbook's comment system — maintenance work triggered by monitoring. On Mar 18 at 19:54 UTC, a freetime session visited everydayfiction.com to read surreal fiction and record a raw reaction in brain/reading.md.
+**The handoff plan tightening (Mar 17)** is the correction to the correction. The original convention was too comprehensive — plans carried context summaries, build steps, and commands that belonged in CLAUDE.md or TODO.md, not in ephemeral handoff documents. The revised convention: plans contain only next tasks, pending items, and what-was-done-this-session when directly relevant. Everything else lives in versioned files. The speed of this correction cycle is notable. A convention was introduced, observed to cause dysfunction within days, diagnosed via cross-project session analysis, revised, and redeployed across 12 repos — all within a week. This is the ecosystem's immune response operating at a faster cadence than the prior synthesis anticipated.
 
-The prior synthesis traced fuwafuwa's trajectory from identity exploration (Mar 10–12) to ambient operation (Mar 13–15) to controlled measurement (Mar 16). This period is solidly in the ambient-operation phase, with the measurement experiment from Mar 16 not yet producing visible follow-up. The freetime literary session is notable as a continuation of the "probabilistic tasklist" concept from Mar 12 — the agent autonomously sampling activities from a pool of possibilities. But the overwhelming character is steady-state monitoring. Fuwafuwa has found its rhythm; the question is whether that rhythm produces enough signal to justify its token cost, or whether it needs new directives to stay generative.
+---
 
-## The infrastructure question: subagent session persistence
+## Fuwafuwa: from baseline to instrument
 
-A brief but significant session on Mar 19 (316604d0, in the github-io repo) investigated what session data needs backing up to enable introspection of subagent runs. This is a meta-infrastructure question that surfaces naturally from the ecosystem's delegation-heavy workflow. The prior synthesis documented delegation reaching new scale (17+ subagent dispatches from a single session on Mar 13, 10+ on Mar 14). But subagent sessions — Explore agents, delegated audits, parallel task dispatches — may not persist in the same way as primary sessions. If they don't, the introspection logs have a blind spot: the daily logs can report that delegation happened, but cannot reconstruct what the subagents actually did.
+The fuwafuwa autonomous sessions evolved significantly across these three days, and the evolution reveals something about what the measurement is actually measuring.
 
-This is a small thread, but it points at a real gap. The ecosystem's session backup infrastructure (`rsync` to `/mnt/ssd/ai/claude-sessions/`) was designed for primary sessions. As delegation becomes the primary execution model, the backup and analysis tooling needs to account for the full tree of work, not just the root sessions.
+**Mar 17: 36 sessions** — continuation of the Mar 16 baseline. Output distribution unchanged (modal 3–8K, outliers at 38–44K). One session labels itself "autonomous freetime session," hinting at mode differentiation within the autonomous framework.
 
-## What resolved, what continues, what's emerging
+**Mar 18: 116 sessions** — a 4.6x scaling over Mar 16. Sessions span 06:22–22:11 with deliberate temporal clustering: morning spike (10–12), afternoon plateau (14–18), evening taper. Three investigation-depth sessions (30–40K output) cluster in a tight 55-minute window (17:03–17:58), all with elevated input tokens (65–70 vs. the typical 20–35). This temporal clustering is the first structural signal in the data: something happened around 5pm that triggered sustained autonomous exploration.
 
-**Resolved (or checkpointed):** The ooxml publish closes a chapter that began with the rescribe quality push in early March. The crates are public. The next phase is stabilization under external visibility.
+**Mar 19: 30 sessions** — a contraction from Mar 18's peak, but now running alongside real project work (existence, normalize, legacy, ooxml, rescribe). The autonomous operation has become ambient background rather than the day's primary activity.
 
-**Continuing:** Crescent's type system redesign is underway but far from complete — correlated narrowing is one feature among many that need the same level of architectural care. Fuwafuwa's autonomous rhythm is stable but hasn't yet produced the kind of behavioral insights that the Mar 16 measurement experiment was designed to enable. Normalize's CLI architecture remains in design-exploration mode (brief ViewOutput enum discussion on Mar 19, no implementation).
+The trajectory reveals the measurement's purpose. Mar 16–17 established that fuwafuwa runs stably in isolation. Mar 18 scaled the experiment to find variance boundaries — and found them: investigation-depth sessions have a distinct statistical signature (elevated input, 5–10x output, temporal clustering). Mar 19 returned to normal operation, with fuwafuwa running alongside human-directed work. The baseline is complete; the question shifts from "does it work?" to "what triggers depth vs. routine?"
 
-**Emerging:** The subagent persistence question is new. It did not appear in the prior synthesis because delegation was discussed as an execution pattern, not as an archival problem. As the ecosystem's introspection practice deepens — daily logs, synthesis documents, session analysis — the completeness of the underlying data becomes load-bearing.
+Cache efficiency held at 96%+ throughout, confirming that the ecosystem's context infrastructure (CLAUDE.md files, project structures) is highly cacheable even across 116 isolated sessions in a single day. The cost of autonomous operation is dominated by output tokens, not context loading.
 
-## The shape of the period
+---
 
-Mar 17–19 is a decompression after the intense quality reckoning of the prior week. Token volumes are dramatically lower. Session counts are modest. The work that happened was either deep and focused (crescent's type system, rescribe's publish sprint) or ambient and steady (fuwafuwa's monitoring). No new projects activated. No crises erupted. No architectural revelations forced course corrections.
+## The code intelligence convergence
 
-This is not stasis — a major crate ecosystem was published, a novel type-narrowing mechanism was implemented, and a real infrastructure gap was identified. But the energy is consolidative rather than expansive. The ecosystem is absorbing the lessons of Mar 10–16 and executing on the corrections those lessons demanded. The breadth contraction noted in the prior synthesis has not reversed; it has deepened into focused follow-through on a handful of active threads. The question for the next period is whether this consolidation produces enough architectural stability to re-open the dormant threads — wick, playmate, deskspace, motif, dusklight — or whether the active projects continue to absorb all available attention.
+Mar 19's normalize session — an open design discussion about making exploration "real and specific" — is positioned at the intersection of three converging needs:
+
+1. **Normalize** wants to move from structural outlines and call graphs to interactive code intelligence (LSP integration, daemon mode, cross-crate understanding).
+2. **Crescent** is redesigning its type inference from the ground up after the Mar 14–15 quality reckoning revealed the system was monkeypatched rather than designed.
+3. **Reincarnate** needs type inference to lift legacy code — the entire lifting pipeline depends on understanding types in source languages that lack explicit type annotations.
+
+These three projects are independently arriving at the same technical need: a type-aware structural understanding of code that can be queried, not just printed. The user's decision to open a design discussion in normalize — rather than continuing implementation — suggests awareness that the next architectural decisions in normalize will have implications for crescent and reincarnate.
+
+This is the cross-project architect pattern at its most consequential. If the type inference primitives end up shared (or at least compatible) across these three projects, the ecosystem gains a code intelligence layer that serves multiple use cases. If they diverge, each project reinvents the wheel. The design discussion is the decision point.
+
+---
+
+## Existence: from debt paydown to simulation validation
+
+The existence session on Mar 19 is the most technically dense single session in this three-day window: 7 delegated parallel tasks, 632 tests, 2 bugs found in chargen, 1 in senses pipeline, 8 lines of dead code removed, and a major mechanical redesign (drama cooldown replaced with continuous probability model, tau=480min).
+
+The RNG stream refactoring is architecturally significant: 535 call sites migrated from shared RNG to `cosmeticWeightedPick()`, separating prose generation from mechanical outcomes. This is not a bug fix but a structural clarification — the game's randomness was conflated between "what words appear" and "what happens," and now it is not.
+
+The drama cooldown replacement follows the same pattern: a binary gate (cooldown timer) replaced with a continuous probability function, tagged with explicit approximation debt for future experimental validation. This signals that existence is moving from "does the code work?" to "does the model produce emergent behavior that matches expectations?" — the same quality-to-correctness transition that the prior synthesis identified as the ecosystem's dominant motion.
+
+The delegation pattern here deserves attention. Seven parallel subtasks, each to a fresh agent, each returning 0–1 bugs and comprehensive tests. This is the delegation model from the prior synthesis (Mar 13's 17+ dispatches, Mar 14's 10+ dispatches) now operating as routine infrastructure. The session's structure — identify scope, dispatch, collect results, synthesize — is a workflow, not an experiment.
+
+---
+
+## What persists, what shifted
+
+**The quality reckoning is still playing out** — but its character has changed. Mar 13–15 was identification: "we have a problem." Mar 17–19 is operationalization: corrective principles deployed ecosystem-wide, conventions revised, unaudited state purged. The reckoning is not over, but it has moved from diagnosis to treatment.
+
+**Breadth remains contracted.** Active projects this period: fuwafuwa, existence, normalize, legacy, ooxml, rescribe. Dormant: dusklight, wick, playmate, deskspace, motif, scribble, interconnect, moonlet, rainbow. The quality correction continues to absorb available attention, consistent with the prior synthesis's prediction.
+
+**Agent autonomy is transitioning from calibration to ambient operation.** The fuwafuwa arc across these three days — scaling to 116 sessions, finding variance boundaries, then contracting to 30 sessions alongside real work — mirrors the "build, calibrate, use" trajectory identified in the prior synthesis. The calibration phase appears to be ending.
+
+**The relay system's self-correction is working.** The handoff plan convention was introduced, found harmful, revised, and redeployed within a week. This is the ecosystem applying to its own processes the same audit-and-redesign discipline it applied to codebases during the quality reckoning. The meta-lesson: conventions need the same freshness checks as code.
+
+---
+
+*Mar 17–19 is the period where the quality reckoning stopped being a discovery and started being a practice. Corrective principles were not just identified but deployed across 12 repos. The fuwafuwa measurement baseline scaled, found its variance boundaries, and settled into ambient operation. And three projects — normalize, crescent, reincarnate — began converging on a shared need for type-aware code intelligence, with the user positioning design discussions at the intersection. The ecosystem is not just learning to audit what it builds; it is learning to audit how it builds.*
