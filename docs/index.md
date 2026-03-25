@@ -81,6 +81,6 @@ features:
     details: Composable derive macros. Progressive disclosure from zero-config to full control.
     link: /projects/server-less
   - title: "nanites ○"
-    details: Amorphous intelligence. Composable functions for AI orchestration.
+    details: Flexible orchestration. Pausable, inspectable, composable.
     link: /projects/nanites
 ---
