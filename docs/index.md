@@ -81,6 +81,6 @@ features:
     details: Composable derive macros. Progressive disclosure from zero-config to full control.
     link: /projects/server-less
   - title: "nanites ○"
-    details: Turn-primitive orchestration. Stateless typed transforms replace conversation-based agents.
+    details: Amorphous intelligence. Composable functions for AI orchestration.
     link: /projects/nanites
 ---
