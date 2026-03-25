@@ -56,6 +56,7 @@ A glue layer for computers. Removing boundaries between you and your computer.
 | [portals](https://github.com/rhi-zone/portals) | Standard library interfaces |
 | [zone](https://github.com/rhi-zone/zone) | Lua-based tools, scaffolds, and orchestration |
 | [server-less](https://github.com/rhi-zone/server-less) | Derive macros: one impl → many protocols |
+| [nanites](https://github.com/rhi-zone/nanites) | Turn-primitive orchestration framework |
 
 ## Development
 
