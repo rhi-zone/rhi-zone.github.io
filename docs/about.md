@@ -145,6 +145,7 @@ Our projects are designed the same way: independent tools that compose well toge
 | [portals](/projects/portals) | Capability-based interfaces inspired by WASI |
 | [zone](/projects/zone) | Lua-based tools, scaffolds, and orchestration |
 | [server-less](/projects/server-less) | Derive macros: one impl → many protocols |
+| [nanites](/projects/nanites) | Turn-primitive orchestration framework |
 
 ## Composition
 

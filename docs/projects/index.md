@@ -19,6 +19,7 @@ rhi is a glue layer for computers—removing boundaries between you and what you
 | [Paraphase](/projects/paraphase) | Type-driven format conversion route planner | <span class="badge-layer layer-orchestration">Orchestration</span> | <span class="badge-domain domain-data">Data</span> |
 | [Myenv](/projects/myenv) | Unified tool config and project scaffolding | <span class="badge-layer layer-orchestration">Orchestration</span> | <span class="badge-domain domain-core">Core</span> |
 | [Zone](/projects/zone) | Lua-based tools, scaffolds, and scripts | <span class="badge-layer layer-orchestration">Orchestration</span> | <span class="badge-domain domain-core">Core</span> |
+| [Nanites](/projects/nanites) | Turn-primitive orchestration framework | <span class="badge-layer layer-orchestration">Orchestration</span> | <span class="badge-domain domain-core">Core</span> |
 | [Dusklight](/projects/dusklight) | Universal UI client with control plane | <span class="badge-layer layer-interface">Interface</span> | <span class="badge-domain domain-core">Core</span> |
 | [Crescent](/projects/crescent) | Comprehensive LuaJIT ecosystem | <span class="badge-layer layer-execution">Execution</span> | <span class="badge-domain domain-core">Core</span> |
 | [Deskspace](/projects/deskspace) | Unified file workspace server | <span class="badge-layer layer-interface">Interface</span> | <span class="badge-domain domain-data">Data</span> |

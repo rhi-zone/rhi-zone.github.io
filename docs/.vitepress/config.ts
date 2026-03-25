@@ -46,6 +46,7 @@ export default withMermaid(
               { text: 'Portals', link: 'https://docs.rhi.zone/portals/' },
               { text: 'Zone', link: 'https://docs.rhi.zone/zone/' },
               { text: 'Server-Less', link: 'https://docs.rhi.zone/server-less/' },
+              { text: 'Nanites', link: 'https://docs.rhi.zone/nanites/' },
             ]},
           ]
         },
@@ -131,6 +132,7 @@ export default withMermaid(
               { text: 'Portals', link: '/projects/portals' },
               { text: 'Zone', link: '/projects/zone' },
               { text: 'Server-Less', link: '/projects/server-less' },
+              { text: 'Nanites', link: '/projects/nanites' },
             ]
           },
           {
