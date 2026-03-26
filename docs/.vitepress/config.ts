@@ -69,6 +69,14 @@ export default withMermaid(
             ]
           },
           {
+            text: 'Claude Code',
+            collapsed: true,
+            items: [
+              { text: 'Guide', link: '/claude-code-guide' },
+              { text: 'Case Study', link: '/claude-code' },
+            ]
+          },
+          {
             text: 'Concepts',
             collapsed: true,
             items: [

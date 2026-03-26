@@ -1,0 +1,95 @@
+# Claude Code Guide
+
+A practical guide to getting more out of Claude Code.
+
+## CLAUDE.md layering
+
+Claude Code reads `CLAUDE.md` files for project context. Most guides only mention the project-level file, but there are three layers that solve different problems:
+
+### Global (`~/.claude/CLAUDE.md`)
+
+Machine-local facts that don't belong in any repository. Things like your OS, package manager, and what tools aren't globally installed.
+
+```markdown
+This is a NixOS system. Developer tools are provided per-project
+via Nix flakes + direnv. Do not assume python3, node, npm, or
+cargo are globally available.
+```
+
+Global CLAUDE.md is unversioned — that's usually cited as a reason to avoid it. But machine facts are inherently local and unversioned, so this is exactly the right place for them.
+
+### Project root (`CLAUDE.md`)
+
+Conventions, architecture, build commands. The standard layer.
+
+One underrated practice: **negative constraints** are more valuable than positive ones. The agent gravitates toward shortcuts when stuck — `--no-verify` to skip a failing hook, path dependencies to avoid publishing, string errors instead of proper types. Explicitly forbidding these is more effective than hoping the agent follows conventions.
+
+### Nested (`crates/foo/CLAUDE.md`, `docs/CLAUDE.md`)
+
+Module-specific context for monorepos or projects with distinct subsystems. Claude picks up the relevant files based on where it's working. Useful when a module has its own conventions, test strategy, or dependencies.
+
+## Session length and context efficiency
+
+Long interactive sessions accumulate context that gets re-sent every turn. The longer a session runs, the more you pay for redundant context — tokens the model has already seen but that get billed again.
+
+Subagent sessions are much more efficient because they're short and focused. Each subagent starts fresh with only the context it needs.
+
+**Practical advice:**
+
+- When a session has drifted from its original purpose, start a new one
+- Delegate independent subtasks to subagents rather than doing everything in one session
+- Use `/compact` to compress context when a session gets heavy
+
+## Subagents over local LLMs for bulk work
+
+For bulk tasks (processing many files, running parallel analyses, generating tests), parallel subagents on Haiku are faster and cheaper than local LLM inference. Each subagent gets structured tool use, error handling, and web access — with no local infrastructure to maintain.
+
+Local LLMs still have a role for **privacy-sensitive tasks** where data genuinely can't leave your machine. For everything else, the API wins on speed and capability.
+
+## Reduce output noise
+
+Every command that dumps verbose output into context is a cost multiplier. The agent reads the full output, which expands the context for every subsequent turn.
+
+Prefer quiet or minimal output flags for commands the agent runs repeatedly:
+
+- `cargo test -q` — only prints failures (vs full test list + compilation)
+- `cargo build --message-format=short` — shorter compiler diagnostics
+- `RUST_BACKTRACE=0` — unless actively debugging a panic
+- `--quiet` / `--silent` flags on any build tool that supports them
+
+This is especially impactful for build-test-fix loops, where the agent may run tests dozens of times in a session.
+
+## The retry spiral
+
+The most expensive failure mode: the agent hits an error, retries the same command, hits the same error, retries again — potentially hundreds of times without bailing out.
+
+This typically happens when:
+- A command fails due to environment issues (sandboxing, missing tools)
+- The agent doesn't understand *why* it failed, only *that* it failed
+- There's no CLAUDE.md rule or deny list to stop it
+
+**Structural fixes:**
+
+- **Deny lists** in `.claude/settings.json` — block commands known to fail in your environment
+- **CLAUDE.md constraints** — tell the agent what tools aren't available and what to do instead
+- **Session monitoring** — if you see a session churning on the same error, kill it early
+
+Prompting the agent to "stop retrying" doesn't reliably work once it's in a loop. Prevention beats intervention.
+
+## Git operations fail more than you'd expect
+
+Pre-commit hooks, authentication, merge conflicts, and staging issues all contribute to surprisingly high git failure rates. Each failed commit or push triggers a retry cycle where the agent reads the error, attempts a fix, and tries again.
+
+This is mostly fine — pre-commit hooks catching real issues is good. But be aware:
+
+- **Pre-commit hooks** that run formatters or linters will fail on first commit, then pass after the agent fixes the issue. This is a known cost of "correct by default" workflows.
+- **SSH/auth issues** cause push failures that the agent can't fix. If pushes fail consistently, fix the auth configuration rather than letting the agent retry.
+- **Never use `--no-verify`** to skip hooks. Fix the underlying issue instead.
+
+## Cost follows a power law
+
+If you work across multiple projects, a small number of them will account for most of your usage. Optimizing the top 2–3 projects (better CLAUDE.md, quieter test output, shorter sessions) has more impact than perfecting everything else combined.
+
+## Instrument your usage
+
+Without data on your sessions, you can't distinguish productive expensive (large refactor) from wasteful expensive (retry spiral). Even basic tracking — which sessions were long, which had many tool failures, which projects consume the most — turns vague impressions into actionable improvements.
