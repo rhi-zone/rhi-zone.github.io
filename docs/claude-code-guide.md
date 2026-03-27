@@ -103,4 +103,8 @@ If you work across multiple projects, a small number of them will account for mo
 
 ## Instrument your usage
 
-Without data on your sessions, you can't distinguish productive expensive (large refactor) from wasteful expensive (retry spiral). Even basic tracking — which sessions were long, which had many tool failures, which projects consume the most — turns vague impressions into actionable improvements.
+Every intuition we had about what was expensive turned out to be wrong. We assumed build output was the biggest context consumer — it was unbounded file reads. We assumed subagents multiplied cost — they're cheaper per unit of work. We assumed long sessions were productive — they waste 40% of context on redundancy.
+
+You can't fix what you can't see. Without data on your sessions, you're optimizing based on vibes. Even basic tracking — which sessions were long, which had many tool failures, which projects consume the most — turns wrong assumptions into correct ones.
+
+The more granular your instrumentation, the more specific your fixes. Aggregate stats tell you *where* to look. Tool sequence analysis tells you *why* things are expensive. Sorting individual tool results by size tells you *what* to fix. Each layer of visibility produces a different class of insight.
