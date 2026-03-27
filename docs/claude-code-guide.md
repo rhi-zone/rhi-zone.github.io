@@ -59,6 +59,17 @@ Prefer quiet or minimal output flags for commands the agent runs repeatedly:
 
 This is especially impactful for build-test-fix loops, where the agent may run tests dozens of times in a session.
 
+## Scope your reads and greps
+
+The largest context consumers aren't command outputs — they're **unbounded file reads and grep results**. A single grep across a codebase can dump hundreds of thousands of characters into context. Reading an entire 3,000-line file when you need 50 lines wastes context on every subsequent turn.
+
+**Practical advice:**
+
+- **Read specific line ranges** when you know roughly where the relevant code is. Use structural tools (outlines, AST viewers) to find the right section first.
+- **Limit grep results** — prefer targeted patterns over broad searches. If a grep returns more than a screenful, it's probably too broad.
+- **Don't re-read large files** — if you already read a file earlier in the session, reference what you learned rather than reading it again.
+- **Use structural exploration** before diving in. A tool that shows you function signatures and type definitions with line numbers lets you target reads precisely.
+
 ## The retry spiral
 
 The most expensive failure mode: the agent hits an error, retries the same command, hits the same error, retries again — potentially hundreds of times without bailing out.

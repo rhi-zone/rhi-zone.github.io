@@ -90,6 +90,19 @@ The largest productive cost center: `cargo test` consumed **135M output tokens**
 - `cargo build --message-format=short` for shorter compiler output
 - `RUST_BACKTRACE=0` unless you're debugging a panic
 
+## The real context bombs: unbounded reads and greps
+
+We assumed build/test output was the biggest context consumer. We were wrong. When we sorted every tool result across 8,500 sessions by size, the top 25 were all **file reads and grep results** — not command output.
+
+The single largest: a grep that dumped **396,000 characters** into context. The next tier: full-file reads of 100K+ character files. One 104K-character Rust module was read in full across four different sessions. A 111K-character research document was read three times.
+
+The pattern:
+- **Unbounded grep** returns everything matching a pattern across a codebase. A single result can be 10–100x larger than any test output.
+- **Full-file reads** of large files (1000+ lines) when the agent only needs a specific section. The agent reads the whole file because it doesn't know where the relevant part is.
+- **Repeated reads** of the same large files across sessions. No caching between sessions, so every re-read is fresh context cost.
+
+**The fix is structural tooling**: something that gives the agent a structural outline of a file (functions, types, sections with line numbers) so it can target reads to the specific 50 lines it needs instead of reading 3,000. For us, that's [normalize view](https://docs.rhi.zone/normalize/). The general principle: any tool that helps the agent scope its reads before making them will pay for itself quickly.
+
 ## Cost is Pareto
 
 Two projects account for 44% of all cost. Five projects account for 62%. The bottom 20 projects combined cost less than the top project alone.
