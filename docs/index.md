@@ -80,7 +80,7 @@ features:
   - title: "server-less ●"
     details: Composable derive macros. Progressive disclosure from zero-config to full control.
     link: /projects/server-less
-  - title: "nanites ○"
+  - title: "nanites ◐"
     details: Flexible orchestration. Pausable, inspectable, composable.
     link: /projects/nanites
 ---

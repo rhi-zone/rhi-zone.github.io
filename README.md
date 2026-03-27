@@ -33,6 +33,7 @@ A glue layer for computers. Removing boundaries between you and your computer.
 
 | Project | Description |
 |---------|-------------|
+| [tiltshift](https://github.com/rhi-zone/tiltshift) | Iterative structure extraction from opaque binary data |
 | [paraphase](https://github.com/rhi-zone/paraphase) | Type-driven route planner for format conversion |
 | [rescribe](https://github.com/rhi-zone/rescribe) | Lossless document conversion library |
 | [concord](https://github.com/rhi-zone/concord) | API bindings IR and code generation |
