@@ -14,7 +14,7 @@ Interconnect is the protocol layer that lets clients connect to authorities. A r
 - **Intent-based protocol** — Clients send intent, authorities compute results
 - **Two-layer architecture** — Replicated substrate (static), authoritative simulation (dynamic)
 - **Import policies** — Validation for client transfers between rooms
-- **Transport-agnostic** — The protocol doesn't care how messages move, only what they mean
+- **Multiple authorities** — A client can connect to several authorities at once; Discord is an authority, your agent is an authority
 
 ## Why not state merging?
 
