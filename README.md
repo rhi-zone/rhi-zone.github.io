@@ -26,7 +26,7 @@ A glue layer for computers. Removing boundaries between you and your computer.
 | Project | Description |
 |---------|-------------|
 | [playmate](https://github.com/rhi-zone/playmate) | Game design primitives library |
-| [interconnect](https://github.com/rhi-zone/interconnect) | Federation protocol for interconnected persistent worlds |
+| [interconnect](https://github.com/rhi-zone/interconnect) | Connective substrate for authoritative rooms |
 | [scribble](https://github.com/rhi-zone/scribble) | Sketch-level creative environment for games, art, and interactive pieces |
 
 ### Data Transformation

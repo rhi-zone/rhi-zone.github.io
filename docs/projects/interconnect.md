@@ -1,19 +1,20 @@
 # Interconnect
 
-**Federation protocol for persistent worlds.**
+**Connective substrate for authoritative rooms.**
 
 ::: info Status: Idea ○
-Conceptually mature with excellent documentation (protocol design, security model, import policies, architecture). Zero implementation—the hard problem (protocol design) is solved and documented, ready for implementation of `interconnect-core` and basic protocol types.
+Protocol design is conceptually mature with documentation (security model, import policies, architecture). Early implementation of `interconnect-core` with Authority trait and wire protocol types. Next priority: generalize types beyond game-specific domain, add transport abstraction, build process-as-room spike.
 :::
 
-Interconnect enables habitat servers to form interconnected networks where players can travel between worlds owned by different authorities.
+Interconnect is the protocol layer that lets clients connect to authorities. A room is anything with an owner that accepts connections: a game world, a social feed, a running process, an autonomous agent. The protocol defines what a connection is — intents in, snapshots out, authority semantics, explicit boundaries. Transport-agnostic: WebSocket, Unix socket, Discord bot, HTTP.
 
 ## Key features
 
-- **Authoritative Handoff** - Single server owns each world, no state merging
-- **Intent-Based Protocol** - Clients send intent, servers compute results
-- **Two-Layer Architecture** - Replicated substrate (static), authoritative simulation (dynamic)
-- **Import Policies** - Customs validation for player transfers between worlds
+- **Authority over consensus** — Single owner per room, no state merging
+- **Intent-based protocol** — Clients send intent, authorities compute results
+- **Two-layer architecture** — Replicated substrate (static), authoritative simulation (dynamic)
+- **Import policies** — Validation for client transfers between rooms
+- **Transport-agnostic** — The protocol doesn't care how messages move, only what they mean
 
 ## Why not state merging?
 
@@ -23,19 +24,19 @@ Traditional federation (like Matrix) merges state from multiple servers. This cr
 - History rewriting
 - Split-brain attacks
 
-Interconnect avoids these by using single-authority ownership. When you move between worlds, you disconnect from Server A and connect to Server B.
+Interconnect avoids these by using single-authority ownership. When you move between rooms, you disconnect from Authority A and connect to Authority B.
 
 ## Ghost mode
 
 When authority connection is lost:
-- World desaturates visually
-- Player becomes observer (client-side collision only)
-- Static world data (substrate) remains visible
-- Universe pauses, doesn't disappear
+- Client knows authority is unreachable
+- Client becomes observer (read-only access to substrate)
+- Static room data (substrate) remains available
+- Room pauses, doesn't disappear
 
 ## Related projects
 
-- [Playmate](/projects/playmate) - Game design primitives for world interactions
+- [Playmate](/projects/playmate) — Game design primitives for world interactions
 
 ## Links
 
