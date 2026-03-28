@@ -36,7 +36,7 @@ Most tools pick one variant and ignore the rest, or build specialized solutions 
 | **Runtime interfaces** | Every language has different stdlib | **portals**: Capability interfaces on WASI foundation |
 | **UI state** | Imperative synchronization, no algebra | **rainbow**: Optics as first-class values, reactivity grounded in laws |
 | **Game patterns** | Reinvent state machines every project | **playmate**: Common patterns as reusable primitives |
-| **Distributed worlds** | Incompatible server architectures | **interconnect**: Federation protocol for handoff |
+| **Connecting to things** | Ad-hoc bridges, no shared protocol | **interconnect**: Connective substrate for authoritative rooms |
 | **Tool configuration** | Every tool has different config format | **myenv**: Schema-validated manifests |
 | **Legacy runtimes** | Flash, Java applets, obsolete VMs | **reincarnate**: Lift to modern web runtimes |
 | **File access** | Separate apps for browsing, viewing, editing, sharing | **deskspace**: One surface for all file interactions |
@@ -115,7 +115,7 @@ Our projects are designed the same way: independent tools that compose well toge
 | Project | Key Idea |
 |---------|----------|
 | [playmate](/projects/playmate) | State machines, controllers, common gameplay patterns |
-| [interconnect](/projects/interconnect) | Authoritative handoff protocol for persistent worlds |
+| [interconnect](/projects/interconnect) | Connective substrate for authoritative rooms |
 | [scribble](/projects/scribble) | Sketch-level creative environment — games, art, notes, interactive pieces |
 
 ### Data transformation

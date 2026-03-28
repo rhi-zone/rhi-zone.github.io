@@ -33,7 +33,7 @@ features:
     details: Game design primitives. State machines, character controllers, camera systems.
     link: /projects/playmate
   - title: "interconnect ○"
-    details: Federation protocol. Authoritative handoff for interconnected persistent worlds.
+    details: Connective substrate. Intents in, snapshots out, authority semantics.
     link: /projects/interconnect
   - title: "scribble ○"
     details: Sketch-level creative environment. Games, art, notes, and interactive pieces — editor and runtime dissolve into one.

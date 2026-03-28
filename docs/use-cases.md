@@ -45,7 +45,7 @@ Not ephemeral posting. Building together, things persist.
 - Shared spaces where creations accumulate
 - "Here's a thing I made" not "here's what I'm thinking"
 
-**What we have:** Interconnect for federation (your server, connected to others). habitat for persistent objects. The philosophy is clear.
+**What we have:** Interconnect as connective substrate (your room, reachable from anywhere). habitat for persistent objects. The philosophy is clear.
 
 **What's missing:** An actual deployed thing people can use. The MOO-ish experience where you build together and stumble on things others made months ago. Needs Interconnect + habitat + frontend + community.
 
@@ -73,7 +73,7 @@ Early web spirit.
 - Not rented from a platform
 - Connected but not centralized
 
-**What we have:** Interconnect's federation model. Self-hostable by design. No platform dependency.
+**What we have:** Interconnect's authority model. Self-hostable by design. No platform dependency.
 
 **What's missing:** Making it easy enough that non-technical people can actually run their own instance. The "install WordPress and go" level of accessibility.
 
@@ -130,7 +130,7 @@ Real workflows, real problems.
 - Moonlet for scriptable everything (Lua runtime with plugins).
 - Unshape for procedural content (terrain, textures, audio, meshes).
 - Playmate for game primitives (inventory, dialogue, quests).
-- Interconnect for federated multiplayer (your server, connected to others).
+- Interconnect for multiplayer connectivity (your server, your authority, connected to others).
 
 **What exists today:** Moonlet works. Unshape has many primitives. Playmate and Interconnect are early.
 
@@ -193,7 +193,7 @@ These serve the goals above. Some work today, some are aspirational.
 **What rhi provides:**
 - **Moonlet** - Lua runtime with plugin system. Scripts can extend everything.
 - **Playmate** - Game design primitives (inventory, dialogue, quests, etc.)
-- **Interconnect** - Federation protocol for persistent worlds. Your server, connected to others.
+- **Interconnect** - Connective substrate for authoritative rooms. Your server, your authority, connected to others.
 - **Portals** - Standard library interfaces (WASI-style). Capabilities, not ambient authority.
 
 **Example projects:**
