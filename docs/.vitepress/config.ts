@@ -164,6 +164,7 @@ export default withMermaid(
                 { text: 'Feb 23–26', link: '/introspection/log/2026-02-25' },
               ]},
               { text: 'Daily Logs', collapsed: true, items: [
+                { text: 'Friction Analysis: Mar 29', link: '/introspection/log/friction-analysis-2026-03-29' },
                 { text: 'Sequence Analysis: Mar 29', link: '/introspection/log/sequence-analysis-2026-03-29' },
                 { text: 'Synthesis: Mar 20–27', link: '/introspection/log/synthesis-2026-03-20-2026-03-27' },
                 { text: 'Synthesis: Mar 17–19', link: '/introspection/log/synthesis-mar17-mar19' },
