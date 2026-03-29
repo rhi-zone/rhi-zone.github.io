@@ -165,3 +165,69 @@ Every intuition we had about what was expensive turned out to be wrong. We assum
 You can't fix what you can't see. Without data on your sessions, you're optimizing based on vibes. Even basic tracking — which sessions were long, which had many tool failures, which projects consume the most — turns wrong assumptions into correct ones.
 
 The more granular your instrumentation, the more specific your fixes. Aggregate stats tell you *where* to look. Tool sequence analysis tells you *why* things are expensive. Sorting individual tool results by size tells you *what* to fix. Each layer of visibility produces a different class of insight.
+
+## Multi-repo orchestration
+
+When a change spans multiple repositories — updating a convention, propagating a rename, syncing docs — git status is the first thing to check, not the last.
+
+**Dirty-repo protection.** Before touching any repo, check its working tree. For clean repos, make the change directly. For repos with uncommitted work, write the change to that repo's `TODO.md` and defer — don't interleave your changes with someone else's in-progress work. This keeps cross-repo changes from disappearing into noise.
+
+```bash
+git -C ~/git/org/repo status --short
+# clean → make changes directly
+# dirty → add to ~/git/org/repo/TODO.md
+```
+
+**Scope in commit messages.** When a commit touches multiple projects, the scope tells you which one to look at:
+
+```
+docs(normalize,moonlet): update install path after rename
+feat(playmate): add component model primitives
+```
+
+This is especially useful in an org-level docs repo where commits describe changes that happened elsewhere.
+
+**Docs-sync checklist.** Docs fall out of sync because updating them requires touching six places and it's easy to stop at two. Enumerate the places explicitly in CLAUDE.md — not as a reminder, as a checklist. For a new project: the project page, the project table in the overview, the sidebar config, the hero features list, the org profile README. Missing any one of them leaves a dangling reference somewhere.
+
+**Deferred work survives sessions.** `TODO.md` in each repo is the cross-session handoff mechanism for that repo. When a session can't complete work in a repo (dirty tree, blocked dependency, out of scope), write to `TODO.md` rather than holding it in context or leaving a mental note. The next agent session in that repo sees it immediately.
+
+## Unattended automation
+
+Claude Code sessions don't have to be interactive. The `-p` flag runs headless with a prompt passed as an argument; `--dangerously-skip-permissions` skips all permission prompts. Together they enable sessions that run without human oversight — kicked off by a scheduler, a webhook, or a cron job.
+
+The minimal pattern:
+
+```bash
+claude -p --dangerously-skip-permissions "your prompt here"
+```
+
+**Concurrency guard.** When a scheduler fires every minute, you need to prevent overlapping sessions. A lockfile with zombie detection handles this:
+
+1. On startup: check for a lockfile. If present, verify recent session activity (check the `.jsonl` file mtime). If the session is active, exit. If the lockfile is stale (crashed session), kill the process group, remove the lockfile, continue.
+2. Write the lockfile *before* spawning the session (so the next tick sees it immediately).
+3. Session cleans up the lockfile when it exits cleanly.
+
+**Pre-check before spawning.** Don't spawn a session for nothing. Query your inputs first — unread notifications, pending events, scheduled work — and only launch a session if there's something to act on. This keeps idle cost near zero.
+
+```
+timer fires every minute
+  → check for activity (read-only API calls, no side effects)
+  → nothing? exit immediately
+  → something? write lockfile, spawn session
+```
+
+**Session lifecycle with nonces.** If sessions write state (logs, mood, counters), a nonce ties the start and end together cleanly:
+
+```bash
+# session start: write nonce to state file, print it
+nonce=$(bun scripts/session.js start)
+
+# pass nonce into the session prompt so the agent can end cleanly
+claude -p --dangerously-skip-permissions "... run session.js end --nonce $nonce when done"
+
+# session end script: verifies nothing new arrived, then exits 0
+```
+
+**Prompt via argument.** The `-p` prompt is the full session instruction. Structure it like a CLAUDE.md section rather than a conversational message: numbered steps, explicit tools, clear termination condition. The agent has no human to ask for clarification.
+
+**When to use unattended sessions.** This pattern is appropriate for agents that have a well-defined loop (check → respond → commit → stop), operate on durable external state (a social platform, a monitoring target, a scheduled report), and have clear termination conditions. Open-ended exploration still benefits from interactive sessions.
