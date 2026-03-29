@@ -11,4 +11,7 @@ fi
 echo "Running cargo clippy..."
 cargo clippy --all-targets --all-features -- -D warnings
 
+echo "Running VitePress build..."
+cd docs && bun run build
+
 echo "Pre-commit checks passed!"

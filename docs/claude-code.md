@@ -132,7 +132,7 @@ We built session analysis tooling into [normalize](https://docs.rhi.zone/normali
 - Context efficiency (uniqueness ratio, redundant tokens)
 - Cost estimates across model pricing tiers
 
-We generate [daily activity logs](/introspection/log/) from this data, and periodically synthesize cross-cutting patterns across weeks. This introspection loop — analyzing how we use the tool to use the tool better — is what produced every finding in this guide.
+We generate [daily activity logs](/introspection/) from this data, and periodically synthesize cross-cutting patterns across weeks. This introspection loop — analyzing how we use the tool to use the tool better — is what produced every finding in this guide.
 
 Without instrumentation, you're flying blind. You might notice a session "felt expensive" but you can't tell whether it was productive expensive (large refactor) or wasteful expensive (retry spiral). The data makes the difference visible.
 
