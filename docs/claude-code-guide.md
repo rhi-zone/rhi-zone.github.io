@@ -230,15 +230,6 @@ claude -p --dangerously-skip-permissions "... run session.js end --nonce $nonce 
 
 **Prompt via argument.** The `-p` prompt is the full session instruction. Structure it like a CLAUDE.md section rather than a conversational message: numbered steps, explicit tools, clear termination condition. The agent has no human to ask for clarification.
 
-**Self-scheduled tasks.** The pre-check pattern extends naturally to idle-time work. When there's no external activity, check a task scheduler before deciding whether to skip the tick entirely. A weighted random scheduler with per-task cooldowns and daily caps gives an agent a kind of autonomous initiative — things it does for itself when nothing else demands attention:
-
-```json
-{ "id": "explore-web", "weight": 2, "cooldownHours": 24, "maxPerDay": 1,
-  "prompt": "find something you haven't seen before..." }
-```
-
-The scheduler rolls dice, returns either a task or `no-task`, and the heartbeat either spawns a freetime session or exits cleanly. The agent's idle cost stays near zero while still leaving room for self-directed work.
-
 **Observability.** Claude Code writes every session turn to `.jsonl` files under `~/.claude/projects/`. For unattended agents, these files are the ground truth — you can read them directly to monitor what's happening without instrumenting the agent itself.
 
 The minimal monitor reads the most recently modified `.jsonl` per project, parses the last line, and classifies the session:
