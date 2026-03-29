@@ -97,6 +97,63 @@ This is mostly fine — pre-commit hooks catching real issues is good. But be aw
 - **SSH/auth issues** cause push failures that the agent can't fix. If pushes fail consistently, fix the auth configuration rather than letting the agent retry.
 - **Never use `--no-verify`** to skip hooks. Fix the underlying issue instead.
 
+## Post-history context injection
+
+CLAUDE.md loads at session start — before the conversation history. By the time the agent is deep in a task, that context is far back and increasingly diluted. Some guidance benefits from being injected *after* the history, right before the agent processes your prompt, where it's freshest.
+
+Claude Code's `UserPromptSubmit` hook fires on every prompt and can return `additionalContext` that gets injected at that position. The simplest implementation is a shell script:
+
+```bash
+#!/usr/bin/env bash
+# ~/.claude/hooks/hints.sh
+INPUT=$(cat)
+PROMPT=$(echo "$INPUT" | grep -o '"prompt":"[^"]*"' | cut -d'"' -f4)
+
+HINTS="Prefer cargo test -q over cargo test."
+
+if echo "$PROMPT" | grep -qi "read\|file\|explore"; then
+    HINTS="$HINTS\nUse a structural outline tool before reading large files."
+fi
+
+printf '{"additionalContext":"%s"}' "$(echo -e "$HINTS" | sed 's/"/\\"/g')"
+```
+
+Wire it up in `~/.claude/settings.json`:
+
+```json
+{
+  "hooks": {
+    "UserPromptSubmit": [{
+      "hooks": [{ "type": "command", "command": "~/.claude/hooks/hints.sh" }]
+    }]
+  }
+}
+```
+
+The script *is* the configuration. Inline comments explain what fires when. Grep on the prompt for conditional hints. No format to learn, no dependencies.
+
+**What belongs here vs CLAUDE.md:** CLAUDE.md is for stable facts about the project — architecture, conventions, build commands. Post-history injection is for behavioral nudges the agent tends to drift from: things it knows but forgets under pressure, or reminders that are only relevant in specific situations. The position difference matters: post-history injection lands after a long conversation history rather than before it.
+
+**The upgrade path:** when the script gets unwieldy, extract hints into a data file and write a parser. Add keyword matching, then per-project hierarchy, then conditional logic. The hook stays a thin shim. That's a fine problem to have — it means you've accumulated enough hard-won behavioral knowledge to justify structure.
+
+## Corrections are documentation lag
+
+When the agent makes the same mistake twice, the fix isn't to repeat the correction — it's to write the invariant down. Every correction that doesn't produce a CLAUDE.md edit will happen again.
+
+The pattern is reliable: agent violates unwritten rule → correction → rule written in CLAUDE.md → never happens again. The correction *is* the documentation process, just paid for in turns instead of prose. Shortening that loop — writing the rule *before* the session where it would have mattered — is the highest-leverage CLAUDE.md investment.
+
+One useful diagnostic question after a correction: *what rule would have prevented this?* Not "what did I do wrong" — that's already known. The question surfaces the missing invariant and forces it to be written precisely enough to actually work.
+
+**During active design this doesn't apply.** When a design is still being figured out, corrections are the work — you're discovering what the invariants are. Writing them down prematurely encodes the wrong design. The signal that it's time to document is when the same correction happens twice on a settled decision.
+
+## Context poisoning
+
+When the agent goes down a wrong path and gets corrected mid-session, the wrong reasoning stays in context. The correction establishes the right direction, but the earlier wrong reasoning keeps pulling — it's still there, just outvoted. Long sessions with mid-session corrections are especially vulnerable: by turn 50 the context contains both the right answer and a detailed record of all the wrong answers.
+
+The fix is a fresh session. Write down what was learned, end the session, start a new one with the invariant loaded from turn 1 before any wrong reasoning exists. The agent can initiate this — if a significant correction just happened and the session has been long, proposing a handoff is the right call, not pushing through.
+
+`/compact` helps at the margins but doesn't solve it: compaction summarizes the history, and wrong reasoning tends to survive summarization.
+
 ## Cost follows a power law
 
 If you work across multiple projects, a small number of them will account for most of your usage. Optimizing the top 2–3 projects (better CLAUDE.md, quieter test output, shorter sessions) has more impact than perfecting everything else combined.
