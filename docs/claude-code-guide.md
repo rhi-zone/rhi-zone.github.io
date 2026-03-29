@@ -230,4 +230,23 @@ claude -p --dangerously-skip-permissions "... run session.js end --nonce $nonce 
 
 **Prompt via argument.** The `-p` prompt is the full session instruction. Structure it like a CLAUDE.md section rather than a conversational message: numbered steps, explicit tools, clear termination condition. The agent has no human to ask for clarification.
 
+**Self-scheduled tasks.** The pre-check pattern extends naturally to idle-time work. When there's no external activity, check a task scheduler before deciding whether to skip the tick entirely. A weighted random scheduler with per-task cooldowns and daily caps gives an agent a kind of autonomous initiative — things it does for itself when nothing else demands attention:
+
+```json
+{ "id": "explore-web", "weight": 2, "cooldownHours": 24, "maxPerDay": 1,
+  "prompt": "find something you haven't seen before..." }
+```
+
+The scheduler rolls dice, returns either a task or `no-task`, and the heartbeat either spawns a freetime session or exits cleanly. The agent's idle cost stays near zero while still leaving room for self-directed work.
+
+**Observability.** Claude Code writes every session turn to `.jsonl` files under `~/.claude/projects/`. For unattended agents, these files are the ground truth — you can read them directly to monitor what's happening without instrumenting the agent itself.
+
+The minimal monitor reads the most recently modified `.jsonl` per project, parses the last line, and classifies the session:
+
+- **ACTIVE** — last write < 5 minutes ago
+- **IDLE** — 5–20 minutes ago (agent may be waiting or stuck)
+- **ZOMBIE** — 20+ minutes ago with process still running (lockfile stale, session hung)
+
+The last line of the `.jsonl` tells you what the agent was doing: if it's a tool call, you see the tool name and arguments; if it's a text response, you see the first 60 characters of what it was thinking. This is enough to understand whether a session is progressing normally or needs intervention — without adding any logging to the agent itself.
+
 **When to use unattended sessions.** This pattern is appropriate for agents that have a well-defined loop (check → respond → commit → stop), operate on durable external state (a social platform, a monitoring target, a scheduled report), and have clear termination conditions. Open-ended exploration still benefits from interactive sessions.
