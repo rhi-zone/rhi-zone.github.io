@@ -2,6 +2,23 @@
 
 Behavioral rules for Claude Code in the rhi ecosystem docs repository.
 
+## What This Is
+
+**Infrastructure for the mind.** Not tools that do things *for* you — substrate that extends what you can perceive and operate on. Normalize makes structure visible. Gels surfaces implicit rules. Tiltshift extracts form from opacity. Reincarnate lifts implicit meaning out of legacy systems. The through-line: making the implicit legible.
+
+The ecosystem has two parallel implementations of the same design philosophy:
+
+- **rhizone** — Rust. Production-grade, the foundation real applications build on.
+- **Crescent** — LuaJIT. The same concepts, independently implemented, first-class in their own ecosystem. Not "Rust for real, Lua for scripting" — both are real. The distinction is runtime, not seriousness.
+
+**ptera.world is the same project in a different register.** The spatial graph, the essay voice that discovers rather than presents, the cross-links that make argument structural — that's infrastructure for how ideas move through a mind. Same underlying project, different material.
+
+**The application layer hasn't caught up to the ecosystem.** The primitives for bounded rooms, shared cognition, persistent state, and human-facing memory are mostly in place. The gap is usually "not yet built" rather than "out of scope." When something seems missing, check whether the substrate exists before concluding the scope is wrong.
+
+**pad** (`~/git/pad`) is a Lua prototype of a personal information sink — the concept behind Lumen (see `~/git/paragarden/legacy`). Its role is proving the design. The production path: Rust crate in rhizone + vendorable Lua library in Crescent + Lumen as the application layer.
+
+---
+
 ## Ecosystem
 
 This is the organization-level documentation site for the rhi ecosystem.
