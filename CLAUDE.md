@@ -94,6 +94,7 @@ This is the organization-level documentation site for the rhi ecosystem.
 | **claude-code-hub** | `~/git/claude-code-hub` | Orchestration hub for Claude Code agents |
 | **hologram** | `~/git/exoplace/hologram` | Discord RP bot with knowledge graph and RAG |
 | **aspect** | `~/git/exoplace/aspect` | Card-based identity exploration sandbox |
+| **noncanon** | `~/git/exoplace/noncanon` | Local-first collaborative worldbuilding library |
 | **existence** | `~/git/paragarden/existence` | Text-based HTML5 game — power anti-fantasy |
 | **legacy** | `~/git/paragarden/legacy` | Worldbuilding project — what humanity left behind |
 | **divergence** | `~/git/paragarden/divergence` | Worldbuilding project — what happens when the floor gets built |
