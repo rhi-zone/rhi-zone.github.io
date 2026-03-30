@@ -151,7 +151,8 @@ The git repo should be copied from `~/git/0000000_pterror` (template repo with p
 
 **Still need manually:**
 - `Cargo.toml` + `crates/` — create a workspace with a single dummy crate (`crates/PROJECT_NAME-core/`) so the pre-commit hook (cargo fmt + clippy) passes on first commit
-- `docs/.vitepress/config.ts` + `docs/index.md`
+- `docs/.vitepress/config.ts` + `docs/index.md` — required for VitePress build in pre-commit hook
+- **Run `bun install` in `docs/`** before the first commit — the pre-commit hook runs `vitepress build`, which requires node_modules. Without this step the first commit will fail with `vitepress: command not found`.
 - **Copy `.envrc`** from `scaffolding/` — committed, includes `source_env_if_exists .envrc.local`. Put secrets in `.envrc.local` (gitignored), never in `.envrc`
 - **Copy `flake.nix`** from `scaffolding/` — also easy to forget
 - **Fill in the `## Origin` section** — why the project exists, naming rationale, key design decisions from the scaffolding conversation. An agent spun up in the new repo has no access to that conversation; if it's not in CLAUDE.md, it's gone.
