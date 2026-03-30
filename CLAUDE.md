@@ -84,8 +84,8 @@ This is the organization-level documentation site for the rhi ecosystem.
 |----------|------|-------------|
 | **.github** | `~/git/rhizone/profile` | Org-wide GitHub config, templates |
 | **Docs site** | `~/git/rhizone/github-io` | This repo - org documentation |
-| **rhi.zone** | `~/git/rhizone/rhi.zone` | Main site for the rhi-zone org |
-| **exo.place** | `~/git/exoplace/exo.place` | Main site for the exo-place org |
+| **rhi.zone** | `~/git/rhizone/rhi.zone` | Static assets for rhi.zone (Cloudflare Pages) — hosts install scripts for normalize etc. |
+| **exo.place** | `~/git/exoplace/exo.place` | Redirect to docs.exo.place + hologram static assets |
 
 ### External / Related Repos
 
