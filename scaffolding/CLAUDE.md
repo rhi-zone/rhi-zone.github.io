@@ -31,6 +31,8 @@ cd docs && bun dev # Local docs
 
 ## Core Rules
 
+**docs/ reflects current architecture, not historical architecture.** When code changes, docs/ changes with it — in the same commit. New pages go in the sidebar immediately. The code and docs are one artifact.
+
 **Note things down immediately — no deferral:**
 - Problems, tech debt, issues → TODO.md now, in the same response
 - Design decisions, key insights → docs/ or CLAUDE.md
