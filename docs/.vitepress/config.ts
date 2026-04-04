@@ -27,6 +27,7 @@ export default withMermaid(
               { text: 'Playmate', link: 'https://docs.rhi.zone/playmate/' },
               { text: 'Interconnect', link: 'https://docs.rhi.zone/interconnect/' },
               { text: 'Scribble', link: 'https://docs.rhi.zone/scribble/' },
+              { text: 'defocus', link: 'https://docs.rhi.zone/defocus/' },
             ]},
             { text: 'Data Transformation', items: [
               { text: 'Tiltshift', link: 'https://docs.rhi.zone/tiltshift/' },
@@ -109,6 +110,7 @@ export default withMermaid(
               { text: 'Playmate', link: '/projects/playmate' },
               { text: 'Interconnect', link: '/projects/interconnect' },
               { text: 'Scribble', link: '/projects/scribble' },
+              { text: 'defocus', link: '/projects/defocus' },
             ]
           },
           {

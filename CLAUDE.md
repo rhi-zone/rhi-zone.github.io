@@ -46,6 +46,7 @@ This is the organization-level documentation site for the rhi ecosystem.
 |---------|------|-------------|
 | **Playmate** | `~/git/rhizone/playmate` | Game design primitives library |
 | **Scribble** | `~/git/rhizone/scribble` | Sketch-level creative environment |
+| **defocus** | `~/git/rhizone/defocus` | World substrate for interactive narrative, IF, and stateful simulations |
 
 **Data Transformation**
 
