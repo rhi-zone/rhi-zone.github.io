@@ -117,6 +117,7 @@ Our projects are designed the same way: independent tools that compose well toge
 | [playmate](/projects/playmate) | State machines, controllers, common gameplay patterns |
 | [interconnect](/projects/interconnect) | Connective substrate for authoritative rooms |
 | [scribble](/projects/scribble) | Sketch-level creative environment — games, art, notes, interactive pieces |
+| [defocus](/projects/defocus) | World substrate for interactive narrative, IF, and stateful simulations |
 
 ### Data transformation
 
