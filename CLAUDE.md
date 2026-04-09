@@ -76,7 +76,7 @@ This is the organization-level documentation site for the rhi ecosystem.
 | **Myenv** | `~/git/rhizone/myenv` | Ecosystem orchestrator |
 | **Portals** | `~/git/rhizone/portals` | Standard library interfaces |
 | **Zone** | `~/git/rhizone/zone` | Lua-based tools, scaffolds, and orchestration |
-| **Nanites** | `~/git/rhizone/nanites` | Flexible orchestration |
+| **Nanites** | `~/git/rhizone/nanites` | Stateless function-call orchestration — tasks as pure data, dynamic dependency graphs, LLM as oracle rather than agent |
 | **server-less** | `~/git/rhizone/server-less` | Derive macros: one impl → many protocols |
 
 ### Org Resources
