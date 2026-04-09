@@ -66,6 +66,27 @@ The hierarchy of discoverability runs from "affordances so obvious you never thi
 
 The pathological case is a surface where the palette *is* the primary navigation — where the toolbar and menus are vestigial and everyone just Ctrl+Ks their way through the app. This is a sign that the contextual affordance model has failed, not that palettes are a good design.
 
+## Radial menus and Fitts's Law
+
+Fitts's Law says the time to acquire a target is a function of its distance and size. A linear context menu penalizes items at the bottom — they're farther from the cursor and require precise vertical movement. A radial menu places all items equidistant from the cursor, eliminating the distance penalty entirely. Every item is equally fast to reach.
+
+Eight segments maps onto Miller's Law cleanly. Direction becomes muscle memory faster than position — "bold is up-right" is more durable than "bold is the fourth item down." Blender's radial menus and game weapon-select wheels demonstrate this: experienced users stop reading and navigate by direction alone.
+
+The reason radial menus haven't displaced linear menus is labeling. Text labels are hard to lay out in a circle — they curve awkwardly, truncate, or require narrow columns that are hard to read. A bilateral layout solves this:
+
+```
+     AAAA    BBBB
+  CCCC          DDDD
+  EEEE          FFFF
+     GGGG    HHHH
+```
+
+Four labels on each side, flush to their respective edges, fully readable, with direction still clearly encoded. Eight items, Miller-compliant, Fitts-optimal.
+
+This works well for spatial and gestural affordances where direction carries semantic meaning — canvas tools, sculpting modes, game actions. It works poorly for arbitrary command sets where direction carries no meaning and users must read every label every time. The muscle memory benefit only accrues when the mapping is stable and semantically motivated.
+
+A radial menu is not a general replacement for context menus. It's the right surface for a specific affordance type — spatial, repeated, direction-meaningful — and the wrong surface for everything else.
+
 ## What a good surface looks like
 
 A good affordance surface:
