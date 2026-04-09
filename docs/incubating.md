@@ -80,6 +80,83 @@ Prior art: "humans are space orcs" is a known trope, but usually framed as a com
 
 ---
 
+## Programmable LLM Interaction Substrate (ST/Talemate/Claude Code replacement)
+
+A platform generic enough to replace SillyTavern, Talemate, and Claude Code — not by being all three, but by being the substrate all three are programs on top of.
+
+**Core thesis (from nanites):** the LLM is a stateless oracle. Conversation is context poisoning. The right unit is a function call. The orchestrator is a program, not an agent. ST, Talemate, and Claude Code are just different programs that call LLMs — the platform gives you the primitives and requires you to write the loop.
+
+**Distribution format:** programs embedded in PNG metadata. A "character" or "scenario" is a Lua/Crescent script in a PNG tEXt chunk — the image is the distributable. Visual representation and executable loop in one file, zero dependencies (fully vendorable LuaJIT binaries).
+
+**CCv2 and friends:** lossless import (CCv2 is just text fields; a program can represent all of them faithfully), lossy export (anything beyond what CCv2 fields can express gets dropped). CCv1/v2/v3/charx I/O via plugins.
+
+**What this fixes about ST:**
+- No database — state as a database, not loose JSON files; search is instant, tags are joins, filtering is free
+- Conversation-as-foundation — loop is yours to write; accumulation is a choice, not the default
+- LLM-derived worldstate (Talemate) — real worldstate is written by the program, read by the LLM, never held by it
+- Entity isolation — each character is a function call with explicit inputs; cross-contamination is impossible by construction, not by careful prompting
+- Lorebook trigger system = fields pretending to be a language — predicates are code
+- Discovery-by-accident UX — affordance opacity failure; power users know things, everyone else stays stuck; the platform fixes this structurally
+- Character browser freezes (23k cards, no index, full CCv2 JSON blob, no virtualization, no thumbnails) — real index, server-side search, virtualized grid, thumbnails generated on import via stb (compiled into binary, zero runtime deps)
+- 500-card pages with full-size PNGs — virtual scroll, thumbnails, never more than a viewport in the DOM
+
+**UX model (from [affordance surfaces](/affordance-surfaces) and [affordance opacity](/affordance-opacity)):**
+- Command palette as *primary navigation*, not escape hatch — context-aware, ordered by frecency and intent, not alphabetically
+- Actions as data — if the interaction loop is a Lua program and actions are first-class objects, the palette gets them for free
+- Miller's Law enforced at every level: ≤7 items visible at any hierarchy level, achieved by removal not prioritization
+- Pinning model for the character browser: frequently-used characters earn stable positions; everything else flows around them
+- Radial menus for spatial/repeated affordances (canvas tools, mode switching); linear menus only where direction carries no semantic meaning
+
+**Stack:** Crescent (includes its own function call substrate; scripting the loop) + PNG as distribution format. Image processing (thumbnail generation) via stb_image_resize compiled into the binary — no runtime dependency.
+
+---
+
+## Defocus Seed Worlds
+
+Six starter worlds for the defocus substrate — each independently authored, each a fork point. The body state schema is deliberately deferred: good worlds come first, shared grammar emerges from them. Seed worlds are forkable, not unified.
+
+### The Intimacy (cyberpunk)
+
+Vulnerability, closeness, trust. Flesh as canvas. Modification as intimacy — the trust of letting someone change you. Body-mod clinics as the interface layer for transformation mechanics.
+
+NPC model: every corpo, fixer, bartender, street kid is a defocus object. LLMs read their state, generate a response, the platform writes back what changed. NPCs remember. Rumors spread through the message graph. A deal made three sessions ago has consequences because the object still holds it.
+
+Not action/thriller cyberpunk. The emotional register is vulnerability and closeness.
+
+### The Insignificance (brutalist)
+
+Scale, weight, being dwarfed. Massive inhuman architecture that makes the individual feel small. Not horror, not beauty — specifically the feeling of being dwarfed and the weight of scale.
+
+Transformation axis: scale (size, proportion, being made smaller or larger relative to environment).
+
+### The Uncanny Valley (backrooms)
+
+Wrongness, liminality. Environments that don't describe themselves cleanly. You wander somewhere you shouldn't be and come out different.
+
+The LLM's tendency toward slight mis-description becomes a feature: descriptions that are *almost* right, wrongness seeping into how the world narrates itself. Transformation as environmental contamination — you emerge different, but the nature of the difference is liminal and not fully nameable.
+
+### The TF (TiTS/LT/Flexible Survival inspired)
+
+Transformation as the primary thing. No grinding — authored encounters that change based on accumulated body state. The same scene revisited produces different text based on who you've become.
+
+The critical design gap in prior art: TiTS/DoL/LT/Flexible Survival all rebuilt body state from scratch, incompatibly. This seed world demonstrates the shared body state schema — NPCs react correctly to character state because everyone uses the same vocabulary. Same authoring model as Twine (write scenes, write choices), but the world remembers.
+
+Scope is deliberately unconstrained (anthro, feral, gender, body type, species — all of it).
+
+### Pregnancy-focused world
+
+Transformation that's also becoming — transformation with a direction and an endpoint, distinct from other TF which is more about state change without inherent trajectory. No setting details yet.
+
+### The Becoming (aspect-inspired)
+
+Transformation as the primary *mechanic*, not just content. Collect/save presets, create TF direction macros. Card-as-macro: collect transformation directions, combine them, apply them.
+
+**Negative friction:** most TF games use friction as core tension (resist or succumb). Frictionless = no resistance. Negative friction = the world actively pulls you toward transformation, making it feel like relief rather than loss.
+
+A TF macro is just a defocus object with an `apply` verb. Composition builds a new object that calls both. Composable TFs are the platform working correctly — shareable, forkable objects. Closest prior art: Resonite/NeosVR's avatar economy, but in text form.
+
+---
+
 ## Fractal World Explorer (Infinite Craft, done right)
 
 Infinite Craft had something: an open-ended, unmapped discovery space. Everything else about it was wrong.
