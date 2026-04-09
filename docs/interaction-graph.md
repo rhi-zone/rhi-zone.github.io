@@ -53,6 +53,14 @@ But command palettes are still typically:
 
 VSCode is a notable exception - commands filter by active editor type, extension context, current mode. Git commands appear when you're in a repo. Language-specific commands appear for that language. Plus frecency. This shows context-awareness is tractable; most implementations just don't bother.
 
+## Affordances are not commands
+
+The interaction graph contains edges of many types — not just commands. A drag handle is an edge. A resize border is an edge. A hover tooltip that triggers an action is an edge. A swipe gesture is an edge. An input field is an edge.
+
+"Command" is one affordance type: labeled, executable, palette-searchable. It's the easiest to represent as data, so it tends to dominate thinking about interaction models. But a system that only models commands will produce a UI biased toward commands — hiding gestural, spatial, and ambient affordances that are often faster and more natural for their context.
+
+The command palette is one rendering of one slice of the interaction graph. The graph itself is richer. See [Affordance Types](/affordance-types) for the full taxonomy.
+
 ## Discoverability at scale
 
 "Discoverability doesn't scale" is wrong. The problem isn't having thousands of actions. It's *showing* thousands of actions.
@@ -157,6 +165,16 @@ Graph *visualization* is worth exploring - but for different reasons:
 - Filter by context
 
 Not "here's all your notes as dots" (useless), but "from here, what's related, and what can I do about it?"
+
+## Miller's Law is a hard constraint
+
+Humans can hold 7±2 items in working memory simultaneously. This is not a soft design guideline — it's a limit on human cognitive architecture. Any affordance surface presenting more than ~7 items at once becomes a *searching* surface rather than a *scanning* surface. The user stops glancing and acting; they start hunting.
+
+The implication for interaction graph design: the goal of context filtering is not to show the *most relevant* things from a large set. It's to show *only* what's relevant — to remove everything else. The gain is removal, not prioritization. Demoting irrelevant commands doesn't help; they still occupy working memory slots. Absence is the only solution.
+
+This reframes "what does the user most likely want to do next" as a hard requirement rather than a nice-to-have. Without it, you're forced to show everything, which exceeds working memory, which makes the affordance surface useless as a scanning target regardless of how well-organized it is.
+
+The ribbon violated this at every level. A single tab contained 40–50 controls — 5–6× over the limit. See [Affordance Surfaces](/affordance-surfaces) for the full analysis.
 
 ## Clean graphs, not filtered messy graphs
 

@@ -1,0 +1,78 @@
+# Affordance Surfaces
+
+**See also:** [Interaction Graph](/interaction-graph), [Affordance Types](/affordance-types), [Affordance Opacity](/affordance-opacity)
+
+An affordance surface is any UI element that renders a set of available actions: a toolbar, a context menu, a command palette, a ribbon, a radial menu. The same underlying affordance set can be rendered as any of these — the surface is the presentation, not the data.
+
+How a surface performs depends almost entirely on one constraint.
+
+## Miller's Law is not a guideline
+
+Humans can hold 7±2 items in working memory simultaneously. This is not a soft UX recommendation — it's a hard limit on human cognitive architecture. Any affordance surface that presents more than ~7 items at once crosses a threshold: it stops being a *scanning* surface and becomes a *searching* surface.
+
+Below the threshold, users glance and act. Above it, users hunt. The surface has failed its primary job regardless of how well-organized it is.
+
+This threshold applies at every level of a hierarchy, not just the top. A ribbon that has 6 tabs (within limit) but 40 commands per tab (way over) still fails — because you see all commands simultaneously, not just the tabs. The chunking benefit collapses when multiple levels are visible at once.
+
+The implication is stark: **showing "everything available" is almost never the right answer**, even after filtering. The goal is to show ~5–7 things that are relevant *right now*.
+
+## The ribbon
+
+Microsoft Office's ribbon is the most-studied large-scale affordance surface. It got some things right.
+
+**What it got right:** Contextual tabs are a genuine insight — when you select an image, Picture Format appears; when you select a table, Table Design appears. The interaction graph becomes visible in response to selection state. Semantic grouping (commands clustered into named groups like Font, Paragraph, Styles) is also right in principle.
+
+**What it got wrong:** A single ribbon tab — Home in Word — contains roughly 40–50 individual controls. This is 5–6× over the working memory limit. Users cannot scan it. They have to search it, which defeats the purpose of a visual affordance layout.
+
+The ribbon uses groups to chunk commands into ~5–6 groups per tab. That's Miller-aware at the group level. But it displays all groups and all commands within all groups simultaneously. The hierarchical chunking benefit is negated by simultaneous display. You see 6 groups × 8 commands = ~48 things at once. The chunking is structural but not perceptual.
+
+The uniform visual weighting compounds this. Cut/Copy/Paste and Subscript sit at the same visual level. The surface has no sense of frequency, recency, or current intent — it can't tell you that Bold is used 100× more often than Format Painter. Everything gets equal screen real estate.
+
+Contextual tabs, for all their cleverness, are also too coarse. They appear based on selected *object type*, not on the user's current *intent*. Selecting any image shows Picture Format — but the system doesn't know whether you're doing layout, color correction, or cropping. Object type is a rough proxy for intent, not intent itself.
+
+The eventual addition of "Tell me what you want to do" — a command palette retrofitted onto the ribbon in 2016 — is the admission that the ribbon didn't solve discoverability. A surface that requires a search escape hatch for common operations has failed at its primary job.
+
+## Context menus
+
+Context menus carry the same failure mode in vertical form. A context menu with 20 items is a vertical ribbon. Separator lines help marginally but don't solve the Miller's Law problem — you're still presenting 20 items to a human who can process 7.
+
+Submenus don't fix this either. They push the problem one level deeper while adding navigation cost: the user must now hover to reveal, then scan a second surface. The total cognitive load increases even though each individual surface is smaller.
+
+A context menu should have ~7 items. This is only achievable if the system genuinely knows what's irrelevant for the specific cursor position in the specific state. Not broad category filtering — precise contextual awareness.
+
+## Filtering vs. prioritization
+
+There's a common instinct to solve overloaded surfaces through prioritization: show important things bigger, dimmer for less-important things, add visual hierarchy. This doesn't work because the items are still there, still occupying working memory slots.
+
+The gain from context-aware affordance modeling is not prioritization — it's **removal**. Irrelevant affordances aren't demoted; they're absent. The surface shrinks to only what's real for this moment.
+
+This reframes the design question. It's not "how do we make 40 commands easier to scan?" but "what are the 5–7 things this user most likely wants to do right now, and how do we show only those?"
+
+The answer requires genuine knowledge of user intent — not just object type, not just current mode, but something closer to: what have they been doing, what are they looking at, what's the next natural step in this workflow?
+
+## Spatial semantics and muscle memory
+
+Affordance surfaces have spatial semantics. A button in the bottom-right corner of a dialog carries different meaning than the same button label in a toolbar. Users don't just learn "there's a Save action" — they learn "Save is in the bottom-right, Cancel is next to it, Delete is on the left, and that's always where they are."
+
+This spatial memory is not a nice-to-have. It's how affordance surfaces become fast. Muscle memory is the goal — users stop reading labels and start navigating by position. Destroying spatial consistency destroys muscle memory. Every time affordances move, users must re-read everything.
+
+The right primitive for spatial consistency is **semantic groups with stable identity across rendering contexts**. Not hardcoded coordinates, but a grammar of groups (primary action, secondary action, destructive action, navigation) that render consistently wherever they appear — in dialogs, in toolbars, in context menus. The position changes; the spatial relationships within the group do not.
+
+## The command palette as escape hatch
+
+Command palettes solve a different problem than other affordance surfaces. They're not for the things you want to do right now — they're for things you occasionally need but can't find. They're escape hatches, not primary navigation.
+
+The hierarchy of discoverability runs from "affordances so obvious you never think about them" down to "keyboard shortcut with no hint." The command palette sits somewhere in the middle: better than nothing, worse than contextual affordances. A well-designed surface makes the palette rarely necessary.
+
+The pathological case is a surface where the palette *is* the primary navigation — where the toolbar and menus are vestigial and everyone just Ctrl+Ks their way through the app. This is a sign that the contextual affordance model has failed, not that palettes are a good design.
+
+## What a good surface looks like
+
+A good affordance surface:
+
+- Shows ≤7 items at any moment, at any level of the hierarchy
+- Achieves this through removal, not prioritization
+- Has stable spatial semantics that survive across contexts
+- Adapts to intent, not just object type
+- Has a clear escape hatch (search/palette) for the rare case
+- Is one rendering of an underlying affordance model, not the model itself
