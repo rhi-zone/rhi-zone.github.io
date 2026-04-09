@@ -58,6 +58,29 @@ This spatial memory is not a nice-to-have. It's how affordance surfaces become f
 
 The right primitive for spatial consistency is **semantic groups with stable identity across rendering contexts**. Not hardcoded coordinates, but a grammar of groups (primary action, secondary action, destructive action, navigation) that render consistently wherever they appear — in dialogs, in toolbars, in context menus. The position changes; the spatial relationships within the group do not.
 
+## Adaptive layout: stability earned per-item
+
+The spatial semantics model above describes a static ideal — groups with stable identity. But for a real user interacting with a real surface over time, the question is more dynamic: how does the layout get *to* that stable state, and what happens when usage patterns change?
+
+The key is that **stability is earned per-item, not assumed globally.**
+
+For a new user, nothing has spatial meaning yet. No muscle memory has formed. The initial layout can be optimized freely — for learnability, for relevance, for whatever the system estimates is most useful. Position carries no cost to change because no position has been learned.
+
+As a user interacts, individual items accumulate use. An item used frequently from a consistent position builds spatial memory for that item at that position. This is the unit of stability: not "the surface is stable" but "this specific item, at this specific position, has been used enough that moving it now has a real cost."
+
+When an item falls out of use, its slot becomes a vacancy. The question is what fills it. The answer: other items that don't yet have spatial memory — items that are candidates for the user's attention but haven't locked in yet. These flow into available slots. Stable items don't move to fill gaps; they stay pinned.
+
+This is a **pinning model, not a sorting model.** Stable items are pinned at their positions as hard constraints. Unstable items flow around the pinned ones, filling remaining slots by relevance and recency.
+
+Implications:
+
+- A power user's surface progressively converges on a fully pinned layout — all 7 slots have spatial meaning, nothing moves, every position is where they expect it.
+- A surface mid-transition might have 3 pinned slots and 4 fluid ones. The 4 fluid slots can vary by context; the 3 pinned slots are fixed.
+- The end state for a power user isn't "context filtering selects 7 from thousands at runtime." It's "this surface has 7 stable items for this context, and the filtering already happened when usage patterns crystallized." Context filtering and layout stability work together: filtering keeps the candidate pool small; stability locks the result into muscle memory.
+- A gap left by a departed item doesn't shift neighboring stable items. It waits for a new candidate. Each item's stability is independent.
+
+The practical design question this surfaces: what signal earns stability? Raw use-count is the simplest proxy. Better proxies involve consistency of position across sessions (if the user always reaches for item X at position 3, position 3 is stable regardless of raw count). The ideal metric is something like: "how much would moving this item degrade the user's performance?" — which is approximable but never perfectly measurable.
+
 ## The command palette as escape hatch
 
 Command palettes solve a different problem than other affordance surfaces. They're not for the things you want to do right now — they're for things you occasionally need but can't find. They're escape hatches, not primary navigation.
