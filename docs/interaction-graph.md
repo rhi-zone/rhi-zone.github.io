@@ -166,6 +166,26 @@ Graph *visualization* is worth exploring - but for different reasons:
 
 Not "here's all your notes as dots" (useless), but "from here, what's related, and what can I do about it?"
 
+## What does the user most likely want to do next?
+
+This is the right question for an interaction graph system to answer — not "what is the user's current selection type?" and not "what mode are they in?" but what is the most probable next action given everything observable about the current moment.
+
+Most systems approximate this badly. The ribbon approximates it with object type: you selected an image, so here are image commands. Blender approximates it with mode: you're in sculpt mode, so here are sculpt tools. Both are coarse proxies — they narrow the space but leave the user to scan a large remainder.
+
+A better approximation uses more signals:
+
+**Recency**: what did the user just do? The next action is often the same action, or a closely related one. If the user just applied bold, they're probably formatting — show formatting commands first. This is the insight behind frecency in command palettes: recently used commands are likely to be used again.
+
+**Specificity**: a command that is only available in this exact context is almost certainly relevant. If "Merge Selected Vertices" only appears when exactly two vertices are selected, and exactly two vertices are selected right now, that command is a strong candidate for what the user wants. Rarity of availability is a signal of relevance.
+
+**Workflow position**: some actions naturally follow others. Save follows Edit. Confirm follows Configure. These sequences are learnable from usage data, but even a static ordering based on common workflows is better than alphabetical or declaration order.
+
+**Selection shape**: not just object type but selection structure. One item selected vs. multiple items selected vs. a range selected each suggest different next actions, even within the same object type.
+
+None of these require machine learning. Recency and specificity are computable from the command definitions and a short history. Workflow position can be encoded as explicit ordering. Selection shape is already available in any well-structured application state.
+
+The interaction graph framing makes this tractable: if every affordance is an edge in an explicit graph, computing "most likely next" is a graph traversal problem — which edges from the current node are most frequently traversed, weighted by recency and specificity. The answer is a short ordered list of edges, not a comprehensive enumeration of all possible edges.
+
 ## Miller's Law is a hard constraint
 
 Humans can hold 7±2 items in working memory simultaneously. This is not a soft design guideline — it's a limit on human cognitive architecture. Any affordance surface presenting more than ~7 items at once becomes a *searching* surface rather than a *scanning* surface. The user stops glancing and acting; they start hunting.
