@@ -84,6 +84,7 @@ export default withMermaid(
               { text: 'Affordance Opacity', link: '/affordance-opacity' },
               { text: 'Affordance Types', link: '/affordance-types' },
               { text: 'Affordance Surfaces', link: '/affordance-surfaces' },
+              { text: 'Rainbow Commands', link: '/rainbow-commands' },
               { text: 'Explorations', link: '/explorations' },
               { text: 'Prior Art', link: '/prior-art' },
             ]
