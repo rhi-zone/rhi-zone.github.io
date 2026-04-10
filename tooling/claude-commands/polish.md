@@ -27,6 +27,8 @@ Present the user with lens options based on project type. Suggest a preset but l
 - **doc-coverage** — public items documented? doc examples compile? links valid?
 - **error-surface** — error types complete, meaningful, and consistent?
 - **adversarial** — edge cases, bad inputs, panic paths, unwrap()s
+- **overfit** — code over-tuned for one specific scenario at the cost of generality, correctness at edge cases, or readability; algorithms or data structures chosen for a benchmark that doesn't represent real usage
+- **legacy-debt** — unannotated legacy code: stale patterns, commented-out blocks, deprecated paths, or dead code with no comment explaining why it's still present. Priority: unannotated legacy actively poisons agent context — an agent seeing an unexplained old pattern treats it as signal and copies it
 
 **For CLAUDE.md / documentation**, default lenses:
 - **consistency** — internal coherence, cross-reference accuracy, contradictions
@@ -54,6 +56,7 @@ Each agent prompt should:
 - Ask for severity: `high` / `medium` / `low`
 - Instruct it to be specific and actionable, not vague
 - Instruct it NOT to fix anything — observe and report only
+- Instruct it to append a **Skipped** section at the end of its report listing any files, modules, or areas it did not fully examine — due to size, complexity, time, or tedium — so the user knows what wasn't covered
 
 ## Step 4: Synthesize
 
