@@ -157,6 +157,44 @@ A TF macro is just a defocus object with an `apply` verb. Composition builds a n
 
 ---
 
+## Cross-Media Hybrids (combinations people didn't think to make)
+
+X + Y where people just didn't think to combine them. The combination is load-bearing — the hybrid is the meaning, not a delivery mechanism for it.
+
+**Interactive images** — hover states, click states, behavior without being a "game." The image has behavior. Not animation, not a UI component — an image that responds.
+
+**Modulated art** — media parameterized by something external. Wwise solved this for audio: music that responds to game state, layered, reactive. Nobody solved the visual layer on top. The music video that changes based on track state. The illustration that shifts with the beat. The visual equivalent of wwise, extended to other media forms.
+
+These don't have to be interactive. The category is: an artifact that exists in two registers simultaneously, neither one pretending. The Lumen changelog that's genuinely readable as a changelog. The character card that's a real in-world document. The combination is the point.
+
+---
+
+## Hyper-Immersion
+
+A subgenre of unfiction where the membrane genuinely disappears rather than just thins. Not "designed to feel real" — the artifact *is* real, which also happens to be fiction. You find it, it just exists, and you're inside before you notice there's an inside.
+
+The test: could someone encounter it without knowing it's fiction and simply not know? Not "could mistake it" — genuinely indeterminate.
+
+**The neocities angle**: one domain, subdirectories that each feel like their own site — different aesthetics, different eras of web design, different levels of maintenance. Some updated recently. Some abandoned mid-thought in years past. Each one is a person's site with no announcement. You find one, follow a link, you're in it. The personal web made real by building enough texture that the question of whether anyone's home becomes unanswerable.
+
+Prior art: nightfall.city (community that functions as a place), corru.observer (system degradation that's real degradation) — but both still have frames. Hyper-immersion has no frame.
+
+---
+
+## Unrecognizable Alienness
+
+Not horror. Not uncanny valley. Genuinely orthogonal — no dread, just *huh*.
+
+The uncanny is defined against the familiar. The annihilating overwhelms. This one does neither — it's fully present, visible, and just refuses to map onto anything. Your navigation sense runs, finds nothing, keeps running. You can engage with it indefinitely and never get purchase. Not because it's hostile, not because it's incomprehensible in principle — but because humans have no reference point, no vocabulary, no adjacent category.
+
+The thing isn't hiding from you. You're just not equipped. And the experience of being unequipped isn't threatening — it's just exposure to the size of what exists outside the frame.
+
+**The formal challenge**: consistent nonhuman symbolic language with grammar that doesn't map to human grammar. UI sensibilities that reflect how the species actually thinks, not alien aesthetic as style. An actual system with rules you can't immediately reverse-engineer, where someone encountering it finds themselves taking notes trying to crack it.
+
+Corru.observer is adjacent but still routes through horror — the uncanny is still defined against the familiar, the Obesk are still humanoid enough to fall into the valley. This is further out. No valley to fall into.
+
+---
+
 ## Fractal World Explorer (Infinite Craft, done right)
 
 Infinite Craft had something: an open-ended, unmapped discovery space. Everything else about it was wrong.
