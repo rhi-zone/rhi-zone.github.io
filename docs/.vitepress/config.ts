@@ -84,7 +84,6 @@ export default withMermaid(
               { text: 'Affordance Opacity', link: '/affordance-opacity' },
               { text: 'Affordance Types', link: '/affordance-types' },
               { text: 'Affordance Surfaces', link: '/affordance-surfaces' },
-              { text: 'Rainbow Commands', link: '/rainbow-commands' },
               { text: 'Explorations', link: '/explorations' },
               { text: 'Prior Art', link: '/prior-art' },
             ]
@@ -242,6 +241,13 @@ export default withMermaid(
                 { text: 'Mar 30', link: '/introspection/log/daily/2026-03-30' },
                 { text: 'Mar 31', link: '/introspection/log/daily/2026-03-31' },
               ]},
+            ]
+          },
+          {
+            text: 'Archive',
+            collapsed: true,
+            items: [
+              { text: 'Rainbow Commands', link: '/rainbow-commands' },
             ]
           },
           {
