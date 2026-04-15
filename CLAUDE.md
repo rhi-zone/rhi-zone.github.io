@@ -294,14 +294,9 @@ Especially useful for large files - get the structure first, then read specific 
 
 ### Session Handoff
 
-Use plan mode as a handoff mechanism when:
-- A task is fully complete (committed, pushed, docs updated)
-- The session has drifted from its original purpose
-- Context has accumulated enough that a fresh start would help
+Use `/handoff` to end a session and leave context for the next one. It updates TODO.md with open threads — the next session reads TODO.md as advisory context, not instructions.
 
-**For handoffs:** flush TODO.md, then enter plan mode and write a plan containing only: next tasks, blocked/pending items, and what was done this session (only if it directly affects what comes next). Nothing else — no commands, no build steps, no context summaries. Those belong in CLAUDE.md or TODO.md. The next session reads both fresh.
-
-ExitPlanMode hands control back to the user to approve, redirect, or stop.
+If the next session needs a structured execution plan, use plan mode after reading TODO.md — that plan is built fresh from current state, not inherited from a previous session.
 
 ## Core Rules
 
