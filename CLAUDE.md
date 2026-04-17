@@ -292,12 +292,6 @@ CLAUDE_SESSIONS_DIR=/mnt/ssd/ai/claude-sessions/projects ~/git/rhizone/normalize
 
 Especially useful for large files - get the structure first, then read specific sections.
 
-### Session Handoff
-
-Use `/handoff` to end a session and leave context for the next one. It updates TODO.md with open threads — the next session reads TODO.md as advisory context, not instructions.
-
-If the next session needs a structured execution plan, use plan mode after reading TODO.md — that plan is built fresh from current state, not inherited from a previous session.
-
 ## Core Rules
 
 **Note things down immediately:**
