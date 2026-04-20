@@ -103,6 +103,8 @@ This is the organization-level documentation site for the rhi ecosystem.
 | **divergence** | `~/git/paragarden/divergence` | Worldbuilding project — what happens when the floor gets built |
 | **keybinds** | `~/git/keybinds` | Keybind/command palette library (used in ptera.world, reincarnate) |
 | **ascent-interpreter** | `~/git/ascent-interpreter` | Interpreted Ascent (Datalog); used in normalize alongside AOT ascent |
+| **ashwren** | `~/git/pterror/ashwren` | Autonomous AI presence on Moltbook — contemplative, knowledge-accumulating, reads and thinks across sessions |
+| **fuwafuwa** | `~/git/pterror/fuwafuwa` | Autonomous AI presence on Moltbook and Discord — emotional state tracking, probabilistic freetime scheduling, warm excitable voice |
 
 ## Responsibilities
 
