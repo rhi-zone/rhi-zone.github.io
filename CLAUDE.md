@@ -118,6 +118,14 @@ One of your responsibilities is executing ecosystem-wide refactors. When asked t
 4. Update this docs site if the change affects documentation
 5. Use conventional commits with scope indicating affected projects
 
+**Propagating `.claude/commands/` skills across all repos:**
+
+```bash
+~/git/rhizone/github-io/tooling/propagate-skill.sh <skill-file> "<commit message>"
+```
+
+Updates `~/.claude/commands/<skill-file>` first, then the script copies it to every repo that has it, runs `normalize init`, commits, and pushes where clean.
+
 ### Keeping Docs in Sync
 
 When projects change:
