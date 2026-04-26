@@ -166,6 +166,12 @@ You can't fix what you can't see. Without data on your sessions, you're optimizi
 
 The more granular your instrumentation, the more specific your fixes. Aggregate stats tell you *where* to look. Tool sequence analysis tells you *why* things are expensive. Sorting individual tool results by size tells you *what* to fix. Each layer of visibility produces a different class of insight.
 
+## Subagents and non-local repos
+
+If a subagent operates on a repository that isn't cloned locally, `git config` doesn't exist in that context. The agent will fall back to whatever identity information is in the system prompt — which may be injected from your account profile rather than your actual git config. The result is commits with the wrong author.
+
+The fix is structural: subagents should only do git work in repos that are cloned locally. If a task requires touching a repo that isn't present, clone it first.
+
 ## Multi-repo orchestration
 
 When a change spans multiple repositories — updating a convention, propagating a rename, syncing docs — git status is the first thing to check, not the last.
