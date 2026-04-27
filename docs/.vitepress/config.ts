@@ -79,6 +79,13 @@ export default withMermaid(
             ]
           },
           {
+            text: 'Engineering',
+            collapsed: true,
+            items: [
+              { text: 'Testing', link: '/testing' },
+            ]
+          },
+          {
             text: 'Concepts',
             collapsed: true,
             items: [

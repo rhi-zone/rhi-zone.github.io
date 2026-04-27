@@ -60,4 +60,24 @@ All six warrant CONTEXT.md. Priority order for drafting: reincarnate → crescen
 
 ---
 
+---
+
+## tdd
+
+**Status:** Skipped
+
+The skill's procedural discipline (tracer bullet, red-green-refactor, vertical slices) is lightweight enough to not need a skill. Its theory of good tests — "behavior through public interfaces, not implementation details" — is too thin for this ecosystem, and its vertical-slice cadence can produce tests that parrot implementation rather than checking invariants.
+
+The ecosystem's actual good tests (from ooxml, wick, rescribe) don't ask "given this input, do I get this output?" They ask:
+- What must always be true regardless of implementation? (mathematical identities, logical laws)
+- Do independent implementations agree? (parity across backends/tiers)
+- Does transformation preserve what matters? (roundtrip, semantic fidelity)
+- What must never happen? (panic, data loss — fuzz is the right tool)
+
+The anti-horizontal-slice doctrine (don't write all tests before all implementation) is valid but not worth a skill on its own.
+
+**Output:** [`docs/testing.md`](/testing) — a testing philosophy doc derived from ecosystem prior art, covering the invariant hierarchy, fuzz strategy, and when to write which kind of test.
+
+---
+
 *More skills to follow.*
