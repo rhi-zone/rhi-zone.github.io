@@ -104,4 +104,34 @@ The same interview discipline as `grill-me` plus: challenge against the glossary
 
 ---
 
+---
+
+## zoom-out
+
+**Status:** Skipped
+
+The skill is a one-line prompt ("I don't know this code, give me the module map") with `disable-model-invocation: true`. Solves the problem of getting oriented in unfamiliar code by priming for a wider-scope answer.
+
+But normalize already solves this better: `normalize view <dir>` returns actual structural data, `normalize grep` finds callers. If normalize's output isn't enough to orient, that's signal about normalize's coverage or output, not a reason to paper over it with a prompt skill. The SUMMARY.md convention is the static pre-computed version of the same thing.
+
+---
+
+## caveman
+
+**Status:** Skipped
+
+Ultra-compressed communication mode that drops articles, filler, and pleasantries to cut token usage ~75%.
+
+Skipped because the framing is wrong on two levels:
+
+1. **Conversational verbosity is an artifact of the chat UI, not intrinsic to LLMs.** "I'd be happy to help with that" exists because chat interfaces train the expectation; LLMs themselves are completion engines, and well-prompted completions don't include this prose. The fix is upstream — in how agents are prompted — not a compression toggle on top.
+
+2. **Multi-turn is the weaker mode anyway.** Instruct tuning makes single-shot completion strong; each additional turn re-feeds context, drifts attention, and accumulates conversational noise. Compressing a multi-turn dialogue is patching the artifact of the weaker interaction mode rather than choosing the stronger one.
+
+For token-sensitive autonomous agents, the right architecture is bounded single-shot interactions (subagents, well-scoped commands, one-shot grilling). Caveman patches multi-turn chat after the fact when the better move is not having the multi-turn chat in the first place.
+
+This reframes some adopted patterns: `domain-model`'s "ask one at a time" works because each question is a tight single-shot decision, not because dialogue is good. `handoff` exists because long sessions degrade. The pattern is keeping interactions bounded, not compressing them.
+
+---
+
 *More skills to follow.*
