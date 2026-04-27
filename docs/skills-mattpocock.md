@@ -134,4 +134,22 @@ This reframes some adopted patterns: `domain-model`'s "ask one at a time" works 
 
 ---
 
+---
+
+## design-an-interface
+
+**Status:** Adopted with adaptation
+
+Standalone "Design It Twice" (Ousterhout) — three parallel sub-agents each generate a radically different interface design, then synthesize. Strong fit for this ecosystem because most modules are designed brand-new, not deepened from existing shallow ones — so a top-level entry point matters more here than the integrated `improve-codebase-architecture/INTERFACE-DESIGN.md` flow alone covers.
+
+Connects to the single-shot insight from `caveman`: each sub-agent is an independent single-shot completion with a different forcing function (minimize, maximize flexibility, optimize for common case). Comparison is itself a single-shot synthesis. No multi-turn dialogue exploring design space.
+
+**Adaptations:**
+- Reference `improve-codebase-architecture/LANGUAGE.md` so vocabulary stays consistent across both skills
+- Reference `DEEPENING.md` for dependency-category framing
+- Read `CONTEXT.md` first if it exists, so domain vocabulary informs the design
+- Drop "Take inspiration from [specific paradigm/library]" constraint — too vague to be a forcing function compared to the other three
+
+---
+
 *More skills to follow.*
