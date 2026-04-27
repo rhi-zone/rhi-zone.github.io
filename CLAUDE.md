@@ -126,6 +126,8 @@ One of your responsibilities is executing ecosystem-wide refactors. When asked t
 
 Updates `~/.claude/commands/<skill-file>` first, then the script copies it to every repo that has it, runs `normalize init`, commits, and pushes where clean.
 
+**Canonical skill location:** `tooling/claude-commands/` in this repo. Skills (slash commands) live there, not in `.claude/commands/`. Symlink from `~/.claude/commands/` to `tooling/claude-commands/` — do not write skills to `.claude/` directly.
+
 ### Keeping Docs in Sync
 
 When projects change:
