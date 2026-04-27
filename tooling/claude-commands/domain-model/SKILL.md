@@ -30,7 +30,9 @@ When the user states how something works, check whether the code agrees. If you 
 
 ### Update CONTEXT.md inline
 
-When a term is resolved, update `CONTEXT.md` right there. Don't batch — capture while the decision is live. Format:
+When a term is resolved, update `CONTEXT.md` right there. Don't batch — capture while the decision is live.
+
+**Per-term format:**
 
 ```markdown
 ## TermName
@@ -41,4 +43,20 @@ One-sentence definition capturing what makes this term precise.
 What goes wrong when it's confused with the avoided term.
 ```
 
+**Optional sections** (use when they earn their place):
+
+- **Relationships** — when terms have structural connections (cardinality, ownership, lifecycle), add a `## Relationships` section with prose statements: "An Authority owns exactly one Room", "A Session belongs to one Room and one client". Useful when terms can be defined individually but connections between them are non-obvious.
+- **Grouping** — when the glossary grows past ~15 terms and natural clusters emerge (subdomain, lifecycle, actor), group terms under `## Group Name` headings. Don't force grouping below that threshold.
+
 Don't couple `CONTEXT.md` to implementation details. Only include terms meaningful to someone reasoning about the design, not the code.
+
+### Re-running
+
+When invoked on a repo with existing `CONTEXT.md`:
+
+1. Read the file first
+2. Incorporate new terms from the current session
+3. Update definitions if understanding has evolved
+4. Re-flag any new ambiguities
+
+Don't rewrite from scratch.
