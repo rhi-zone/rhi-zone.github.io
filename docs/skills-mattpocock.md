@@ -80,4 +80,28 @@ The anti-horizontal-slice doctrine (don't write all tests before all implementat
 
 ---
 
+---
+
+## grill-me
+
+**Status:** Skipped — superseded by `domain-model`
+
+Same core instruction (relentless one-at-a-time interview, recommend answers) but without glossary awareness or inline CONTEXT.md updates. `domain-model` is strictly better for this ecosystem now that six repos have CONTEXT.md files.
+
+---
+
+## domain-model
+
+**Status:** Adopted with adaptation
+
+The same interview discipline as `grill-me` plus: challenge against the glossary, sharpen fuzzy language, cross-reference stated behavior against code, update CONTEXT.md inline as decisions crystallize. `disable-model-invocation: true` — pure instruction injection.
+
+**Cross-reference caveat** — proven during review: when the skill finds a contradiction between stated design and code, it must surface it to the user rather than silently patching docs to match code. Autonomous agents get this wrong (they rationalize the code as intentional). The skill is only safe with a human in the loop at that decision point.
+
+**Dropped:** CONTEXT-MAP.md convention (no multi-context repos in the ecosystem) and ADR gate (same call as `improve-codebase-architecture`).
+
+**Eagerly creates CONTEXT.md** if absent — six repos already seeded, so this fires immediately rather than bootstrapping from scratch.
+
+---
+
 *More skills to follow.*
