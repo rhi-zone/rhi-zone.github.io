@@ -152,4 +152,17 @@ Connects to the single-shot insight from `caveman`: each sub-agent is an indepen
 
 ---
 
+---
+
+## Batch skips: ecosystem mismatch
+
+These four skills are skipped because they target tools or workflows that don't apply to this ecosystem.
+
+- **`migrate-to-shoehorn`** — TypeScript-specific (`@total-typescript/shoehorn`); ecosystem is primarily Rust + Lua
+- **`scaffold-exercises`** — course exercise directory structures; we don't author courses
+- **`obsidian-vault`** — Obsidian-specific note management; we use CONTEXT.md, ptera.world spatial graph, and CLAUDE.md
+- **`setup-pre-commit`** — Husky + lint-staged for JS projects; ecosystem uses git hooks + nix-direnv + cargo (already established in scaffolding template)
+
+---
+
 *More skills to follow.*
