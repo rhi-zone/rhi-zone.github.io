@@ -77,3 +77,8 @@ What goes wrong when it's confused with the avoided term.
 ```
 
 Keep entries short. The goal is disambiguation, not documentation.
+
+**Optional sections** (use when they earn their place):
+
+- **Relationships** — when terms have structural connections (cardinality, ownership, lifecycle), add a `## Relationships` section with prose statements like "An Authority owns exactly one Room". Useful when connections between terms are non-obvious.
+- **Grouping** — when the glossary grows past ~15 terms and natural clusters emerge (subdomain, lifecycle, actor), group terms under `## Group Name` headings.

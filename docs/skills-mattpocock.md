@@ -165,4 +165,22 @@ These four skills are skipped because they target tools or workflows that don't 
 
 ---
 
+---
+
+## ubiquitous-language
+
+**Status:** Skipped — capability subsumed by `domain-model`, two ideas extracted
+
+The skill produces `UBIQUITOUS_LANGUAGE.md` (table format, with relationships, example dialogue, flagged ambiguities) from a conversation. The capability is already covered by `domain-model`'s inline updates for ongoing work, and was covered for backfilling by our subagent-based seeding of CONTEXT.md across six repos.
+
+The standalone "extract from past conversation" use case is rare in this workflow — we either write CONTEXT.md inline as we go or seed from session audits.
+
+**Two ideas extracted into the CONTEXT.md format guidance** in both `domain-model` and `improve-codebase-architecture`:
+1. Optional **Relationships** section for structural connections between terms
+2. Optional **Grouping** when the glossary grows past ~15 terms
+
+The skill's "example dialogue" section was rejected (documentation-by-fiction with high decay risk) and the "flagged ambiguities" section was redundant with our inline `_Avoid:_` lines.
+
+---
+
 *More skills to follow.*
