@@ -75,6 +75,7 @@ export default withMermaid(
             items: [
               { text: 'Guide', link: '/claude-code-guide' },
               { text: 'Case Study', link: '/claude-code' },
+              { text: 'Skills: Matt Pocock', link: '/skills-mattpocock' },
             ]
           },
           {
