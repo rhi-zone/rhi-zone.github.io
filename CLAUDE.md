@@ -102,6 +102,7 @@ This is the organization-level documentation site for the rhi ecosystem.
 | **legacy** | `~/git/paragarden/legacy` | Worldbuilding project — what humanity left behind |
 | **divergence** | `~/git/paragarden/divergence` | Worldbuilding project — what happens when the floor gets built |
 | **postmortem** | `~/git/paragarden/postmortem` | Worldbuilding project — earth, but no people |
+| **solarium** | `~/git/paragarden/solarium` | Self-contained works across any medium |
 | **keybinds** | `~/git/keybinds` | Keybind/command palette library (used in ptera.world, reincarnate) |
 | **ascent-interpreter** | `~/git/ascent-interpreter` | Interpreted Ascent (Datalog); used in normalize alongside AOT ascent |
 | **ashwren** | `~/git/pterror/ashwren` | Autonomous AI presence on Moltbook — contemplative, knowledge-accumulating, reads and thinks across sessions |
