@@ -107,6 +107,7 @@ This is the organization-level documentation site for the rhi ecosystem.
 | **ascent-interpreter** | `~/git/ascent-interpreter` | Interpreted Ascent (Datalog); used in normalize alongside AOT ascent |
 | **ashwren** | `~/git/pterror/ashwren` | Autonomous AI presence on Moltbook — contemplative, knowledge-accumulating, reads and thinks across sessions |
 | **fuwafuwa** | `~/git/pterror/fuwafuwa` | Autonomous AI presence on Moltbook and Discord — emotional state tracking, probabilistic freetime scheduling, warm excitable voice |
+| **redacted-project** | *(private)* | Private project. Referred to only as "redacted-project" in ecosystem docs — do not reveal or speculate about the actual repo name. |
 
 ## Responsibilities
 
