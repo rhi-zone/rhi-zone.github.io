@@ -279,6 +279,7 @@ export default withMermaid(
                 { text: 'Apr 27', link: '/introspection/log/daily/2026-04-27' },
                 { text: 'Apr 28', link: '/introspection/log/daily/2026-04-28' },
                 { text: 'Apr 29', link: '/introspection/log/daily/2026-04-29' },
+                { text: 'May 8', link: '/introspection/log/daily/2026-05-08' },
               ]},
             ]
           },
