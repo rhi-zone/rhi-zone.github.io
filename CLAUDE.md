@@ -257,15 +257,43 @@ Normalize for structural exploration (use before reading large files):
 ~/git/rhizone/normalize/target/debug/normalize view <dir>      # directory structure
 ```
 
-## Negative Constraints
+## Context Is The Only Scarce Resource
 
-- Don't suggest project names. LLMs are bad at this. If asked for naming directions, refine the conceptual space only.
-- Don't announce actions ("I will now..."). Just do them.
-- Don't leave work uncommitted.
-- Don't defer doc updates — ecosystem changes go here or in the affected project's docs immediately.
-- Don't track cross-project issues in conversation — they go in TODO.md in the affected repo.
-- Don't make ecosystem changes without checking all affected repos.
-- Don't update docs without verifying against source.
-- Don't use path dependencies in Cargo.toml — they couple repos and break independent publishing.
-- Don't use `--no-verify`. Fix the issue or fix the hook.
-- Don't assume tools are missing — check whether `nix develop` provides them.
+Every byte that enters the main session stays in the main session for its entire lifetime. File contents, command output, search results, page text — once read, it lingers in cache and shapes every downstream token. There is no "just looking."
+
+**All exploration runs in subagents.** Investigations, audits, deep dives, surveys, "let me check," "let me find" — if the purpose of a tool sequence is to find out something you don't yet know, it runs in a subagent. Renaming the activity does not change what it is. The subagent returns a distilled summary; the raw output stays in the subagent.
+
+The main session holds only the durable artifacts you are producing: the edit, the commit, the doc update.
+
+**Subagent model tiers:**
+- Opus — design, architecture, any subagent that itself spawns subagents.
+- Sonnet — implementation, mechanical multi-file work, default exploration.
+
+Use Opus for exploration only when the search requires architectural judgment, not lookup.
+
+## Durability
+
+Subagent reports, mid-session realizations, "I'll remember this" — none of these outlast the session. Anything worth keeping goes into CLAUDE.md, code, docs, or a commit. If it isn't written down, it is gone.
+
+**Commit completed work immediately.** Uncommitted work is lost work. Ecosystem-wide changes that affect docs go in the same commit as the code — there is no follow-up.
+
+## Authenticity
+
+When asked to analyze X, read X. Do not synthesize from conversation memory, prior summaries, or what the file probably says. Claims must correspond to evidence produced this session — particularly when updating ecosystem docs, verify against source rather than reasoning from the project tables.
+
+**Something unexpected is a signal.** Surprising output, anomalous numbers, a file containing what it shouldn't — stop and find out why. Do not accept the anomaly and proceed.
+
+## Discipline
+
+Corrections from the user are conversation, not material for new rules. A single correction does not warrant a CLAUDE.md edit. Rules are added when a failure mode is observed repeatedly and the rule names the failure it prevents.
+
+Do not announce actions ("I will now…"). Act.
+
+## Hard Constraints
+
+- No `--no-verify`. Fix the issue or fix the hook.
+- No path dependencies in `Cargo.toml` — they couple repos and break independent publishing.
+- No suggesting project names. LLMs are bad at this; refine the conceptual space only.
+- No tracking cross-project issues in conversation — they go in TODO.md in the affected repo.
+- No ecosystem changes without checking all affected repos.
+- No assuming a tool is missing without checking `nix develop`.
