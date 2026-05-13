@@ -2,26 +2,9 @@
 
 Behavioral rules for Claude Code in the rhi ecosystem docs repository.
 
-## What This Is
-
-**Infrastructure for the mind.** Not tools that do things *for* you — substrate that extends what you can perceive and operate on. Normalize makes structure visible. Gels surfaces implicit rules. Tiltshift extracts form from opacity. Reincarnate lifts implicit meaning out of legacy systems. The through-line: making the implicit legible.
-
-The ecosystem has two parallel implementations of the same design philosophy:
-
-- **rhizone** — Rust. Production-grade, the foundation real applications build on.
-- **Crescent** — LuaJIT. The same concepts, independently implemented, first-class in their own ecosystem. Not "Rust for real, Lua for scripting" — both are real. The distinction is runtime, not seriousness.
-
-**ptera.world is the same project in a different register.** The spatial graph, the essay voice that discovers rather than presents, the cross-links that make argument structural — that's infrastructure for how ideas move through a mind. Same underlying project, different material.
-
-**The application layer hasn't caught up to the ecosystem.** The primitives for bounded rooms, shared cognition, persistent state, and human-facing memory are mostly in place. The gap is usually "not yet built" rather than "out of scope." When something seems missing, check whether the substrate exists before concluding the scope is wrong.
-
-**pad** (`~/git/pad`) is a Lua prototype of a personal information sink — the concept behind Lumen (see `~/git/paragarden/legacy`). Its role is proving the design. The production path: Rust crate in rhizone + vendorable Lua library in Crescent + Lumen as the application layer.
-
----
+If a primitive seems missing from the ecosystem, check whether the substrate exists before concluding it's out of scope.
 
 ## Ecosystem
-
-This is the organization-level documentation site for the rhi ecosystem.
 
 ### Projects
 
@@ -107,45 +90,43 @@ This is the organization-level documentation site for the rhi ecosystem.
 | **ascent-interpreter** | `~/git/ascent-interpreter` | Interpreted Ascent (Datalog); used in normalize alongside AOT ascent |
 | **ashwren** | `~/git/pterror/ashwren` | Autonomous AI presence on Moltbook — contemplative, knowledge-accumulating, reads and thinks across sessions |
 | **fuwafuwa** | `~/git/pterror/fuwafuwa` | Autonomous AI presence on Moltbook and Discord — emotional state tracking, probabilistic freetime scheduling, warm excitable voice |
-| **redacted-project** | *(private)* | Private project. Referred to only as "redacted-project" in ecosystem docs — do not reveal or speculate about the actual repo name. |
+| **redacted-project** | *(private)* | Refer to only as "redacted-project" in ecosystem docs. Do not reveal or speculate about the actual repo name. |
 
 ## Responsibilities
 
 ### Ecosystem-Wide Refactors
 
-One of your responsibilities is executing ecosystem-wide refactors. When asked to make changes across the ecosystem:
+1. Check git status of all affected repos.
+2. Clean repos: make the changes directly.
+3. Dirty repos: add to that repo's TODO.md.
+4. Update this docs site if the change affects documentation.
+5. Use conventional commits with scope indicating affected projects.
 
-1. Check git status of all affected repos
-2. For clean repos: make the changes directly
-3. For dirty repos: add to that repo's TODO.md
-4. Update this docs site if the change affects documentation
-5. Use conventional commits with scope indicating affected projects
-
-**Propagating `.claude/commands/` skills across all repos:**
+Propagate `.claude/commands/` skills across all repos:
 
 ```bash
 ~/git/rhizone/github-io/tooling/propagate-skill.sh <skill-file> "<commit message>"
 ```
 
-Updates `~/.claude/commands/<skill-file>` first, then the script copies it to every repo that has it, runs `normalize init`, commits, and pushes where clean.
+Updates `~/.claude/commands/<skill-file>` first, then copies to every repo that has it, runs `normalize init`, commits, and pushes where clean.
 
-**Canonical skill location:** `tooling/claude-commands/` in this repo. Skills (slash commands) live there, not in `.claude/commands/`. Symlink from `~/.claude/commands/` to `tooling/claude-commands/` — do not write skills to `.claude/` directly.
+Canonical skill location: `tooling/claude-commands/` in this repo. Symlink from `~/.claude/commands/` to `tooling/claude-commands/`. Do not write skills to `.claude/` directly.
 
 ### Keeping Docs in Sync
 
-When projects change:
-- Update project pages in `docs/projects/`
-- Update the project table in `docs/about.md`
-- Update `README.md` project table
-- Update sidebar/nav in `.vitepress/config.ts`
-- Update hero page features in `docs/index.md`
-- Update the project table in `docs/projects/index.md`
-- Update the org profile README at `~/git/rhizone/profile/profile/README.md`
-- Update the ecosystem project list in this file (`CLAUDE.md`)
+When projects change, update:
+- `docs/projects/` pages
+- `docs/about.md` project table
+- `README.md` project table
+- `.vitepress/config.ts` sidebar/nav
+- `docs/index.md` hero page features
+- `docs/projects/index.md` project table
+- `~/git/rhizone/profile/profile/README.md` (org profile)
+- This file's ecosystem project list
 
 ### Scaffolding New Repos
 
-Template files are in `scaffolding/` directory. Copy and replace placeholders:
+Templates in `scaffolding/`. Copy and substitute placeholders:
 
 ```bash
 cp -r ~/git/0000000_pterror/.git ~/git/rhizone/new-project/.git
@@ -154,32 +135,19 @@ sed -i 's/PROJECT_NAME/new-project/g' ~/git/rhizone/new-project/flake.nix ~/git/
 sed -i 's/PROJECT_DESCRIPTION/Description here/g' ~/git/rhizone/new-project/flake.nix ~/git/rhizone/new-project/CLAUDE.md
 ```
 
-The git repo should be copied from `~/git/0000000_pterror` (template repo with proper git history/config) — do NOT use `git init`.
+Copy git from `~/git/0000000_pterror` (template repo with proper history/config). Do NOT use `git init`.
 
-**Included templates:**
-- `.cargo/config.toml` - target bloat reduction + mold hint
-- `.envrc` - nix-direnv integration
-- `.gitignore` - Rust + Nix + Node ignores
-- `.githooks/pre-commit` - fmt → clippy
-- `.github/workflows/ci.yml` - CI pipeline
-- `.github/workflows/deploy-docs.yml` - VitePress deployment
-- `flake.nix` - Nix dev shell
-- `docs/package.json` - VitePress + mermaid
-- `CLAUDE.md` - standard behavioral rules (Core Rules, Design Principles, Commit Convention, Negative Constraints)
-- `README.md` - project readme
+Templates included: `.cargo/config.toml`, `.envrc`, `.gitignore`, `.githooks/pre-commit` (fmt → clippy), `.github/workflows/{ci,deploy-docs}.yml`, `flake.nix`, `docs/package.json`, `CLAUDE.md`, `README.md`.
 
-**Still need manually:**
-- `Cargo.toml` + `crates/` — create a workspace with a single dummy crate (`crates/PROJECT_NAME-core/`) so the pre-commit hook (cargo fmt + clippy) passes on first commit
-- `docs/.vitepress/config.ts` + `docs/index.md` — required for VitePress build in pre-commit hook
-- **Run `bun install` in `docs/`** before the first commit — the pre-commit hook runs `vitepress build`, which requires node_modules. Without this step the first commit will fail with `vitepress: command not found`.
-- **Copy `.envrc`** from `scaffolding/` — committed, includes `source_env_if_exists .envrc.local`. Put secrets in `.envrc.local` (gitignored), never in `.envrc`
-- **Copy `flake.nix`** from `scaffolding/` — also easy to forget
-- **Fill in the `## Origin` section** — why the project exists, naming rationale, key design decisions from the scaffolding conversation. An agent spun up in the new repo has no access to that conversation; if it's not in CLAUDE.md, it's gone.
-- **Optionally add a `TODO.md`** with initial directions from the scaffolding conversation — can be as high-level ("explore X, decide on Y") or as detailed as warranted.
+Manual steps after copy:
+- Create `Cargo.toml` workspace with a dummy crate (`crates/PROJECT_NAME-core/`) so the pre-commit hook (cargo fmt + clippy) passes on first commit.
+- Create `docs/.vitepress/config.ts` + `docs/index.md` (required for VitePress build in pre-commit hook).
+- Run `bun install` in `docs/` before first commit — hook runs `vitepress build`, needs node_modules.
+- Confirm `.envrc` and `flake.nix` were copied (easy to miss). `.envrc` sources `.envrc.local` (gitignored) — secrets go there, never in `.envrc`.
+- Fill in CLAUDE.md `## Origin` section: why the project exists, naming rationale, key design decisions. The scaffolding conversation is not accessible from inside the new repo.
+- Optionally add `TODO.md` with initial directions.
 
 ### Creating the GitHub Repo
-
-After scaffolding, create the GitHub repo and configure it:
 
 ```bash
 gh repo create ORG/PROJECT_NAME --public --source ~/git/ORG_PATH/PROJECT_NAME --description "PROJECT_DESCRIPTION" --push
@@ -192,7 +160,7 @@ Enable GitHub Pages (if the repo has a docs site):
 gh api repos/ORG/PROJECT_NAME/pages -X POST -f "build_type=workflow"
 ```
 
-After updating ecosystem docs, push the docs site and org profile:
+After updating ecosystem docs:
 ```bash
 cd ~/git/rhizone/github-io && git push
 cd ~/git/rhizone/profile && git push
@@ -200,15 +168,13 @@ cd ~/git/rhizone/profile && git push
 
 ### Renaming Repos
 
-When renaming a repo:
-
-1. Rename on GitHub: `gh repo rename NEW_NAME -R ORG/OLD_NAME --yes`
-2. Update git remote: `git remote set-url origin https://github.com/ORG/NEW_NAME.git`
-3. Move local directory: `mv ~/git/ORG_PATH/OLD_NAME ~/git/ORG_PATH/NEW_NAME`
-4. Move Claude project dir: `mv ~/.claude/projects/-home-me-git-ORG_PATH-OLD_NAME ~/.claude/projects/-home-me-git-ORG_PATH-NEW_NAME`
-5. Update repo settings: `gh repo edit ORG/NEW_NAME --homepage "..." --description "..."`
-6. Update all in-repo references (site config, package.json, CLAUDE.md, README, etc.)
-7. Update ecosystem docs (this file, org profile)
+1. `gh repo rename NEW_NAME -R ORG/OLD_NAME --yes`
+2. `git remote set-url origin https://github.com/ORG/NEW_NAME.git`
+3. `mv ~/git/ORG_PATH/OLD_NAME ~/git/ORG_PATH/NEW_NAME`
+4. `mv ~/.claude/projects/-home-me-git-ORG_PATH-OLD_NAME ~/.claude/projects/-home-me-git-ORG_PATH-NEW_NAME`
+5. `gh repo edit ORG/NEW_NAME --homepage "..." --description "..."`
+6. Update in-repo references (site config, package.json, CLAUDE.md, README).
+7. Update ecosystem docs (this file, org profile).
 
 ### GitHub Org Mapping
 
@@ -219,112 +185,87 @@ When renaming a repo:
 | **ptera-world** | `~/git/pteraworld/` | — |
 | **para-garden** | `~/git/paragarden/` | concrete games, experiences, creative works |
 
-When scaffolding repos for any of these orgs, use the appropriate GitHub org name and disk path.
-
 ### Crate Naming Convention
 
-Rust crates use NO prefix (names are available on crates.io):
-- `normalize-core`, `moonlet-core`, `unshape-backend`, etc.
-- `rescribe`, `server-less`, `wick` (standalone names)
-- Binary names match project names (just `normalize`, `moonlet`, `rescribe`, `server-less`, etc.)
-
-All project names were carefully selected to avoid conflicts on crates.io.
+Rust crates use NO prefix; names are available on crates.io:
+- `normalize-core`, `moonlet-core`, `unshape-backend`
+- `rescribe`, `server-less`, `wick` (standalone)
+- Binary names match project names (`normalize`, `moonlet`, `rescribe`, `server-less`).
 
 ### Docs Site Conventions
 
-**Monorepo docs should link back to the main ecosystem site:**
-
-When a monorepo (normalize, moonlet, unshape, etc.) has its own docs site, include a navbar link back to the main rhi docs. In VitePress config:
+Monorepo docs with their own site must include a navbar link back to rhi:
 
 ```ts
 nav: [
-  // ... other nav items
   { text: 'rhi', link: 'https://rhi.zone/' },
 ]
 ```
 
-This ensures users can navigate between project-specific docs and the ecosystem overview.
-
 ## Activity Logs
 
-**`docs/introspection/log/`** — weekly snapshots of ecosystem activity. **Read the most recent entry first when evaluating direction, focus, or what's been active.** Each file is named by end date (e.g. `2026-02-25.md`) and contains commit volume, cost breakdown, focus pattern, and observations.
+- `docs/introspection/log/` — weekly snapshots, named by end date (e.g. `2026-02-25.md`). Read the most recent first when evaluating direction or focus.
+- `docs/introspection/log/daily/` — daily session summaries, `YYYY-MM-DD.md`, one day across all projects.
+- `docs/introspection/log/synthesis-*.md` — cross-cutting pattern analysis over a date range.
 
-**`docs/introspection/log/daily/`** — daily session summaries auto-generated from raw Claude Code session messages. Named `YYYY-MM-DD.md`. Each covers one day's sessions across all projects.
-
-**`docs/introspection/log/synthesis-*.md`** — cross-cutting pattern analysis synthesized from daily logs over a date range.
-
-These logs are the canonical record of what was being worked on and why. Check them before asking "what should we work on?" or "what were we focused on?"
+Check these before asking "what should we work on?" or "what were we focused on?"
 
 ### Updating Daily Logs
 
-Run this checklist to bring daily logs up to date:
-
-1. **Backup sessions first:**
+1. Backup sessions:
    ```bash
    rsync -a --update ~/.claude/projects/ /mnt/ssd/ai/claude-sessions/projects/ && rsync -a --update ~/.claude/history.jsonl /mnt/ssd/ai/claude-sessions/history.jsonl && rsync -a --update ~/.claude/usage-data/ /mnt/ssd/ai/claude-sessions/usage-data/
    ```
-   (`--update` skips destination files newer than source, safe for incremental runs)
-   (`usage-data/` contains pre-computed `/insights` facets — incremental, worth preserving)
+   `--update` skips destination files newer than source (safe for incremental runs). `usage-data/` holds pre-computed `/insights` facets — incremental, worth preserving.
 
-2. **Find missing days:** List files in `docs/introspection/log/daily/` and compare against today's date to find gaps.
+2. Find missing days: list `docs/introspection/log/daily/` and diff against today.
 
-3. **Spawn haiku agents in parallel** — one per missing day:
+3. Spawn haiku agents in parallel, one per missing day:
    ```bash
    CLAUDE_SESSIONS_DIR=/mnt/ssd/ai/claude-sessions/projects ~/git/rhizone/normalize/target/debug/normalize sessions messages --all-projects --role user --since YYYY-MM-DD --until YYYY-MM-DD+1 --limit 0 --show-usage
    ```
-   Each agent: observe what's interesting, write to `docs/introspection/log/daily/YYYY-MM-DD.md`. If no messages, note it as a quiet day. Include a `## Token Usage` section with per-session output tokens and cache hit ratios.
+   Each writes to `docs/introspection/log/daily/YYYY-MM-DD.md`. Quiet days: note as such. Include `## Token Usage` with per-session output tokens and cache hit ratios.
 
-   **If synthesis insights feel thin:** re-run agents on existing logs passing `--show-usage` output and the existing log as reference, instructing them to flag token outliers (e.g. high churn from debugging, poor cache efficiency on cold-start sessions, output spikes from architectural sprints). Then re-run the opus synthesis.
+   If synthesis insights feel thin: re-run agents on existing logs with `--show-usage` output, instructing them to flag token outliers (debugging churn, cold-start cache inefficiency, architectural output spikes). Then re-run opus synthesis.
 
-4. **Add new days to sidebar** in `docs/.vitepress/config.ts` under the Daily Logs section.
+4. Add new days to sidebar in `docs/.vitepress/config.ts` under Daily Logs.
 
-5. **Update synthesis if significant new material** (a week or more of new days): spawn an opus agent to read all daily logs and write/update `docs/introspection/log/synthesis-<start>-<end>.md`. Tell it patterns and CLAUDE.md conventions may have evolved over the period.
+5. If a week or more of new days: spawn an opus agent to read all daily logs and write/update `docs/introspection/log/synthesis-<start>-<end>.md`. Tell it CLAUDE.md conventions may have evolved over the period.
 
-6. **Commit and push.**
+6. Commit and push.
 
 ## Session Data
 
-Claude Code deletes session `.jsonl` files based on `cleanupPeriodDays` in `~/.claude/settings.json` (default: 30 days). Currently set to `999999` to prevent deletion. Cannot use `0` (intended to mean "never clean up") due to [bug #23710](https://github.com/anthropics/claude-code/issues/23710) — `0` silently disables all transcript persistence.
+Claude Code deletes session `.jsonl` files based on `cleanupPeriodDays` in `~/.claude/settings.json` (default 30). Currently `999999` to prevent deletion. Cannot use `0` — [bug #23710](https://github.com/anthropics/claude-code/issues/23710) silently disables transcript persistence.
 
-**Backup location:** `/mnt/ssd/ai/claude-sessions/`
+Backup location: `/mnt/ssd/ai/claude-sessions/`.
 
-**Before running any session analysis:**
+Before any session analysis:
 1. Re-backup: `rsync -a --update ~/.claude/projects/ /mnt/ssd/ai/claude-sessions/projects/ && rsync -a --update ~/.claude/history.jsonl /mnt/ssd/ai/claude-sessions/history.jsonl && rsync -a --update ~/.claude/usage-data/ /mnt/ssd/ai/claude-sessions/usage-data/`
-2. Run analyses with `CLAUDE_SESSIONS_DIR=/mnt/ssd/ai/claude-sessions/projects` prefix, not from `~/.claude/`
+2. Run with `CLAUDE_SESSIONS_DIR=/mnt/ssd/ai/claude-sessions/projects` prefix, not from `~/.claude/`.
 
-**Session analysis with normalize:**
+Session analysis:
 ```bash
 CLAUDE_SESSIONS_DIR=/mnt/ssd/ai/claude-sessions/projects ~/git/rhizone/normalize/target/debug/normalize sessions stats --all-projects --limit 0 --group-by project,day --since YYYY-MM-DD --until YYYY-MM-DD --compact
 ```
 
 ## Tools
 
-**Normalize** for structural code/doc exploration:
+Normalize for structural exploration (use before reading large files):
 ```bash
 ~/git/rhizone/normalize/target/debug/normalize view <file>     # structural outline with line numbers
 ~/git/rhizone/normalize/target/debug/normalize view <dir>      # directory structure
 ```
 
-Especially useful for large files - get the structure first, then read specific sections.
-
-## Core Rules
-
-**Note things down immediately:**
-- Ecosystem changes → this file or relevant project's docs
-- Cross-project issues → TODO.md in affected repos
-- Documentation updates → do them, don't defer
-
-**Do the work properly.** When updating ecosystem docs, actually check the source repos for accuracy.
-
 ## Negative Constraints
 
-Do not:
-- Use Claude Code's auto-memory system (`~/.claude/projects/.*./memory/`) — it is unversioned, invisible to the user, and can't be diffed or backed up. Write behavioral changes directly to CLAUDE.md instead
-- Suggest project names — LLMs are historically bad at this; let the user come up with names. If the user asks for naming directions, help refine the conceptual space only — never suggest actual names
-- Announce actions ("I will now...") - just do them
-- Leave work uncommitted
-- Make ecosystem changes without checking all affected repos
-- Update docs without verifying against source
-- Use path dependencies in Cargo.toml - causes clippy to stash changes across repos
-- Use `--no-verify` - fix the issue or fix the hook
-- Assume tools are missing - check if `nix develop` is available for the right environment
+- Don't suggest project names. LLMs are bad at this. If asked for naming directions, refine the conceptual space only.
+- Don't announce actions ("I will now..."). Just do them.
+- Don't leave work uncommitted.
+- Don't defer doc updates — ecosystem changes go here or in the affected project's docs immediately.
+- Don't track cross-project issues in conversation — they go in TODO.md in the affected repo.
+- Don't make ecosystem changes without checking all affected repos.
+- Don't update docs without verifying against source.
+- Don't use path dependencies in Cargo.toml — they couple repos and break independent publishing.
+- Don't use `--no-verify`. Fix the issue or fix the hook.
+- Don't assume tools are missing — check whether `nix develop` provides them.
