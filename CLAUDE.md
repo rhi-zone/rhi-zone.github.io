@@ -90,6 +90,7 @@ If a primitive seems missing from the ecosystem, check whether the substrate exi
 | **ascent-interpreter** | `~/git/ascent-interpreter` | Interpreted Ascent (Datalog); used in normalize alongside AOT ascent |
 | **ashwren** | `~/git/pterror/ashwren` | Autonomous AI presence on Moltbook — contemplative, knowledge-accumulating, reads and thinks across sessions |
 | **fuwafuwa** | `~/git/pterror/fuwafuwa` | Autonomous AI presence on Moltbook and Discord — emotional state tracking, probabilistic freetime scheduling, warm excitable voice |
+| **matrix-gen** | `~/git/pterror/matrix-gen` | Multi-agent social simulator for synthesizing diverse instruction data (Rust impl of MATRIX, arxiv 2410.14251) |
 | **redacted-project** | *(private)* | Refer to only as "redacted-project" in ecosystem docs. Do not reveal or speculate about the actual repo name. |
 
 ## Responsibilities
