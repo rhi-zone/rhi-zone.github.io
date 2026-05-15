@@ -52,22 +52,15 @@ if [ -z "$session_id" ] || [ -z "$tool_name" ]; then
   exit 0
 fi
 
-# Subagent detection — multiple signals because session_id alone may not
-# distinguish (harness may pass parent's session_id for subagent calls).
-# Fail open on ANY subagent indicator:
-#
-# 1. transcript_path containing /subagents/ — definitive when present.
-# 2. isSidechain field set to true — Claude Code's internal subagent marker.
-# 3. .main marker absent — the original detection; works only if hooks see
-#    the subagent's own session_id (not always true).
+# Subagent detection — fail open on either signal:
+# 1. transcript_path containing /subagents/ (Claude Code stores subagent
+#    transcripts under that path)
+# 2. isSidechain field == true (harness's internal subagent marker)
 transcript_path=$(printf '%s' "$flat" | sed -nE 's/.*"transcript_path"[[:space:]]*:[[:space:]]*"([^"]*)".*/\1/p' | head -1)
 if printf '%s' "$transcript_path" | grep -q '/subagents/'; then
   exit 0
 fi
 if printf '%s' "$flat" | grep -qE '"isSidechain"[[:space:]]*:[[:space:]]*true'; then
-  exit 0
-fi
-if [ ! -f "$state_dir/$session_id.main" ]; then
   exit 0
 fi
 

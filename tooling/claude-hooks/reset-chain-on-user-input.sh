@@ -17,7 +17,3 @@ session_id=$(printf '%s' "$flat" | sed -nE 's/.*"session_id"[[:space:]]*:[[:spac
 state_dir="${CLAUDE_HOOK_STATE_DIR:-/tmp/claude-state}"
 mkdir -p "$state_dir"
 echo 0 > "$state_dir/$session_id.counter"
-# Mark this session as "main" — UserPromptSubmit fires only for main
-# sessions, so the marker's existence is the signal the PreToolUse hook
-# uses to distinguish main from subagent.
-touch "$state_dir/$session_id.main"
