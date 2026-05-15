@@ -49,11 +49,17 @@ fi
 
 counter_file="$state_dir/$session_id.counter"
 
-# Reset conditions: Agent (delegation) or `git commit` (durable work).
-if [ "$tool_name" = "Agent" ]; then
-  echo 0 > "$counter_file"
-  exit 0
-fi
+# Reset conditions: delegation-shape tools (Agent, Plan, Task, TaskCreate)
+# or `git commit` (durable work). The Claude Code UI sometimes renders an
+# Agent call with subagent_type="Plan" as `Plan(...)` — depending on the
+# harness version the underlying tool name may be "Agent" or "Plan", so
+# match both. Same for Task / TaskCreate variants.
+case "$tool_name" in
+  Agent|Plan|Task|TaskCreate)
+    echo 0 > "$counter_file"
+    exit 0
+    ;;
+esac
 
 if [ "$tool_name" = "Bash" ]; then
   # Strip quoted strings from the command before pattern-checking, so
