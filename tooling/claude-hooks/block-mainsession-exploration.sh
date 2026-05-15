@@ -28,6 +28,22 @@ set -euo pipefail
 input=$(cat)
 flat=$(printf '%s' "$input" | tr '\n' ' ')
 
+state_dir="${CLAUDE_HOOK_STATE_DIR:-/tmp/claude-state}"
+mkdir -p "$state_dir"
+
+# Debug log: every hook invocation appended with timestamp + full input.
+# Lets us inspect what fields the harness actually provides for main vs
+# subagent calls so we can fix detection. Bounded growth: trim to last
+# 2000 lines on each invocation.
+debug_log="$state_dir/hook-input.debug.log"
+{
+  printf '\n=== %s ===\n' "$(date -Iseconds 2>/dev/null || date)"
+  printf '%s\n' "$input"
+} >> "$debug_log" 2>/dev/null || true
+if [ -f "$debug_log" ] && [ "$(wc -l < "$debug_log" 2>/dev/null || echo 0)" -gt 2000 ]; then
+  tail -1500 "$debug_log" > "$debug_log.tmp" && mv "$debug_log.tmp" "$debug_log"
+fi
+
 session_id=$(printf '%s' "$flat" | sed -nE 's/.*"session_id"[[:space:]]*:[[:space:]]*"([^"]*)".*/\1/p' | head -1)
 tool_name=$(printf '%s' "$flat" | sed -nE 's/.*"tool_name"[[:space:]]*:[[:space:]]*"([^"]*)".*/\1/p' | head -1)
 
@@ -36,13 +52,21 @@ if [ -z "$session_id" ] || [ -z "$tool_name" ]; then
   exit 0
 fi
 
-state_dir="${CLAUDE_HOOK_STATE_DIR:-/tmp/claude-state}"
-mkdir -p "$state_dir"
-
-# Main-session detection: UserPromptSubmit fires only for the main session
-# and creates the .main marker. Subagents receive task prompts from their
-# parent (not user input), so they never get a .main marker. If the marker
-# is absent, this is a subagent — exempt from the threshold.
+# Subagent detection — multiple signals because session_id alone may not
+# distinguish (harness may pass parent's session_id for subagent calls).
+# Fail open on ANY subagent indicator:
+#
+# 1. transcript_path containing /subagents/ — definitive when present.
+# 2. isSidechain field set to true — Claude Code's internal subagent marker.
+# 3. .main marker absent — the original detection; works only if hooks see
+#    the subagent's own session_id (not always true).
+transcript_path=$(printf '%s' "$flat" | sed -nE 's/.*"transcript_path"[[:space:]]*:[[:space:]]*"([^"]*)".*/\1/p' | head -1)
+if printf '%s' "$transcript_path" | grep -q '/subagents/'; then
+  exit 0
+fi
+if printf '%s' "$flat" | grep -qE '"isSidechain"[[:space:]]*:[[:space:]]*true'; then
+  exit 0
+fi
 if [ ! -f "$state_dir/$session_id.main" ]; then
   exit 0
 fi
