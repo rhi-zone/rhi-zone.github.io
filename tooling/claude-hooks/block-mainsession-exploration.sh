@@ -98,7 +98,12 @@ counter=$(cat "$counter_file" 2>/dev/null || echo 0)
 counter=$((counter + 1))
 echo "$counter" > "$counter_file"
 
-threshold="${CLAUDE_MAINSESSION_CHAIN_THRESHOLD:-2}"
+# Default 999 (effectively disabled) until subagent detection is verified.
+# The current detection (transcript_path + isSidechain) hasn't been
+# confirmed against real hook input. Until /tmp/claude-state/hook-input.debug.log
+# is inspected and we know which field identifies subagents, this stays
+# permissive so legitimate subagent work isn't blocked.
+threshold="${CLAUDE_MAINSESSION_CHAIN_THRESHOLD:-999}"
 if [ "$counter" -gt "$threshold" ]; then
   reason=$(printf 'Refused: %d consecutive tool calls in the main session without a reset (threshold: %d). Long uncommitted chains are the failure pattern this hook catches — chained Reads/Greps are exploration in disguise, repeated Edits to the same file are bandaiding, repeated Bashes inspecting output are investigation. All three poison main-session context. The counter resets on any of: (1) a successful `git commit` (durable work shipped), (2) an `Agent` tool call (exploration delegated to a subagent whose context stays separate), (3) the next user prompt (new task, fresh budget). Pick one. If the work you are doing genuinely needs more than %d uncommitted calls, spawn a subagent to do it; the subagent has its own threshold-free context, returns a distilled summary, and you act on the summary in a single Edit/Write.' "$counter" "$threshold" "$threshold")
   printf '{"hookSpecificOutput":{"hookEventName":"PreToolUse","permissionDecision":"deny","permissionDecisionReason":"%s"}}\n' "$reason"
