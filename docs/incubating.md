@@ -86,6 +86,57 @@ See [identity axes](./worldbuilding/identity-axes.md) for the taxonomy of miside
 
 ---
 
+## The Keeper's POV (worldbuilding — scale asymmetry, terrarium framing)
+
+Premise: humans keep a terrarium — glass box, some plants, a lizard. *They* keep a one-billion-cubic-parsec terrarium. Or an entire universe, simulated, no big deal. The asymmetry isn't power; it's that what we consider awe-inspiring is their casual hobby equipment.
+
+POV is the keeper. Not a god, not a cosmic horror — a hobbyist. Real life, real interiority, real relationships. The reader is inside that life. We are inside the terrarium.
+
+**The register, not the reveal, is the whole craft problem:**
+
+1. The POV never uses "small" or "tiny" about anything at our scale. They use words appropriate to *their* scale; the math is left to the reader.
+2. The POV has full interiority — interests, relationships, problems, taste. The reader likes them.
+3. No scene is *about* the terrarium's contents. We appear at most as weather — a noun in a clause about something else, never returned to.
+4. No zoom-out. No other character pointing out what the keeper is. No reveal sentence. The reader assembles the geometry from how scale-words are used.
+5. The POV is not punished by the narrative and does not learn. The story has whatever its actual arc is — a death in the family, a promotion, a quiet evening. We are not part of the arc. That's the point.
+
+**Variants of who the keeper is.** The keeper is a *person*, and people relate to their possessions / pets / projects in every way people relate to things — benevolent, neglectful, cruel, ambivalent, instrumental, performative. The premise doesn't require the POV be likeable; it requires the POV be *real*. Cruelty rendered with full interiority lands harder than cruelty rendered as villainy.
+
+*Affection-adjacent:*
+- **The retiree.** Old hobbyist tending the garden patiently on a Sunday afternoon. Tenderness plus oblivion.
+- **The grieving.** Detailed grief. Expresses at our scale as catastrophe — downstream of what they're not eating, not maintaining. The grief is not about us.
+- **The professional.** Engineer, surveyor, technician — competent, follows procedure. Signs off the form and goes home.
+
+*Indifference:*
+- **The neglectful.** Forgot to feed it for weeks. "Oh no, everything died." Gets another one.
+- **The lost-interest.** Used to care a lot. Doesn't anymore. The terrarium persists by inertia. Will be cleared out eventually.
+- **The hoarder.** Too many terrariums to maintain. Some thrive; most don't. Means well in the abstract; the structural reality is mass death.
+- **At the bottom of their own hierarchy.** Bullied, ground down by *their* social system. Kicking pebbles after a bad meeting; the pebbles are extinction events.
+
+*Active, non-benevolent:*
+- **The mad scientist.** Runs experiments. The contents experience this as plagues, climate excursions, mysterious extinctions. Has a thesis. Is excited about it.
+- **The power-tripper.** The point isn't suffering; the point is *having power over*. May be gentle. May not. The kick is the relation.
+- **The cruel child.** Magnifying glass on ants. Showing off to other kids. Will grow up and forget. Not Cosmic Evil — a kid who hasn't learned empathy yet, with the rest of their life ahead of them.
+- **The breeder.** Cultivating contents for resale / stock / food. Instrumental relationship. Units are fungible.
+- **The performative.** Keeps the terrarium for status / aesthetic. Contents are props for self-presentation. May or may not actually care.
+- **The destroyer.** Builds environments to watch them fail. The failure is the entertainment. (People do this with sims, ant farms, SimCity. Mundane sadism, not theatrical evil.)
+
+**Three asymmetry framings, three different stories:**
+
+| Framing | Relationship | Story shape |
+|---|---|---|
+| Rounding error | below their noise floor; never *decided* about | absence; we die in ways no one planned |
+| Collateral damage | noticed, unimportant; ants under the bulldozer | tragedy; they'd stop if they cared |
+| Toys (terrarium) | noticed *and tended*, no peer standing | banal horror; attention without standing |
+
+The terrarium framing is the most fertile because it preserves *fondness*. The keeper can love their terrarium. The lizard doesn't get peer standing from being loved.
+
+Related: [identity axes](./worldbuilding/identity-axes.md) — commits *scale + role* for the POV (POV is keeper-tier, reader assumes peer-tier). Inverse of the [cosmic horror](#humans-as-cosmic-horror-worldbuilding--sci-fi-space-opera) note's framing: there humans are the threat from outside; here humans are inside someone's hobby.
+
+Prior art touchpoints: Lem's *Solaris* (but Lem editorializes); *Hitchhiker's Guide* (but plays for comedy); cosmic indifference more broadly (Lovecraft and descendants — but those flex the cosmic, which is the wrong move). The terrarium-keeper variant played mundane, deadpan, with a sympathetic POV, is largely open.
+
+---
+
 ## Programmable LLM Interaction Substrate (ST/Talemate/Claude Code replacement)
 
 A platform generic enough to replace SillyTavern, Talemate, and Claude Code — not by being all three, but by being the substrate all three are programs on top of.
