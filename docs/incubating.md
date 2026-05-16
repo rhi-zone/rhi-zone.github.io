@@ -218,26 +218,96 @@ The direction-axis matters for what kind of story this is:
 
 **The exit-ramp problem.** Twilight is unusual in giving the lower-tier parent an exit ramp (ascension as rescue at the critical moment). Most prior art kills the lower tier outright. The *decision-point* — does the higher elevate the lover at the crisis, or watch them die — is a strong dyadic scene that the genre rarely stages explicitly.
 
-**Why this mechanism is structurally useful:**
+### Downstream structural consequences
 
-1. **It gives the higher tier a *need*.** Indifference and dominance are emotionally one-note. Sterile-by-ascension introduces longing — an ache the lower tier can satisfy. Reframes "why do gods notice humans?" from power-fantasy to recognizable parental grief at wrong scale.
+1. **Lesser beings as a *resource*, specifically.** Not prey, not pets — the only path to continuation. The relationship is *recruitment* / *surrogacy* / *the one who can survive the act we cannot*. Cf. the keeper note: the terrarium isn't just a hobby; it's the species' continuation mechanism.
+2. **Hybrid offspring grief.** Children of higher-with-lower are not fully either. Somewhere between. The higher's progeny is always a diminished line; they are breeding lesser versions of themselves and they know it. (Renesmee's complicated status; the half-vampires of Twilight's South American folklore; Wilbur Whateley as monstrous failure.)
+3. **The recursion problem.** Higher-tier population can only decrease (deaths) or be replenished from below. The whole tier is in slow demographic decline unless the lower tier keeps producing candidates. Frames care for the lower tier as *self-interest*, even when it manifests as tenderness.
 
-2. **It makes lesser beings a *resource*, specifically.** Not prey, not pets — the only path to new ascended. The relationship is *recruitment*. Cf. the keeper note: the terrarium isn't just a hobby; it's the species' continuation mechanism. Candidates occasionally rise.
+### Compositions with existing notes
 
-3. **Hybrid offspring grief.** Children of ascended with lesser beings are *not* ascended. Somewhere between. The ascended's progeny is always a diminished line. They are breeding lesser versions of themselves and they know it.
-
-4. **The recursion problem.** Population of ascended can only decrease (deaths) or be replenished by new ascensions from below. The whole tier is in slow demographic decline unless the lower tier keeps producing candidates. This frames care for the lower tier as *self-interest*, even when it manifests as tenderness.
-
-**Compositions with existing notes:**
-
-- **With [The Keeper's POV](#the-keepers-pov-worldbuilding--scale-asymmetry-terrarium-framing):** the keeper's reasons for tending the terrarium include "occasionally one ascends, and this is how my tier perpetuates." Tenderness with self-interest underneath; neither cancels the other. The keeper's affection for a specific lower-tier individual who *might* be a candidate has its own complicated register.
+- **With [The Keeper's POV](#the-keepers-pov-worldbuilding--scale-asymmetry-terrarium-framing):** the keeper tends the terrarium partly because "occasionally one ascends, and this is how my tier perpetuates." Tenderness with self-interest underneath; neither cancels the other. If the mechanism is lethal-cross-tier, the keeper is the one with the power to elevate-at-crisis — or not.
 - **With [Power-Asymmetric Romance](#power-asymmetric-romance-worldbuilding--immortalmortal-cosmichuman-etc):**
-  - Ascended-mortal romance where the ascended *desires a child they cannot have* via their own kind. Mortal can give them this. Mortal may or may not know that's the asymmetry.
-  - Both partners ascended, both sterile, both grieving — relationship is partnership in non-continuation.
-  - Mortal romance where one partner ascends mid-relationship and only afterward discovers the cost. Too late to undo.
-- **With [Humans as Cosmic Horror](#humans-as-cosmic-horror-worldbuilding--sci-fi-space-opera):** if humans are the higher tier and *they're* the sterile-ascended, then their relation to other species is recruitment / surrogacy / harvest. The misanthropy holds; the engine is parental desperation, not malice.
+  - Higher *desires a child they cannot have* via their own kind. Mortal can give them this. Mortal may or may not know that's the asymmetry.
+  - Both partners higher, both sterile, both grieving — relationship as partnership in non-continuation.
+  - Mortal romance where one partner ascends mid-relationship and only afterward discovers the cost.
+  - **The decision-point.** Lethal-cross-tier dyad: *will you elevate me when the time comes, or will you watch me die?* Scene the genre rarely stages explicitly. Both parties have to live with the answer (or not).
+  - **Higher-tier-fatal variant.** *I will cease to be what I am so that something of us continues.* Different shape from "love made me human" — the cosmic gives up their nature not as sacrifice-for-the-mortal but as sacrifice-for-the-child.
+- **With [Humans as Cosmic Horror](#humans-as-cosmic-horror-worldbuilding--sci-fi-space-opera):** if humans are the higher tier and *they* have the reproductive gap, their relation to other species is recruitment / surrogacy / harvest. The misanthropy holds; the engine is parental desperation, not malice. In the lower-fatal lethal-cross-tier variant, humans destroy the species they mate with — particularly grim cosmic horror.
 
 Related: [identity axes](./worldbuilding/identity-axes.md) — *continuity + origin* primarily.
+
+---
+
+## Non-Euclidean Postmortem (worldbuilding — liminal-as-substrate, geometry-as-residue)
+
+Sibling to postmortem. Postmortem subtracts *people* from a real world; this subtracts *geometric closure* from an almost-real world. Different absence, same emotional channel — reader-as-only-experiencer of built-for-humans-now-without-humans space, with the space itself doing more of the affective work.
+
+### Tonal registers
+
+Three registers exist in prior art, with different affect:
+
+| Register | Examples | Affect | Inhabitants |
+|---|---|---|---|
+| Contemplative | Antechamber, Manifold Garden | wonder, stillness | none; no narrative of absence |
+| Horror | backrooms, Marble Hornets | dread, claustrophobia | none, or hostile entities |
+| Mixed-domestic | Miside, House of Leaves | cozy ↔ void in same space | bound local "people," layered traces of past visitors |
+
+Postmortem belongs naturally on the *contemplative* and *mixed-domestic* ends. The horror register is well-mined; the other two are where the postmortem-adjacency lives.
+
+### The unifying frame
+
+**Non-Euclidean as a property of space itself**, not as the property of spaces-gone-wrong. The world doesn't *break* — it just doesn't owe you closure. Postmortem maps onto this cleanly: geometric closure was something humans implicitly maintained by being there to observe / pace / map. Without observers, space relaxes into what it always was. Liminal is what postmortem looks like after long enough.
+
+### Mechanics
+
+- **Drift.** Specific named real-world places (your high school, the Westfield in Annapolis, the apartment you grew up in). The reader visits repeatedly. Each visit, the place has drifted further from Euclidean — not into hostility, into *different*. The food court has gained floors. The corridor branches that didn't branch last time. Reader is the only continuity; space is doing its thing.
+- **Personal drift.** Variant: the spaces that drift are *the reader's* spaces; ones the reader was distant from drift more than ones they attended to. Geometry tracks attention. A measurement of which absences were the reader's own.
+- **Recursive architecture.** Postmortem-empty house. Every room contains the house at some scale. Drawers open into kitchens. The attic, entered, is the whole house viewed from above. Not glitch — *architecture*. Someone built this on purpose. They're gone. The recursion remains.
+- **Tessellation.** Manifold-Garden-domestic. Infinite tessellated apartment building, postmortem-empty. Every apartment 4B is the same 4B. Walk to the lobby in any direction; same lobby. No "outside," only the next tile.
+- **Maintenance hatch.** Normal-Euclidean home, postmortem-empty, with one door that doesn't behave. Behind it, infinite. Mostly the piece is the home — postmortem-textured. Occasionally the reader opens the door. Looks. Closes it. The horror move is "gets pulled in"; this is *the door is just like that*.
+- **Fixed-by-observation.** Pre-postmortem, rooms had specific volumes and contents — held in place by readers. In postmortem absence, rooms have relaxed into superposition. The reader (the only one) walks into a room and it *settles* for the duration of being observed. Walk out, walk back in: different room. The library was always like this; no one is fixing it anymore.
+- **Layered traces.** Miside-adjacent. Many real visitors used to be here; they're all gone; their artifacts persist — saves, recordings, names scratched on walls, half-finished tasks. Current reader is the latest in a sequence. Space remembers the sequence.
+
+### Asymmetric connections
+
+A specific non-Euclidean property worth its own treatment: **getting somewhere doesn't imply being able to retrace.** Space is one of the few graphs we expect to be symmetric by default; most other graphs (time, causality, memory, hyperlinks, authority, social bonds) are asymmetric and we don't find that strange. Asymmetric *space* defamiliarizes the assumption.
+
+Varieties:
+
+- **One-way.** A→B exists; B→A doesn't. The door from the other side is a wall.
+- **Approach-dependent.** A door is a door from one side, a wall from the other. The wall doesn't acknowledge having been a door.
+- **Asymmetric distance / time.** A→B is ten steps; B→A is fifty. Or one. Or different every time.
+- **Non-composing return.** A→B exists, B→A also exists, but going A→B→A doesn't land you at A — it lands at C. Return is a *different journey*, not the inverse of going.
+- **Topology mismatch.** Corridor branches three ways forward, is a single straight line back (or vice versa).
+- **Intent-keyed.** Walking through the doorway *intending kitchen* lands you in the kitchen. Same doorway, *intending bedroom*, lands you in the bedroom. Same physical aperture, multiple connections, selected by mind.
+- **Per-traveler.** Some entities can go A→B, others only B→A. Movement permissions are properties of the relationship between traveler and space, not of the space alone.
+- **One-shot.** A→B is open. Use it. Gone. You're in B.
+
+Both registers work. The horror register uses asymmetric connection as *trap* — you went somewhere, can't go back, panic. The contemplative register makes it *normal* — inhabitants have routines that account for it. "I'm going to the store" is one well-known route; the way back is a different well-known route. *Return is its own journey.*
+
+**Postmortem-specific synthesis: asymmetry as archaeology.** The reader-observer can move freely (no narrative constraint binds them). The architecture, however, bears the marks of routines that only worked one way:
+
+- Front doors with knobs on one side only.
+- Hallways worn smooth in one direction, rough in the other.
+- Furniture arranged for traffic that flowed only one way.
+- Mirror-image houses across the street — one for the morning commute, one for the evening return.
+- Roads with no opposite-direction lane; signs only legible from one direction; staircases worn down in tread but not in riser.
+
+The asymmetry isn't experienced; it's *read off* the world. Quiet, postmortem-textured, no horror. The absent inhabitants become more specific — not humans-in-general, but humans who had to plan their routes asymmetrically. The reader walks unbound through a world built for people who weren't.
+
+### Prior art
+
+- **Contemplative**: Antechamber (Bruce, 2013), Manifold Garden (Chyr, 2019).
+- **Horror**: backrooms genre broadly, SCP-3008 (IKEA), Marble Hornets, *House of Leaves* (Danielewski).
+- **Mixed-domestic**: Miside (2024), Control (Oldest House), Stanley Parable, *Piranesi* (Susanna Clarke — possibly the strongest prose-prior-art).
+
+### Compositions with existing notes
+
+- **With postmortem**: this is essentially postmortem's later acts. Phase, not separate project. Could be staged as the same world after a longer interval, with the geometric relaxation as a measure of elapsed unobserved-time.
+- **With [The Keeper's POV](#the-keepers-pov-worldbuilding--scale-asymmetry-terrarium-framing)**: the keeper's space, viewed from inside, may be non-Euclidean as a routine matter — they don't think of it that way; it's just how their home is built. Lower-tier visitors find it disorienting; the keeper finds Euclidean spaces oddly cramped.
+
+Related: [identity axes](./worldbuilding/identity-axes.md) — *scale + embodiment + situation*.
 
 ---
 
