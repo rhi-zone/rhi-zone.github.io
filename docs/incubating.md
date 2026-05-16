@@ -591,6 +591,25 @@ Which critique applies depends on the target:
 | Doctrinal apparatus of historical/modern institutions | Substantial. Four-figure years to notice what the doctrine was doing for them; they kept it anyway. |
 | The structure | Structural. Same shape that makes Hell-doctrine a control surface makes other things control surfaces — anywhere a framework promises infinite consequences for finite acts. |
 
+**Sharpening: it's not one set of authors and one institution. It's a cascade.**
+
+The Christian Hell-and-cosmology most people walk around with is the accretion of *centuries of fanfic by named traceable authors*, each with their own motives, with the institution at every stage curating which bits to preserve. The "original authors were innocent" framing doesn't capture this — many of the named authors had stakes, and the canonicalization process was selection-by-usefulness all the way through.
+
+Some load-bearing contributors:
+
+- **John of Patmos (Revelation, ~95 CE).** Late text, visionary fanfic. Most of "end times" — four horsemen, beast, lake of fire, new Jerusalem — comes from this one author and got canonized.
+- **1 Enoch (~300–100 BCE).** Extra-canonical (not in Protestant Bible). Source of the Watchers, named angels as a *set* (Gabriel, Michael, Raphael, Uriel), much of fallen-angel mythology. Shapes everyone's mental model anyway.
+- **Augustine (4th–5th century).** Invented huge chunks of original-sin doctrine. The specific concept that humans inherit Adam's guilt biologically — *his* contribution.
+- **Pseudo-Dionysius the Areopagite (6th century).** Wrote *under a fake biblical-era name* to give his angel-hierarchy fanfic the authority of being older than it was. Wholesale RPF-by-attribution.
+- **Aquinas (13th century).** Systematized the nine choirs of angels (seraphim, cherubim, thrones, dominions, virtues, powers, principalities, archangels, angels) — synthesized from Pseudo-Dionysius into the system that's now received tradition.
+- **Dante (14th century).** Self-insert RPF with his real-life crush (Beatrice) as celestial guide, his literary hero (Virgil) as underworld guide, his political enemies *by name* in Hell with tortures he personally designed. Invented the nine circles, the geography, ironic *contrapasso* punishments, Lucifer frozen in ice. Almost none of this is biblical. He invented the *building*. Modern people picturing Hell are picturing Dante's vision and don't know it.
+- **Milton (17th century, *Paradise Lost*).** Source of "Lucifer as sympathetic charismatic rebel hero." Not in Genesis. *He* invented that reading. Modern Lucifer-the-rebel comes from a Puritan poet's epic fanfic.
+- **Hieronymus Bosch and medieval art generally.** Visual fanfic. The bestiary of demons, the geography of torment, the iconography — painters filling cathedral walls. Shapes what people *see* when they think of Hell.
+
+So: *no one designed it. Everyone built it.* The institution didn't write any of it; it preserved the bits that worked. Many authors, many centuries, many personal motives, no central conspiracy — and yet the cumulative product is a perfectly serviceable control apparatus, because *that's what gets preserved.* The selection pressure does the work the conspiracy would have done.
+
+This is the iron law of institutions playing out across a thousand-plus years of crowdsourced cosmological fanfic. Hell-as-we-know-it is *crowdsourced over millennia, then institutionally curated.* Each individual author was innocent of the next stage. The system is what they accidentally built together, then a curator-class kept.
+
 ### Dual-applicability is the point
 
 The Eden re-read works as in-universe worldbuilding *and* as out-of-universe critique because the worldbuilding is dramatizing a real structure. You can't build a fictional control apparatus that doesn't apply to real ones; the shape is the shape. Good worldbuilding lets readers see a shape clearly via the safety of fiction, and then carry the recognition out into the world.
