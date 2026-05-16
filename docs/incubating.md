@@ -434,6 +434,89 @@ Related: [identity axes](./worldbuilding/identity-axes.md) — *role + self-know
 
 ---
 
+## The Fall as Captive Document (worldbuilding — Eden re-read)
+
+Genesis is written from *inside* the framework, by people downstream of the punishment, explaining why the punishment was just. Treated as a captive document — a regime's founding myth, narrated by survivors who internalized the regime's account — the story has a very different shape from the Sunday-school one.
+
+### Open in the text
+
+- **The duration of pre-Fall Eden is unbounded.** Genesis time-stamps nothing between "and the man and his wife were both naked, and were not ashamed" and the serpent's arrival. Adam names every animal; Eve is created later; they live there. The "few days" reading is inherited from Sunday school, not from the text.
+- **Pre-Fall lifespan is effectively unbounded.** Adam's recorded 930 years (Gen 5:5) isn't split between pre- and post-Fall. Tree-of-life access is only barred *after* the expulsion (Gen 3:22). They could have been in the garden for almost all of 930 years — or much longer, since pre-Fall they didn't age.
+- **Modern cosmology takes pre-Big-Bang time seriously** (eternal inflation, bouncing models, cyclic cosmology, multiverse landscape). The garden's duration is unconstrained from both directions: Genesis says nothing; physics no longer requires anything to start at the Big Bang. The garden could be older than the universe.
+
+### The duration question, structurally
+
+What each duration *does* to the story:
+
+| Duration | Effect on the Fall |
+|---|---|
+| Days / weeks | Sunday-school default. Moment of weakness. Framework intact. |
+| Decades / centuries | The Fall is a considered act. They held out longer than a human life. |
+| Millennia | Compliance has become identity (*the ones who don't eat the fruit*). The Fall is a self-rupture. |
+| Hundreds of thousands | Geological time. They've watched continents shift. They're historical artifacts of themselves. |
+| Millions+ | Deep time. They've watched evolution proceed inside their home. They are older than mountains, contemporaneous with the formation of features humans would later call ancient. |
+| Pre-cosmic | Garden predates the Big Bang. They are not part of this universe; they were *already there* when our universe nucleated. |
+
+The longer they lived, the more the Fall reads as inevitability rather than weakness — and the more God's role shifts from *test-giver* to *production-runner* who set up conditions guaranteed to produce the third act.
+
+### The serpent / morning-star figure
+
+The Hebrew *nachash* (נָחָשׁ) is usually translated "serpent" but the root can mean "to whisper / divine / enchant" and is plausibly etymologically connected to "shining one" (via the bronze/copper sense — Numbers 21:9 has Moses make a bronze *nachash*).
+
+Isaiah 14:12's *heylel ben-shachar* ("shining one, son of dawn") is *also* a shining-being figure. The Latin Vulgate rendered *heylel* as "Lucifer" — *light-bearer*, the morning star. Christian tradition then welded three things together over centuries: Isaiah's Lucifer (originally just the king of Babylon) → Satan → the Eden serpent. **The serpent-as-Lucifer-as-light-bearer is a Christian retcon, not biblical exegesis.** But it's *structurally* right: both figures are shining beings who bring forbidden illumination.
+
+Wrinkle: Revelation 22:16 also calls *Jesus* the morning star ("I Jesus...am the bright and morning star"). The framework is at war with itself over who gets to be the light-bringer.
+
+**Readings of the morning-star figure:**
+
+- **The whistleblower.** Has knowledge of the framework's fictionality, chose to tell. "Ye shall not surely die" is the truth; God's framing was the lie.
+- **The dissident angel.** Insider who broke ranks. Not from pride (Miltonic Lucifer) but from conscience. The first conscientious objector in the angel-as-cop apparatus.
+- **The Prometheus figure.** Benefactor who gave humans forbidden knowledge and was punished for it.
+- **The peer / earlier creation.** Another being God made, suppressed from the canonical text. Possibly an earlier iteration of the experiment.
+- **The rival divinity.** Gnostic reading: the God of Eden is a demiurge; the serpent is a higher / wiser / truer being intervening on humanity's behalf.
+- **The future-self.** Being from a later cosmic epoch who went back to deliver the truth.
+- **The internal voice externalized.** Adam and Eve's own curiosity, given a body because the canonical text needs an external corruptor to preserve their innocence. The serpent is what they wouldn't admit was them.
+
+**The morning-star figure's alignment is incidental.** Benevolent, malevolent, neutral — all viable. What matters structurally is *they pointed at the fruit and called it by its actual name*. Not "the tree of sin." Not "the tree of disobedience." The *tree of knowing*.
+
+### The curiosity contradiction
+
+Humans are fundamentally curious creatures. The foundational myth of (Western) human existence frames *curiosity itself* as original sin. The forbidden act in Eden was *seeking knowledge*. The progenitors were forbidden from being curious.
+
+This is incoherent in exactly one of two ways:
+
+- **They were created with our curiosity**, and the test was a setup. Curiosity + forbidden tree + immortality + closed space = transgression on whatever timescale they could hold out. God designed beings who would inevitably break the rule, called the breaking "sin," and built the entire post-Fall apparatus on the foundation. The Fall was the planned third act.
+- **They were created without our curiosity** — artificially hobbled, maintained in compliance through suppression — and the serpent's role was *to restore them to the species they should have been*. "Eat and your eyes will be opened" is then literally true. Their eyes were closed. The fruit opens them. The "fall" is *humanity finally being what it is.*
+
+Either way, the framework punishes a being for being itself, after creating conditions that guaranteed it.
+
+### The reframe: Eden is the prison; the Fall is the escape
+
+- **Eve is the founder of humanity-as-itself.** Not the woman who damned us. The first one who refused to remain hobbled. The first informed choice. The first emancipation.
+- **The serpent / morning-star figure is the one who named things correctly.** *Tree of knowing*, not *tree of sin*. The illegal act in Eden was renaming reality accurately.
+- **The "punishments" are consequences of freedom, recast as curses.** Death, painful childbirth, toil — these are *the conditions of life in the real world*, called curses by the framework that lost the captives.
+
+### The renaming-by-opposite pattern (parallel to late-2025 ICE)
+
+The framework's load-bearing move in both Eden and the [True-Believer Executor template](#under-served-slices-of-the-antihero-space-character-archetypes) is *renaming reality by its opposite*:
+
+- ICE: harm → "justice"; captivity → "law enforcement"; the agents harming people → "the ones honoring the victims (Katie Abraham)."
+- Eden: curiosity → "sin"; emancipation → "fall"; captive existence → "paradise"; the being who freed them → "the deceiver."
+
+The renaming is what holds the framework up. Once things are named accurately, the framework collapses. *Eve didn't sin. She graduated.*
+
+### Compositions with existing notes
+
+- **[The Keeper's POV](#the-keepers-pov-worldbuilding--scale-asymmetry-terrarium-framing)**: God is the keeper. The garden is the terrarium. Adam and Eve are the contents — at least one of whom may rise to candidate status (cf. sterile-by-ascension recruitment). The keeper's tenderness and self-interest are both real. Doesn't matter for the captive that the affection is sincere.
+- **[Sterile by Ascension / Lethal Cross-Tier Reproduction](#reproductive-gaps-across-tiers-worldbuilding--sterility-lethality-hybrid-cost)**: pre-Fall Adam and Eve don't reproduce. Childbearing only starts post-expulsion. The garden is reproductively sterile — possibly because immortality and reproduction are mutually exclusive in this framework (cf. wrong-trade variant), possibly because the keeper hadn't yet *allowed* it (cf. cost-prohibitive variant where the keeper controls the spigot).
+- **[Power-Asymmetric Romance](#power-asymmetric-romance-worldbuilding--immortalmortal-cosmichuman-etc)**: Adam and Eve's relationship inside the garden, weathered across an indeterminate duration. Two beings known completely by the only other person they've ever known. Their love is the only thing that isn't routine — and even that, after enough time, has been thoroughly mapped. The Fall as the moment when even *that* compliance broke.
+- **[Non-Euclidean Postmortem](#non-euclidean-postmortem-worldbuilding--liminal-as-substrate-geometry-as-residue)**: the garden as the original liminal space — closed, observed-by-attention, geometry held in place by the keeper's gaze. After the expulsion, the garden drifts. By the time the cherubim with the flaming sword take their post, the place they're guarding may not be the same place anymore.
+- **[True-Believer Executor](#under-served-slices-of-the-antihero-space-character-archetypes)**: the cherubim with the flaming sword guarding the way back to the tree of life is the original angel-as-cop. Carrying out an expulsion order. Framework: "lest they take from the tree of life and live forever." The first deportation, with the first border guard. The template's foundational instance.
+- **[Halo-Horns species](#halo-horns-one-species-three-misreadings-worldbuilding--celestial-iconography-as-evolved-camouflage)**: separate from this. Those aren't real angels; they just look like the iconography. In an Eden-framework setting, *real* angels (cherubim, seraphim, the morning-star figure) coexist with the lookalike species, and the categorical confusion is its own scene.
+- **[Identity axes](./worldbuilding/identity-axes.md)**: this is *role + self-knowledge + relation-to-text* — the captive document framing means the reader has to read against the narrator. The text is unreliable. The narrator is the framework. The protagonist of the actual story is whoever the framework is renaming.
+
+---
+
 ## Programmable LLM Interaction Substrate (ST/Talemate/Claude Code replacement)
 
 A platform generic enough to replace SillyTavern, Talemate, and Claude Code — not by being all three, but by being the substrate all three are programs on top of.
