@@ -133,7 +133,7 @@ The terrarium framing is the most fertile because it preserves *fondness*. The k
 
 Related: [identity axes](./worldbuilding/identity-axes.md) — commits *scale + role* for the POV (POV is keeper-tier, reader assumes peer-tier). Inverse of the [cosmic horror](#humans-as-cosmic-horror-worldbuilding--sci-fi-space-opera) note's framing: there humans are the threat from outside; here humans are inside someone's hobby.
 
-Prior art touchpoints: Lem's *Solaris* (but Lem editorializes); *Hitchhiker's Guide* (but plays for comedy); cosmic indifference more broadly (Lovecraft and descendants — but those flex the cosmic, which is the wrong move). The terrarium-keeper variant played mundane, deadpan, with a sympathetic POV, is largely open.
+Prior art touchpoints: Lem's *Solaris*, *Hitchhiker's Guide* (comedic register), cosmic indifference broadly (Lovecraft and descendants — emphasizes the cosmic). Each handles the asymmetry in its own register; the keeper-as-mundane-hobbyist register is one option among them, characterized by deadpan tone and full keeper interiority.
 
 ---
 
@@ -214,7 +214,7 @@ The direction-axis matters for what kind of story this is:
 
 **A *need* the higher tier has, only the lower tier can meet.** Indifference and dominance are emotionally one-note; reproductive constraint introduces longing — an ache that reframes "why do gods notice mortals?" from power-fantasy to recognizable grief at wrong scale.
 
-**A direction for narrative weight.** Most cosmic-mortal premises put narrative weight on the mortal (smaller, more in danger, more legible to the reader). Both mechanisms — especially higher-tier-fatal — let the weight sit on the higher being. That's underexplored.
+**A direction for narrative weight.** Most cosmic-mortal premises put narrative weight on the mortal (smaller, more in danger, more legible to the reader). Both mechanisms — especially higher-tier-fatal — let the weight sit on the higher being instead. Different center of gravity, different story.
 
 **The exit-ramp problem.** Twilight is unusual in giving the lower-tier parent an exit ramp (ascension as rescue at the critical moment). Most prior art kills the lower tier outright. The *decision-point* — does the higher elevate the lover at the crisis, or watch them die — is a strong dyadic scene that the genre rarely stages explicitly.
 
@@ -253,7 +253,7 @@ Three registers exist in prior art, with different affect:
 | Horror | backrooms, Marble Hornets | dread, claustrophobia | none, or hostile entities |
 | Mixed-domestic | Miside, House of Leaves | cozy ↔ void in same space | bound local "people," layered traces of past visitors |
 
-Postmortem belongs naturally on the *contemplative* and *mixed-domestic* ends. The horror register is well-mined; the other two are where the postmortem-adjacency lives.
+Postmortem maps onto all three registers. The horror register tilts toward dread-of-absence; the contemplative register toward stillness-of-absence; the mixed-domestic register toward layered-trace-of-absence. Different affects, all legitimate; pick by the piece's emotional axis.
 
 ### The unifying frame
 
