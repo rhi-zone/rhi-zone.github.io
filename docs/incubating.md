@@ -398,7 +398,39 @@ Antiheroes are one of the most saturated character templates of the last 25 year
 - **Un-redeemed antiheroes.** "Antihero" usually still implies sympathy — we follow them, understand them, the camera loves them. Genuine villain-protagonists, where the prose doesn't seduce the reader into rooting for them, are rare. The line between *anti*hero and *villain*-as-protagonist is mostly held by narrative affection, not by the character's actions.
 - **Sincere virtue (inverse).** The reflex to flinch at earnestness is strong enough that "we need more antiheroes" is almost the easy take, because antiheroes pre-empt the suspicion of being earnest. Actual heroes — unironic, competent, kind — have become almost taboo in serious fiction. Goodness without irony reads as kitsch; competence-without-flaws reads as wish fulfillment. Writing sincere virtue in a register that doesn't flinch is its own craft problem.
 
-Related: [identity axes](./worldbuilding/identity-axes.md) — these are character-design moves, not POV-misidentification, but the *role* axis is adjacent.
+### The True-Believer Executor (sub-template, anchored to late-2025 ICE)
+
+A specific construction inside the **un-redeemed antihero** slice: a member of an enforcement apparatus who does harm under their framework's claim to legitimacy, does not doubt, does not fall, does not soften. The protagonist whose interiority the reader shares.
+
+In fantasy register: **the angel-as-cop**. A holy order's executor of justice, carrying out judgments righteous in-framework and horror from outside.
+
+**Why fantasy register helps.** The reader is conditioned by genre to grant authority and sympathy to angels. They walk into "angel protagonist" with default trust that "ICE agent protagonist" never gets. The story uses that genre-conferred legitimacy to get the reader inside the apparatus, then forces the recognition. Closest structural analogs in other registers: *Blood Meridian* (war), *Memories of Murder* (police), several Le Carré novels (intelligence) — fiction that brings the reader inside an institutional frame via aesthetics and pacing, then makes them recognize the floor they've been walking on. The fantasy frame buys this trick more cheaply.
+
+**Real-world anchor: late-2025 ICE.** Structural features the fantasy frame can dramatize:
+
+1. **Masked rank-and-file, identified commander.** Anonymous agents under a charismatic public-facing leader (Gregory Bovino, posting "Masked up, mission ready" videos late 2025). Individual agents do harm without personal accountability; the commander provides license and aesthetic. (CNN Oct 8 2025; WBEZ Oct 17 2025.)
+2. **Framework as transparent fiction.** Operations sold as targeting "criminal aliens"; ~81% of those arrested have no convictions (Marshall Project, Dec 2025). Bovino endorses arrests "on how they look." *The framework just needs to be invokable, not true.* Closer to actual enforcer psychology than the metaphysically-real-framework version.
+3. **Mythological cover via named victim.** Operation Midway Blitz sold as honoring Katie Abraham. A specific harm-event provides cover for arbitrarily many downstream actions, none requiring causal connection to her death.
+4. **Procedural collapse mid-flight.** July 2025 ICE memo: third-country removals on 6-hour notice (South Sudan, Libya, CECOT in El Salvador). Court injunctions stayed by SCOTUS, removals continue. Inspections collapsed (POGO, Dec 2025) as detention surged ~51%. 31–32 deaths in custody — deadliest year since 2004; December 2025 the deadliest month on record (NPR Oct 23 2025; ACLU).
+5. **Spectacle as legitimation.** Bovino-posting-Batman-videos is not separable from the enforcement; it's how the enforcement is legitimated to itself. An angel who films their executions, who has a brand, who performs the role for an audience of other angels, is doing what their real-world analog does.
+
+**Story shapes:**
+
+- **Procedural.** Case after case. Investigation, verdict, sentence, execution, paperwork. Like a hangman with real interiority.
+- **One case writ large.** Single judgment — city, person, historical moment. We watch the lead-up. The angel does not doubt.
+- **The angel and the judged.** Romance / friendship / parent-child between angel and target. Both real. The angel does the job *and* loved them.
+- **The bureaucrat.** Hierarchy, performance reviews, KPIs of damnation. The horror is the casualness.
+- **The disagreement.** Other angels disagree about correct execution. Celestial politics — opposition is *another faction also true-believing*, not soft-hearted.
+- **The victim's POV.** Subversion. A human being judged, befriended by the angel that will execute them. The angel is real, kind, sincere, going to do the thing.
+
+**Framing decisions:**
+
+1. Metaphysics verifiable, unverifiable, or transparently false? (Late-2025 ICE supports *transparently false but invoked* — the strongest version.)
+2. Does the angel know how they appear from outside? Compassion-with-conviction vs. uncomprehending-conviction.
+3. What does the angel *enjoy*? Texture of enjoyment is the character.
+4. Masked or identified? Mirrors the ICE structural choice.
+
+Related: [identity axes](./worldbuilding/identity-axes.md) — *role + self-knowledge*; [Halo-Horns](#halo-horns-one-species-three-misreadings-worldbuilding--celestial-iconography-as-evolved-camouflage) — the holy-angel-as-executor is the *metaphysical* angel, distinct from the alpine cousins (lookalike species, no sanction).
 
 ---
 
