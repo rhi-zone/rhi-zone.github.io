@@ -311,6 +311,81 @@ Related: [identity axes](./worldbuilding/identity-axes.md) — *scale + embodime
 
 ---
 
+## Halo-Horns and Lava-Light (worldbuilding — celestial iconography as evolved camouflage)
+
+A humanoid winged species with halo-shaped horns. Two populations, geographically adjacent in volcanic mountain ranges. The flatlanders below see them as *angels* and *demons*. The species is neither.
+
+### Anatomy
+
+- **Humanoid, winged, horned.** Wings probably large and gliding-suited (thin air, thermals, low food). Possibly hollow-boned, smaller than a human.
+- **Halo-horns.** Horns sweep up and forward, almost meeting at the front, sharply turn, then arc back in a near-perfect semicircle, almost meeting at the back. Two near-closed loops in profile — one in front, one behind — together approximating a hoop around the head. **It's a halo minus the magic.** Bone, not light. Anatomy, not sanctity. The species has a body-part word for it, not a religious one.
+- The halo-horn is *near-closed*, never quite meeting. Real anatomy is asymmetric, scarred, broken — older members have chipped halos, younger ones haven't grown them fully in, some are deformed. Same relationship humans have to teeth.
+
+### Two populations
+
+Same species. Diverged geographically into populations adapted to different environments along the same mountain ranges:
+
+| | Alpine cousins | Volcanic cousins |
+|---|---|---|
+| Habitat | Snowy/dormant peaks, above the cloud layer | Active volcanic peaks, ash-darkened |
+| Coloration | Pale wings, horns, skin — camouflage against cloud | Dark wings, horns, skin — camouflage against rock |
+| Apparent color (in context) | White / glowing-pale against cloud | Red-glowing (lava reflects off dark skin) — *the red is lighting, not pigment* |
+| Adaptation | Thin air, high UV, low temperature | High SO₂/CO₂, heat, ash-blocked sunlight |
+| Vision | Standard daylight | Red-shifted; possibly some infrared sensitivity |
+| Horn shape | Halo-form (the canonical) | Diverged differently — swept-back, less halo-like |
+
+**The two populations are the same species.** Interbreed-capable (probably; whether hybrids are viable is open). They have *their own* terms for each other — something like "cloud-cousins" and "ash-cousins" — not "angels" and "demons." From inside the species, they're races, not opposites.
+
+### Evolution, not transformation
+
+The adaptation is genetic. They don't *change* coloration to match changing environments — they *migrate*.
+
+- When a peak transitions (dormant goes active, or active goes dormant), the residents leave. Cultural memory is migration-shaped: "we left the white peak when it woke and our great-grandmother flew us to this one."
+- Each population holds *territorial knowledge across the whole region* — currently-suitable peaks, backups, what's recently shifted.
+- **Habitat squeeze** is a real pressure. If most peaks in a region go active, alpine cousins get compressed onto fewer peaks (and vice versa). Competition is within-population, not between-population — the two populations don't want the same real estate.
+- Hybrid offspring (mid-color, mid-traits) are adapted to neither environment optimally. They probably live in transition zones — mid-elevation, ash-dusted snow slopes, peaks just past dormancy — or hybrid sterility is the rule. Open which.
+
+### Contact between populations
+
+They can see each other. Stratovolcano chains routinely have snowy dormant peaks adjacent to active ones within visual range (Cascades, Andes, Kamchatka, Japan, Indonesia). Joyrides between peaks happen. There's almost certainly inter-population trade, intermarriage, shared language family, shared mythology *about each other*.
+
+(Iceland-style subglacial volcanoes — snow and fire on the same peak — are possible edge cases. Open who lives there.)
+
+### Flatland mythology — the misread
+
+From a valley below, looking up at one mountain range:
+
+- Pale figures circling the snowy peak to the east.
+- Dark figures, red in lava-glow, circling the smoking peak to the west.
+- Hybrid-colored figures in mid-elevation (visible to flatlanders only if they aren't above the cloud layer).
+- All of them occasionally flying *between peaks* — alpine cousins visiting the volcanic side and getting ash-streaked, volcanic cousins visiting the snow side and looking startlingly clean.
+
+The flatlanders construct the angel/demon dualism from this. It survives *despite* the visible inconsistency, because human mythology doesn't require empirical fit. Temples to angels on the east slope; ward-stones against demons on the west slope; rationalized "visitations" when the populations cross.
+
+The species, meanwhile, has no idea they're being mythologized. They don't descend. They don't speak the flatland language. Their interior life is *whatever it is* — no celestial bias from the iconography.
+
+### Compositions with existing notes
+
+- **[Identity axes](./worldbuilding/identity-axes.md)**: species + scale + relation-to-text. Reader assumes "angel" / "demon" (visual signature triggers it); truth is a natural species with a natural history. The reveal is not dramatic — it's just *being told the anatomy*.
+- **[Humans as Cosmic Horror](#humans-as-cosmic-horror-worldbuilding--sci-fi-space-opera)**: if humans are positioned as the threat from this species' POV (joyrides bringing them within sight of flatland infrastructure), the mythological misreading is inverted — the *species* sees humans as ground-bound predators or scavengers and constructs its own myths. Doesn't have to be cosmic-horror tone; can be just *we don't go down there*.
+- **[The Keeper's POV](#the-keepers-pov-worldbuilding--scale-asymmetry-terrarium-framing)** / **[Power-Asymmetric Romance](#power-asymmetric-romance-worldbuilding--immortalmortal-cosmichuman-etc)**: a member of this species and a flatlander, romance or otherwise. Mortal sees angel/demon; species member sees an unfamiliar low-altitude creature. The asymmetry isn't power — it's *iconographic projection in one direction and bewilderment in the other*.
+- **Sincere virtue (from [Antihero slices](#under-served-slices-of-the-antihero-space-character-archetypes))**: a member of this species who is *actually* good, or actually bad, in entirely their-species-internal terms — which don't necessarily map to angel/demon expectations. Strips the iconographic gravity from the moral content.
+
+---
+
+## Under-Served Slices of the Antihero Space (character archetypes)
+
+Antiheroes are one of the most saturated character templates of the last 25 years (prestige TV in particular). Slices that get less runway:
+
+- **Mundane-flaw antiheroes.** Substance abuse, violence, megalomania, charisma — well-covered. Pettiness, cowardice, laziness, casual dishonesty in small ways, mediocrity-as-flaw — much rarer. Prestige antiheroes are *exceptional* people whose exceptionality is the source of their badness. The ordinary version — whose failings are dull, whose interiority isn't dramatic, whose worst moments are recognizably yours — is harder to write and harder to sell.
+- **Non-male-coded antiheroes.** The prestige antihero template is canonically a middle-aged white man with a wife who doesn't understand him. Female antiheroes get killed off or punished by the narrative more often than not (Skyler White as case study). Queer and non-white antiheroes exist but get a fraction of the runway. The template itself rarely flexes — the gendered shape (selfish ambitions, neglectful family, midlife stakes) gets imported even when the protagonist isn't male.
+- **Un-redeemed antiheroes.** "Antihero" usually still implies sympathy — we follow them, understand them, the camera loves them. Genuine villain-protagonists, where the prose doesn't seduce the reader into rooting for them, are rare. The line between *anti*hero and *villain*-as-protagonist is mostly held by narrative affection, not by the character's actions.
+- **Sincere virtue (inverse).** The reflex to flinch at earnestness is strong enough that "we need more antiheroes" is almost the easy take, because antiheroes pre-empt the suspicion of being earnest. Actual heroes — unironic, competent, kind — have become almost taboo in serious fiction. Goodness without irony reads as kitsch; competence-without-flaws reads as wish fulfillment. Writing sincere virtue in a register that doesn't flinch is its own craft problem.
+
+Related: [identity axes](./worldbuilding/identity-axes.md) — these are character-design moves, not POV-misidentification, but the *role* axis is adjacent.
+
+---
+
 ## Programmable LLM Interaction Substrate (ST/Talemate/Claude Code replacement)
 
 A platform generic enough to replace SillyTavern, Talemate, and Claude Code — not by being all three, but by being the substrate all three are programs on top of.
