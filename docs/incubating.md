@@ -313,7 +313,7 @@ Related: [identity axes](./worldbuilding/identity-axes.md) — *scale + embodime
 
 ## Halo-Horns: One Species, Three Misreadings (worldbuilding — celestial iconography as evolved camouflage)
 
-A humanoid winged species with halo-shaped horns. *Three* populations, occupying three ecological niches along volcanic mountain ranges and their forested slopes. Flatlanders below mythologize them differently depending on which population they're seeing — angels (glimpsed against cloud), demons (glimpsed against lava), beastfolk (encountered in forest). Three misreadings in different registers: moral, moral, taxonomic. The species itself is none of those things.
+A humanoid winged species with halo-shaped horns. *Three* populations, occupying three ecological niches along volcanic mountain ranges and their forested slopes. Flatlanders below mythologize them differently depending on which population they're seeing — angels (glimpsed against cloud), demons (glimpsed against lava), harpies (encountered in forest). Three misreadings in different registers: moral, moral, taxonomic. The species itself is none of those things.
 
 ### Anatomy (shared template)
 
@@ -337,7 +337,7 @@ Same species, diverged geographically along the same mountain ranges. Forest cou
 | Horn shape | Halo-form (canonical) | Swept-back, less halo-like | Antler-branched / ram-curled / compact spikes — reads as *animal* horns |
 | Body size | Smaller than human, hollow-boned | Comparable, dense-built | Mid-sized — forest-creature scale |
 | Human contact | Almost none | Almost none | **Sporadic** — encountered by hunters, woodcutters, climbers. Cryptid-style encounter reports. |
-| Flatland mythology | Angels | Demons | Beastfolk / tengu / satyrs / cryptids / wild-folk |
+| Flatland mythology | Angels | Demons | Harpies |
 
 All three are the same species. Interbreed-capable (probably). Each population has *its own* terms for the others — body-part / environment / family terms, not mythological ones. From inside the species, the three are races, not categories of being.
 
@@ -361,24 +361,24 @@ Adaptation is genetic. They don't change phenotype to match environment — they
 
 ### Flatland mythology — the triadic misread
 
-The angel/demon/fae triad humans construct corresponds exactly to the three populations *and the human visibility of each*.
+The angel/demon/beastfolk mythology humans construct corresponds to the three populations and the *type* of contact humans have with each.
 
-| Mythological category | Population | Misreading driver |
-|---|---|---|
-| Angels | Alpine cousins | Glimpsed at distance, against cloud, only ever briefly — every report is fragmentary, ambiguous, distant |
-| Demons | Volcanic cousins | Glimpsed in hellish landscape, lit red by lava, in ash and fire — every report has the volcanic environment baked into it |
-| Fae | Ground cousins | Seen constantly, up close, integrated into local landscapes — the misreading is *proximate* rather than distant |
+| Mythological category | Population | Misreading driver | Register |
+|---|---|---|---|
+| Angels | Alpine cousins | Glimpsed at distance, against cloud — fragmentary, ambiguous | Moral (holy) |
+| Demons | Volcanic cousins | Glimpsed in hellish landscape, lit red by lava | Moral (damned) |
+| Harpies | Forest cousins | Encountered up-close-but-rare in forest by hunters/woodcutters | Taxonomic (animal) |
 
-This is the real-world folklore triad explained as natural history. Three sightings, three habitats, three mythologies. The species has no idea it's being mythologized in any of these ways — it just lives.
+Three sightings, three habitats, three mythologies — two in moral key, one in zoological key. The species has no idea it's being mythologized in any of these ways; it just lives.
 
-The dualism between angels and demons is preserved despite visible inconsistencies (cross-population flights, hybrid figures in mid-elevation) because human mythology doesn't require empirical fit. The fae get a different (still wrong, still mythological) treatment because humans actually *interact* with them.
+The dualism between angels and demons is preserved despite visible inconsistencies (cross-population flights, intermediate appearances at mid-elevation) because human mythology doesn't require empirical fit. The beastfolk reading is the shallowest misreading — humans almost have the right shape for "another animal that looks a lot like us." They're closest to seeing the species clearly without ever quite doing so.
 
 ### Compositions with existing notes
 
-- **[Identity axes](./worldbuilding/identity-axes.md)**: species + scale + relation-to-text. Reader assumes "angel" / "demon" / "fae" (visual signature triggers it); truth is one natural species in three habitats. The reveal is not dramatic — it's *being told the anatomy and the ecology*.
-- **[Humans as Cosmic Horror](#humans-as-cosmic-horror-worldbuilding--sci-fi-space-opera)**: ground cousins are positioned to bear the *species' mythology of humans*. They're the population with constant exposure. Their stories about humans — passed up to alpine and volcanic cousins via descent visits — are the species' framework for understanding what flatlanders are. *Their* humans-as-cosmic-horror story is the inverse of the flatlanders'.
-- **[The Keeper's POV](#the-keepers-pov-worldbuilding--scale-asymmetry-terrarium-framing)** / **[Power-Asymmetric Romance](#power-asymmetric-romance-worldbuilding--immortalmortal-cosmichuman-etc)**: cross-species pairings are most plausible with ground cousins (proximity, ongoing exposure). Mortal sees fae; ground cousin sees an unfamiliar primate.
-- **[Antihero slices](#under-served-slices-of-the-antihero-space-character-archetypes)**: a ground cousin who is *actually* cruel, lazy, vain — mundane-flaw register, but the flatlanders read every action through a fae-mythology filter. The character's interior is ordinary; the projection makes them mythical.
+- **[Identity axes](./worldbuilding/identity-axes.md)**: species + scale + relation-to-text. Reader assumes "angel" / "demon" / "beastfolk" (visual signature triggers it); truth is one natural species in three habitats. The reveal is not dramatic — it's *being told the anatomy and the ecology*.
+- **[Humans as Cosmic Horror](#humans-as-cosmic-horror-worldbuilding--sci-fi-space-opera)**: forest cousins are positioned to bear the *species' mythology of humans*. They're the population with the most encounter exposure. Their stories about humans — passed up to alpine and volcanic cousins via descent visits — are the species' framework for understanding what flatlanders are. *Their* humans-as-cosmic-horror story is the inverse of the flatlanders'.
+- **[The Keeper's POV](#the-keepers-pov-worldbuilding--scale-asymmetry-terrarium-framing)** / **[Power-Asymmetric Romance](#power-asymmetric-romance-worldbuilding--immortalmortal-cosmichuman-etc)**: cross-species pairings are most plausible with forest cousins (encounter proximity). The mortal sees a tengu / beast-person; the forest cousin sees an unfamiliar primate.
+- **[Antihero slices](#under-served-slices-of-the-antihero-space-character-archetypes)**: a forest cousin who is *actually* cruel, lazy, vain — mundane-flaw register, but the flatlanders read every encounter through a cryptid / beast-folklore filter. The character's interior is ordinary; the projection makes them mythical.
 
 ### Open questions
 
