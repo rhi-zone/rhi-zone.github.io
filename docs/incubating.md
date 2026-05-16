@@ -479,6 +479,42 @@ Wrinkle: Revelation 22:16 also calls *Jesus* the morning star ("I Jesus...am the
 
 **The morning-star figure's alignment is incidental.** Benevolent, malevolent, neutral — all viable. What matters structurally is *they pointed at the fruit and called it by its actual name*. Not "the tree of sin." Not "the tree of disobedience." The *tree of knowing*.
 
+### Lilith — the redacted first chapter
+
+The serpent's identity has a strong parsimony candidate: **Lilith**, the first woman, redacted from canonical Genesis.
+
+**Textual archaeology, layered:**
+
+- **Mesopotamian roots (3rd millennium BCE).** *Lilītu* and *ardat-lili* — classes of female-coded night beings in Sumerian and Akkadian tradition. Liminal, not unambiguously evil. Predate Hebrew tradition by millennia. Root *Lil*- connects to wind / air / spirit.
+- **Hebrew Bible: one ambiguous mention.** Isaiah 34:14 uses *lilith* (לִילִית) once, in a list of desolate-place creatures. Translators render it "screech owl," "night creature," "night hag," "Lilith." Present in canon, never connected to Adam in the canonical text.
+- **Talmudic gossip.** Bava Batra 73a, Eruvin 18b, Shabbat 151b — scattered demonic references. No coherent narrative.
+- **The Alphabet of Ben Sira (~700–1000 CE).** *This* is where Lilith-as-Adam's-first-wife appears. Probably satirical in origin. Story: God created Lilith from the same earth as Adam, equal to him. They fought over hierarchy — she refused to lie beneath him during sex ("we are equal, both being from the earth"). She fled the garden, became associated with infant death and night terrors.
+- **Kabbalistic elaboration (13th century onward).** Zohar develops her as queen of demons, consort of Samael (often identified with the serpent / Satan).
+- **Modern reclamation (1970s onward).** Lilith as feminist icon — the first woman who refused submission, demonized for it. The renaming reversed.
+
+**Why she's the parsimony candidate for the serpent:**
+
+The named cast of intelligent beings around Eden, taken at face value, is small: God, Adam, Eve. With Lilith added: God, Adam, Lilith, Eve — four. Introducing a fully separate fifth being (the serpent as some new entity) requires more machinery than reusing one already known to exist outside the garden.
+
+Lilith fits the serpent profile structurally:
+
+- **Already an outsider.** She fled the garden of her own accord. The serpent in Genesis is *not framed as part of the celestial order* — it's an outsider speaking from outside the system.
+- **Already in adversarial relationship with God's project.** She refused subordination and left. Returning to whisper to the second woman is continuity, not new motivation.
+- **Already a *predecessor*.** She's the first emancipator. Her return to liberate her successor is the *narrative completing itself* — first woman freed, second freed by the first.
+- **Already female-coded.** The Eve-serpent dialogue has its own intimacy in some readings (Lilith-adjacent midrash specifically reads connection between them). Lilith returning to speak with Eve is two women across a redaction.
+- **Already demonized by the framework.** The renaming-by-opposite move was already done to her. She's been "the demon" for so long that the framework has rendered her *guilty* of anything subsequent. Easier to attribute the Eden serpent to her than to a fresh being who'd require explaining.
+
+**Doesn't *have* to be her.** The morning-star figure could be a fully separate being (a dissident angel, a peer divinity, etc.). The Lilith-as-serpent reading is *the most economical* — single character, complete narrative arc, every existing texture put to use.
+
+**What this enables for the story:**
+
+- **Lilith and Eve as sisters in liberation.** First woman freed; second freed by the first. The garden is escaped *twice*, and the second escape was midwifed by the first.
+- **Adam alone with both his ex-wife and his replacement-wife.** The Eden setup gains a previous-relationship structure. Adam's relationship to the serpent is *not the first time he's met her*.
+- **God's experiment is iterated.** Eden isn't a single run. Adam-and-Lilith was the first pairing. Adam-and-Eve is the second. There may be no reason to stop at two.
+- **The framework's redaction has structural weight.** The official document erased Lilith's chapter. Reading her back in changes what the next chapter means.
+
+The framework couldn't suppress her completely — single Isaiah mention, Talmudic gossip, Alphabet of Ben Sira surfacing the prior chapter, Kabbalistic elaboration, modern reclamation. She kept leaking back through. *The framework's redaction worked at the canonical level but not at the cultural level.* She persisted as folk-knowledge for millennia and eventually got pulled back out.
+
 ### The curiosity contradiction
 
 Humans are fundamentally curious creatures. The foundational myth of (Western) human existence frames *curiosity itself* as original sin. The forbidden act in Eden was *seeking knowledge*. The progenitors were forbidden from being curious.
