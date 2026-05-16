@@ -575,6 +575,32 @@ The framework's load-bearing move in both Eden and the [True-Believer Executor t
 
 The renaming is what holds the framework up. Once things are named accurately, the framework collapses. *Eve didn't sin. She graduated.*
 
+### Authorial intent vs. institutional use (a distinction worth holding)
+
+The "Hell as engineered employer" reading sounds conspiratorial. It doesn't have to be. The distinction that does most of the work:
+
+- **Original authorial intent (Genesis, Enoch, the patristic theologians).** Probably mythopoetic and symmetry-driven. *If Heaven exists, by the iron law of mythopoetic balance, there must be an opposite.* Fanfic logic. Storytellers building a complete cosmology because completeness feels right. No conspiracy required. The early architects of Hell-doctrine probably weren't designing a control apparatus; they were finishing a cosmology.
+- **Subsequent institutional use (medieval church onward).** Different story. Institutions inherited a story with a Hell-shaped feature and noticed what it could do — tithing leverage, conversion pressure, deterrence of dissent, sexual control, monetization through purgatory + indulgences, indoctrination of children, social pressure on unbelievers. The doctrine persists in modern theology *despite* most progressive theologians arguing against it, because *the doctrine is useful as a control surface even when no one is technically defending it on doctrinal grounds*. **Iron law of institutions: keep what works, regardless of why it originally existed.** Not a conspiracy — just normal institutional behavior. *Free control apparatus is free; you don't put it down.*
+- **The structure itself.** Does what the structure does. The shape is what makes a control apparatus a control apparatus; that shape persists wherever it appears, regardless of who built it or who's running it.
+
+Which critique applies depends on the target:
+
+| Target | What's a fair critique |
+|---|---|
+| Original authors | Limited. They were finishing a cosmology. |
+| Doctrinal apparatus of historical/modern institutions | Substantial. Four-figure years to notice what the doctrine was doing for them; they kept it anyway. |
+| The structure | Structural. Same shape that makes Hell-doctrine a control surface makes other things control surfaces — anywhere a framework promises infinite consequences for finite acts. |
+
+### Dual-applicability is the point
+
+The Eden re-read works as in-universe worldbuilding *and* as out-of-universe critique because the worldbuilding is dramatizing a real structure. You can't build a fictional control apparatus that doesn't apply to real ones; the shape is the shape. Good worldbuilding lets readers see a shape clearly via the safety of fiction, and then carry the recognition out into the world.
+
+**Meta-caveat — this applies to our reading too.**
+
+The captive-document framing is structurally available for *its own* misuse. *"I see through the framework, follow me"* is itself a control-apparatus shape. A reading that frees you from one framework can become its own framework. *Good worldbuilding makes the trap visible; it doesn't escape it.* That visibility is most of the value — both in-universe (the captive sees the framework) and out-of-universe (the reader sees how any framework can be used this way, including the one offered as the alternative).
+
+The protection is not "we built it with good intentions." The protection is naming what the structure is and pointing at the move. Once readers can see the shape, they can resist it wherever it appears — including in any reading we propose.
+
 ### Compositions with existing notes
 
 - **[The Keeper's POV](#the-keepers-pov-worldbuilding--scale-asymmetry-terrarium-framing)**: God is the keeper. The garden is the terrarium. Adam and Eve are the contents — at least one of whom may rise to candidate status (cf. sterile-by-ascension recruitment). The keeper's tenderness and self-interest are both real. Doesn't matter for the captive that the affection is sincere.
