@@ -137,6 +137,110 @@ Prior art touchpoints: Lem's *Solaris* (but Lem editorializes); *Hitchhiker's Gu
 
 ---
 
+## Power-Asymmetric Romance (worldbuilding — immortal/mortal, cosmic/human, etc.)
+
+Romance where one side has immense power — immortality, divinity, cosmic scale, whatever produces a real gap. The gap is the engine, not the obstacle.
+
+**The cliché templates are fine.** They're load-bearing for the genre; people read them for the familiar beats well-executed, not for novelty. Catalog:
+
+- The immortal vastly outlives their mortal partner(s). Tries not to love again. Loves anyway.
+- The attempt to make the mortal immortal — costs, complications, "it's not that simple."
+- The cosmic sacrifices their divinity / power / nature to be with the mortal. Becomes vulnerable, learns mortality.
+- "I'll wait for you" across centuries; reunion in the next life / next body / next era.
+- The mortal teaches the cosmic about life-as-finite-thing. Cosmic, who has never *needed* anything, learns need.
+
+These all work. The craft is in the execution, not the premise.
+
+**Fresher angles, for when the cliché doesn't fit:**
+
+Reframing what "asymmetry" can mean — "power" collapses several distinct things:
+
+| Axis | Cliché shape | Fresher shape |
+|---|---|---|
+| Lifespan | "I outlive you" | Rate-mismatched subjective time — decades of intimacy per second of their attention, or inverse |
+| Capability | "I could level cities" | They can't *do small things well* — bad at scale-down, fumble at the human |
+| Standing | Socially forbidden | Metaphysically illegible — the world's ontology doesn't admit the relationship |
+| Agency | Mortal sacrifices freedom | *Mortal* is the one with freedom — to leave, die, change. Cosmic is bound by nature |
+| Continuity | "I'll remember you forever" | They've had a thousand partners, remember each warmly. Mortal isn't unique |
+| Frame | Forbidden / tragic | Affection is *real but categorically miscalibrated* — keeper-love, not peer-love |
+
+**Variants worth their own piece:**
+
+- **The keeper-romance.** Sibling to [The Keeper's POV](#the-keepers-pov-worldbuilding--scale-asymmetry-terrarium-framing). The cosmic loves their lover sincerely, attentively — but the love is keeper-love, not peer-love, and the mortal can't tell the difference because they've never had peer-love from a peer-tier being. Structural, no growth fixes it.
+- **The asymmetry is the appeal.** Both parties sought each other out *for* the specific shape of the gap. Not "we made it work despite" — "we needed this exact dynamic." Mortal isn't a victim; cosmic isn't slumming.
+- **The bound cosmic.** Cosmic has *less* agency — bound by nature, role, function. Mortal has freedom. Cosmic loves precisely because the mortal can surprise, change, leave.
+- **The fragment.** Cosmic sends an avatar — small piece of themselves, maybe amnesiac about being a fragment. Real relationship. When the fragment is recalled, the whole doesn't feel the loss the same way; the mortal is left with the residue of someone who, in their fullness, doesn't remember them.
+- **The unmoving lover.** Cosmic *is* the substrate — city, forest, ocean. Can't move. Mortal lives inside the lover. Most of the relationship is mortal-alone-addressing-the-world; responses come as weather, coincidence, the shape of a day. Domestic, not tragic.
+- **The non-lonely immortal.** Has loved thousands warmly, isn't broken by it. Will love thousands more. Mortal must come to terms with being one of many — treasured but not unique. Strips the flattery without making the cosmic cruel.
+- **Rate-mismatched intimacy.** Both equally agentic, different time-grain. Mortal speaks paragraphs between cosmic's syllables, or vice versa. Texture is the rhythm break — who waits, what fights look like when one side can deliberate for a year between sentences.
+
+Related: [identity axes](./worldbuilding/identity-axes.md) — primarily *scale + agency + continuity*; [The Keeper's POV](#the-keepers-pov-worldbuilding--scale-asymmetry-terrarium-framing) is the keeper-romance's parent frame.
+
+---
+
+## Reproductive Gaps Across Tiers (worldbuilding — sterility, lethality, hybrid cost)
+
+Mechanisms that constrain reproduction between a higher and lower tier. The constraint produces longing, recruitment dynamics, and structural relationship shapes that "they're just more powerful" can't reach on its own.
+
+### Mechanism A — Sterile by Ascension
+
+**Ascension to the higher state made them sterile.** Not biologically sterile in the boring sense — something in the ascension process is the bottleneck. Variants:
+
+- **Cost-prohibitive**: reproduction requires resources at their scale — a star's energy, a dimension's substrate. It's an engineering project, not a biological act.
+- **Wrong trade**: they got the power, lost continuation. Didn't know that was the deal.
+- **Stripped essential**: ascension required trading away the specific thing reproduction depended on (mortality, embodiment, mutability, finitude). Irreversible.
+- **Frozen body**: their form is preserved at the state of ascension and doesn't change. Reproduction requires change.
+
+Prior art: Twilight (vampires frozen at turning — bodies don't change, *that's* why vampire/vampire and vampire/anything is constrained), Bloodborne (Great Ones losing their children, seeking surrogates), Lovecraft (Yog-Sothoth, Innsmouth), Berserk's Godhand, His Dark Materials (angels, sterile, envious of human embodiment).
+
+### Mechanism B — Lethal Cross-Tier Reproduction
+
+**Cross-tier conception is biologically possible, but the act destroys one of the parents.** The hybrid is too much for the gestating substrate. The mechanism has a *direction*:
+
+- **Lower-tier-fatal.** The mortal mother carries the hybrid and dies — the half-higher fetus consumes / outgrows / breaks her body. Twilight (Bella's pregnancy is killing her; Renesmee is breaking her bones, drinking her blood from inside — she only survives because Edward elevates her to vampire at the moment of birth). Lovecraft's Dunwich (Lavinia destroyed by bearing Wilbur). Bloodborne adjacent (the Hunter's blood-rite as surviving contact with the higher).
+- **Higher-tier-fatal.** The higher-tier parent carries the hybrid and dies. The hybrid's mortality is contaminating, or gestating-at-low-scale is incompatible with the higher form, or the ascended body's frozen / specialized state cannot host the process. Steven Universe (Rose Quartz gives up her physical form — destroys herself as Rose — to have Steven). Various mythic versions of gods who die in childbirth.
+- **Mutual-fatal.** Neither survives. You only get the child. Bleakest variant; the act of reproduction is one-shot for the entire couple. The child inherits both lineages but has no parents.
+- **Asymmetric cost.** Both survive *the birth*, but one pays a recurring cost — diminishment, exile, loss of tier-status, slow consumption.
+
+The direction-axis matters for what kind of story this is:
+
+| Direction | Engine of grief | Who is the protagonist of the cost |
+|---|---|---|
+| Lower-tier-fatal | "Loving you means I lose myself, either to death or to becoming you" | The mortal |
+| Higher-tier-fatal | "Loving you means I cease to be what I am, so that something of us continues" | The higher |
+| Mutual-fatal | "We exist only to make this child; we do not survive each other" | The child / the world they leave |
+
+### What both mechanisms share
+
+**A *need* the higher tier has, only the lower tier can meet.** Indifference and dominance are emotionally one-note; reproductive constraint introduces longing — an ache that reframes "why do gods notice mortals?" from power-fantasy to recognizable grief at wrong scale.
+
+**A direction for narrative weight.** Most cosmic-mortal premises put narrative weight on the mortal (smaller, more in danger, more legible to the reader). Both mechanisms — especially higher-tier-fatal — let the weight sit on the higher being. That's underexplored.
+
+**The exit-ramp problem.** Twilight is unusual in giving the lower-tier parent an exit ramp (ascension as rescue at the critical moment). Most prior art kills the lower tier outright. The *decision-point* — does the higher elevate the lover at the crisis, or watch them die — is a strong dyadic scene that the genre rarely stages explicitly.
+
+**Why this mechanism is structurally useful:**
+
+1. **It gives the higher tier a *need*.** Indifference and dominance are emotionally one-note. Sterile-by-ascension introduces longing — an ache the lower tier can satisfy. Reframes "why do gods notice humans?" from power-fantasy to recognizable parental grief at wrong scale.
+
+2. **It makes lesser beings a *resource*, specifically.** Not prey, not pets — the only path to new ascended. The relationship is *recruitment*. Cf. the keeper note: the terrarium isn't just a hobby; it's the species' continuation mechanism. Candidates occasionally rise.
+
+3. **Hybrid offspring grief.** Children of ascended with lesser beings are *not* ascended. Somewhere between. The ascended's progeny is always a diminished line. They are breeding lesser versions of themselves and they know it.
+
+4. **The recursion problem.** Population of ascended can only decrease (deaths) or be replenished by new ascensions from below. The whole tier is in slow demographic decline unless the lower tier keeps producing candidates. This frames care for the lower tier as *self-interest*, even when it manifests as tenderness.
+
+**Compositions with existing notes:**
+
+- **With [The Keeper's POV](#the-keepers-pov-worldbuilding--scale-asymmetry-terrarium-framing):** the keeper's reasons for tending the terrarium include "occasionally one ascends, and this is how my tier perpetuates." Tenderness with self-interest underneath; neither cancels the other. The keeper's affection for a specific lower-tier individual who *might* be a candidate has its own complicated register.
+- **With [Power-Asymmetric Romance](#power-asymmetric-romance-worldbuilding--immortalmortal-cosmichuman-etc):**
+  - Ascended-mortal romance where the ascended *desires a child they cannot have* via their own kind. Mortal can give them this. Mortal may or may not know that's the asymmetry.
+  - Both partners ascended, both sterile, both grieving — relationship is partnership in non-continuation.
+  - Mortal romance where one partner ascends mid-relationship and only afterward discovers the cost. Too late to undo.
+- **With [Humans as Cosmic Horror](#humans-as-cosmic-horror-worldbuilding--sci-fi-space-opera):** if humans are the higher tier and *they're* the sterile-ascended, then their relation to other species is recruitment / surrogacy / harvest. The misanthropy holds; the engine is parental desperation, not malice.
+
+Related: [identity axes](./worldbuilding/identity-axes.md) — *continuity + origin* primarily.
+
+---
+
 ## Programmable LLM Interaction Substrate (ST/Talemate/Claude Code replacement)
 
 A platform generic enough to replace SillyTavern, Talemate, and Claude Code — not by being all three, but by being the substrate all three are programs on top of.
