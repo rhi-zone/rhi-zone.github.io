@@ -311,65 +311,79 @@ Related: [identity axes](./worldbuilding/identity-axes.md) — *scale + embodime
 
 ---
 
-## Halo-Horns and Lava-Light (worldbuilding — celestial iconography as evolved camouflage)
+## Halo-Horns: One Species, Three Misreadings (worldbuilding — celestial iconography as evolved camouflage)
 
-A humanoid winged species with halo-shaped horns. Two populations, geographically adjacent in volcanic mountain ranges. The flatlanders below see them as *angels* and *demons*. The species is neither.
+A humanoid winged species with halo-shaped horns. *Three* populations, occupying three ecological niches along volcanic mountain ranges and the surrounding terrain. Flatlanders below construct the angel / demon / fae triad from sightings of one species in three habitats. The species itself is none of those things.
 
-### Anatomy
+### Anatomy (shared template)
 
-- **Humanoid, winged, horned.** Wings probably large and gliding-suited (thin air, thermals, low food). Possibly hollow-boned, smaller than a human.
-- **Halo-horns.** Horns sweep up and forward, almost meeting at the front, sharply turn, then arc back in a near-perfect semicircle, almost meeting at the back. Two near-closed loops in profile — one in front, one behind — together approximating a hoop around the head. **It's a halo minus the magic.** Bone, not light. Anatomy, not sanctity. The species has a body-part word for it, not a religious one.
-- The halo-horn is *near-closed*, never quite meeting. Real anatomy is asymmetric, scarred, broken — older members have chipped halos, younger ones haven't grown them fully in, some are deformed. Same relationship humans have to teeth.
+- **Humanoid, winged, horned.** Wings primarily gliding-suited; populations differ in size and wing-loading.
+- **Halo-horns.** In the canonical (alpine) form: horns sweep up and forward, almost meeting at the front, sharply turn, then arc back in a near-perfect semicircle, almost meeting at the back. Two near-closed loops in profile — one in front, one behind — together approximating a hoop around the head. **It's a halo minus the magic.** Bone, not light. Anatomy, not sanctity. The species has a body-part word for it, not a religious one.
+- *Near-closed, never quite meeting.* Real anatomy is asymmetric, scarred, broken — older members have chipped halos, younger ones haven't grown them fully in, some are deformed. Same relationship humans have to teeth.
+- Other populations have diverged horn shapes — smaller, less halo-like, or more compact — depending on selective pressures in their niche.
 
-### Two populations
+### Three populations
 
-Same species. Diverged geographically into populations adapted to different environments along the same mountain ranges:
+Same species, diverged geographically. The ground population is the strongest candidate for the ancestral form; alpine and volcanic are specialist radiations into extreme environments. (Alternative: ground population is a re-descent. Open.)
 
-| | Alpine cousins | Volcanic cousins |
-|---|---|---|
-| Habitat | Snowy/dormant peaks, above the cloud layer | Active volcanic peaks, ash-darkened |
-| Coloration | Pale wings, horns, skin — camouflage against cloud | Dark wings, horns, skin — camouflage against rock |
-| Apparent color (in context) | White / glowing-pale against cloud | Red-glowing (lava reflects off dark skin) — *the red is lighting, not pigment* |
-| Adaptation | Thin air, high UV, low temperature | High SO₂/CO₂, heat, ash-blocked sunlight |
-| Vision | Standard daylight | Red-shifted; possibly some infrared sensitivity |
-| Horn shape | Halo-form (the canonical) | Diverged differently — swept-back, less halo-like |
+| | Alpine cousins | Volcanic cousins | Ground cousins |
+|---|---|---|---|
+| Habitat | Snowy/dormant peaks, above cloud | Active volcanic peaks, ash-darkened | Forests, fields, rivers, ground-accessible terrain |
+| Coloration | Pale wings, horns, skin — cloud camouflage | Dark wings, horns, skin — rock camouflage | Mottled, dappled, terrain-matching browns/greens/grays; probably seasonal variation |
+| Apparent color (in context) | White / glowing-pale against cloud | Red-glowing (lava reflects off dark skin) — *the red is lighting, not pigment* | Whatever the local terrain reads as |
+| Adaptation | Thin air, high UV, low temperature | High SO₂/CO₂, heat, ash-blocked sunlight | Generalist; predator-aware, food-abundant |
+| Vision | Standard daylight | Red-shifted; possibly infrared sensitivity | Standard daylight |
+| Wings | Large, gliding, high wing-loading | Large, ash-tolerant | *Reduced* — smaller, possibly gliding-only or partially flightless in some sub-populations |
+| Horn shape | Halo-form (canonical) | Swept-back, less halo-like | Small, compact — reads as *animal* horns to humans, not *divine* |
+| Body size | Smaller than human, hollow-boned | Comparable, dense-built | Smaller still, often near human-child scale |
+| Human contact | Almost none | Almost none | **Constant.** Live in human-accessible terrain. |
+| Flatland mythology | Angels | Demons | Fae / fairies / forest spirits / pixies / kodama |
 
-**The two populations are the same species.** Interbreed-capable (probably; whether hybrids are viable is open). They have *their own* terms for each other — something like "cloud-cousins" and "ash-cousins" — not "angels" and "demons." From inside the species, they're races, not opposites.
+All three are the same species. Interbreed-capable (probably). Each population has *its own* terms for the others — body-part / environment / family terms, not religious ones. From inside the species, the three are races, not categories of being.
 
 ### Evolution, not transformation
 
-The adaptation is genetic. They don't *change* coloration to match changing environments — they *migrate*.
+Adaptation is genetic. They don't change phenotype to match environment — they *migrate*.
 
-- When a peak transitions (dormant goes active, or active goes dormant), the residents leave. Cultural memory is migration-shaped: "we left the white peak when it woke and our great-grandmother flew us to this one."
-- Each population holds *territorial knowledge across the whole region* — currently-suitable peaks, backups, what's recently shifted.
-- **Habitat squeeze** is a real pressure. If most peaks in a region go active, alpine cousins get compressed onto fewer peaks (and vice versa). Competition is within-population, not between-population — the two populations don't want the same real estate.
-- Hybrid offspring (mid-color, mid-traits) are adapted to neither environment optimally. They probably live in transition zones — mid-elevation, ash-dusted snow slopes, peaks just past dormancy — or hybrid sterility is the rule. Open which.
+- When a peak transitions (dormant → active or active → dormant), residents leave. Cultural memory is migration-shaped: "we left the white peak when it woke and flew to this one."
+- Each population holds *territorial knowledge across the whole region* — currently-suitable habitats, backups, what's recently shifted.
+- **Habitat squeeze** is a real pressure. If most peaks in a region go active, alpine cousins get compressed onto fewer peaks. Inverse for volcanic. Ground cousins face their own version — habitat loss to human settlement, forest clearance, agriculture.
+- Hybrid offspring (mid-coloration, mid-traits) are adapted to none of the three environments optimally. They probably cluster in transition zones — mid-elevation, ash-dusted slopes, forest edges of mountains — or hybrid sterility is the rule. Open.
 
 ### Contact between populations
 
-They can see each other. Stratovolcano chains routinely have snowy dormant peaks adjacent to active ones within visual range (Cascades, Andes, Kamchatka, Japan, Indonesia). Joyrides between peaks happen. There's almost certainly inter-population trade, intermarriage, shared language family, shared mythology *about each other*.
+- **Alpine ↔ volcanic.** Stratovolcano chains routinely have snowy dormant peaks adjacent to active ones within visual range (Cascades, Andes, Kamchatka, Japan, Indonesia). Joyrides between peaks happen. Trade, intermarriage, shared language family, shared mythology about each other.
+- **Mountain ↔ ground.** Alpine and volcanic cousins can fly down. Ground cousins probably *cannot* fly up (reduced wings, lower altitude tolerance). Contact is one-directional and asymmetric — the high cousins visit; the ground cousins do not return the visit.
+- **Three-way cultural network.** Alpine and volcanic both interact with ground cousins on descent. Ground cousins are the *crossroads* population — they have contact with all three populations and probably the most multilingual / diplomatically connected. They're also the ones most exposed to humans.
+- *Subglacial volcanoes* (snow and fire on the same peak) are possible edge cases. Open who lives there.
 
-(Iceland-style subglacial volcanoes — snow and fire on the same peak — are possible edge cases. Open who lives there.)
+### Flatland mythology — the triadic misread
 
-### Flatland mythology — the misread
+The angel/demon/fae triad humans construct corresponds exactly to the three populations *and the human visibility of each*.
 
-From a valley below, looking up at one mountain range:
+| Mythological category | Population | Misreading driver |
+|---|---|---|
+| Angels | Alpine cousins | Glimpsed at distance, against cloud, only ever briefly — every report is fragmentary, ambiguous, distant |
+| Demons | Volcanic cousins | Glimpsed in hellish landscape, lit red by lava, in ash and fire — every report has the volcanic environment baked into it |
+| Fae | Ground cousins | Seen constantly, up close, integrated into local landscapes — the misreading is *proximate* rather than distant |
 
-- Pale figures circling the snowy peak to the east.
-- Dark figures, red in lava-glow, circling the smoking peak to the west.
-- Hybrid-colored figures in mid-elevation (visible to flatlanders only if they aren't above the cloud layer).
-- All of them occasionally flying *between peaks* — alpine cousins visiting the volcanic side and getting ash-streaked, volcanic cousins visiting the snow side and looking startlingly clean.
+This is the real-world folklore triad explained as natural history. Three sightings, three habitats, three mythologies. The species has no idea it's being mythologized in any of these ways — it just lives.
 
-The flatlanders construct the angel/demon dualism from this. It survives *despite* the visible inconsistency, because human mythology doesn't require empirical fit. Temples to angels on the east slope; ward-stones against demons on the west slope; rationalized "visitations" when the populations cross.
-
-The species, meanwhile, has no idea they're being mythologized. They don't descend. They don't speak the flatland language. Their interior life is *whatever it is* — no celestial bias from the iconography.
+The dualism between angels and demons is preserved despite visible inconsistencies (cross-population flights, hybrid figures in mid-elevation) because human mythology doesn't require empirical fit. The fae get a different (still wrong, still mythological) treatment because humans actually *interact* with them.
 
 ### Compositions with existing notes
 
-- **[Identity axes](./worldbuilding/identity-axes.md)**: species + scale + relation-to-text. Reader assumes "angel" / "demon" (visual signature triggers it); truth is a natural species with a natural history. The reveal is not dramatic — it's just *being told the anatomy*.
-- **[Humans as Cosmic Horror](#humans-as-cosmic-horror-worldbuilding--sci-fi-space-opera)**: if humans are positioned as the threat from this species' POV (joyrides bringing them within sight of flatland infrastructure), the mythological misreading is inverted — the *species* sees humans as ground-bound predators or scavengers and constructs its own myths. Doesn't have to be cosmic-horror tone; can be just *we don't go down there*.
-- **[The Keeper's POV](#the-keepers-pov-worldbuilding--scale-asymmetry-terrarium-framing)** / **[Power-Asymmetric Romance](#power-asymmetric-romance-worldbuilding--immortalmortal-cosmichuman-etc)**: a member of this species and a flatlander, romance or otherwise. Mortal sees angel/demon; species member sees an unfamiliar low-altitude creature. The asymmetry isn't power — it's *iconographic projection in one direction and bewilderment in the other*.
-- **Sincere virtue (from [Antihero slices](#under-served-slices-of-the-antihero-space-character-archetypes))**: a member of this species who is *actually* good, or actually bad, in entirely their-species-internal terms — which don't necessarily map to angel/demon expectations. Strips the iconographic gravity from the moral content.
+- **[Identity axes](./worldbuilding/identity-axes.md)**: species + scale + relation-to-text. Reader assumes "angel" / "demon" / "fae" (visual signature triggers it); truth is one natural species in three habitats. The reveal is not dramatic — it's *being told the anatomy and the ecology*.
+- **[Humans as Cosmic Horror](#humans-as-cosmic-horror-worldbuilding--sci-fi-space-opera)**: ground cousins are positioned to bear the *species' mythology of humans*. They're the population with constant exposure. Their stories about humans — passed up to alpine and volcanic cousins via descent visits — are the species' framework for understanding what flatlanders are. *Their* humans-as-cosmic-horror story is the inverse of the flatlanders'.
+- **[The Keeper's POV](#the-keepers-pov-worldbuilding--scale-asymmetry-terrarium-framing)** / **[Power-Asymmetric Romance](#power-asymmetric-romance-worldbuilding--immortalmortal-cosmichuman-etc)**: cross-species pairings are most plausible with ground cousins (proximity, ongoing exposure). Mortal sees fae; ground cousin sees an unfamiliar primate.
+- **[Antihero slices](#under-served-slices-of-the-antihero-space-character-archetypes)**: a ground cousin who is *actually* cruel, lazy, vain — mundane-flaw register, but the flatlanders read every action through a fae-mythology filter. The character's interior is ordinary; the projection makes them mythical.
+
+### Open questions
+
+- Which population is ancestral? Ground (generalist niche, most plausible biologically), or one of the specialist populations with the others being radiations?
+- Are hybrids fertile? If yes, how many genetic exchanges flow between populations per generation?
+- Do ground cousins know they're the same species as the angels and demons in human mythology — or do they tell humans the truth and humans don't listen, or do they not bother explaining?
+- What do *they* call themselves? (Species-internal name, separate from any of the three population-names.)
 
 ---
 
