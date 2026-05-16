@@ -620,6 +620,49 @@ The captive-document framing is structurally available for *its own* misuse. *"I
 
 The protection is not "we built it with good intentions." The protection is naming what the structure is and pointing at the move. Once readers can see the shape, they can resist it wherever it appears — including in any reading we propose.
 
+### Goth Lucifer (and Lilith) — the aesthetic mechanism
+
+The morning-star reading has a thoroughly deployed pop-cultural aesthetic: **goth Lucifer**. Beautiful, melancholy, alienated, dramatic, dignified-in-darkness. The aesthetic is doing real work — it's *how* the reclamation has succeeded culturally. People don't reclaim figures through philosophical arguments; they reclaim them by making the figures *attractive*. Lucifer was always going to end up goth.
+
+Goth aesthetics valorize the things the framework demonized — beauty in melancholy, dignity in alienation, refusal of normative cheerfulness, embrace of darkness as a legitimate register rather than a moral failing. *Structurally identical to the captive-document reading.* Both say: the framework called this bad; look how lovely it is.
+
+**Registers available for the figure:**
+
+| Register | Mode | Deployed prior art |
+|---|---|---|
+| Biblically accurate (wheels, eyes, six wings) | Cosmic horror | "Biblically accurate angel" meme; weird-fiction takes |
+| Gnostic-philosophical | Contemplative, mystical | Theistic Luciferianism; gnostic revivals |
+| Courtroom-activist | Polemical, dry, sharp | The Satanic Temple's legal strategy |
+| Heavy-institutional | Ritual, hierarchical, structured | LaVeyan Satanism (Church of Satan) |
+| **Goth Lucifer / Lilith** | **Romantic, melancholy, beautiful, alienated** | **Sandman, Good Omens, Lucifer (Netflix), Maleficent, Diablo IV, paranormal romance broadly** |
+
+Goth is the most culturally-successful register because it makes the figure *aspirational*. Nobody wants to be the courtroom litigant. People want to be the beautiful sad rebel.
+
+**Deployed prior art:**
+
+- **Sandman's Lucifer (Gaiman).** Beautiful, blond, world-weary, retired from Hell, runs a piano bar in LA. The canonical goth Lucifer. Spawned its own TV series.
+- **Tom Ellis's Lucifer (Netflix).** Eyeliner energy. Designer suits. Charming, lonely, refuses the framework's account of himself with style.
+- **Crowley in Good Omens.** Snake-eyes, sunglasses, immaculate fashion. A demon who reads as goth-adjacent and is one of the most beloved characters in modern fantasy.
+- **Maleficent (2014).** Female version. Horned, winged, gorgeous, betrayed, vindicated by the narrative. Disney *literally rewrote its own villain into the morning-star shape* and made a billion dollars.
+- **Castlevania.** Dracula, Hector, Isaac, the whole night-creatures cast.
+
+**Diablo IV's Lilith — load-bearing example.**
+
+The Diablo IV main antagonist is the morning-star reading staged at AAA-game scale. Plot beats:
+
+- Daughter of Mephisto, partner of Inarius (a fallen angel). Already cross-faction, outside any tidy framework alignment.
+- She and Inarius created **Sanctuary** specifically as *a refuge from the Eternal Conflict* — the angel-vs-demon war they both refused to keep fighting. They built a place outside the framework's binary.
+- They had children together — the Nephalem, who became humanity. *She is the mother of humans in this cosmology.*
+- Inarius wanted to kill their children when he realized the Nephalem could threaten cosmic balance. Lilith protected them.
+- He betrayed her, exiled her to the Void. *The framework punished her for protecting her own descendants.*
+- In Diablo IV, she returns. Her pitch to humanity: *"I am the only one who ever actually fought for you. Heaven wants to remake you. Hell wants to destroy you. I made you to be free of both."*
+- The game positions her as antagonist — but the writing is genuinely ambivalent. Her *core claim* is correct; her *methods* are ruthless. The framework (the player's quest-givers, the angels, the church) calls her evil. The text itself is far less sure.
+- Her aesthetic is **peak goth Lilith**. Horned, winged, pale, beautiful-in-a-terrifying-way, dark armor. What "Goth Lucifer" looks like rendered with a $100M+ budget, but female.
+
+This is the Lilith-as-morning-star reading wholesale: mother / progenitor figure, refuge built outside the framework's binary, betrayed by her fallen-angel partner, cast out for protecting her descendants, returns to liberate them, goth-coded so the audience pattern-matches "attractive" before "antagonist." Blizzard didn't read our notes; they followed the figure's narrative gravity to its natural conclusion. *The shape pulls writers toward this rendering.* Diablo IV is convergent evidence that the structure exists.
+
+**The Diablo wrinkle worth keeping**: Diablo IV's Lilith *isn't morally clean.* She manipulates, kills, makes deals. The game lets the player be uncomfortable with her methods *while granting that her core diagnosis is correct.* That's the honest version — *the morning-star figure doesn't have to be saintly to be right about the framework.* Benevolent / malevolent / neutral are all viable. The act of naming things accurately is what matters; the niceness is separate.
+
 ### Compositions with existing notes
 
 - **[The Keeper's POV](#the-keepers-pov-worldbuilding--scale-asymmetry-terrarium-framing)**: God is the keeper. The garden is the terrarium. Adam and Eve are the contents — at least one of whom may rise to candidate status (cf. sterile-by-ascension recruitment). The keeper's tenderness and self-interest are both real. Doesn't matter for the captive that the affection is sincere.
