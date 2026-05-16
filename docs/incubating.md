@@ -313,7 +313,7 @@ Related: [identity axes](./worldbuilding/identity-axes.md) — *scale + embodime
 
 ## Halo-Horns: One Species, Three Misreadings (worldbuilding — celestial iconography as evolved camouflage)
 
-A humanoid winged species with halo-shaped horns. *Three* populations, occupying three ecological niches along volcanic mountain ranges and the surrounding terrain. Flatlanders below construct the angel / demon / fae triad from sightings of one species in three habitats. The species itself is none of those things.
+A humanoid winged species with halo-shaped horns. *Three* populations, occupying three ecological niches along volcanic mountain ranges and their forested slopes. Flatlanders below mythologize them differently depending on which population they're seeing — angels (glimpsed against cloud), demons (glimpsed against lava), beastfolk (encountered in forest). Three misreadings in different registers: moral, moral, taxonomic. The species itself is none of those things.
 
 ### Anatomy (shared template)
 
@@ -324,22 +324,24 @@ A humanoid winged species with halo-shaped horns. *Three* populations, occupying
 
 ### Three populations
 
-Same species, diverged geographically. The ground population is the strongest candidate for the ancestral form; alpine and volcanic are specialist radiations into extreme environments. (Alternative: ground population is a re-descent. Open.)
+Same species, diverged geographically along the same mountain ranges. Forest cousins are the strongest candidate for the ancestral form (most generalist niche, mid-elevation, easiest origin); alpine and volcanic are specialist radiations into extreme environments. (Alternative: forest cousins are a re-descent. Open.)
 
-| | Alpine cousins | Volcanic cousins | Ground cousins |
+| | Alpine cousins | Volcanic cousins | Forest cousins |
 |---|---|---|---|
-| Habitat | Snowy/dormant peaks, above cloud | Active volcanic peaks, ash-darkened | Forests, fields, rivers, ground-accessible terrain |
-| Coloration | Pale wings, horns, skin — cloud camouflage | Dark wings, horns, skin — rock camouflage | Mottled, dappled, terrain-matching browns/greens/grays; probably seasonal variation |
-| Apparent color (in context) | White / glowing-pale against cloud | Red-glowing (lava reflects off dark skin) — *the red is lighting, not pigment* | Whatever the local terrain reads as |
-| Adaptation | Thin air, high UV, low temperature | High SO₂/CO₂, heat, ash-blocked sunlight | Generalist; predator-aware, food-abundant |
-| Vision | Standard daylight | Red-shifted; possibly infrared sensitivity | Standard daylight |
-| Wings | Large, gliding, high wing-loading | Large, ash-tolerant | *Reduced* — smaller, possibly gliding-only or partially flightless in some sub-populations |
-| Horn shape | Halo-form (canonical) | Swept-back, less halo-like | Small, compact — reads as *animal* horns to humans, not *divine* |
-| Body size | Smaller than human, hollow-boned | Comparable, dense-built | Smaller still, often near human-child scale |
-| Human contact | Almost none | Almost none | **Constant.** Live in human-accessible terrain. |
-| Flatland mythology | Angels | Demons | Fae / fairies / forest spirits / pixies / kodama |
+| Habitat | Snowy/dormant peaks, above cloud | Active volcanic peaks, ash-darkened | Forested mid-elevation mountain slopes — lush mountains, below the tree line |
+| Coloration | Pale wings, horns, skin — cloud camouflage | Dark wings, horns, skin — rock camouflage | Brown / tawny / dappled wings — forest dappled-light camouflage; possibly visibly furred body |
+| Apparent color (in context) | White / glowing-pale against cloud | Red-glowing (lava reflects off dark skin) — *the red is lighting, not pigment* | Reads as *animal* (tawny owl, hawk, deer) — natural-fauna register |
+| Adaptation | Thin air, high UV, low temperature | High SO₂/CO₂, heat, ash-blocked sunlight | Forest cover, dense vegetation, mixed prey/forage |
+| Vision | Standard daylight | Red-shifted; possibly infrared sensitivity | Standard daylight, good in dappled forest light |
+| Wings | Large, gliding, high wing-loading | Large, ash-tolerant | Smaller, *maneuverable* — short-burst flight through trees, not soaring |
+| Horn shape | Halo-form (canonical) | Swept-back, less halo-like | Antler-branched / ram-curled / compact spikes — reads as *animal* horns |
+| Body size | Smaller than human, hollow-boned | Comparable, dense-built | Mid-sized — forest-creature scale |
+| Human contact | Almost none | Almost none | **Sporadic** — encountered by hunters, woodcutters, climbers. Cryptid-style encounter reports. |
+| Flatland mythology | Angels | Demons | Beastfolk / tengu / satyrs / cryptids / wild-folk |
 
-All three are the same species. Interbreed-capable (probably). Each population has *its own* terms for the others — body-part / environment / family terms, not religious ones. From inside the species, the three are races, not categories of being.
+All three are the same species. Interbreed-capable (probably). Each population has *its own* terms for the others — body-part / environment / family terms, not mythological ones. From inside the species, the three are races, not categories of being.
+
+**Why the third mythology is different from the first two.** Angels and demons are *moral* misreadings — humans assign sanctity / damnation from visual signature plus environmental coding. Beastfolk are a *taxonomic* misreading — humans see the forest cousins as another animal species, not as spirits. The mythologization is shallower; this population is the one humans *almost* understand correctly. They get a real-fauna folk-taxonomy, not a metaphysics.
 
 ### Evolution, not transformation
 
@@ -353,8 +355,8 @@ Adaptation is genetic. They don't change phenotype to match environment — they
 ### Contact between populations
 
 - **Alpine ↔ volcanic.** Stratovolcano chains routinely have snowy dormant peaks adjacent to active ones within visual range (Cascades, Andes, Kamchatka, Japan, Indonesia). Joyrides between peaks happen. Trade, intermarriage, shared language family, shared mythology about each other.
-- **Mountain ↔ ground.** Alpine and volcanic cousins can fly down. Ground cousins probably *cannot* fly up (reduced wings, lower altitude tolerance). Contact is one-directional and asymmetric — the high cousins visit; the ground cousins do not return the visit.
-- **Three-way cultural network.** Alpine and volcanic both interact with ground cousins on descent. Ground cousins are the *crossroads* population — they have contact with all three populations and probably the most multilingual / diplomatically connected. They're also the ones most exposed to humans.
+- **Mountain ↔ forest.** Alpine and volcanic cousins can fly down to the forested slopes. Forest cousins probably *cannot* fly up to the high peaks (smaller wings, less altitude tolerance, different flight regime). Contact is asymmetric — the high cousins visit; the forest cousins host.
+- **Three-way cultural network.** Forest cousins are the *crossroads* population — they have contact with all three populations on their own slopes, and they're at the elevation band most exposed to humans (sporadically). Probably the most multilingual / culturally connected of the three.
 - *Subglacial volcanoes* (snow and fire on the same peak) are possible edge cases. Open who lives there.
 
 ### Flatland mythology — the triadic misread
