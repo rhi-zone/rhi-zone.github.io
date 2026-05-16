@@ -78,6 +78,12 @@ To the other species: *why would anything behave like this?* To us: extremely re
 
 Prior art: "humans are space orcs" is a known trope, but usually framed as a compliment (surprisingly tough, endearingly chaotic). This is the misanthropic inversion — no redemption arc, recognition deliberately withheld.
 
+Contrast: ["the day humanity found us"](https://www.youtube.com/watch?v=sW9PM9eO-s4) (TOMB, Sept 2025) is an alien-POV space opera that sets up humans-as-threat then softens via an AI-as-real-villain twist (Terra started the war, not humans). It also signals "alien narrator" openly from the first line — no POV misidentification. The version this note describes refuses both off-ramps: misanthropy holds, and the audience's recognition of humans-as-the-threat is what does the work.
+
+Adjacent untouched territory: **POV misidentification.** Same delayed-recognition trick mirrored across the cast — reader spends the story assuming the POV is human, when the POV is the species humans are doing harm to. Reader-only reveal (POV never breaks character). The "domesticated and loving" variant — POV doesn't share the misanthropy, reader is the only one in the room who knows what's wrong — is the cruelest and least-done in prose.
+
+See [identity axes](./worldbuilding/identity-axes.md) for the taxonomy of misidentification dimensions. This note commits substrate/role for off-screen humans; the sibling POV-misidentification project picks axes for the POV itself.
+
 ---
 
 ## Programmable LLM Interaction Substrate (ST/Talemate/Claude Code replacement)
