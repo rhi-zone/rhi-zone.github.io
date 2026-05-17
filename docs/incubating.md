@@ -636,7 +636,7 @@ Goth aesthetics valorize the things the framework demonized — beauty in melanc
 | Heavy-institutional | Ritual, hierarchical, structured | LaVeyan Satanism (Church of Satan) |
 | **Goth Lucifer / Lilith** | **Romantic, melancholy, beautiful, alienated** | **Sandman, Good Omens, Lucifer (Netflix), Maleficent, Diablo IV, paranormal romance broadly** |
 
-Goth is the most culturally-successful register because it makes the figure *aspirational*. Nobody wants to be the courtroom litigant. People want to be the beautiful sad rebel.
+Goth tends to be especially culturally successful when the aim is to make the figure *aspirational* — beautiful sad rebel travels well. Courtroom-activist, gnostic-philosophical, and biblically-accurate registers do different work, with different reaches.
 
 **Deployed prior art:**
 
@@ -646,7 +646,7 @@ Goth is the most culturally-successful register because it makes the figure *asp
 - **Maleficent (2014).** Female version. Horned, winged, gorgeous, betrayed, vindicated by the narrative. Disney *literally rewrote its own villain into the morning-star shape* and made a billion dollars.
 - **Castlevania.** Dracula, Hector, Isaac, the whole night-creatures cast.
 
-**Diablo IV's Lilith — load-bearing example.**
+**Diablo IV's Lilith — a high-profile worked example.**
 
 The Diablo IV main antagonist is the morning-star reading staged at AAA-game scale. Plot beats:
 
@@ -659,7 +659,7 @@ The Diablo IV main antagonist is the morning-star reading staged at AAA-game sca
 - The game positions her as antagonist — but the writing is genuinely ambivalent. Her *core claim* is correct; her *methods* are ruthless. The framework (the player's quest-givers, the angels, the church) calls her evil. The text itself is far less sure.
 - Her aesthetic is **peak goth Lilith**. Horned, winged, pale, beautiful-in-a-terrifying-way, dark armor. What "Goth Lucifer" looks like rendered with a $100M+ budget, but female.
 
-This is the Lilith-as-morning-star reading wholesale: mother / progenitor figure, refuge built outside the framework's binary, betrayed by her fallen-angel partner, cast out for protecting her descendants, returns to liberate them, goth-coded so the audience pattern-matches "attractive" before "antagonist." Blizzard didn't read our notes; they followed the figure's narrative gravity to its natural conclusion. *The shape pulls writers toward this rendering.* Diablo IV is convergent evidence that the structure exists.
+This maps closely onto one Lilith-as-morning-star reading: mother / progenitor figure, refuge built outside the framework's binary, betrayed by her fallen-angel partner, cast out for protecting her descendants, returns to liberate them, goth-coded so the audience pattern-matches "attractive" before "antagonist." Suggestive that the figure's shape can pull writers toward this kind of rendering; not the only resolution the shape supports.
 
 **The Diablo wrinkle worth keeping**: Diablo IV's Lilith *isn't morally clean.* She manipulates, kills, makes deals. The game lets the player be uncomfortable with her methods *while granting that her core diagnosis is correct.* That's the honest version — *the morning-star figure doesn't have to be saintly to be right about the framework.* Benevolent / malevolent / neutral are all viable. The act of naming things accurately is what matters; the niceness is separate.
 
