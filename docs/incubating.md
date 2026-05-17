@@ -675,6 +675,68 @@ This is the Lilith-as-morning-star reading wholesale: mother / progenitor figure
 
 ---
 
+## Deity Framings (a multi-lens kit, not a single reading)
+
+The category "deity" carries metaphysical baggage readers import by default. Multiple frames are available for the same character/setup, each enabling different stories. None is *the* reading; pick by what the piece needs. Multiple frames can hold simultaneously — they emphasize different aspects rather than competing for one truth.
+
+### Frames
+
+**Deity as genuinely-other-tier of being.**
+- Enables: scale asymmetry, terrarium dynamics, peer-vs-non-peer confusion, cosmic horror.
+- Tradeoff: grants the framework's claim of categorical difference. Feature for some stories, limitation for others.
+- Used in: [The Keeper's POV](#the-keepers-pov-worldbuilding--scale-asymmetry-terrarium-framing).
+- Prior art touchpoints: Lovecraft, Solaris, Annihilation, various ancient-precursor sci-fi.
+
+**Deity as social caste / class.**
+- Enables: revealing the framework's metaphysics as ideology, cross-caste dynamics, class traitors, the renaming-by-opposite move.
+- Tradeoff: requires "no actual metaphysical difference," strips the cosmic-horror affect.
+- Used in: implicitly throughout the [Eden re-read](#the-fall-as-captive-document-worldbuilding--eden-re-read).
+- Prior art touchpoints: real-world caste systems (Brahmin/varna, paekjeong/burakumin, antebellum slavery, apartheid, aristocracy generally); fictional aristocrats reframed as advanced civilizations rather than gods (Eldar in 40k, MCU Asgardians, Vorlons in B5); Warframe's faction structure (Orokin, Tenno, Grineer, Corpus, Infested, Warframes, Protoframes — all human or human-derived; the apparent species differences are manufactured caste positions).
+- *Sharpening on engineering visibility:* the upper caste's modifications are *plastic surgery*, not exotic ritual transformation. Same category as real-world rich-people interventions, just with better tech. Both upper and lower castes are engineered; the framework hides the upper caste's modifications while highlighting the lower caste's as degradations. Selective visibility of engineering tracks class access to *good* engineering — if your modifications look "natural," it's because you bought the version that does.
+
+**Deity as power-level / cultivation tier.**
+- Enables: ascension narratives, quantified divinity, ladder-climbing, gods-can-die, mortals-can-ascend.
+- Tradeoff: tends to legitimize the hierarchy by making power commensurable and achievable. Critique requires explicit additional work.
+- Prior art touchpoints: D&D (explicit divine ranks; mortals like Vecna ascend; gods get killed during Time of Troubles); Pathfinder; Exalted; Soul Land / Douluo Dalu and the broader Chinese cultivation genre (xianxia / xuanhuan); Scion; Glorantha. Critique-aware variants: Lord of the Mysteries (Ancient Gods revealed as caste-supremacist), Reverend Insanity (genuine antihero exploiting the system).
+
+**Deity as bureaucratic position / institutional role.**
+- Enables: gods-as-job-holders, divine HR, succession, role-vs-person distinctions, sustained-by-belief / starved-by-inattention.
+- Used in: [Hell as engineered employer](#hell-as-engineered-employer-fallen-angels-as-workforce-transfer) (the punishment branch is structurally a department with personnel needs).
+- Prior art touchpoints: Pratchett's Discworld gods (need belief, can be replaced); Soul Land's positional divinity (God of Slaughter, etc. as offices); American Gods (sustained by attention); Tablet RPGs that treat divine portfolios as institutional roles.
+
+**Deity as uncomprehending peer.**
+- Enables: gods who are neither categorically superior nor inferior, just *different in ways neither side fully translates*; sympathetic strangeness; quiet melancholy.
+- Prior art touchpoints: Solaris; some Le Guin; certain ancient-precursor stories; sympathetic-fae traditions; the alpine cousins in the [Halo-Horns species](#halo-horns-one-species-three-misreadings-worldbuilding--celestial-iconography-as-evolved-camouflage) (from inside, just a species; from outside, mythologized as celestial).
+
+### These frames are not mutually exclusive
+
+The same character can read through multiple frames simultaneously. The God of Eden, for example, can be: a higher-tier keeper *and* a caste-supremacist with very good plastic surgery *and* a high-cultivation being *and* an institutional position-holder *and* a peer humans can't fully read. Different scenes foreground different frames. The piece picks emphasis; the worldbuilding accommodates the multiplicity.
+
+### Picking by what the piece needs
+
+| Need | Frame |
+|---|---|
+| Cosmic horror / scale asymmetry | Tier |
+| Political critique / liberation arc | Caste |
+| Heroic ascension / ladder-climbing | Power-level |
+| Comedy or bureaucratic texture | Institutional |
+| Quiet melancholy / mutual unreadability | Uncomprehending-peer |
+
+Many pieces combine. The kit is for picking emphasis, not picking ontology.
+
+### Prior art examples that intentionally hold multiple frames
+
+- **Lord of the Mysteries** — power-level + caste + bureaucratic. Ascension is explicitly engineered; Beyonders occupy institutional pathways; the Ancient Gods are eventually revealed as caste-supremacist.
+- **Soul Land** — power-level + bureaucratic. Divinity is both a high cultivation tier and a positional office.
+- **Diablo IV** — tier + caste-traitor. The angel/demon binary is presented as metaphysical and read by Lilith as a caste structure to escape.
+- **Warframe** — caste + engineering + bureaucratic. All factions are humans; the divisions are manufactured; the Orokin held institutional positions before their fall.
+
+### Open obscure prior art
+
+- **"The Fairy Captivity"** (manhua, obscure) — flagged as adjacent. Source-check the actual work rather than relying on inference from the title.
+
+---
+
 ## Programmable LLM Interaction Substrate (ST/Talemate/Claude Code replacement)
 
 A platform generic enough to replace SillyTavern, Talemate, and Claude Code — not by being all three, but by being the substrate all three are programs on top of.
