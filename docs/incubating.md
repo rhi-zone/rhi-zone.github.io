@@ -675,6 +675,42 @@ This maps closely onto one Lilith-as-morning-star reading: mother / progenitor f
 
 ---
 
+## The Docile Deity (slice of life — intra-community taboo)
+
+A deity-POV slice-of-life piece. The deity is a regular person within their deity community. They have all the powers their kind has and don't think much about them; the powers are present but not deployed and not part of their personality. They are docile and meek. This is a temperament — not a virtue, not a flaw, not framed either way.
+
+They are in a relationship with a human. The deity's own community disapproves — *intra-community taboo against pairing down*. Humans don't know enough about deities to register the relationship as cross-anything, so the discrimination is entirely from the deity's side. The deity passes as human (visibly human-looking); the partner is visibly human and the outsider when in deity contexts.
+
+### Shape
+
+- Discrimination is on-sight in deity contexts (the partner is visibly human; the deity's community recognizes them on contact).
+- Stereotypes against humans are concrete and specific within the world's culture — fully developed in the fiction, not modeled on any real-world referent.
+- Disapproving acquaintances. Could include family. Middle social ring is the load-bearing one: the people the deity sees regularly and whose disapproval costs.
+- The partner registers the deity's docility as a personality trait ("super docile for a human"). They don't dwell on the deityhood because it *isn't a thing* — it just *is*. The relationship is between two people; one happens to have powers.
+
+### Discipline
+
+- Not dramatic. Not trying to be.
+- No arc. No fixing. No bigots-won-over, no triumph, no resolution.
+- The deity's docility is what they're like. The piece doesn't ask the reader to admire it or judge it. Reader's interpretation is the reader's business.
+- Powers aren't a plot device, not even by absence. They're just part of the deity, like any quality.
+
+### Prior art touchpoints
+
+(Light — none load-bearing.)
+
+- *Eros and Psyche* — Aphrodite's disapproval of Psyche is the intra-deity-community-against-mortal-pairing shape
+- *Fiddler on the Roof* — same shape, applied to ethnoreligious community
+- *The Goblin Emperor* (Addison) — Maia's father's family rejecting his goblin mother
+- Many xianxia / cultivation stories — immortal-clan disapproving of disciple's mortal partner
+- "Marrying down" literary fiction broadly (Austen, Wharton, much else)
+
+### Frames this piece picks up
+
+Uses, among the [Deity Framings](#deity-framings-a-multi-lens-kit-not-a-single-reading) available, the *caste* lens (intra-community pairing taboo as caste-internal regulation) and the *deity-as-a-person-with-power* register (closest to the "bound cosmic" or "asymmetry-as-the-appeal" variants in [Power-Asymmetric Romance](#power-asymmetric-romance-worldbuilding--immortalmortal-cosmichuman-etc), without dramatizing either). Other pieces can pick differently from the same kit.
+
+---
+
 ## Deity Framings (a multi-lens kit, not a single reading)
 
 The category "deity" carries metaphysical baggage readers import by default. Multiple frames are available for the same character/setup, each enabling different stories. None is *the* reading; pick by what the piece needs. Multiple frames can hold simultaneously — they emphasize different aspects rather than competing for one truth.
