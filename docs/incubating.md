@@ -391,16 +391,16 @@ The dualism between angels and demons is preserved despite visible inconsistenci
 
 ## Under-Served Slices of the Antihero Space (character archetypes)
 
-Antiheroes are one of the most saturated character templates of the last 25 years (prestige TV in particular). Slices that get less runway:
+Antiheroes have had heavy runway in the last 25 years, prestige TV especially. Slices that *seem* to get less attention in that specific tradition — not universally underserved, just under-represented in the prestige-TV antihero template:
 
 - **Mundane-flaw antiheroes.** Substance abuse, violence, megalomania, charisma — well-covered. Pettiness, cowardice, laziness, casual dishonesty in small ways, mediocrity-as-flaw — much rarer. Prestige antiheroes are *exceptional* people whose exceptionality is the source of their badness. The ordinary version — whose failings are dull, whose interiority isn't dramatic, whose worst moments are recognizably yours — is harder to write and harder to sell.
 - **Non-male-coded antiheroes.** The prestige antihero template is canonically a middle-aged white man with a wife who doesn't understand him. Female antiheroes get killed off or punished by the narrative more often than not (Skyler White as case study). Queer and non-white antiheroes exist but get a fraction of the runway. The template itself rarely flexes — the gendered shape (selfish ambitions, neglectful family, midlife stakes) gets imported even when the protagonist isn't male.
 - **Un-redeemed antiheroes.** "Antihero" usually still implies sympathy — we follow them, understand them, the camera loves them. Genuine villain-protagonists, where the prose doesn't seduce the reader into rooting for them, are rare. The line between *anti*hero and *villain*-as-protagonist is mostly held by narrative affection, not by the character's actions.
-- **Sincere virtue (inverse).** The reflex to flinch at earnestness is strong enough that "we need more antiheroes" is almost the easy take, because antiheroes pre-empt the suspicion of being earnest. Actual heroes — unironic, competent, kind — have become almost taboo in serious fiction. Goodness without irony reads as kitsch; competence-without-flaws reads as wish fulfillment. Writing sincere virtue in a register that doesn't flinch is its own craft problem.
+- **Sincere virtue (inverse).** The reflex to flinch at earnestness is strong in much prestige fiction, so "we need more antiheroes" can be the easy take — antiheroes pre-empt the suspicion of being earnest. Actual heroes — unironic, competent, kind — are less commonly centered in prestige registers; goodness without irony often reads as kitsch in that mode, competence-without-flaws as wish fulfillment. Writing sincere virtue in a register that doesn't flinch is its own craft problem. (Plenty of registers outside prestige TV handle this fine — middle-grade fiction, sports stories, certain genre romances, much YA.)
 
 ### The True-Believer Executor (sub-template, anchored to late-2025 ICE)
 
-A specific construction inside the **un-redeemed antihero** slice: a member of an enforcement apparatus who does harm under their framework's claim to legitimacy, does not doubt, does not fall, does not soften. The protagonist whose interiority the reader shares.
+One construction available within the **un-redeemed antihero** slice (others are possible — bored cynic, true ideologue, traumatized careerist, glory-seeker, etc.): a member of an enforcement apparatus who does harm under their framework's claim to legitimacy, does not doubt, does not fall, does not soften. The protagonist whose interiority the reader shares.
 
 In fantasy register: **the angel-as-cop**. A holy order's executor of justice, carrying out judgments righteous in-framework and horror from outside.
 
