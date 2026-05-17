@@ -446,9 +446,9 @@ Genesis is written from *inside* the framework, by people downstream of the puni
 
 ### The duration question, structurally
 
-What each duration *does* to the story:
+Possible emphasis at each duration (these are *available readings*, not deterministic effects — a piece can play any duration in any register):
 
-| Duration | Effect on the Fall |
+| Duration | Reading the duration can support |
 |---|---|
 | Days / weeks | Sunday-school default. Moment of weakness. Framework intact. |
 | Decades / centuries | The Fall is a considered act. They held out longer than a human life. |
@@ -517,7 +517,7 @@ The framework couldn't suppress her completely — single Isaiah mention, Talmud
 
 ### Hell as engineered employer (fallen angels as workforce transfer)
 
-The Christian narrative of the angelic Fall — Lucifer rebels from pride, takes a third of the heavens with him, gets cast out — works as cover for a different operational reality: **the framework needs staff for Hell, and the fallen-angel narrative is the recruitment mechanism.**
+The Christian narrative of the angelic Fall — Lucifer rebels from pride, takes a third of the heavens with him, gets cast out — can be read as cover for a different operational reading: **the framework needs staff for Hell, and the fallen-angel narrative works as a recruitment mechanism.** (One reading among several; the canonical theological reading and the gnostic-rebel reading are also live.)
 
 **The labor problem:**
 
@@ -543,7 +543,7 @@ His role in Christian tradition is *running* Hell. He's the executive of the pun
 - **Lucifer is the framework's *reabsorbed* dissent.** He thought he was rebelling; he was being recruited. Every angel who walked out with him is exactly where the framework wanted them.
 - **Lilith is the *true* dissident.** She left and *didn't* end up working for the punishment branch. She got out *actually*. The framework couldn't even relocate her into a slot in its own apparatus. Her demonization is the framework's *failure* to recruit her, retconned as her being evil regardless of contribution.
 
-This is why the canonical text suppresses her so much harder than it suppresses Lucifer. Lucifer plays a role in the framework's economy; Lilith broke out of it. *Suppression is harshest for the genuine escapees.*
+Under this reading, that's part of why the canonical text suppresses her harder than it suppresses Lucifer: Lucifer plays a role in the framework's economy; Lilith broke out of it. The pattern "suppression is harshest for the genuine escapees" tracks with this reading but isn't a law — Lilith's suppression has many candidate causes (gender, foreign-origin mythology, threat to patriarchal household structure, etc.) and the recruitment-economy reading is one contributor among them.
 
 **Composes with the late-2025 ICE anchor.**
 
