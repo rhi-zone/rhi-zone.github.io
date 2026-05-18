@@ -52,6 +52,14 @@ if [ -z "$session_id" ] || [ -z "$tool_name" ]; then
   exit 0
 fi
 
+# Coordination/UI tools are exempt: they neither explore nor bandaid, so
+# they should not burn the chain budget and must not be blocked by it.
+case "$tool_name" in
+  AskUserQuestion|EnterPlanMode|ExitPlanMode)
+    exit 0
+    ;;
+esac
+
 # Subagent detection: subagent tool calls carry an `agent_id` field;
 # main-session calls do not. session_id is inherited from the parent, so
 # session_id alone can't distinguish — but agent_id is unambiguous.
