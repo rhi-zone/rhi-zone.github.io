@@ -100,7 +100,6 @@ export default withMermaid(
             text: 'Worldbuilding',
             collapsed: true,
             items: [
-              { text: 'Incubating', link: '/incubating' },
               { text: 'Identity Axes', link: '/worldbuilding/identity-axes' },
             ]
           },
