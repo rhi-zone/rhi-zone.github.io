@@ -82,7 +82,7 @@ Contrast: ["the day humanity found us"](https://www.youtube.com/watch?v=sW9PM9eO
 
 Adjacent untouched territory: **POV misidentification.** Same delayed-recognition trick mirrored across the cast — reader spends the story assuming the POV is human, when the POV is the species humans are doing harm to. Reader-only reveal (POV never breaks character). The "domesticated and loving" variant — POV doesn't share the misanthropy, reader is the only one in the room who knows what's wrong — is the cruelest and least-done in prose.
 
-See [identity axes](./worldbuilding/identity-axes.md) for the taxonomy of misidentification dimensions. This note commits substrate/role for off-screen humans; the sibling POV-misidentification project picks axes for the POV itself.
+See [identity axes](../docs/worldbuilding/identity-axes.md) for the taxonomy of misidentification dimensions. This note commits substrate/role for off-screen humans; the sibling POV-misidentification project picks axes for the POV itself.
 
 ---
 
@@ -104,7 +104,7 @@ Active and non-benevolent variants: the mad scientist running experiments, which
 
 Three framings of the asymmetry produce three different stories. We're a rounding error — below their noise floor, never decided about; the story shape is absence, and we die in ways no one planned. We're collateral damage — noticed, unimportant, ants under the bulldozer; tragedy shape, they'd stop if they cared. We're toys in a terrarium — noticed and tended, no peer standing; banal horror, attention without standing. The terrarium framing is the most fertile because it preserves fondness. The keeper can love their terrarium. The lizard doesn't get peer standing from being loved.
 
-Related: [identity axes](./worldbuilding/identity-axes.md) commits scale and role for the POV (POV is keeper-tier, reader assumes peer-tier). This is the inverse of the [cosmic horror](#humans-as-cosmic-horror-worldbuilding--sci-fi-space-opera) note's framing — there humans are the threat from outside; here humans are inside someone's hobby.
+Related: [identity axes](../docs/worldbuilding/identity-axes.md) commits scale and role for the POV (POV is keeper-tier, reader assumes peer-tier). This is the inverse of the [cosmic horror](#humans-as-cosmic-horror-worldbuilding--sci-fi-space-opera) note's framing — there humans are the threat from outside; here humans are inside someone's hobby.
 
 Things that touch this shape: Lem's Solaris, Hitchhiker's Guide in a comedic register, and cosmic indifference broadly (Lovecraft and descendants, where the emphasis is on the cosmic). Each handles the asymmetry in its own register; keeper-as-mundane-hobbyist is one option among them, marked by deadpan tone and full keeper interiority.
 
@@ -120,7 +120,7 @@ Fresher angles come from noticing that "power" collapses several distinct things
 
 A few variants worth their own piece. The keeper-romance, sibling to [Gods as hobbyists running terraria](#gods-as-hobbyists-running-terraria): the cosmic loves their lover sincerely and attentively, but the love is keeper-love, not peer-love, and the mortal can't tell the difference because they've never had peer-love from a peer-tier being. It's structural; no growth fixes it. The asymmetry-as-appeal version, where both parties sought each other out for the specific shape of the gap — not "we made it work despite" but "we needed this exact dynamic." The mortal isn't a victim and the cosmic isn't slumming. The bound cosmic, where the cosmic has less agency, bound by nature or role or function, and the mortal has freedom; the cosmic loves precisely because the mortal can surprise, change, leave. The fragment, where the cosmic sends an avatar — a small piece of themselves, maybe amnesiac about being a fragment — and the relationship is real; when the fragment is recalled, the whole doesn't feel the loss the same way, and the mortal is left with the residue of someone who in their fullness doesn't remember them. The unmoving lover, where the cosmic is the substrate — city, forest, ocean — and can't move; the mortal lives inside the lover; most of the relationship is the mortal addressing the world alone and getting responses as weather, coincidence, the shape of a day. Domestic, not tragic. The non-lonely immortal, who has loved thousands warmly and isn't broken by it and will love thousands more; the mortal has to come to terms with being one of many — treasured but not unique. Strips the flattery without making the cosmic cruel. Rate-mismatched intimacy, where both are equally agentic but on different time-grains; the mortal speaks paragraphs between the cosmic's syllables, or vice versa. The texture is the rhythm break — who waits, what fights look like when one side can deliberate for a year between sentences.
 
-Related: [identity axes](./worldbuilding/identity-axes.md), primarily scale plus agency plus continuity. [Gods as hobbyists running terraria](#gods-as-hobbyists-running-terraria) is the keeper-romance's parent frame.
+Related: [identity axes](../docs/worldbuilding/identity-axes.md), primarily scale plus agency plus continuity. [Gods as hobbyists running terraria](#gods-as-hobbyists-running-terraria) is the keeper-romance's parent frame.
 
 ---
 
@@ -140,7 +140,7 @@ Downstream, this changes how the tiers relate. Lesser beings become a resource s
 
 This composes with other notes. With [Gods as hobbyists running terraria](#gods-as-hobbyists-running-terraria), the keeper tends the terrarium partly because "occasionally one ascends, and this is how my tier perpetuates" — tenderness with self-interest underneath, neither canceling the other; if the mechanism is lethal-cross-tier, the keeper has the power to elevate at the crisis, or not. With [Romance with a power gap](#romance-with-a-power-gap), several shapes open up: the higher being desires a child they cannot have via their own kind, and the mortal can give them this (the mortal may or may not know that's the asymmetry); both partners higher, both sterile, both grieving — relationship as partnership in non-continuation; mortal romance where one partner ascends mid-relationship and only afterward discovers the cost; the decision-point scene staged directly ("will you elevate me when the time comes, or will you watch me die?"), with both parties living with the answer or not; the higher-tier-fatal variant rendered as sacrifice for the child rather than sacrifice for the mortal, a different shape from "love made me human." With [Humans as Cosmic Horror](#humans-as-cosmic-horror-worldbuilding--sci-fi-space-opera), if humans are the higher tier and they have the reproductive gap, their relation to other species is recruitment, surrogacy, harvest. The misanthropy holds; the engine is parental desperation, not malice. In the lower-fatal version, humans destroy the species they mate with — particularly grim cosmic horror.
 
-Related: [identity axes](./worldbuilding/identity-axes.md), primarily continuity and origin.
+Related: [identity axes](../docs/worldbuilding/identity-axes.md), primarily continuity and origin.
 
 ---
 
@@ -166,7 +166,7 @@ Things that touch this shape: Antechamber (Bruce, 2013) and Manifold Garden (Chy
 
 This composes with postmortem proper, where it's essentially postmortem's later acts — a phase, not a separate project; could be staged as the same world after a longer interval, with the geometric relaxation as a measure of elapsed unobserved time. And with [Gods as hobbyists running terraria](#gods-as-hobbyists-running-terraria), where the keeper's space, viewed from inside, may be non-Euclidean as a routine matter; they don't think of it that way, it's just how their home is built. Lower-tier visitors find it disorienting; the keeper finds Euclidean spaces oddly cramped.
 
-Related: [identity axes](./worldbuilding/identity-axes.md), primarily scale and embodiment and situation.
+Related: [identity axes](../docs/worldbuilding/identity-axes.md), primarily scale and embodiment and situation.
 
 ---
 
@@ -211,7 +211,7 @@ Three sightings, three habitats, three mythologies — two in a moral key, one i
 
 The dualism between angels and demons is preserved despite visible inconsistencies (cross-population flights, intermediate appearances at mid-elevation) because human mythology doesn't require empirical fit. The beastfolk reading is the shallowest misreading — humans almost have the right shape for "another animal that looks a lot like us." They're closest to seeing the species clearly without ever quite doing so.
 
-This composes with [identity axes](./worldbuilding/identity-axes.md) (species, scale, relation-to-text — the reader assumes angel/demon/beastfolk because of visual signature, where the truth is one natural species in three habitats; the reveal isn't dramatic, it's just being told the anatomy and the ecology). With [Humans as Cosmic Horror](#humans-as-cosmic-horror-worldbuilding--sci-fi-space-opera), the forest cousins are positioned to bear the species' mythology of humans — most encounter exposure, their stories passed up to alpine and volcanic cousins via descent visits, the species' framework for understanding what flatlanders are; their humans-as-cosmic-horror story is the inverse of the flatlanders'. With [Gods as hobbyists running terraria](#gods-as-hobbyists-running-terraria) or [Romance with a power gap](#romance-with-a-power-gap), cross-species pairings are most plausible with forest cousins (encounter proximity); the mortal sees a tengu or beast-person, the forest cousin sees an unfamiliar primate. With [Underserved antihero slices](#underserved-antihero-slices), a forest cousin who's actually cruel, lazy, vain — mundane-flaw register, but the flatlanders read every encounter through the harpy-as-monster filter. The character's interior is ordinary; the projection makes them mythical.
+This composes with [identity axes](../docs/worldbuilding/identity-axes.md) (species, scale, relation-to-text — the reader assumes angel/demon/beastfolk because of visual signature, where the truth is one natural species in three habitats; the reveal isn't dramatic, it's just being told the anatomy and the ecology). With [Humans as Cosmic Horror](#humans-as-cosmic-horror-worldbuilding--sci-fi-space-opera), the forest cousins are positioned to bear the species' mythology of humans — most encounter exposure, their stories passed up to alpine and volcanic cousins via descent visits, the species' framework for understanding what flatlanders are; their humans-as-cosmic-horror story is the inverse of the flatlanders'. With [Gods as hobbyists running terraria](#gods-as-hobbyists-running-terraria) or [Romance with a power gap](#romance-with-a-power-gap), cross-species pairings are most plausible with forest cousins (encounter proximity); the mortal sees a tengu or beast-person, the forest cousin sees an unfamiliar primate. With [Underserved antihero slices](#underserved-antihero-slices), a forest cousin who's actually cruel, lazy, vain — mundane-flaw register, but the flatlanders read every encounter through the harpy-as-monster filter. The character's interior is ordinary; the projection makes them mythical.
 
 Open questions: which population is ancestral — forest cousins (generalist niche, most plausible biologically), or one of the specialist populations with the others being radiations? Are hybrids fertile, and if so, how many genetic exchanges flow between populations per generation? Do forest cousins know they're the same species as the angels and demons in human mythology, or do they tell humans the truth and humans don't listen, or do they just not bother explaining? What do they call themselves — the species-internal name, separate from any of the three population-names?
 
@@ -243,7 +243,7 @@ Some story shapes that fit. A procedural — case after case, investigation, ver
 
 A few framing decisions to make. Is the metaphysics verifiable, unverifiable, or transparently false (late-2025 ICE points toward transparently-false-but-invoked, which tends to be the sharpest)? Does the angel know how they appear from outside (compassion-with-conviction versus uncomprehending-conviction)? What does the angel enjoy — the texture of enjoyment is the character. Masked or identified, mirroring the ICE structural choice.
 
-Related: [identity axes](./worldbuilding/identity-axes.md), primarily role and self-knowledge. [Angels, demons, and harpies as one species](#angels-demons-and-harpies-as-one-species) — the holy angel-as-executor is the metaphysical angel, distinct from the alpine cousins (lookalike species, no sanction).
+Related: [identity axes](../docs/worldbuilding/identity-axes.md), primarily role and self-knowledge. [Angels, demons, and harpies as one species](#angels-demons-and-harpies-as-one-species) — the holy angel-as-executor is the metaphysical angel, distinct from the alpine cousins (lookalike species, no sanction).
 
 ---
 
@@ -371,7 +371,7 @@ With [true-believer angel cops](#true-believer-angel-cops), the cherubim with th
 
 With [Angels, demons, and harpies as one species](#angels-demons-and-harpies-as-one-species): separate from this. Those aren't real angels; they just look like the iconography. In an Eden-framework setting, real angels (cherubim, seraphim, the morning-star figure) coexist with the lookalike species, and the categorical confusion is its own scene.
 
-With [identity axes](./worldbuilding/identity-axes.md), this is role and self-knowledge and relation-to-text. The captive-document framing means the reader has to read against the narrator. The text is unreliable. The narrator is the framework. The protagonist of the actual story is whoever the framework is renaming.
+With [identity axes](../docs/worldbuilding/identity-axes.md), this is role and self-knowledge and relation-to-text. The captive-document framing means the reader has to read against the narrator. The text is unreliable. The narrator is the framework. The protagonist of the actual story is whoever the framework is renaming.
 
 ---
 
