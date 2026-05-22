@@ -18,6 +18,8 @@
 
 set -euo pipefail
 
+HAVE_NIX=$(command -v nix >/dev/null 2>&1 && echo 1 || echo 0)
+
 SECTION_FILE="${1:?Usage: propagate-claudemd-section.sh <section-file> <anchor-before-header> <anchor-after-header> \"<commit-message-subject>\"}"
 ANCHOR_BEFORE="${2:?Missing anchor-before-header}"
 ANCHOR_AFTER="${3:?Missing anchor-after-header}"
@@ -83,14 +85,20 @@ for claudemd in "${GLOBS[@]}"; do
 
     git -C "$repo" add CLAUDE.md
 
-    git -C "$repo" commit -m "$(cat <<EOF
+    COMMIT_MSG="$(cat <<EOF
 docs(claude): $COMMIT_SUBJECT
 
 Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
 EOF
 )"
 
-    git -C "$repo" push
+    if [ -f "$repo/flake.nix" ] && [ "$HAVE_NIX" = "1" ]; then
+      nix develop "$repo" --command git -C "$repo" commit -m "$COMMIT_MSG"
+      nix develop "$repo" --command git -C "$repo" push
+    else
+      git -C "$repo" commit -m "$COMMIT_MSG"
+      git -C "$repo" push
+    fi
     echo "COMMITTED: $repo"
     COMMITTED+=("$repo")
   else
