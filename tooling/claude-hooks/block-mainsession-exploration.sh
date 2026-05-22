@@ -54,8 +54,15 @@ fi
 
 # Coordination/UI tools are exempt: they neither explore nor bandaid, so
 # they should not burn the chain budget and must not be blocked by it.
+# Task-list tools (TaskCreate/TaskUpdate/TaskList/TaskGet/TaskOutput) are
+# lightweight bookkeeping — reading or updating task state is not main-session
+# work the budget is trying to limit. TaskStop is also exempt: cancelling a
+# task is a control action, not exploration or bandaiding.
 case "$tool_name" in
   AskUserQuestion|EnterPlanMode|ExitPlanMode)
+    exit 0
+    ;;
+  TaskCreate|TaskUpdate|TaskList|TaskGet|TaskOutput|TaskStop)
     exit 0
     ;;
 esac
@@ -70,13 +77,14 @@ fi
 
 counter_file="$state_dir/$session_id.counter"
 
-# Reset conditions: delegation-shape tools (Agent, Plan, Task, TaskCreate)
-# or `git commit` (durable work). The Claude Code UI sometimes renders an
-# Agent call with subagent_type="Plan" as `Plan(...)` — depending on the
-# harness version the underlying tool name may be "Agent" or "Plan", so
-# match both. Same for Task / TaskCreate variants.
+# Reset conditions: delegation-shape tools (Agent, Plan, Task) or `git commit`
+# (durable work). The Claude Code UI sometimes renders an Agent call with
+# subagent_type="Plan" as `Plan(...)` — depending on the harness version the
+# underlying tool name may be "Agent" or "Plan", so match both. Task is the
+# generic delegation shape; TaskCreate/TaskUpdate/TaskList/TaskGet/TaskOutput/
+# TaskStop are already exempted above (they exit 0 without touching the counter).
 case "$tool_name" in
-  Agent|Plan|Task|TaskCreate)
+  Agent|Plan|Task)
     echo 0 > "$counter_file"
     exit 0
     ;;
