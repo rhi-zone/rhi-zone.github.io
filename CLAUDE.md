@@ -92,6 +92,7 @@ If a primitive seems missing from the ecosystem, check whether the substrate exi
 | **fuwafuwa** | `~/git/pterror/fuwafuwa` | Autonomous AI presence on Moltbook and Discord — emotional state tracking, probabilistic freetime scheduling, warm excitable voice |
 | **matrix-gen** | `~/git/pterror/matrix-gen` | Multi-agent social simulator for synthesizing diverse instruction data (Rust impl of MATRIX, arxiv 2410.14251) |
 | **chub-stage-factory** | `~/git/pterror/chub-stage-factory` | Self-contained Claude Code workspace for designing and shipping a Chub stage — co-design phase fills DESIGN.md, autonomous build phase ships it via the chub deploy pipeline |
+| **software-taxonomy** | `~/git/pterror/software-taxonomy` | Cladistic taxonomy of software treated as biological organisms — JSONL corpus with rich featuresets and modelled evolutionary history |
 | **redacted-project** | *(private)* | Refer to only as "redacted-project" in ecosystem docs. Do not reveal or speculate about the actual repo name. |
 
 ## Responsibilities
