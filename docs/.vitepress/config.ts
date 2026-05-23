@@ -163,6 +163,14 @@ export default withMermaid(
             ]
           },
           {
+            text: 'External',
+            collapsed: true,
+            items: [
+              { text: 'statosphere-studio', link: '/projects/statosphere-studio' },
+              { text: 'statosphere-guide', link: 'https://pterror.github.io/statosphere-guide/' },
+            ]
+          },
+          {
             text: 'Introspection',
             collapsed: true,
             items: [

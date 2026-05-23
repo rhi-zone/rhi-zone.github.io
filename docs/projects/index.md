@@ -27,6 +27,8 @@ rhi is a glue layer for computers—removing boundaries between you and what you
 | [Reincarnate](/projects/reincarnate) | Lift legacy software to modern web runtimes | <span class="badge-layer layer-legacy">Legacy</span> | <span class="badge-domain domain-data">Data</span> |
 | [Scribble](/projects/scribble) | Sketch-level creative environment for games, art, and interactive pieces | <span class="badge-layer layer-execution">Execution</span> | <span class="badge-domain domain-games">Games</span> |
 | [defocus](/projects/defocus) | World substrate for interactive narrative, IF, and stateful simulations | <span class="badge-layer layer-execution">Execution</span> | <span class="badge-domain domain-worlds">Worlds</span> |
+| [statosphere-guide](https://github.com/pterror/statosphere-guide) | Comprehensive unofficial guide to Statosphere | <span class="badge-layer layer-interface">Interface</span> | <span class="badge-domain domain-games">Games</span> |
+| [statosphere-studio](/projects/statosphere-studio) | Best-in-class Statosphere config editor — embeddable Vue 3 component | <span class="badge-layer layer-interface">Interface</span> | <span class="badge-domain domain-games">Games</span> |
 
 ## By Layer
 

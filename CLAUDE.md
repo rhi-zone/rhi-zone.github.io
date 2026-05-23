@@ -93,6 +93,8 @@ If a primitive seems missing from the ecosystem, check whether the substrate exi
 | **matrix-gen** | `~/git/pterror/matrix-gen` | Multi-agent social simulator for synthesizing diverse instruction data (Rust impl of MATRIX, arxiv 2410.14251) |
 | **chub-stage-factory** | `~/git/pterror/chub-stage-factory` | Self-contained Claude Code workspace for designing and shipping a Chub stage — co-design phase fills DESIGN.md, autonomous build phase ships it via the chub deploy pipeline |
 | **software-taxonomy** | `~/git/pterror/software-taxonomy` | Cladistic taxonomy of software treated as biological organisms — JSONL corpus with rich featuresets and modelled evolutionary history |
+| **statosphere-guide** | `~/git/pterror/statosphere-guide` | Comprehensive unofficial guide to Statosphere — variables, functions, classifiers, generators, stage lifecycle, and JSON schema reference |
+| **statosphere-studio** | `~/git/pterror/statosphere-studio` | Best-in-class Statosphere config editor — embeddable Vue 3 component with built-in help, templates, shareable URL hashes, and runtime-gotcha lints |
 | **redacted-project** | *(private)* | Refer to only as "redacted-project" in ecosystem docs. Do not reveal or speculate about the actual repo name. |
 
 ## Responsibilities

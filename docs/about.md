@@ -176,6 +176,8 @@ Other projects that follow the unification pattern:
 |---------|--------|-------------|
 | [sketchpad](https://github.com/rhi-zone/sketchpad) | ML inference | Pure Rust ML unifies backends (CPU, GPU, WebGPU) |
 | [ooxml](https://github.com/pterror/ooxml) | Office formats | Structural parsing unifies docx/xlsx/pptx handling |
+| [statosphere-guide](https://github.com/pterror/statosphere-guide) | Stage configuration | Comprehensive unofficial guide to Statosphere — variables, functions, classifiers, generators, stage lifecycle, and JSON schema reference |
+| [statosphere-studio](https://github.com/pterror/statosphere-studio) | Stage configuration | Best-in-class Statosphere config editor — embeddable Vue 3 component with built-in help, templates, shareable URL hashes, and runtime-gotcha lints |
 
 ## Special thanks
 
