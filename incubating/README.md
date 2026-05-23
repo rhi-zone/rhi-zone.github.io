@@ -543,3 +543,83 @@ What it needs: **structure**. Not "the combinations have internal logic" (still 
 The architecture: **scale-invariant generation**. Generate structure top-down for coherence, explore bottom-up as a player. The same generator runs at every level of detail, parameterized by constraints from above — so fine structure is always consistent with coarse structure. Lazy: materialize nodes only when needed, but deterministically (same constraints → same result). The tree exists implicitly; exploration makes it explicit.
 
 The result: discovery feels earned. The territory was already there. You're excavating, not generating.
+
+---
+
+## Chess, reread
+
+Pawns can promote to queens. Implying pawns are female. Implying
+*every piece on the board except the king* is female — because every
+non-king piece is something a pawn could become.
+
+Sixteen pieces a side. One king, fifteen women. Too few to be a
+castle's staff. Just enough to be a family.
+
+### the household reading
+
+The sixteen aren't soldiers. They're a bloodline. One man — the king
+— and fifteen women of his line: queen, daughters, sisters, cousins.
+The board isn't a battlefield, it's two households trying to end each
+other's name.
+
+This explains a lot:
+
+- **Only one king.** He's the singular male of the line. When he
+  dies, the line dies. Checkmate isn't losing a battle — it's
+  *extinction*.
+- **The king barely moves.** He isn't useless because he's weak.
+  He's load-bearing furniture. The entire war is fought to protect
+  the one piece whose loss ends the lineage.
+- **Promotion isn't earning a title.** A pawn reaching the back rank
+  is *of the blood already*. Coronation is paperwork. She crossed the
+  board, she's recognized, she takes her seat.
+- **Nine queens are possible.** Because "queen" isn't a person, it's
+  a *seat*. The starting queen isn't special — she's just the one
+  currently occupying the role. Every woman in the line has a claim.
+
+### the rank-as-role reading
+
+Every non-king piece is the same *kind* of being at a different
+ranked position. Pawn, knight, bishop, rook, queen — these aren't
+species, they're stations. The starting layout is just the current
+org chart of the household. Promotion is reassignment.
+
+The king is the only one outside the hierarchy, because he isn't
+comparable. He's not the top of the ladder; he's the thing the
+ladder exists to protect.
+
+### what about the rest of the castle
+
+Sixteen is too few to be everyone. So the sixteen are the *named*
+ones — the decision-making class, the ones with agency, the ones
+whose movements determine history. Everyone else — cooks, guards,
+stablehands, peasants — is implied infrastructure. They're the board
+itself. The squares. The terrain the named pieces move across.
+
+Promotion under this reading is *entering the historical record*. A
+pawn crossing the board isn't gaining power from nothing. She's
+being recognized. She now counts. She gets a name and a move-set.
+
+### what happens after checkmate
+
+Checkmate ends the game. The fifteen women on the losing side are
+still standing. King dead, bloodline over, no more reason for the
+household to exist as a household.
+
+Options:
+
+- **Absorbed.** The winning king takes them in. Two bloodlines merge
+  into one. (Historically, this is just how royal succession
+  worked.)
+- **Scattered.** The household dissolves. The women go back to being
+  un-named, un-moving. They leave the board. Become squares.
+- **Killed.** The cleanest way to end a rival line is to end
+  everyone. Checkmate is the trigger, not the conclusion.
+- **They become the next game's pawns.** Stripped of rank, they
+  start over on someone else's back rank. Every new game's pawns are
+  the survivors of the last game's loss. Promotion is *reclaiming
+  what was taken in the previous round*.
+
+That last one is the interesting one. It means the board has memory.
+The pawns aren't blank — they're *deposed*. Crossing the board is
+going home.
