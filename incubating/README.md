@@ -621,5 +621,34 @@ Options:
   what was taken in the previous round*.
 
 That last one is the interesting one. It means the board has memory.
-The pawns aren't blank — they're *deposed*. Crossing the board is
+The pawns aren't blank — they're deposed. Crossing the board is
 going home.
+
+### knights, paired
+
+Knights are the only piece that jumps. They don't care about clear
+lines or unblocked paths. They also come in pairs, mirrored across
+the board.
+
+Under the all-women reading this gets fun. The two knights are a
+pair — two women who move in L-shapes around each other their whole
+lives, who can land where no one else can reach, who break the
+geometry the rest of the household lives by. Very close companions.
+The exact nature of "close" is up to whoever's writing it; the
+historical phrasing about devoted unmarried noblewomen sharing a
+bedchamber covers most of the range.
+
+So a board state where the white queen has just been taken and the
+white knight is still alive is, if you want it to be, the opening of
+a revenge arc. The knight forks the entire enemy court at once —
+bishop, rook, rook, queen, king — and the other knight, her pair,
+seals the king's escape squares. Between every capture, knight-check
+on the king. He has to watch each woman of the opposing house fall,
+in order, before his own turn. Because their woman fell first.
+
+Cut to the flower in the dirt. Roll credits.
+
+This is one reading among many. You can run the same board state as
+a clean tactical sequence with no narrative on it at all, or as
+cold-blooded statecraft, or as something else. The knights-as-pair
+framing is just one of the things the geometry will support.
