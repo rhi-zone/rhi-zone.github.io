@@ -171,6 +171,14 @@ export default withMermaid(
             ]
           },
           {
+            text: 'Open Threads',
+            collapsed: true,
+            items: [
+              { text: 'Overview', link: '/open-threads/' },
+              { text: 'Worldbuilding namespace', link: '/open-threads/worldbuilding-namespace' },
+            ]
+          },
+          {
             text: 'Introspection',
             collapsed: true,
             items: [
