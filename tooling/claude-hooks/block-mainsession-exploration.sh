@@ -17,7 +17,7 @@
 
 set -euo pipefail
 
-dir="$(cd "$(dirname "$0")" && pwd)"
+dir="$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 input=$(head -c $((1024 * 1024)))
 
 # ── debug log ────────────────────────────────────────────────────────────────
