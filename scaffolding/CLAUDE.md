@@ -29,16 +29,6 @@ cargo clippy       # Lint
 cd docs && bun dev # Local docs
 ```
 
-Batch checks:
-```bash
-cargo clippy --all-targets --all-features -- -D warnings && cargo test
-```
-
-`normalize view` gives structural outlines without pulling full file bodies into context:
-```bash
-~/git/rhizone/normalize/target/debug/normalize view <file>
-~/git/rhizone/normalize/target/debug/normalize view <dir>
-```
 
 ## Commit Convention
 
