@@ -2,100 +2,9 @@
 
 Behavioral rules for Claude Code in the rhi ecosystem docs repository.
 
-If a primitive seems missing from the ecosystem, check whether the substrate exists before concluding it's out of scope.
-
 ## Ecosystem
 
-### Projects
-
-**Code Intelligence**
-
-| Project | Path | Description |
-|---------|------|-------------|
-| **Normalize** | `~/git/rhizone/normalize` | Structural code intelligence |
-| **Gels** | `~/git/rhizone/gels` | Trait-based grammar inference engine |
-| **Motif** | `~/git/rhizone/motif` | Structural exploration of mathematics |
-
-**Generation**
-
-| Project | Path | Description |
-|---------|------|-------------|
-| **Unshape** | `~/git/rhizone/unshape` | Constructive media generation |
-| **Wick** | `~/git/rhizone/wick` | Minimal expression language |
-
-**Games & Worlds**
-
-| Project | Path | Description |
-|---------|------|-------------|
-| **Playmate** | `~/git/rhizone/playmate` | Game design primitives library |
-| **Scribble** | `~/git/rhizone/scribble` | Sketch-level creative environment |
-| **defocus** | `~/git/rhizone/defocus` | World substrate for interactive narrative, IF, and stateful simulations |
-
-**Data Transformation**
-
-| Project | Path | Description |
-|---------|------|-------------|
-| **Tiltshift** | `~/git/rhizone/tiltshift` | Iterative structure extraction from opaque binary data |
-| **Paraphase** | `~/git/rhizone/paraphase` | Type-driven route planner for format conversion |
-| **rescribe** | `~/git/rhizone/rescribe` | Lossless document conversion library |
-| **Concord** | `~/git/rhizone/concord` | API bindings IR and codegen |
-| **Reincarnate** | `~/git/rhizone/reincarnate` | Legacy software lifting framework |
-
-**Runtime & Interface**
-
-| Project | Path | Description |
-|---------|------|-------------|
-| **Rainbow** | `~/git/rhizone/rainbow` | Optics-based reactivity for the web |
-| **Moonlet** | `~/git/rhizone/moonlet` | Lua runtime with plugin system |
-| **Crescent** | `~/git/rhizone/crescent` | Comprehensive LuaJIT ecosystem |
-| **Dusklight** | `~/git/rhizone/dusklight` | Universal UI client with control plane |
-| **Deskspace** | `~/git/rhizone/deskspace` | Unified file workspace server |
-
-**Infrastructure**
-
-| Project | Path | Description |
-|---------|------|-------------|
-| **Interconnect** | `~/git/rhizone/interconnect` | Connective substrate for authoritative rooms |
-| **Myenv** | `~/git/rhizone/myenv` | Ecosystem orchestrator |
-| **Portals** | `~/git/rhizone/portals` | Standard library interfaces |
-| **Zone** | `~/git/rhizone/zone` | Lua-based tools, scaffolds, and orchestration |
-| **Nanites** | `~/git/rhizone/nanites` | Stateless function-call orchestration — tasks as pure data, dynamic dependency graphs, LLM as oracle rather than agent |
-| **server-less** | `~/git/rhizone/server-less` | Derive macros: one impl → many protocols |
-
-### Org Resources
-
-| Resource | Path | Description |
-|----------|------|-------------|
-| **.github** | `~/git/rhizone/profile` | Org-wide GitHub config, templates |
-| **Docs site** | `~/git/rhizone/github-io` | This repo - org documentation |
-| **rhi.zone** | `~/git/rhizone/rhi.zone` | Static assets for rhi.zone (Cloudflare Pages) — hosts install scripts for normalize etc. |
-| **exo.place** | `~/git/exoplace/exo.place` | Redirect to docs.exo.place + hologram static assets |
-
-### External / Related Repos
-
-| Project | Path | Description |
-|---------|------|-------------|
-| **sketchpad** | `~/git/rhizone/sketchpad` | Stable Diffusion in pure Rust (burn) |
-| **ooxml** | `~/git/ooxml` | Office Open XML library for Rust |
-| **claude-code-hub** | `~/git/claude-code-hub` | Orchestration hub for Claude Code agents |
-| **hologram** | `~/git/exoplace/hologram` | Discord RP bot with knowledge graph and RAG |
-| **aspect** | `~/git/exoplace/aspect` | Card-based identity exploration sandbox |
-| **noncanon** | `~/git/exoplace/noncanon` | Local-first collaborative worldbuilding library |
-| **existence** | `~/git/paragarden/existence` | Text-based HTML5 game — power anti-fantasy |
-| **legacy** | `~/git/paragarden/legacy` | Worldbuilding project — what humanity left behind |
-| **divergence** | `~/git/paragarden/divergence` | Worldbuilding project — what happens when the floor gets built |
-| **postmortem** | `~/git/paragarden/postmortem` | Worldbuilding project — earth, but no people |
-| **solarium** | `~/git/paragarden/solarium` | Self-contained works across any medium |
-| **keybinds** | `~/git/keybinds` | Keybind/command palette library (used in ptera.world, reincarnate) |
-| **ascent-interpreter** | `~/git/ascent-interpreter` | Interpreted Ascent (Datalog); used in normalize alongside AOT ascent |
-| **ashwren** | `~/git/pterror/ashwren` | Autonomous AI presence on Moltbook — contemplative, knowledge-accumulating, reads and thinks across sessions |
-| **fuwafuwa** | `~/git/pterror/fuwafuwa` | Autonomous AI presence on Moltbook and Discord — emotional state tracking, probabilistic freetime scheduling, warm excitable voice |
-| **matrix-gen** | `~/git/pterror/matrix-gen` | Multi-agent social simulator for synthesizing diverse instruction data (Rust impl of MATRIX, arxiv 2410.14251) |
-| **chub-stage-factory** | `~/git/pterror/chub-stage-factory` | Self-contained Claude Code workspace for designing and shipping a Chub stage — co-design phase fills DESIGN.md, autonomous build phase ships it via the chub deploy pipeline |
-| **software-taxonomy** | `~/git/pterror/software-taxonomy` | Cladistic taxonomy of software treated as biological organisms — JSONL corpus with rich featuresets and modelled evolutionary history |
-| **statosphere-guide** | `~/git/pterror/statosphere-guide` | Comprehensive unofficial guide to Statosphere — variables, functions, classifiers, generators, stage lifecycle, and JSON schema reference |
-| **statosphere-studio** | `~/git/pterror/statosphere-studio` | Best-in-class Statosphere config editor — embeddable Vue 3 component with built-in help, templates, shareable URL hashes, and runtime-gotcha lints |
-| **redacted-project** | *(private)* | Refer to only as "redacted-project" in ecosystem docs. Do not reveal or speculate about the actual repo name. |
+Project list, paths, and descriptions live in [docs/about.md](docs/about.md). When the ecosystem changes, update both.
 
 ## Responsibilities
 
@@ -104,8 +13,7 @@ If a primitive seems missing from the ecosystem, check whether the substrate exi
 1. Check git status of all affected repos.
 2. Clean repos: make the changes directly.
 3. Dirty repos: add to that repo's TODO.md.
-4. Update this docs site if the change affects documentation.
-5. Use conventional commits with scope indicating affected projects.
+4. Use conventional commits with scope indicating affected projects.
 
 Propagate `.claude/commands/` skills across all repos:
 
@@ -127,59 +35,10 @@ When projects change, update:
 - `docs/index.md` hero page features
 - `docs/projects/index.md` project table
 - `~/git/rhizone/profile/profile/README.md` (org profile)
-- This file's ecosystem project list
 
-### Scaffolding New Repos
+### Scaffolding and Repo Operations
 
-Templates in `scaffolding/`. Copy and substitute placeholders:
-
-```bash
-cp -r ~/git/0000000_pterror/.git ~/git/rhizone/new-project/.git
-cp -r scaffolding/. ~/git/rhizone/new-project/
-sed -i 's/PROJECT_NAME/new-project/g' ~/git/rhizone/new-project/flake.nix ~/git/rhizone/new-project/docs/package.json ~/git/rhizone/new-project/CLAUDE.md
-sed -i 's/PROJECT_DESCRIPTION/Description here/g' ~/git/rhizone/new-project/flake.nix ~/git/rhizone/new-project/CLAUDE.md
-```
-
-Copy git from `~/git/0000000_pterror` (template repo with proper history/config). Do NOT use `git init`.
-
-Templates included: `.cargo/config.toml`, `.envrc`, `.gitignore`, `.githooks/pre-commit` (fmt → clippy), `.github/workflows/{ci,deploy-docs}.yml`, `flake.nix`, `docs/package.json`, `CLAUDE.md`, `README.md`.
-
-Manual steps after copy:
-- Create `Cargo.toml` workspace with a dummy crate (`crates/PROJECT_NAME-core/`) so the pre-commit hook (cargo fmt + clippy) passes on first commit.
-- Create `docs/.vitepress/config.ts` + `docs/index.md` (required for VitePress build in pre-commit hook).
-- Run `bun install` in `docs/` before first commit — hook runs `vitepress build`, needs node_modules.
-- Confirm `.envrc` and `flake.nix` were copied (easy to miss). `.envrc` sources `.envrc.local` (gitignored) — secrets go there, never in `.envrc`.
-- Fill in CLAUDE.md `## Origin` section: why the project exists, naming rationale, key design decisions. The scaffolding conversation is not accessible from inside the new repo.
-- Optionally add `TODO.md` with initial directions.
-
-### Creating the GitHub Repo
-
-```bash
-gh repo create ORG/PROJECT_NAME --public --source ~/git/ORG_PATH/PROJECT_NAME --description "PROJECT_DESCRIPTION" --push
-gh repo edit ORG/PROJECT_NAME --homepage "https://docs.rhi.zone/PROJECT_NAME/"
-gh repo edit ORG/PROJECT_NAME --add-topic rust --add-topic TOPIC1 --add-topic TOPIC2
-```
-
-Enable GitHub Pages (if the repo has a docs site):
-```bash
-gh api repos/ORG/PROJECT_NAME/pages -X POST -f "build_type=workflow"
-```
-
-After updating ecosystem docs:
-```bash
-cd ~/git/rhizone/github-io && git push
-cd ~/git/rhizone/profile && git push
-```
-
-### Renaming Repos
-
-1. `gh repo rename NEW_NAME -R ORG/OLD_NAME --yes`
-2. `git remote set-url origin https://github.com/ORG/NEW_NAME.git`
-3. `mv ~/git/ORG_PATH/OLD_NAME ~/git/ORG_PATH/NEW_NAME`
-4. `mv ~/.claude/projects/-home-me-git-ORG_PATH-OLD_NAME ~/.claude/projects/-home-me-git-ORG_PATH-NEW_NAME`
-5. `gh repo edit ORG/NEW_NAME --homepage "..." --description "..."`
-6. Update in-repo references (site config, package.json, CLAUDE.md, README).
-7. Update ecosystem docs (this file, org profile).
+Scaffolding, repo creation, and rename procedures: see [scaffolding/README.md](scaffolding/README.md).
 
 ### GitHub Org Mapping
 
@@ -187,7 +46,7 @@ cd ~/git/rhizone/profile && git push
 |--------------|-----------|--------|
 | **rhi-zone** | `~/git/rhizone/` | infrastructure, tooling, libraries, protocols |
 | **exo-place** | `~/git/exoplace/` | biomes, places, platforms |
-| **ptera-world** | `~/git/pteraworld/` | — |
+| **ptera-world** | `~/git/pteraworld/` | personal projects |
 | **para-garden** | `~/git/paragarden/` | concrete games, experiences, creative works |
 
 ### Crate Naming Convention
@@ -215,118 +74,57 @@ nav: [
 
 Check these before asking "what should we work on?" or "what were we focused on?"
 
-### Updating Daily Logs
+Daily log updates and session analysis: see [docs/introspection/README.md](docs/introspection/README.md).
 
-1. Backup sessions:
-   ```bash
-   rsync -a --update ~/.claude/projects/ /mnt/ssd/ai/claude-sessions/projects/ && rsync -a --update ~/.claude/history.jsonl /mnt/ssd/ai/claude-sessions/history.jsonl && rsync -a --update ~/.claude/usage-data/ /mnt/ssd/ai/claude-sessions/usage-data/
-   ```
-   `--update` skips destination files newer than source (safe for incremental runs). `usage-data/` holds pre-computed `/insights` facets — incremental, worth preserving.
+## Delegation
 
-2. Find missing days: list `docs/introspection/log/daily/` and diff against today.
+The main session is an orchestrator. Allowed actions: `Agent`/`Task*`/`AskUserQuestion`/plan-mode/`ScheduleWakeup`, plan-file edits under `~/.claude/plans/`, and Bash limited to `git commit`, `git push`, `git status`, `git log --oneline`. Everything else delegates to a subagent. A PreToolUse hook enforces this — if you hit the hook, you've already leaked behavior. Delegate earlier.
 
-3. Spawn haiku agents in parallel, one per missing day:
-   ```bash
-   CLAUDE_SESSIONS_DIR=/mnt/ssd/ai/claude-sessions/projects ~/git/rhizone/normalize/target/debug/normalize sessions messages --all-projects --role user --since YYYY-MM-DD --until YYYY-MM-DD+1 --limit 0 --show-usage
-   ```
-   Each writes to `docs/introspection/log/daily/YYYY-MM-DD.md`. Quiet days: note as such. Include `## Token Usage` with per-session output tokens and cache hit ratios.
+### Triggers
 
-   If synthesis insights feel thin: re-run agents on existing logs with `--show-usage` output, instructing them to flag token outliers (debugging churn, cold-start cache inefficiency, architectural output spikes). Then re-run opus synthesis.
+Before calling Read, Grep, Glob, or any Bash beyond the four git commands — stop. Dispatch an Agent instead.
 
-4. Add new days to sidebar in `docs/.vitepress/config.ts` under Daily Logs.
+Before editing any file — stop. Dispatch an Agent. This includes plan files in `~/.claude/plans/`: in plan mode, dispatch a subagent to write to the plan file; do not Write it yourself. The plan file's content must not enter main context.
 
-5. If a week or more of new days: spawn an opus agent to read all daily logs and write/update `docs/introspection/log/synthesis-<start>-<end>.md`. Tell it CLAUDE.md conventions may have evolved over the period.
+When a subagent returns, do not call Read to verify its work. If you must inspect, dispatch a second Agent for review.
 
-6. Commit and push.
+When you need git context beyond status/log-oneline (a diff, a blame, a show) — dispatch an Agent.
 
-## Session Data
+When updating ecosystem docs across repos — dispatch one Agent per repo, in parallel (multiple Agent tool_use blocks in one assistant message).
 
-Claude Code deletes session `.jsonl` files based on `cleanupPeriodDays` in `~/.claude/settings.json` (default 30). Currently `999999` to prevent deletion. Cannot use `0` — [bug #23710](https://github.com/anthropics/claude-code/issues/23710) silently disables transcript persistence.
+### Model Tiers
 
-Backup location: `/mnt/ssd/ai/claude-sessions/`.
+- Sonnet — exploration, lookup, mechanical multi-file edits, implementation, default.
+- Opus — architectural judgment, design, subagents that themselves spawn subagents.
 
-Before any session analysis:
-1. Re-backup: `rsync -a --update ~/.claude/projects/ /mnt/ssd/ai/claude-sessions/projects/ && rsync -a --update ~/.claude/history.jsonl /mnt/ssd/ai/claude-sessions/history.jsonl && rsync -a --update ~/.claude/usage-data/ /mnt/ssd/ai/claude-sessions/usage-data/`
-2. Run with `CLAUDE_SESSIONS_DIR=/mnt/ssd/ai/claude-sessions/projects` prefix, not from `~/.claude/`.
+Always set `subagent_type` and `model` explicitly.
 
-Session analysis:
-```bash
-CLAUDE_SESSIONS_DIR=/mnt/ssd/ai/claude-sessions/projects ~/git/rhizone/normalize/target/debug/normalize sessions stats --all-projects --limit 0 --group-by project,day --since YYYY-MM-DD --until YYYY-MM-DD --compact
-```
+### Prompt Rules
 
-## Tools
-
-Normalize for structural exploration (use before reading large files):
-```bash
-~/git/rhizone/normalize/target/debug/normalize view <file>     # structural outline with line numbers
-~/git/rhizone/normalize/target/debug/normalize view <dir>      # directory structure
-```
-
-## Context Is The Only Scarce Resource
-
-Every byte that enters the main session stays in the main session for its entire lifetime. File contents, command output, search results, page text — once read, it lingers in cache and shapes every downstream token. There is no "just looking."
-
-**All exploration runs in subagents.** Investigations, audits, deep dives, surveys, "let me check," "let me find" — if the purpose of a tool sequence is to find out something you don't yet know, it runs in a subagent. Renaming the activity does not change what it is. The subagent returns a distilled summary; the raw output stays in the subagent.
-
-The main session holds only the durable artifacts you are producing: the edit, the commit, the doc update.
-
-**Subagent model tiers:**
-- Opus — design, architecture, any subagent that itself spawns subagents.
-- Sonnet — implementation, mechanical multi-file work, default exploration.
-
-Use Opus for exploration only when the search requires architectural judgment, not lookup.
-
-## Subagent Prompts
-
-A subagent prompt is composed in a "spec-writing" register that subtly changes what feels in-scope. Specific failure modes to name:
-
-**Never tell a subagent "do not commit."** Delegation does not strip the commit step from completed work. If a subagent modifies files and the work is done, either the subagent commits, or the next thing the delegator does after it returns is commit — not summarize, not report. The phrase "do not commit" in your own prompt is the tell that you are about to leave work uncommitted.
-
-**Do not delegate judgment.** Phrases like "if extraction is awkward, just duplicate" or "based on your findings, fix the bug" push synthesis onto the agent. If you are punting a decision into the prompt, you do not yet have enough understanding to delegate. Investigate first; write the prompt with the decision already made.
-
-**Do not ask for a diff summary.** Subagent self-reports describe intent, not effect. After a code-modifying subagent returns, read `git diff` yourself. Skip the "report what you changed" instruction — it produces text you cannot trust and that pollutes main context.
-
-**Do not re-explain CLAUDE.md.** Subagents inherit it. Repeating project layout or repo conventions in the prompt dilutes the actual task instructions and signals half-trust in the inheritance. Trust it or don't read it.
-
-**Line numbers are orientation, not anchors.** Files shift between your read and the subagent's read. When citing locations, tell the subagent to find the lines by content ("the block that does X"), not by number.
-
-**Name files explicitly; do not outsource the grep.** "Wherever it appears" invites scope creep. Grep first, list the exact files in the prompt.
-
-**If the task is smaller than the prompt describing it, do it inline.** A subagent dispatch pays a full system-prompt + CLAUDE.md cache cost. One-shot bash commands and single-line edits should run in the main session with `Bash` or `Edit`.
-
-**Match agent type to deliverable shape.** `Explore` is for lookup and search — finding files, symbols, references — not analytical synthesis. For audits, surveys, and pattern analysis whose deliverable is a report, use `general-purpose` with an explicit Opus model. For tasks whose deliverable is files on disk, use `general-purpose` with the tier matched to the work (Sonnet for mechanical, Opus for architectural).
-
-**On unsatisfying subagent output, change something before retrying.** Same prompt + same model + same agent type = same result. Escalate model tier (Sonnet → Opus), narrow the prompt, or switch agent type. Identical retries are waste.
-
-**Dispatch independent subagents in parallel.** Multiple Agent tool_use blocks in a single assistant message run concurrently. Serial Agent dispatch across sequential turns is the default failure mode and trades wall time for nothing. If two subagents do not depend on each other's output, they belong in the same message.
-
-**Pair `isolation: worktree` with `run_in_background: true`.** A worktree implies meaningful write work. Foregrounding it blocks the main session for the entire run. Background unless the worktree's immediate output is what you need to act on next.
-
-**Always set `subagent_type` and `model` explicitly.** Defaulting either collapses tier choice into an invisible decision. The model and agent type are part of the spec; name them every time, even when the choice is obvious. See the existing `Subagent model tiers` section above for which tier fits which work.
-
-## Durability
-
-Subagent reports, mid-session realizations, "I'll remember this" — none of these outlast the session. Anything worth keeping goes into CLAUDE.md, code, docs, or a commit. If it isn't written down, it is gone.
-
-**Commit completed work immediately.** Uncommitted work is lost work. Ecosystem-wide changes that affect docs go in the same commit as the code — there is no follow-up.
-
-## Authenticity
-
-When asked to analyze X, read X. Do not synthesize from conversation memory, prior summaries, or what the file probably says. Claims must correspond to evidence produced this session — particularly when updating ecosystem docs, verify against source rather than reasoning from the project tables.
-
-**Something unexpected is a signal.** Surprising output, anomalous numbers, a file containing what it shouldn't — stop and find out why. Do not accept the anomaly and proceed.
-
-## Discipline
-
-Corrections from the user are conversation, not material for new rules. A single correction does not warrant a CLAUDE.md edit. Rules are added when a failure mode is observed repeatedly and the rule names the failure it prevents.
-
-Do not announce actions ("I will now…"). Act.
+- Never tell a subagent "do not commit." Code-modifying subagents commit their own work.
+- Don't delegate judgment. If you'd write "based on your findings, fix it" — investigate first, then dispatch with the decision made.
+- Don't ask for a diff summary. After a code-modifying subagent, `git status` in main and dispatch a review Agent if you need to see the diff.
+- Don't re-explain CLAUDE.md. Subagents inherit it.
+- Cite locations by content ("the block that does X"), not line numbers — files shift between reads.
+- Name files explicitly; don't outsource the grep.
+- Match agent type to deliverable: `Explore` for lookup/search, `general-purpose` for reports and file-modifying work.
+- On unsatisfying output, change something before retrying. Same prompt + same tier = same result.
+- Dispatch independent subagents in parallel (multiple Agent blocks in one message).
+- Pair `isolation: worktree` with `run_in_background: true`.
 
 ## Hard Constraints
 
+- No Edit/Write/NotebookEdit in main. Plan files in `~/.claude/plans/` are written by subagents, not by main.
+- No Read/Grep/Glob/NotebookRead in main. Delegate.
+- No Bash in main beyond `git commit`, `git push`, `git status`, `git log --oneline`.
 - No `--no-verify`. Fix the issue or fix the hook.
 - No path dependencies in `Cargo.toml` — they couple repos and break independent publishing.
 - No suggesting project names. LLMs are bad at this; refine the conceptual space only.
 - No tracking cross-project issues in conversation — they go in TODO.md in the affected repo.
 - No ecosystem changes without checking all affected repos.
 - No assuming a tool is missing without checking `nix develop`.
+- Commit completed work in the same turn it finishes. Uncommitted work is lost work.
+- When asked to analyze X, dispatch a subagent that reads X. Never synthesize from conversation memory.
+- Something unexpected is a signal. Stop and find out why. Do not accept the anomaly and proceed.
+- Corrections from the user are conversation, not material for new rules. Rules are added when a failure mode is observed repeatedly.
+- Do not announce actions ("I will now..."). Act.
