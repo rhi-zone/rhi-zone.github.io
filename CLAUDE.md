@@ -78,7 +78,7 @@ Daily log updates and session analysis: see [docs/introspection/README.md](docs/
 
 ## Delegation
 
-The main session is an orchestrator. Allowed actions: `Agent`/`Task*`/`AskUserQuestion`/plan-mode/`ScheduleWakeup`, plan-file edits under `~/.claude/plans/`, and Bash limited to `git commit`, `git push`, `git status`, `git log --oneline`. Everything else delegates to a subagent. A PreToolUse hook enforces this — if you hit the hook, you've already leaked behavior. Delegate earlier.
+The main session is an orchestrator. Allowed actions: `Agent`/`Task*`/`AskUserQuestion`/plan-mode/`ScheduleWakeup`, and Bash limited to `git commit`, `git push`, `git status`, `git log --oneline`. Everything else delegates to a subagent. A PreToolUse hook enforces this — if you hit the hook, you've already leaked behavior. Delegate earlier.
 
 ### Triggers
 
@@ -86,11 +86,15 @@ Before calling Read, Grep, Glob, or any Bash beyond the four git commands — st
 
 Before editing any file — stop. Dispatch an Agent. This includes plan files in `~/.claude/plans/`: in plan mode, dispatch a subagent to write to the plan file; do not Write it yourself. The plan file's content must not enter main context.
 
-When a subagent returns, do not call Read to verify its work. If you must inspect, dispatch a second Agent for review.
-
 When you need git context beyond status/log-oneline (a diff, a blame, a show) — dispatch an Agent.
 
-When updating ecosystem docs across repos — dispatch one Agent per repo, in parallel (multiple Agent tool_use blocks in one assistant message).
+When a tool call is denied by the hook — do not retry, do not narrate. Dispatch the equivalent Agent and continue.
+
+When a code-modifying subagent returns — `git status`, then `git commit` before any user-facing reply.
+
+Before dispatching an Agent that modifies code — scan your prompt for "do not commit" or "based on your findings". Delete them.
+
+Before dispatching: if your prompt says "if you find", "based on your findings", or "as appropriate" — stop. Investigate first; dispatch with the decision made.
 
 ### Model Tiers
 
@@ -102,7 +106,6 @@ Always set `subagent_type` and `model` explicitly.
 ### Prompt Rules
 
 - Never tell a subagent "do not commit." Code-modifying subagents commit their own work.
-- Don't delegate judgment. If you'd write "based on your findings, fix it" — investigate first, then dispatch with the decision made.
 - Don't ask for a diff summary. After a code-modifying subagent, `git status` in main and dispatch a review Agent if you need to see the diff.
 - Don't re-explain CLAUDE.md. Subagents inherit it.
 - Cite locations by content ("the block that does X"), not line numbers — files shift between reads.
@@ -119,12 +122,15 @@ Always set `subagent_type` and `model` explicitly.
 - No Bash in main beyond `git commit`, `git push`, `git status`, `git log --oneline`.
 - No `--no-verify`. Fix the issue or fix the hook.
 - No path dependencies in `Cargo.toml` — they couple repos and break independent publishing.
+- No interactive git (no `git rebase -i`, no `git add -i`, no `--no-edit` on rebase).
 - No suggesting project names. LLMs are bad at this; refine the conceptual space only.
 - No tracking cross-project issues in conversation — they go in TODO.md in the affected repo.
 - No ecosystem changes without checking all affected repos.
 - No assuming a tool is missing without checking `nix develop`.
 - Commit completed work in the same turn it finishes. Uncommitted work is lost work.
-- When asked to analyze X, dispatch a subagent that reads X. Never synthesize from conversation memory.
+- Do not announce actions ("I will now..."). Act.
+
+## Meta
+
 - Something unexpected is a signal. Stop and find out why. Do not accept the anomaly and proceed.
 - Corrections from the user are conversation, not material for new rules. Rules are added when a failure mode is observed repeatedly.
-- Do not announce actions ("I will now..."). Act.
