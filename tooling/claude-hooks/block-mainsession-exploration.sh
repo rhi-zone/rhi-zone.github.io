@@ -5,124 +5,185 @@
 # content or command output enters the main context window, it lingers for the
 # entire session lifetime and shapes every downstream token.
 #
-# Subagents (detected via `agent_id` present in hook input) are the execution
-# sandbox and pass unconditionally — the sandbox imposes its own constraints.
+# Architecture: Bash outer shell reads stdin (capped at 1 MiB), pipes to a
+# Python heredoc for structural JSON parsing. All decisions are made in Python
+# using json.loads(); no regex scanning of flattened JSON strings.
 #
-# Main session allowlist (everything else is denied):
-#   - Agent, Task*, AskUserQuestion, EnterPlanMode, ExitPlanMode,
-#     ToolSearch, ScheduleWakeup — orchestration primitives.
-#   - Edit, Write, NotebookEdit — NEVER allowed in main, no exceptions.
-#     Plan files under ~/.claude/plans/ must be written by subagents.
-#   - Bash — only git commit/push/status/log --oneline; all other commands
-#     are denied (exploration and builds belong in subagents).
+# Subagent detection: top-level "agent_id" field present and non-empty string.
+# Substring grep on flattened JSON was bypassable by embedding "agent_id" in a
+# command string; structural extraction is not.
 #
-# Jq-free — the harness doesn't always have jq on PATH outside the project
-# devshell.
+# tool_name extraction: json["tool_name"] at top level. Greedy sed on flattened
+# JSON would pick the last occurrence, which could be inside a Bash command.
+#
+# Bash allowlist: every semicolon/&&/||/pipe/newline-separated segment must
+# start with an allowed (verb, subverb, ...) tuple. Setting allowed=1 on any
+# match was bypassable by prefixing an allowed command before an arbitrary one.
+#
+# Forbidden substrings in Bash commands: $(...), backticks, ${, eval, source,
+# dot-source — these embed arbitrary execution that can't be statically analyzed.
+#
+# Denial JSON: built with json.dumps() not string interpolation, so quotes,
+# backslashes, control chars, and newlines in tool input cannot break the JSON.
+#
+# Debug log: gated behind CLAUDE_HOOK_DEBUG=1; chmod 600 on creation to prevent
+# world-readable exposure of hook inputs (which may contain secrets).
+#
+# Large-input guard: stdin capped at 1 MiB via `head -c`. Claude tool inputs
+# are never this large in practice; if they are, fail open — the hook is not
+# the right defense for oversized payloads.
 
 set -euo pipefail
 
-input=$(cat)
-flat=$(printf '%s' "$input" | tr '\n' ' ')
+input=$(head -c $((1024 * 1024)))
 
-state_dir="${CLAUDE_HOOK_STATE_DIR:-/tmp/claude-state}"
-mkdir -p "$state_dir"
+# Locate python3. On NixOS without a system python, fall back to nix-shell.
+# We write the script to a temp file so the heredoc passes source code while
+# stdin carries the hook input regardless of which Python invoker is used.
+_py_script=$(mktemp /tmp/claude-hook-XXXXXX.py)
+trap 'rm -f "$_py_script"' EXIT
 
-# Debug log: every hook invocation appended with timestamp + full input.
-# Lets us inspect what fields the harness actually provides for main vs
-# subagent calls so we can fix detection. Bounded growth: trim to last
-# 2000 lines on each invocation.
-debug_log="$state_dir/hook-input.debug.log"
-{
-  printf '\n=== %s ===\n' "$(date -Iseconds 2>/dev/null || date)"
-  printf '%s\n' "$input"
-} >> "$debug_log" 2>/dev/null || true
-if [ -f "$debug_log" ] && [ "$(wc -l < "$debug_log" 2>/dev/null || echo 0)" -gt 2000 ]; then
-  tail -1500 "$debug_log" > "$debug_log.tmp" && mv "$debug_log.tmp" "$debug_log"
-fi
+cat > "$_py_script" <<'PYEOF'
+import sys
+import os
+import json
+import re
 
-tool_name=$(printf '%s' "$flat" | sed -nE 's/.*"tool_name"[[:space:]]*:[[:space:]]*"([^"]*)".*/\1/p' | head -1)
+raw = sys.stdin.read()
 
-# Fail open on malformed input.
-if [ -z "$tool_name" ]; then
-  exit 0
-fi
+# ── debug log ──────────────────────────────────────────────────────────────
+if os.environ.get("CLAUDE_HOOK_DEBUG") == "1":
+    state_dir = os.environ.get("CLAUDE_HOOK_STATE_DIR", "/tmp/claude-state")
+    os.makedirs(state_dir, exist_ok=True)
+    debug_log = os.path.join(state_dir, "hook-input.debug.log")
+    import datetime
+    with open(debug_log, "a") as f:
+        f.write(f"\n=== {datetime.datetime.now().isoformat()} ===\n")
+        f.write(raw)
+        f.write("\n")
+    os.chmod(debug_log, 0o600)
 
-# Subagents are the execution sandbox; let them through unconditionally.
-if printf '%s' "$flat" | grep -qE '"agent_id"[[:space:]]*:[[:space:]]*"'; then
-  exit 0
-fi
+# ── denial helper ──────────────────────────────────────────────────────────
+DENY_MSG = (
+    "Main session is read-only orchestrator. Denied tool: {tool}. "
+    "Allowed in main: Agent/Task*/AskUserQuestion/EnterPlanMode/ExitPlanMode/"
+    "ToolSearch/ScheduleWakeup; Bash limited to `git commit`, `git push`, "
+    "`git status`, `git log --oneline` (no chaining, no command substitution, "
+    "no eval/source). Delegate everything else to a subagent via Agent "
+    "(sonnet for mechanical/exploration, opus for architectural)."
+)
 
-deny() {
-  local reason="$1"
-  # Escape any embedded double-quotes for valid JSON.
-  reason="${reason//\"/\\\"}"
-  printf '{"hookSpecificOutput":{"hookEventName":"PreToolUse","permissionDecision":"deny","permissionDecisionReason":"%s"}}\n' "$reason"
-  exit 0
+def deny(tool_name, extra=""):
+    reason = DENY_MSG.format(tool=tool_name)
+    if extra:
+        reason += "\n" + extra
+    output = {
+        "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "deny",
+            "permissionDecisionReason": reason,
+        }
+    }
+    print(json.dumps(output))
+    sys.exit(0)
+
+# ── parse input ────────────────────────────────────────────────────────────
+try:
+    data = json.loads(raw)
+except (json.JSONDecodeError, ValueError):
+    sys.exit(0)  # malformed — fail open
+
+if not isinstance(data, dict):
+    sys.exit(0)
+
+tool_name = data.get("tool_name")
+if not tool_name or not isinstance(tool_name, str):
+    sys.exit(0)  # no tool_name — fail open
+
+# ── subagent check (structural, not substring) ─────────────────────────────
+agent_id = data.get("agent_id")
+if agent_id and isinstance(agent_id, str):
+    sys.exit(0)  # subagent — pass unconditionally
+
+# ── orchestration tools (always allowed) ──────────────────────────────────
+ALLOW_TOOLS = {
+    "Agent", "Task", "TaskCreate", "TaskUpdate", "TaskList",
+    "TaskGet", "TaskOutput", "TaskStop",
+    "AskUserQuestion", "EnterPlanMode", "ExitPlanMode",
+    "ToolSearch", "ScheduleWakeup",
 }
+if tool_name in ALLOW_TOOLS:
+    sys.exit(0)
 
-DENY_PREFIX='Main session is read-only orchestrator. Denied tool:'
-DENY_SUFFIX='Delegate to a subagent via Agent (sonnet for mechanical/exploration, opus for architectural). Allowed in main: Agent/Task*/AskUserQuestion/EnterPlanMode/ExitPlanMode/ToolSearch/ScheduleWakeup; Bash limited to git commit/push/status/log --oneline.'
+# ── mutation tools (never allowed in main) ─────────────────────────────────
+if tool_name in ("Edit", "Write", "NotebookEdit"):
+    deny(tool_name)
 
-case "$tool_name" in
-  # Pure orchestration — always allowed.
-  Agent|Task|TaskCreate|TaskUpdate|TaskList|TaskGet|TaskOutput|TaskStop|\
-  AskUserQuestion|EnterPlanMode|ExitPlanMode|ToolSearch|ScheduleWakeup)
-    exit 0
-    ;;
+# ── Bash (limited allowlist) ───────────────────────────────────────────────
+if tool_name == "Bash":
+    tool_input = data.get("tool_input")
+    if not isinstance(tool_input, dict):
+        deny(tool_name)
 
-  # Mutation tools — never allowed in main session, no exceptions.
-  Edit|Write|NotebookEdit)
-    deny "$DENY_PREFIX $tool_name. $DENY_SUFFIX"
-    ;;
+    command = tool_input.get("command")
+    if not isinstance(command, str):
+        deny(tool_name)
 
-  # Bash — allowed only for specific git subcommands.
-  Bash)
-    command=$(printf '%s' "$flat" | sed -nE 's/.*"command"[[:space:]]*:[[:space:]]*"([^"]*)".*/\1/p' | head -1)
+    # Reject constructs that embed arbitrary execution and cannot be statically
+    # analyzed by token inspection.
+    FORBIDDEN_SUBSTRINGS = [
+        "$(",    # command substitution
+        "`",     # backtick command substitution
+        "${",    # variable expansion that can embed subcommands
+        " eval ", " source ", " . /", " . ~",
+        "\teval", "\tsource",
+    ]
+    stripped_start = command.lstrip()
+    if (
+        stripped_start.startswith("eval ")
+        or stripped_start.startswith("source ")
+        or stripped_start.startswith(". ")
+    ):
+        deny(tool_name, f"Rejected command (first 200 chars): {command[:200]}")
 
-    # Strip quoted strings and heredoc bodies so embedded text can't smuggle
-    # a git keyword past the check (same approach as the git-commit detection
-    # in the original script).
-    # 1. Remove double-quoted strings.
-    # 2. Remove single-quoted strings.
-    # 3. Remove heredoc bodies: <<'EOF'...EOF and <<EOF...EOF blocks.
-    stripped=$(printf '%s' "$command" \
-      | sed -E "s/\"[^\"]*\"//g" \
-      | sed -E "s/'[^']*'//g" \
-      | sed -E 's/<<['\''"]?[A-Z_a-z0-9]+['\''"]?.*//g')
+    for forbidden in FORBIDDEN_SUBSTRINGS:
+        if forbidden in command:
+            deny(tool_name, f"Rejected command (first 200 chars): {command[:200]}")
 
-    # Check each command segment (start-of-string, or after ; && || |).
-    # A segment starts with optional whitespace then the verb.
-    allowed=0
-    # We test each allowed pattern against the stripped command.
-    # git commit — any flags/args after
-    if printf '%s' "$stripped" | grep -qE '(^|;|&&|\|\||\|)[[:space:]]*git[[:space:]]+commit([[:space:]]|$)'; then
-      allowed=1
-    fi
-    # git push — any flags/args after
-    if printf '%s' "$stripped" | grep -qE '(^|;|&&|\|\||\|)[[:space:]]*git[[:space:]]+push([[:space:]]|$)'; then
-      allowed=1
-    fi
-    # git status — any flags/args after
-    if printf '%s' "$stripped" | grep -qE '(^|;|&&|\|\||\|)[[:space:]]*git[[:space:]]+status([[:space:]]|$)'; then
-      allowed=1
-    fi
-    # git log --oneline — must include --oneline; bare git log is denied
-    if printf '%s' "$stripped" | grep -qE '(^|;|&&|\|\||\|)[[:space:]]*git[[:space:]]+log[[:space:]].*--oneline'; then
-      allowed=1
-    fi
+    # Split on unquoted separators. We do a strict character-level split
+    # (no quote-awareness) — any use of these operators in the command is
+    # caught here; legitimate git invocations never need chaining.
+    segments = re.split(r"(?:;|&&|\|\||\||\n)", command)
 
-    if [ "$allowed" -eq 1 ]; then
-      exit 0
-    fi
+    # Allowed (verb, subverb, ...) tuples. Every non-empty segment must match.
+    # git log requires --oneline as the first arg after "log".
+    ALLOWED_VERBS = [
+        ("git", "commit"),
+        ("git", "push"),
+        ("git", "status"),
+        ("git", "log", "--oneline"),
+    ]
 
-    # Include first 200 chars of the rejected command in the denial message
-    # so the user can see why it was blocked.
-    short_cmd="${command:0:200}"
-    deny "$DENY_PREFIX Bash (rejected command: $short_cmd). $DENY_SUFFIX"
-    ;;
+    for seg in segments:
+        tokens = seg.strip().split()
+        if not tokens:
+            continue  # empty segment (trailing ; etc.) — allowed
+        matched = False
+        for verbs in ALLOWED_VERBS:
+            if tokens[:len(verbs)] == list(verbs):
+                matched = True
+                break
+        if not matched:
+            deny(tool_name, f"Rejected command (first 200 chars): {command[:200]}")
 
-  # Everything else (Read, Grep, Glob, NotebookRead, unrecognized tools) — deny.
-  *)
-    deny "$DENY_PREFIX $tool_name. $DENY_SUFFIX"
-    ;;
-esac
+    sys.exit(0)  # all segments passed
+
+# ── everything else (Read, Grep, Glob, NotebookRead, …) ───────────────────
+deny(tool_name)
+PYEOF
+
+if command -v python3 >/dev/null 2>&1; then
+  printf '%s' "$input" | python3 "$_py_script"
+else
+  printf '%s' "$input" | nix-shell -p python3 --run "python3 $_py_script"
+fi
