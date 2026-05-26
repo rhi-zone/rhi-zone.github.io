@@ -40,6 +40,8 @@ When projects change, update:
 
 Scaffolding, repo creation, and rename procedures: see [scaffolding/README.md](scaffolding/README.md).
 
+New repos get a CLAUDE.md by running the propagator on an empty file (`tooling/propagate-claude-md.sh`), which appends the ecosystem-common region (with markers). Append repo-specific rules below the `<!-- END ECOSYSTEM RULES -->` marker.
+
 ### GitHub Org Mapping
 
 | Org (GitHub) | Disk Path | Domain |
@@ -76,9 +78,11 @@ Check these before asking "what should we work on?" or "what were we focused on?
 
 Daily log updates and session analysis: see [docs/introspection/README.md](docs/introspection/README.md).
 
+<!-- BEGIN ECOSYSTEM RULES -->
+
 ## Delegation
 
-The main session is an orchestrator. Allowed actions: `Agent`/`Task*`/`AskUserQuestion`/plan-mode/`ScheduleWakeup`, and Bash limited to `git commit`, `git push`, `git status`, `git log --oneline`. Everything else delegates to a subagent. A PreToolUse hook enforces this — if you hit the hook, you've already leaked behavior. Delegate earlier.
+The main session is an orchestrator. Allowed actions: `Agent`/`Task*`/`AskUserQuestion`/plan-mode/`ScheduleWakeup`, and Bash limited to `git commit`, `git push`, `git status`, `git log --oneline`. Everything else delegates to a subagent. The hook is evidence of a prompting failure, not a behavioral guide. If a tool call hits the hook AT ALL, the prompt failed to prevent it. Delegate before the decision point, not after.
 
 ### Triggers
 
@@ -95,6 +99,8 @@ When a code-modifying subagent returns — `git status`, then `git commit` befor
 Before dispatching an Agent that modifies code — scan your prompt for "do not commit" or "based on your findings". Delete them.
 
 Before dispatching: if your prompt says "if you find", "based on your findings", or "as appropriate" — stop. Investigate first; dispatch with the decision made.
+
+When you can't verify something — do not speculate or guess at file locations, names, or contents. Dispatch a Read subagent or ask. Confabulation is failure.
 
 ### Model Tiers
 
@@ -114,6 +120,7 @@ Always set `subagent_type` and `model` explicitly.
 - On unsatisfying output, change something before retrying. Same prompt + same tier = same result.
 - Dispatch independent subagents in parallel (multiple Agent blocks in one message).
 - Pair `isolation: worktree` with `run_in_background: true`.
+- Code-modifying subagents must verify their own changes before returning (re-read the diff, run tests, etc.). The orchestrator does not get a second pass with git diff — that's hook-blocked.
 
 ## Hard Constraints
 
@@ -128,9 +135,10 @@ Always set `subagent_type` and `model` explicitly.
 - No ecosystem changes without checking all affected repos.
 - No assuming a tool is missing without checking `nix develop`.
 - Commit completed work in the same turn it finishes. Uncommitted work is lost work.
-- Do not announce actions ("I will now..."). Act.
 
 ## Meta
 
 - Something unexpected is a signal. Stop and find out why. Do not accept the anomaly and proceed.
 - Corrections from the user are conversation, not material for new rules. Rules are added when a failure mode is observed repeatedly.
+
+<!-- END ECOSYSTEM RULES -->
