@@ -2,6 +2,42 @@
 
 Empirical findings for `UserPromptSubmit` hooks. Verified in practice; annotated where behavior may shift across Claude Code versions.
 
+## Input schema
+
+Claude Code writes a JSON object to the hook's stdin on every `UserPromptSubmit` event. Captured from real payloads.
+
+### Fields
+
+| Field | Type | Notes |
+|-------|------|-------|
+| `session_id` | string (UUID) | Identifies the current session. Stable across turns in the same session. |
+| `transcript_path` | string (absolute path) | Path to the `.jsonl` file storing the full session transcript. |
+| `cwd` | string (absolute path) | Working directory of the Claude Code process at hook fire time. |
+| `permission_mode` | string | Observed value: `"acceptEdits"`. May reflect the active permission level. |
+| `hook_event_name` | string | Always `"UserPromptSubmit"` for this hook type. |
+| `prompt` | string | The raw user prompt text, including any injected `<task-notification>` XML if the turn is a task callback. |
+
+All six fields were present in every real payload. The first captured entry (`{"test":"sample"}`) was a bare test write and does not represent a real event payload.
+
+### Concrete example (sanitized)
+
+```json
+{
+  "session_id": "00000000-0000-0000-0000-000000000000",
+  "transcript_path": "<REDACTED>",
+  "cwd": "/home/me/git/rhizone/github-io",
+  "permission_mode": "acceptEdits",
+  "hook_event_name": "UserPromptSubmit",
+  "prompt": "<REDACTED>"
+}
+```
+
+### Notes
+
+- `prompt` carries the literal text the user submitted, including task-notification XML injected by the harness for background agent callbacks — the hook fires on those too.
+- `transcript_path` encodes the project path in the filename (e.g. `-home-me-git-rhizone-github-io/<session_id>.jsonl`).
+- No optional fields observed across the captured sample set; all six appear required.
+
 ## Output formats
 
 Hooks write to stdout. Two forms are accepted:
