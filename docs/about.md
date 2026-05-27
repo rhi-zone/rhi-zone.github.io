@@ -168,6 +168,41 @@ These projects don't form a deeply integrated technical ecosystem. They're indep
 
 Use any project standalone. Compose them when it makes sense. No vendor lock-in.
 
+## Org resources
+
+| Resource | Path | Description |
+|----------|------|-------------|
+| **.github** | `~/git/rhizone/profile` | Org-wide GitHub config, templates |
+| **Docs site** | `~/git/rhizone/github-io` | This repo - org documentation |
+| **rhi.zone** | `~/git/rhizone/rhi.zone` | Static assets for rhi.zone (Cloudflare Pages) — hosts install scripts for normalize etc. |
+| **exo.place** | `~/git/exoplace/exo.place` | Redirect to docs.exo.place + hologram static assets |
+
+## External / related repos
+
+| Project | Path | Description |
+|---------|------|-------------|
+| **sketchpad** | `~/git/rhizone/sketchpad` | Stable Diffusion in pure Rust (burn) |
+| **ooxml** | `~/git/ooxml` | Office Open XML library for Rust |
+| **claude-code-hub** | `~/git/claude-code-hub` | Orchestration hub for Claude Code agents |
+| **hologram** | `~/git/exoplace/hologram` | Discord RP bot with knowledge graph and RAG |
+| **aspect** | `~/git/exoplace/aspect` | Card-based identity exploration sandbox |
+| **noncanon** | `~/git/exoplace/noncanon` | Local-first collaborative worldbuilding library |
+| **existence** | `~/git/paragarden/existence` | Text-based HTML5 game — power anti-fantasy |
+| **legacy** | `~/git/paragarden/legacy` | Worldbuilding project — what humanity left behind |
+| **divergence** | `~/git/paragarden/divergence` | Worldbuilding project — what happens when the floor gets built |
+| **postmortem** | `~/git/paragarden/postmortem` | Worldbuilding project — earth, but no people |
+| **solarium** | `~/git/paragarden/solarium` | Self-contained works across any medium |
+| **keybinds** | `~/git/keybinds` | Keybind/command palette library (used in ptera.world, reincarnate) |
+| **ascent-interpreter** | `~/git/ascent-interpreter` | Interpreted Ascent (Datalog); used in normalize alongside AOT ascent |
+| **ashwren** | `~/git/pterror/ashwren` | Autonomous AI presence on Moltbook — contemplative, knowledge-accumulating, reads and thinks across sessions |
+| **fuwafuwa** | `~/git/pterror/fuwafuwa` | Autonomous AI presence on Moltbook and Discord — emotional state tracking, probabilistic freetime scheduling, warm excitable voice |
+| **matrix-gen** | `~/git/pterror/matrix-gen` | Multi-agent social simulator for synthesizing diverse instruction data (Rust impl of MATRIX, arxiv 2410.14251) |
+| **chub-stage-factory** | `~/git/pterror/chub-stage-factory` | Self-contained Claude Code workspace for designing and shipping a Chub stage |
+| **software-taxonomy** | `~/git/pterror/software-taxonomy` | Cladistic taxonomy of software treated as biological organisms — JSONL corpus with rich featuresets and modelled evolutionary history |
+| **statosphere-guide** | `~/git/pterror/statosphere-guide` | Comprehensive unofficial guide to Statosphere — variables, functions, classifiers, generators, stage lifecycle, and JSON schema reference |
+| **statosphere-studio** | `~/git/pterror/statosphere-studio` | Best-in-class Statosphere config editor — embeddable Vue 3 component with built-in help, templates, shareable URL hashes, and runtime-gotcha lints |
+| **redacted-project** | *(private)* | Refer to only as "redacted-project" in ecosystem docs. Do not reveal or speculate about the actual repo name. |
+
 ## Related projects
 
 Other projects that follow the unification pattern:
