@@ -151,6 +151,30 @@ VRChat, more personal than Warframe** — curated authorship surface
 Community items/avatars exist but pass through a quality gate; the
 default-shipped experience feels intentional, not chaotic.
 
+**Mirrors are foundational, not a nice-to-have.** In first-person /
+VR with heavy avatar/body investment, the player literally cannot see
+themselves otherwise. Mirrors are the entire feedback loop for
+cosmetic curation, body expression, embodiment-checking, and
+self-appreciation. Without good mirrors, all the cosmetic / body
+investment is invisible to the player themselves — they spent hours
+making the avatar but only see other people / can't appreciate their
+own work. That's the failure mode mirrors prevent.
+
+Practically:
+- **Mirrors throughout the world** — bathrooms, bedrooms, hallways,
+  fitting rooms, dance floors, gym walls, public spaces. Built into
+  the architecture, not optional props.
+- **Diegetic integration with body/cosmetic UI** — looking in a
+  mirror is the natural way to access wardrobe / transformation /
+  slider UI. The mirror IS the interface.
+- **Ambient reflections** — windows, polished surfaces, puddles, so
+  you catch yourself even outside dedicated mirror moments.
+- **Selfie / photo mode** — taking pictures of yourself / scenes
+  with you in them as a real activity.
+- **Real-time planar reflection** rather than cubemap fakes. Quest
+  standalone budget is tight but feasible at lower res / selective
+  quality.
+
 ### Movement that doesn't waste your time
 
 Palia's failure: cozy life-sim activities are fine, but the player is
