@@ -5,8 +5,9 @@
 # harness-controlled fields (tool_name, agent_id) from model-controlled
 # content (tool_input.command). No JSON depth-walker; no brace counters.
 #
-# Subagent detection: top-level agent_id present in prefix → bypass.
-# tool_name / agent_id are extracted only from $prefix (before "tool_input").
+# Subagent detection: a genuine TOP-LEVEL agent_id key (brace-depth 1) → bypass.
+# Order-independent and immune to the literal text "agent_id" inside tool_input
+# (see has_top_level_agent_id). tool_name is still extracted only from $prefix.
 #
 # Bash allowlist: every semicolon/&&/||/pipe/newline-separated segment must
 # start with an allowed (verb, subverb, ...) tuple.  Forbidden constructs
@@ -74,9 +75,50 @@ if [[ -z "$tool_name" ]]; then
     exit 0  # no tool_name — fail open
 fi
 
-# ── extract agent_id (only from prefix) ──────────────────────────────────────
-agent_id=$(printf '%s' "$prefix" | grep -oE '"agent_id"\s*:\s*"[^"]*"' | head -1 | grep -oE '"[^"]*"$' | tr -d '"' || true)
-if [[ -n "$agent_id" ]]; then
+# ── subagent detection: TOP-LEVEL agent_id present → bypass ──────────────────
+# JSON field order is NOT guaranteed: agent_id may be serialized before OR
+# after tool_input. The old code only searched $prefix (text before
+# "tool_input"), so when the harness emitted agent_id after tool_input the
+# bypass silently missed and a subagent's Read fell through to deny.
+#
+# We must also NOT be fooled by the literal text "agent_id" appearing INSIDE
+# tool_input (e.g. inside a subagent prompt that discusses agent_id). Only a
+# genuine TOP-LEVEL "agent_id" key counts — i.e. one at JSON brace-depth 1.
+#
+# Technique (pure bash + grep/sed/tr; no awk/jq/python on this path):
+#   1. Drop escaped quotes (\") so remaining double-quotes are balanced
+#      string delimiters.
+#   2. Tag the KEY form  "agent_id" <ws>* :  with a sentinel byte (\001)
+#      BEFORE blanking strings. A string VALUE "agent_id" is followed by , or
+#      } (never :), so only real keys get tagged.
+#   3. Blank every string's CONTENTS ("..." -> "") so no structural-looking
+#      char ({ } and stray text) survives inside string data. This kills the
+#      false positive: braces/colons/"agent_id" text inside a prompt vanish.
+#   4. Reduce to ONLY { } and the sentinel via `tr -cd`. The result is a tiny
+#      structural skeleton regardless of payload size, so the depth scan below
+#      is O(structure), not O(payload) — a 1 MiB prompt costs <40 ms.
+#   5. Walk the skeleton counting brace depth; a sentinel seen at depth 1 is a
+#      top-level agent_id key → subagent.
+has_top_level_agent_id() {
+    local skeleton
+    skeleton=$(printf '%s' "$1" \
+        | sed 's/\\"//g' \
+        | sed 's/"agent_id"\([[:space:]]*\):/\x01\1:/g' \
+        | sed 's/"[^"]*"/""/g' \
+        | tr -cd '{}\001')
+    local i ch depth=0 n=${#skeleton}
+    for (( i = 0; i < n; i++ )); do
+        ch="${skeleton:i:1}"
+        case "$ch" in
+            '{') (( depth++ )) ;;
+            '}') (( depth-- )) ;;
+            $'\001') (( depth == 1 )) && return 0 ;;
+        esac
+    done
+    return 1
+}
+
+if has_top_level_agent_id "$input"; then
     exit 0  # subagent — pass unconditionally
 fi
 
