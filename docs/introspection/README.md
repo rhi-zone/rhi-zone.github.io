@@ -20,6 +20,12 @@ Run via a subagent (Sonnet, general-purpose). The main session cannot execute th
    ```
    `--update` skips destination files newer than source (safe for incremental runs). `usage-data/` holds pre-computed `/insights` facets — incremental, worth preserving.
 
+   Also archive `/insights` reports into the append-only history dir (run every backup pass, right after the rsync above):
+   ```bash
+   mkdir -p /mnt/ssd/ai/claude-sessions/insights-history/ && cp -n ~/.claude/usage-data/report-*.html /mnt/ssd/ai/claude-sessions/insights-history/
+   ```
+   `/insights` reports are otherwise ephemeral — the source dir only retains the latest timestamped file. `cp -n` (no-clobber) into the sibling `insights-history/` dir builds an append-only archive that the `--update` mirror of `usage-data/` cannot clobber. The `report-*.html` glob intentionally excludes the `report.html` alias (no dash), so only unique timestamped reports are archived.
+
 2. Find missing days: list `docs/introspection/log/daily/` and diff against today.
 
 3. Spawn haiku agents in parallel, one per missing day:
@@ -47,6 +53,7 @@ Before any session analysis (run via a subagent):
 1. Re-backup:
    ```bash
    rsync -a --update ~/.claude/projects/ /mnt/ssd/ai/claude-sessions/projects/ && rsync -a --update ~/.claude/history.jsonl /mnt/ssd/ai/claude-sessions/history.jsonl && rsync -a --update ~/.claude/usage-data/ /mnt/ssd/ai/claude-sessions/usage-data/
+   mkdir -p /mnt/ssd/ai/claude-sessions/insights-history/ && cp -n ~/.claude/usage-data/report-*.html /mnt/ssd/ai/claude-sessions/insights-history/
    ```
 2. Run with `CLAUDE_SESSIONS_DIR=/mnt/ssd/ai/claude-sessions/projects` prefix, not from `~/.claude/`.
 
