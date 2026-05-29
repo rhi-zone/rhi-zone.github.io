@@ -2,7 +2,9 @@
 
 rhi is an ecosystem of tools unified by a single pattern: **finding common abstractions across fragmented domains**.
 
-See also [exo-place](https://docs.exo.place/about) — biomes built on any substrate (places, identities, worlds).
+See also [exo-place](https://docs.exo.place/about) — substrates for end-user purposes (places, identities, worlds).
+
+**Org placement principle:** rhi-zone holds substrates for developer/technical purposes; exo-place holds substrates for end-user purposes — the discriminator is whose purpose the substrate serves, not the subject matter. para-garden holds concrete finished works (games, experiences, creative works); exo-place holds reusable substrates. Neither org houses raw data — data corpora live on the personal account github:pterror.
 
 ## Philosophy
 

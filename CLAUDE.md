@@ -46,10 +46,12 @@ New repos get a CLAUDE.md by running the propagator on an empty file (`tooling/p
 
 | Org (GitHub) | Disk Path | Domain |
 |--------------|-----------|--------|
-| **rhi-zone** | `~/git/rhizone/` | infrastructure, tooling, libraries, protocols |
-| **exo-place** | `~/git/exoplace/` | biomes, places, platforms |
+| **rhi-zone** | `~/git/rhizone/` | substrates for developer/technical purposes (tooling, libraries, protocols, engines) |
+| **exo-place** | `~/git/exoplace/` | substrates for end-user purposes (things end-users do or experience) |
 | **ptera-world** | `~/git/pteraworld/` | personal projects |
-| **para-garden** | `~/git/paragarden/` | concrete games, experiences, creative works |
+| **para-garden** | `~/git/paragarden/` | concrete end-user works and artifacts (games, experiences, creative works) |
+
+The discriminator between rhi-zone and exo-place is **whose purpose the substrate serves**: developer/technical vs end-user. That exo-place's current members (aspect, hologram, noncanon) are entity/world systems is incidental, not definitional — any reusable substrate serving end-user purposes belongs in exo-place. para-garden holds concrete finished works; exo-place holds reusable substrates. Neither org houses raw data — data corpora live on the personal account github:pterror (precedent: software-taxonomy).
 
 ### Crate Naming Convention
 
