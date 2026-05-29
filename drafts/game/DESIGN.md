@@ -11,6 +11,23 @@ Status: pre-scaffolding. Engine likely Godot or Bevy via
 
 **A place to be.**
 
+**The single non-negotiable goal: 100% immersion.**
+
+Every design decision is evaluated against one test: does this preserve,
+or break, the player's immersion? Any break — animation snapping, audio
+mis-spatializing, NPC dialogue feeling robotic, UI overlay breaking the
+spell, a clipping garment, a mistimed viseme, a glitched hand grasp —
+fails the test. The "extra" framing (sometimes phrased "110%
+commitment") is rhetorical emphasis on uncompromising posture: we don't
+ship at 95% if 100% is what the design requires. Reality-grade
+immersion in the moments that matter, with zero copouts.
+
+Every other design decision in this doc — no combat, no grind, no quest
+markers, deep customization, mirrors, parkour 2.0, KIM-grade NPCs,
+world agency, NSFW-first, animation/physics quality — falls out of
+this. See *Systems that compose 100% immersion* later for the concrete
+~45-system enumeration of what this commitment touches.
+
 Not a game to play. Not a content treadmill. Not a TiTS-with-movement
 or a Warframe-without-combat. A *place* — somewhere worth being in,
 where you spend time, where you exist. The mechanics serve the place;
@@ -561,6 +578,86 @@ authoring strategy, what makes it returnable rather than one-and-done.
 - **Sources of change priority** — which sources the project leans on
   hardest.
 
+## Systems that compose 100% immersion
+
+The 100% immersion goal isn't "good rendering" or "good NPCs." It's
+all of these systems hitting a quality bar simultaneously, every
+moment, every player, every situation. Dropping the ball on any
+one — animation snap, audio mis-spatialization, mirror with wrong
+reflection, robotic NPC, hand clip — breaks the spell for that
+moment.
+
+### Visual / rendering
+1. Rendering quality (lighting, materials, shading) — perceptually real
+2. Mirror rendering (real-time reflection at quality)
+3. Visual consistency (no pop-in, LOD seams, shadow issues, z-fighting)
+4. Environmental detail (foliage motion, ambient particles, lived-in surfaces)
+
+### Animation / body
+5. Body animation (movement, weight, momentum, follow-through)
+6. Body deformation (volume preservation, soft body, muscle)
+7. Cloth simulation (real physics, body-coupled)
+8. Hair simulation (strand or convincing fake)
+9. Face animation (visemes, saccades, blinks, micro-expressions)
+10. Hand / finger IK (grasp, contact, gesture)
+11. Foot IK (uneven ground, weight shift, stance)
+12. Breathing / passive body life
+
+### Physics / interaction
+13. Object physics (mass, momentum, contact)
+14. Hand-object interaction (grasp, throw, place naturally)
+15. Body-environment contact (sit, lean, touch surfaces)
+16. Two-way coupling (cloth on body, body on cloth, body on furniture)
+
+### Audio
+17. Spatial audio (HRTF, reverb, occlusion)
+18. Voice (acting or TTS at human quality)
+19. Environmental ambience
+20. Foley (footsteps, cloth rustle, body sounds)
+
+### VR-specific
+21. Tracking (head, body, hand, face, eye)
+22. Comfort (latency <20ms, 90+fps, no jitter, correct IPD)
+23. Avatar calibration to player body
+
+### Characters / NPCs
+24. NPCs as autonomous agents (own schedules, moods, lives)
+25. Conversational presence (contextual, not dialogue trees)
+26. Eye contact / gaze attention / body language
+27. Memory and continuity of you across sessions
+
+### World
+28. Persistent world state
+29. Day/night, weather, seasons, events on world clock
+30. World agency (things happen without you)
+31. Lived-in detail
+
+### Identity / customization
+32. Body customization consistent across activities
+33. Outfit/items that respect physics + body
+34. Self-perception via mirrors
+35. Touching self / experiencing your body
+
+### UI / friction
+36. Diegetic UI (in-world, on-body, no HUD overlays)
+37. No loading screens / instant transitions
+38. No confirmation dialogs / menu friction
+39. Voice / gesture / glance input where natural
+
+### Continuity / narrative
+40. Past actions register and matter
+41. Relationships evolve with continuity
+42. Lived history visible (timeline tree, your home, your stuff)
+
+### Multiplayer
+43. Other players' presence at parity quality
+44. Low-latency interaction
+45. Cross-platform avatar/animation parity
+
+Each system has its own quality bar that doesn't break the spell.
+The bar is high. The "no copouts" commitment makes scope demanding —
+this is the multi-year R&D-shaped reality of the project.
+
 ## Production reality
 
 Rough scale (focused indie on licensed engine, content excluded):
@@ -568,9 +665,22 @@ Rough scale (focused indie on licensed engine, content excluded):
 codegen at full leverage, the binding constraint is *design clarity*,
 not engineering throughput.
 
-Implication: most of the work right now is in *this document* and its
-descendants — making the design precise enough that scaffolding and
-implementation can move fast.
+The 100% immersion commitment plus the no-scope-reduction commitment
+plus the Quest-standalone target means **this is a multi-year R&D-
+shaped project, not a one-time ship**. Phased fidelity is acceptable:
+ship v1 with "decent" animation/sim/NPC quality (better than indie
+norm, worse than goal); each subsequent year invest in specific
+systems and ship improvements. The bet is that focused-small-team +
+AI codegen leverage + multi-year compounding can out-execute
+dysfunctional-AAA on specific narrow axes (Dwarf Fortress, Factorio,
+Toribash, VRChat as precedent for small-team-beats-big on a narrow
+axis).
+
+Mocap explicitly not the bet — scales linearly with content, breaks
+at edge cases, doesn't compound. Instead: specialized cheap runtime
+sims (PBD cloth, dynamic bones with shape matching, purpose-built
+soft body solvers for key areas, procedural overlays for life,
+learned/ML approaches as the tech matures over the timeline).
 
 Shipping less than the full synthesis is unacceptable per design
 intent — half the place is not a smaller place, it's a tech demo.
