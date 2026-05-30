@@ -58,18 +58,6 @@ ADRs below, not itself an ADR.
 
 ### Ecosystem
 
-- ADR-0002 — Preserve session attribution in the knowledge store as load-bearing, not just current phrasing
-- ADR-0003 — Bounded recent-turns window with summarize-into-state, not naive chat accumulation
-- ADR-0004 — Prompts are assembled by ContextAssembler from ContextContributors; string-concatenation is not an exposed mode
-- ADR-0005 — Implementation tiers are independent complete implementations selected at load time, not runtime fallbacks
-- ADR-0006 — Library functions return (nil, errmsg) on failure with string messages, never error objects/codes
-- ADR-0007 — Stdlib has zero external dependencies; vendored third-party packages are stopgaps to be removed
-- ADR-0008 — No dep/ directory: all packages (first- and third-party) live under lib/, no path rewriting ever
-- ADR-0009 — Browser app rendering: app realm emits virtual structures, host paints (Option B); no DOM in the realm
-- ADR-0010 — Browser-side app realm is an allow-list sandbox, not deny-list/SES, with no daemon-side JS parser validation
-- ADR-0011 — Browser-side app source format is JS + JSDoc, not TypeScript or mandatory Lua
-- ADR-0012 — No online resources in the loop: air-gapped bare clone is the supported configuration
-- ADR-0013 — Divergence and legacy characters stay independent
 - ADR-0014 — Canonical skill location is in-repo with symlink; never write to ~/.claude directly
 - ADR-0015 — The main Claude session is an orchestrator; all exploration and implementation delegates to subagents
 - ADR-0016 — No path dependencies in Cargo.toml; crates publish independently
@@ -80,21 +68,16 @@ ADRs below, not itself an ADR.
 - ADR-0021 — Model-quality questions must be answered with cache-independent signals, not aggregate cost/token metrics
 - ADR-0022 — Back up Claude Code session JSONL to /mnt/ssd before 30-day deletion
 - ADR-0023 — CLAUDE.md triggers vs invocable skills: split by always-on need
-- ADR-0024 — Dusklight/Marinada: reactivity substrate switched from Solid.js to Rainbow
 - ADR-0025 — Project-specific agent context injected per-session via `normalize context --condition`, never global CLAUDE.md
-- ADR-0026 — Collapsed the normalize kg CLI from 11 verbs to 3 primitives (read/write/walk)
 - ADR-0027 — Ecosystem prose convention: frame claims as observations, not certainties
-- ADR-0028 — Normalize: discoverability (fewest tool calls) as the organizing purpose
 - ADR-0029 — Handoff promoted from plan mode to a skill; plans communicate intent, not directives
 - ADR-0030 — Marinada module resolution: pluggable resolver interface, exported by Marinada, implemented by hosts
-- ADR-0031 — normalize daemon IPC: rkyv binary with first-byte magic protocol detection, LSP-style pull over JSON broadcast
 - ADR-0032 — Subagents may not modify shared infrastructure files without explicit permission
 - ADR-0033 — Zero-dependency means runtime-loadable: unloadable FFI deps are violations
 - ADR-0034 — Don't hand-roll what a library does; use crates for standards
 - ADR-0035 — Plan-mode handoff to fresh context as the default strategy for long-running sessions
 - ADR-0036 — Production readiness is corpus-validated, not test-suite-passing
 - ADR-0037 — Tiered model delegation: Haiku for mechanical work, main agent for architecture
-- ADR-0038 — Evaluation-based parsing: delegate manifest parsing to the language runtime
 - ADR-0039 — Every correction encodes a missing rule (CLAUDE.md as living constitution)
 - ADR-0040 — Never hardcode file extensions; type dispatch must be language-agnostic
 - ADR-0041 — Autonomous agent behavior is measured under isolation, not directed
@@ -102,10 +85,8 @@ ADRs below, not itself an ADR.
 - ADR-0043 — Handoff plans require freshness checks, not just correctness checks
 - ADR-0044 — No auto-memory: agent state lives in versioned CLAUDE.md, and handoff plans stay lean
 - ADR-0045 — Handoff plans contain only next tasks, pending items, and relevant session results
-- ADR-0046 — Dusklight actions are serializable data plus a transport function, not closures
 - ADR-0047 — Gate version bumps on audit resolution, not feature completion
 - ADR-0048 — Retire backward-compat aliases rather than carry them as adoption cost
-- ADR-0049 — Inhabited heavy content is written via Gemini, not Claude
 - ADR-0050 — Reflective/analytical writing lives on ptera.world; legacy is immersive-only
 - ADR-0051 — Invisible manifest: tools read generated native configs, never myenv.toml
 - ADR-0052 — Scope boundary: myenv generates config and does not run or version tools
@@ -117,9 +98,6 @@ ADRs below, not itself an ADR.
 - ADR-0058 — Library-first design with thin CLI wrapper
 - ADR-0059 — Cost/scoring expressions use Dew (rhizome shared expression language)
 - ADR-0060 — Hand-rolled format parsers live in standalone crates, paraphase-* is a thin wrapper
-- ADR-0061 — Do not invent additional rules; the premise carries no extra rails
-- ADR-0062 — The graph is the primary reading surface; essays become a secondary format behind fragments
-- ADR-0063 — busier dogfood stack: SPA (Lit + rainbow + Bun/Hono), not SSR or a meta-framework
 - ADR-0064 — Snippet (verbatim source excerpt) as the anti-confabulation primitive
 - ADR-0065 — Dual build output: standalone SPA plus externalized embeddable Vue library
 - ADR-0066 — Iris core requires no external infrastructure; complexity is opt-in
@@ -135,6 +113,10 @@ ADRs below, not itself an ADR.
 - ADR-0071 — Single normalized legal IR spans both common-law and civil-law without flattening
 - ADR-0072 — TypeScript end-to-end with Astro frontend; explicitly not Svelte
 
+#### ashwren
+
+- ADR-0002 — Preserve session attribution in the knowledge store as load-bearing, not just current phrasing
+
 #### aspect
 
 - ADR-0073 — Interaction model is structure-driven affordances, not language commands or fixed menus
@@ -142,6 +124,12 @@ ADRs below, not itself an ADR.
 - ADR-0075 — Stay on JS Yjs as CRDT source of truth; defer Yrs/Loro
 - ADR-0076 — Projection renders place (phenomenological), never a local graph view
 - ADR-0077 — World pack action language is declarative when/do, not Turing-complete scripting
+- ADR-0140 — Aspect multiplayer uses Y.js CRDTs instead of in-memory graph + snapshots
+- ADR-0141 — Aspect world pack format is JSON with JSONLogic for the Phase 2 predicate language
+
+#### busier
+
+- ADR-0063 — busier dogfood stack: SPA (Lit + rainbow + Bun/Hono), not SSR or a meta-framework
 
 #### chub-mirrorer
 
@@ -151,6 +139,8 @@ ADRs below, not itself an ADR.
 
 #### chub-stage-factory
 
+- ADR-0003 — Bounded recent-turns window with summarize-into-state, not naive chat accumulation
+- ADR-0004 — Prompts are assembled by ContextAssembler from ContextContributors; string-concatenation is not an exposed mode
 - ADR-0081 — Composition strictly dominates monolithic frameworks: every named thing is a primitive or a pattern, never a framework or base class
 - ADR-0082 — One repo per Chub stage (factory pattern), not a monorepo or generic template
 - ADR-0083 — Supply-driven library: ship what is architecturally distinct, not what an example demands
@@ -168,6 +158,18 @@ ADRs below, not itself an ADR.
 - ADR-0092 — No special-cased type kinds: well-known types are Refs to names, not enum variants
 - ADR-0093 — Unified IR superset: express HTTP and FFI as types, no dedicated protocol layers
 
+#### crescent
+
+- ADR-0005 — Implementation tiers are independent complete implementations selected at load time, not runtime fallbacks
+- ADR-0006 — Library functions return (nil, errmsg) on failure with string messages, never error objects/codes
+- ADR-0007 — Stdlib has zero external dependencies; vendored third-party packages are stopgaps to be removed
+- ADR-0008 — No dep/ directory: all packages (first- and third-party) live under lib/, no path rewriting ever
+- ADR-0009 — Browser app rendering: app realm emits virtual structures, host paints (Option B); no DOM in the realm
+- ADR-0010 — Browser-side app realm is an allow-list sandbox, not deny-list/SES, with no daemon-side JS parser validation
+- ADR-0011 — Browser-side app source format is JS + JSDoc, not TypeScript or mandatory Lua
+- ADR-0012 — No online resources in the loop: air-gapped bare clone is the supported configuration
+- ADR-0162 — Crescent typechecker v5: dual independent interpreters as correctness mechanism, with structurally-forced spec interleave
+
 #### defocus
 
 - ADR-0094 — EventLog is the canonical source of truth; state is reconstructed by deterministic replay
@@ -178,12 +180,15 @@ ADRs below, not itself an ADR.
 
 #### divergence
 
+- ADR-0013 — Divergence and legacy characters stay independent
 - ADR-0099 — Character cards as artifacts, not portraits
 - ADR-0100 — Place names are descriptive, not commemorative
 - ADR-0101 — In-world documents only: no omniscient narrator
 
 #### dusklight
 
+- ADR-0024 — Dusklight/Marinada: reactivity substrate switched from Solid.js to Rainbow
+- ADR-0046 — Dusklight actions are serializable data plus a transport function, not closures
 - ADR-0102 — Complex UIs composed from layout primitives, not monolithic renderer plugins
 - ADR-0103 — No custom plugin registry; plugins resolve to ES modules via npm/jsr/URL/local
 - ADR-0104 — Local agent wire format is Cap'n Proto over Unix socket
@@ -203,6 +208,11 @@ ADRs below, not itself an ADR.
 - ADR-0115 — Scalars standing in for structured state are debts; domestic state is modeled as objects with histories
 - ADR-0116 — Emergence over flags: qualities arise from parameter interaction, never declared
 - ADR-0117 — Every system is an interface designed for maximum fidelity; granularity is fixed per-run
+- ADR-0143 — Prose honesty: generated game text must reflect backed game state
+- ADR-0144 — Existence prose generated offline, no LLM calls during gameplay
+- ADR-0163 — Simulation must be physiologically grounded, never arbitrary numbers
+- ADR-0164 — Existence: continuous-probability drama model replaces binary cooldown gate
+- ADR-0165 — Existence: separate prose-generation RNG from mechanical-outcome RNG
 
 #### fuwafuwa
 
@@ -223,6 +233,7 @@ ADRs below, not itself an ADR.
 - ADR-0129 — Conditions and randomness are evaluated by the system, not interpreted by the LLM
 - ADR-0130 — Facts are prose, not structured data
 - ADR-0131 — Logic via restricted JS boolean expressions ($if), not a DSL or full scripting
+- ADR-0142 — Hologram message templating migrates to sandboxed Nunjucks, replacing the custom template engine
 
 #### interconnect
 
@@ -236,19 +247,11 @@ ADRs below, not itself an ADR.
 
 #### introspection
 
-- ADR-0139 — All graph edges are directed; A→B and B→A are distinct
-- ADR-0140 — Aspect multiplayer uses Y.js CRDTs instead of in-memory graph + snapshots
-- ADR-0141 — Aspect world pack format is JSON with JSONLogic for the Phase 2 predicate language
-- ADR-0142 — Hologram message templating migrates to sandboxed Nunjucks, replacing the custom template engine
-- ADR-0143 — Prose honesty: generated game text must reflect backed game state
-- ADR-0144 — Existence prose generated offline, no LLM calls during gameplay
-- ADR-0145 — Frontend/backend-specific compiler passes isolated, not baked into the shared backend
 - ADR-0146 — normalize crate boundary: generalist in main binary, specialist in separate crates
 - ADR-0147 — Scribble runtimes are intentionally disjoint, not a shared model
 - ADR-0148 — reincarnate foundational invariants: semantic fidelity and multi-instance coexistence
 - ADR-0149 — Crescent package manager: multi-version directory layout with no build step, ever
 - ADR-0150 — Crescent apps vendor all dependencies into self-contained tarballs; security via explicit capability grants, not a package manager
-- ADR-0151 — Crescent zero-dependency means no runtime-unloadable FFI; static-linked native libs vendored in-repo, not via Nix buildInputs
 - ADR-0152 — reincarnate type-checking goes only through the CLI check subcommand, never raw tsc/tsgo
 - ADR-0153 — redacted-project/private-recipient-a: pedagogical modeling replaces gamification
 - ADR-0154 — Connector architecture: Transport trait, fixed to the Discord pattern
@@ -259,14 +262,10 @@ ADRs below, not itself an ADR.
 - ADR-0159 — Crescent platform tooling is self-referential (editor is a card)
 - ADR-0160 — Unshape reframed from CAD-parity tool to a toolkit for any X to X operation on arbitrary media
 - ADR-0161 — Crescent: capability risk classification colocated in per-cap modules, with ancestor-aware filesystem path classification
-- ADR-0162 — Crescent typechecker v5: dual independent interpreters as correctness mechanism, with structurally-forced spec interleave
-- ADR-0163 — Simulation must be physiologically grounded, never arbitrary numbers
-- ADR-0164 — Existence: continuous-probability drama model replaces binary cooldown gate
-- ADR-0165 — Existence: separate prose-generation RNG from mechanical-outcome RNG
-- ADR-0166 — Delegate async runtime to the consumer in server-less
 
 #### legacy
 
+- ADR-0049 — Inhabited heavy content is written via Gemini, not Claude
 - ADR-0167 — All content is in-world documents; no omniscient narrator
 - ADR-0168 — Document panel format is author-set, never auto-detected
 - ADR-0169 — Real-system claims are quiet inline links with no attribution markers
@@ -310,6 +309,10 @@ ADRs below, not itself an ADR.
 
 #### normalize
 
+- ADR-0026 — Collapsed the normalize kg CLI from 11 verbs to 3 primitives (read/write/walk)
+- ADR-0028 — Normalize: discoverability (fewest tool calls) as the organizing purpose
+- ADR-0031 — normalize daemon IPC: rkyv binary with first-byte magic protocol detection, LSP-style pull over JSON broadcast
+- ADR-0038 — Evaluation-based parsing: delegate manifest parsing to the language runtime
 - ADR-0192 — Library-first: service methods return typed Report structs, never String; CLI/JSON/MCP/HTTP are generated
 - ADR-0193 — Local-first/remote-fallback uses two single-method traits + coordinator, not one trait with a local_only flag
 - ADR-0194 — Command named grep, reversed from the earlier text-search name
@@ -339,12 +342,15 @@ ADRs below, not itself an ADR.
 
 #### postmortem
 
+- ADR-0061 — Do not invent additional rules; the premise carries no extra rails
 - ADR-0212 — No decay, no archaeology framing: the world is permanently yesterday
 - ADR-0213 — No narrator and no second-person address; verbs of state only
 - ADR-0214 — Refuse to commit to any explanatory frame for the unchanging world
 
 #### ptera-world
 
+- ADR-0062 — The graph is the primary reading surface; essays become a secondary format behind fragments
+- ADR-0139 — All graph edges are directed; A→B and B→A are distinct
 - ADR-0215 — Default zoom is a deliberate landscape view; zoom is not the answer to overcrowding
 - ADR-0216 — Hybrid layout: hand-placed structural anchors plus globally-aware algorithmic placement
 - ADR-0217 — Graph-inspired spatial navigation, not pages and not a literal graph editor
@@ -360,6 +366,7 @@ ADRs below, not itself an ADR.
 
 #### reincarnate
 
+- ADR-0145 — Frontend/backend-specific compiler passes isolated, not baked into the shared backend
 - ADR-0224 — Runtime library bodies are defined once in IR, not per-backend or in source
 - ADR-0225 — Reincarnate is a decompiler (framing 2): emitted source is the mod surface, no IR mutation API
 - ADR-0226 — Backends own their AST type; no unified, parameterized, or builder-based core AST
@@ -382,6 +389,7 @@ ADRs below, not itself an ADR.
 
 #### server-less
 
+- ADR-0166 — Delegate async runtime to the consumer in server-less
 - ADR-0240 — Server-less is a projection system, not a framework
 - ADR-0241 — Single protocol-neutral #[app] metadata attribute, superseding per-macro metadata
 - ADR-0242 — ServerlessError infers error codes from variant names rather than requiring explicit annotation

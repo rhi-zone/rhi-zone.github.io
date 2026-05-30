@@ -11,4 +11,4 @@
 - *A monorepo of stages* — Would couple the stages' lifecycles.
 - *A generic reusable template* — Would lose the design context (the per-stage DESIGN.md as authoritative spec).
 
-**Consequences.** Every stage gets an isolated history; DESIGN.md is authoritative per artifact. Implies repo proliferation (one per stage) and that ecosystem-common rules must be propagated into each. Mined from: /home/me/git/pterror/chub-stage-factory/CLAUDE.md (57), /home/me/git/pterror/chub-stage-factory/CLAUDE.md (57).
+**Consequences.** Every stage gets an isolated history; DESIGN.md is authoritative per artifact. Implies repo proliferation (one per stage) and that ecosystem-common rules must be propagated into each. Mined from: /home/me/git/pterror/chub-stage-factory/CLAUDE.md (57).

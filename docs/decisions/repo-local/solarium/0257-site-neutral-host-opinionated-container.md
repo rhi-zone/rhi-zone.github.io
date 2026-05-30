@@ -10,4 +10,4 @@
 **Alternatives rejected.**
 - *An opinionated container that imposes a shared frame, aesthetic, or curatorial narrative over the works* — An opinionated container would re-introduce a unifying layer over pieces that are meant to be self-contained islands, contradicting the island/no-shared-universe constraint.
 
-**Consequences.** Site/presentation work must avoid imposing cross-piece structure or theming; each work governs its own presentation. The host stays minimal and neutral. Mined from: /home/me/git/paragarden/solarium/CLAUDE.md (20).
+**Consequences.** Site/presentation work must avoid imposing cross-piece structure or theming; each work governs its own presentation. The host stays minimal and neutral. Mined from: /home/me/git/paragarden/solarium/CLAUDE.md (21).

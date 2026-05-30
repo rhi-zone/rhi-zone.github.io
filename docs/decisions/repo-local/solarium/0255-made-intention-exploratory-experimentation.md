@@ -10,4 +10,4 @@
 **Alternatives rejected.**
 - *Experimental, open-ended 'let's see what happens' work* — That mode lacks the deliberate conception-and-completion discipline the practice is built on; solarium requires intentional making and intentional finishing.
 
-**Consequences.** Each piece must be deliberately conceived and brought to a definite finish; unfinished exploratory sketches do not belong. Pairs with the one-sitting / exhaust-the-premise discipline. Mined from: /home/me/git/paragarden/solarium/CLAUDE.md (19).
+**Consequences.** Each piece must be deliberately conceived and brought to a definite finish; unfinished exploratory sketches do not belong. Pairs with the one-sitting / exhaust-the-premise discipline. Mined from: /home/me/git/paragarden/solarium/CLAUDE.md (20).
