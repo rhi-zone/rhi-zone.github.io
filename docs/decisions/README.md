@@ -47,6 +47,13 @@ Ecosystem-level decisions live here. Decisions specific to the knowledge corpus
 itself may move to the corpus repo (`github:pterror`) once that repo exists. Until
 then, the corpus's foundational decisions are recorded here in ADR-0001.
 
+## Synthesis
+
+[`throughlines.md`](throughlines.md) meta-mines the corpus for cross-cutting
+principles, tensions between decisions, and candidate ecosystem principles — the
+corpus thesis applied to the ecosystem's own decisions. It is a reading *of* the
+ADRs below, not itself an ADR.
+
 ## Index
 
 ### Ecosystem
