@@ -59,12 +59,21 @@ A new project was sketched: an "omnimedia knowledge corpus" where the corpus is 
 - **Carried open questions:** value-layer validation (post-v0); interactive-component embedding; external query surface (deferred derived layer); corpus-construction process + LLM budgeting; content licensing; finance source scouting; whether entity-level fields (labels/aliases/description) stay conventional keys or become statements (purity vs convenience); identity scheme; literal datatype/unit handling; reference resolution.
 - **Housekeeping:** annotated-law is on disk under `~/git/pteraworld/` but pushed to github:pterror (wrong folder) — might need relocating when convenient.
 
-### Thread 2 — ADR program (multi-phase, user-initiated)
+### Thread 2 — ADR program (multi-phase, user-initiated) ✓ RESOLVED 2026-05-29
 
-A central ADR store was established at `docs/decisions/` (ADR-0001 + a convention README). The intent: make it the ecosystem's durable decision registry.
+A central ADR store was established at `docs/decisions/` (ADR-0001 + a convention README). All three sub-items completed this session:
 
-**Open / advisory (verify relevance before acting):**
+- **Back-fill from ecosystem repos** — done. 284 atomic ADRs mined and written: 66 ecosystem-wide to `docs/decisions/ecosystem/`, 218 repo-local to `docs/decisions/repo-local/<repo>/`, numbered ADR-0002–0285 under one global sequence. README updated with partition scheme, classification rule, and index. (commits f1733ac, dae96fc)
+- **Back-fill from introspection logs** — done. Included in the same fan-out pass above.
+- **Meta: principles synthesis** — done. `docs/decisions/throughlines.md`: 15 throughlines, 6 tensions, 11 candidate principles. (commit 98eb7b0)
 
-- **Back-fill ADRs from ecosystem repos.** Mine all repos across rhi-zone, exo-place, ptera-world, para-garden, pterror for decisions already made but never recorded → atomic ADRs. Large multi-repo fan-out; might suit a scheduled or parallel workflow.
-- **Back-fill ADRs from introspection logs.** Mine `docs/introspection/` (including ~20 currently-untracked daily logs 2026-05-10..29, plus weekly snapshots and synthesis-* files) for load-bearing decisions → ADRs. Note: those ~20 daily logs are untracked in github-io's working tree — deciding whether/how to commit them is its own small open question.
-- **Meta: principles synthesis.** Once an ADR corpus exists, mine it for throughlines spanning the whole (meta-)ecosystem → a principles synthesis that could feed back into CLAUDE.md / org philosophy. Note the recursion: this is the corpus thesis applied to the ecosystem's own decisions; the ADR store could eventually be dogfooded into the corpus format.
+All pushed to origin/master. Follow-ups surfaced by the synthesis are in the open items below.
+
+---
+
+## Open items surfaced by ADR synthesis
+
+> *Follow-ups from the ADR back-fill / throughlines work. Verify relevance before acting.*
+
+- **Promote candidate ecosystem principles into CLAUDE.md (awaiting user confirmation).** `throughlines.md` §3 proposes ~11 candidate principles; 4 are practiced in 5+ repos but still unencoded: prefer-data-over-code, library-first/projection, LLM-as-oracle/determinism, trust-via-verifiable-evidence. Promotion is a deliberate org-philosophy call — needs user sign-off, not auto-applied.
+- **Watch tension X2 during the software-taxonomy refactor.** `throughlines.md` §2 flags that software-taxonomy re-adopts the EAV triple-store pattern (ADR-0252) that the corpus thesis decided to delete (ADR-0001 §6). Reconcilable (persisted store vs ephemeral index) but it's the exact spot where the corpus thesis meets reality — revisit when the refactor happens.
