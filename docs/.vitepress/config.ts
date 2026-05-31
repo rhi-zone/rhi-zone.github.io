@@ -174,6 +174,14 @@ export default withMermaid(
             ]
           },
           {
+            text: 'Lessons',
+            collapsed: true,
+            items: [
+              { text: 'Overview', link: '/lessons/' },
+              { text: 'Judgment and Verification', link: '/lessons/judgment-and-verification' },
+            ]
+          },
+          {
             text: 'Open Threads',
             collapsed: true,
             items: [
