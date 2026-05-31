@@ -50,8 +50,9 @@ New repos get a CLAUDE.md by running the propagator on an empty file (`tooling/p
 | **exo-place** | `~/git/exoplace/` | substrates for end-user purposes (things end-users do or experience) |
 | **ptera-world** | `~/git/pteraworld/` | personal projects |
 | **para-garden** | `~/git/paragarden/` | concrete end-user works and artifacts (games, experiences, creative works) |
+| **pterror** (personal account) | `~/git/pterror/` | personal / user-account work: data corpora, playgrounds, experiments, scratch |
 
-The discriminator between rhi-zone and exo-place is **whose purpose the substrate serves**: developer/technical vs end-user. That exo-place's current members (aspect, hologram, noncanon) are entity/world systems is incidental, not definitional — any reusable substrate serving end-user purposes belongs in exo-place. para-garden holds concrete finished works; exo-place holds reusable substrates. Neither org houses raw data — data corpora live on the personal account github:pterror (precedent: software-taxonomy).
+The discriminator between rhi-zone and exo-place is **whose purpose the substrate serves**: developer/technical vs end-user. That exo-place's current members (aspect, hologram, noncanon) are entity/world systems is incidental, not definitional — any reusable substrate serving end-user purposes belongs in exo-place. para-garden holds concrete finished works; exo-place holds reusable substrates. Neither org houses raw data — personal / user-account work (data corpora, playgrounds, experiments, scratch) lives on **github:pterror** at `~/git/pterror/` (e.g. `software-taxonomy`, `math-playground`); do NOT place this work in ptera-world.
 
 ### Crate Naming Convention
 
