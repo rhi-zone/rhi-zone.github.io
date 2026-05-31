@@ -142,6 +142,18 @@ The "skill tree" is a Dusklight tree-VIEW projecting dependency edges (likely ex
 
 **Residual open question:** are the progression/dependency edges themselves FACTUAL (you genuinely must understand X before Y, grounded in medical literature) or GAME-DESIGN-ARBITRARY (tree shape invented for engagement)? This determines whether the dependency edges live in the factual lens or the worldbuilding lens. **Parked, not designed.**
 
+## Exotic / analogical explanation modes (captured idea)
+
+**Idea (user's words):** "Explaining complex things in a way laypeople can understand — in exotic ways." Examples: explaining typecheckers through storytelling; explaining parsers (LR / LALR / Earley / Pratt / PEG) through interactive spellcasting visualizations.
+
+**Analysis: this is NOT a new mechanism.** It is a first-class PEDAGOGICAL USE of machinery already in the design.
+
+- **Rides the interpretive/fictional lens.** An "exotic explanation" is an interpretive-register explainer — a spellcasting or storytelling framing — layered over the factual concept entity, separated from the factual register by the lens system exactly as software→biology, software→mythology, and medical→skill-tree are. The "factual core + fanciful overlay" pattern is now a FOURTH confirmed instance; that further cements the fictional/interpretive lens as a core, reusable corpus feature.
+- **Rides the omnimedia explainer layer.** These are explainer entities in evocative media: narrative text (storytelling), or `medium:interactive` (the spellcasting visualization). A "parsers through interactive spellcasting" explainer is an `@explainer:*` entity with `medium:interactive` and a factual `cites` chain into the appropriate parser-concept entities.
+- **Strengthens the case for resolving interactive-component embedding (the open seam).** The spellcasting visualization IS an interactive component — it makes the embedding question concrete and motivating, not merely hypothetical. Resolving the WASM / Web Component / sandboxed-iframe question unlocks the most evocative exotic-explainer form.
+
+Operationally: authoring an exotic explainer is just authoring an explainer entity in the fictional/interpretive lens (or as a `verification_status: "derived"` in-explainer synthesis, if the analogy is pedagogical framing rather than factual claim) with `medium:interactive` or `medium:text`. No schema changes. The lens system prevents the fanciful framing from contaminating the factual register.
+
 ## Open questions (in rough priority)
 - Topic-ontology / annotation schema — was the hardest and most blocking. Now has a dedicated design at `annotation-schema.md` (explainer entities, claim→node citation + construction-time verification, `@topic:*` ontology). Remaining work is curating the topic taxonomy and resolving the interactive-component seam, not the schema mechanism.
 - Omnimedia content model — how multiple media renderings are represented, stored, and selected per node (selection must be deterministic, not synthesized).
