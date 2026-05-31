@@ -3,7 +3,7 @@
 - Status: Accepted
 - Date: 2026-05-29
 
-**Context.** Complex entities (e.g. a character with many body parts) could be modeled either by colocating all facts on one entity or by splitting details into separate linked entities referenced via {{entity:ID}}.
+**Context.** Complex entities (e.g. a character with many body parts) could be modeled either by colocating all facts on one entity or by splitting details into separate linked entities referenced via <code v-pre>{{entity:ID}}</code>.
 
 **Decision.** Keep related information together on one entity rather than splitting it across multiple linked entities. The fragmented approach is rejected not for engineering reasons but for LLM cognitive load.
 

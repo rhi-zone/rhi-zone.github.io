@@ -68,5 +68,5 @@ So: exhaustive *modulo medium (prose), modulo current genre defaults, modulo a r
 
 ## Used by
 
-- [Humans as Cosmic Horror](../incubating.md#humans-as-cosmic-horror-worldbuilding--sci-fi-space-opera) — commits *substrate = human, role = antagonist* for the off-screen humans.
+- Humans as Cosmic Horror (incubating) — commits *substrate = human, role = antagonist* for the off-screen humans.
 - POV-misidentification project (incubating) — reader-only reveal along POV's own axes, sibling/inversion of the above.

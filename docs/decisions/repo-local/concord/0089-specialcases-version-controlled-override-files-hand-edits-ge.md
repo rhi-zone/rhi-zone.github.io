@@ -5,7 +5,7 @@
 
 **Context.** Generated bindings will sometimes be wrong or need manual fixes (type overrides, signature fixes, doc comments, added/removed bindings). The design had to decide how those manual corrections survive regeneration.
 
-**Decision.** Manual corrections live in version-controlled, auditable override files (schemas/<api>/specialcases.toml) applied on top of generated code — modeled on Nix/portage patches. Regeneration preserves and reapplies the specialcases.
+**Decision.** Manual corrections live in version-controlled, auditable override files (`schemas/<api>/specialcases.toml`) applied on top of generated code — modeled on Nix/portage patches. Regeneration preserves and reapplies the specialcases.
 
 **Alternatives rejected.**
 - *Edit the generated code directly* — Direct edits are clobbered on regeneration and are not auditable; the override-file model keeps corrections version-controlled and reapplied automatically across regenerations.

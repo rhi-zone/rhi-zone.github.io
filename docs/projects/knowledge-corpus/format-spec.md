@@ -304,8 +304,7 @@ total and mechanical; an implementer can build the exporter from this section al
 
 - **Entity id** `@ns:slug` → IRI `<BASE><ns>/<slug>`, where `<BASE>` is a corpus base
   IRI (e.g. `https://corpus.example/`). The leading `@` is dropped; the single `:`
-  separating ns and slug becomes a `/`. (Alternatively a per-`ns` `PREFIX ns:
-  <BASE><ns>/` declaration with the term `ns:slug` — equivalent.)
+  separating ns and slug becomes a `/`. (Alternatively a per-`ns` `` PREFIX ns: <BASE><ns>/ `` declaration with the term `ns:slug` — equivalent.)
 - **Predicate** `@ns:slug` → IRI by the same rule. Predicates are IRIs like any term.
 - **Statement id** `s:xxxxxxx` → either a blank node or, if stable IRIs are wanted,
   `<BASE>statement/<id>`. Only needed when the statement is annotated/reified (§3.5).
