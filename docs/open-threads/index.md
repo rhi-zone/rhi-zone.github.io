@@ -11,3 +11,4 @@ A registry of cross-project design questions that don't cleanly belong inside an
 ## Threads
 
 - [Worldbuilding namespace: universe-keyed, not genre-keyed](./worldbuilding-namespace) — How should the `worldbuilding` lens namespace be structured in software-taxonomy, and how should that convention propagate if paragarden universes ever export into the corpus?
+- [Deterministic simulation testing](/deterministic-simulation-testing) — What does an open, instrumentation-optional testing substrate look like across levels (in-process, wasm, emulator, hypervisor)? When does full determinism earn its cost, and when is cheap fault-injection plus off-the-shelf reproduction the better trade? Unresolved: the oracle problem, the managed-runtime frontier, and whether exploration and reproduction are better as separate tools.

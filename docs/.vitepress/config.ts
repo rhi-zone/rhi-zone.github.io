@@ -97,6 +97,7 @@ export default withMermaid(
               { text: 'Affordance Surfaces', link: '/affordance-surfaces' },
               { text: 'Explorations', link: '/explorations' },
               { text: 'Prior Art', link: '/prior-art' },
+              { text: 'Deterministic Simulation Testing', link: '/deterministic-simulation-testing' },
             ]
           },
           {
