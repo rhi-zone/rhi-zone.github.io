@@ -98,6 +98,7 @@ export default withMermaid(
               { text: 'Explorations', link: '/explorations' },
               { text: 'Prior Art', link: '/prior-art' },
               { text: 'Deterministic Simulation Testing', link: '/deterministic-simulation-testing' },
+              { text: 'The Decision Stream', link: '/decision-stream' },
             ]
           },
           {

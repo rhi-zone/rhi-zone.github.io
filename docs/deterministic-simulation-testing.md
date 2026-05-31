@@ -1,6 +1,6 @@
 # Deterministic Simulation Testing
 
-**See also:** [Vision](/vision), [Explorations](/explorations), [Prior Art](/prior-art), [Ecosystem Design Principles](/decisions/throughlines)
+**See also:** [The Decision Stream](/decision-stream) (the second half of this arc — Shannon → decision-stream → crescent), [Vision](/vision), [Explorations](/explorations), [Prior Art](/prior-art), [Ecosystem Design Principles](/decisions/throughlines)
 
 What if you could run a distributed system through every interesting failure scenario — network partition, disk corruption, clock skew, process crash — in a controlled, reproducible, fully deterministic environment, without touching the production binary? And when you found a bug, rewind to exactly the moment it occurred, branch the universe, and try a different schedule?
 
