@@ -6,6 +6,8 @@ export default withMermaid(
     title: 'rhi',
     description: 'A glue layer for computers',
 
+    srcExclude: ['**/CLAUDE.md'],
+
     themeConfig: {
       nav: [
         { text: 'Home', link: '/' },
