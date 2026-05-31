@@ -5,10 +5,14 @@
 # for allowlist checking.
 #
 # Allowed leading-token tuples (every non-empty segment must match one):
-#   git commit ...
-#   git push ...
-#   git status ...
-#   git log --oneline ...
+#   git [-C <path>] commit ...
+#   git [-C <path>] push ...
+#   git [-C <path>] status ...
+#   git [-C <path>] log --oneline ...
+#
+# The -C flag may appear as a separate token ("git -C /path status") or as an
+# attached form ("git -C/path status"). In both cases the real subcommand is
+# validated against the same allowlist as bare "git <sub>" commands.
 #
 # Prints "OK" if all segments pass, "DENY:<reason>" if any fail.
 
@@ -22,22 +26,37 @@ BEGIN {
     FS        = ""
 }
 
-function check_segment(seg,    tokens, n, t0, t1, t2) {
+function check_segment(seg,    tokens, n, t0, idx, t_sub, t_after) {
     # Strip leading/trailing whitespace
     gsub(/^[[:space:]]+|[[:space:]]+$/, "", seg)
     if (seg == "") return "OK"
 
     n = split(seg, tokens, /[[:space:]]+/)
     t0 = (n >= 1) ? tokens[1] : ""
-    t1 = (n >= 2) ? tokens[2] : ""
-    t2 = (n >= 3) ? tokens[3] : ""
 
     if (t0 == "git") {
-        if (t1 == "commit") return "OK"
-        if (t1 == "push")   return "OK"
-        if (t1 == "status") return "OK"
-        if (t1 == "log" && t2 == "--oneline") return "OK"
-        return "DENY:git subcommand not allowed: " t1
+        # Determine which token index holds the subcommand.
+        # Accept an optional -C <path> flag before the subcommand:
+        #   "git -C <path> <sub>"  → tokens: git, -C, <path>, <sub>  → idx 4
+        #   "git -C<path> <sub>"   → tokens: git, -C<path>, <sub>    → idx 3
+        #   "git <sub>"            → tokens: git, <sub>               → idx 2
+        idx = 2
+        if (n >= idx && tokens[idx] == "-C") {
+            # Separate form: consume "-C" token and the following path token
+            idx = idx + 2   # skip "-C" and "<path>", land on subcommand
+        } else if (n >= idx && substr(tokens[idx], 1, 2) == "-C" && length(tokens[idx]) > 2) {
+            # Attached form: "-C<path>" is one token, next token is subcommand
+            idx = idx + 1
+        }
+
+        t_sub   = (n >= idx)     ? tokens[idx]     : ""
+        t_after = (n >= idx + 1) ? tokens[idx + 1] : ""
+
+        if (t_sub == "commit") return "OK"
+        if (t_sub == "push")   return "OK"
+        if (t_sub == "status") return "OK"
+        if (t_sub == "log" && t_after == "--oneline") return "OK"
+        return "DENY:git subcommand not allowed: " t_sub
     }
     return "DENY:command not allowed: " t0
 }
