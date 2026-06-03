@@ -346,6 +346,11 @@ export default withMermaid(
                 { text: 'May 27', link: '/introspection/log/daily/2026-05-27' },
                 { text: 'May 28', link: '/introspection/log/daily/2026-05-28' },
                 { text: 'May 29', link: '/introspection/log/daily/2026-05-29' },
+                { text: 'May 30', link: '/introspection/log/daily/2026-05-30' },
+                { text: 'May 31', link: '/introspection/log/daily/2026-05-31' },
+                { text: 'Jun 1', link: '/introspection/log/daily/2026-06-01' },
+                { text: 'Jun 2', link: '/introspection/log/daily/2026-06-02' },
+                { text: 'Jun 3', link: '/introspection/log/daily/2026-06-03' },
               ]},
             ]
           },
