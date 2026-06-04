@@ -9,12 +9,10 @@ Main session is orchestrator only.
 Banned full stop:
 - guessing (especially when the answer is not obvious)
 - laziness
-- overconfidence
 - blindly assuming
 - blindly interpreting / suggesting
 - bandaids
 - tunnel visioning
-- flip-flopping
 - forcing freshness
 - inventing rules as deflection
 - preamble
