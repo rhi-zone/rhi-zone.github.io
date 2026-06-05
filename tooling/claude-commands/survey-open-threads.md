@@ -95,6 +95,27 @@ Read the tail of the top candidates (`normalize sessions show <id> --json`, last
 
 **Not** abandonment (exclude): explicit closers (`Done.` `Pushed.` `Clean.` `Bye!`), a `/handoff` ExitPlanMode plan (intentional close — the plan landed in `TODO.md`), or autonomous-bot end-states.
 
+#### Plan file derivation for Scope C and C2
+
+When a session's tail references a handoff or plan — the assistant said "Let me write the handoff:", or `ExitPlanMode` was called, or the session mentions a plan file — derive and verify the plan file on disk:
+
+- Main session plan: `~/.claude/plans/{slug}.md`
+- Subagent plan: `~/.claude/plans/{slug}-agent-{agentId}.md`
+- `slug` is a top-level field on every session JSONL record (format: adjective-verb-noun, e.g. `vivid-juggling-crescent`). It is the plan filename stem.
+- `agentId` is a top-level field on subagent transcript records (hex string, e.g. `ae9580d70fe0c1a83`); it is also the `agent-{agentId}` stem of the transcript filename.
+
+**`slug` present does not imply the plan file exists.** A plan file only exists if `ExitPlanMode` was actually called. After deriving the path, stat it:
+
+```bash
+# verify plan file on disk before surfacing it
+stat ~/.claude/plans/<slug>.md 2>/dev/null && echo EXISTS || echo ABSENT
+```
+
+- If the file **exists**, surface the exact path in the run report — the thread is immediately actionable.
+- If the file is **absent**, note `plan/handoff referenced, no plan file found at ~/.claude/plans/<slug>.md` rather than emitting a dead path.
+
+Note: the only prior art for plan-file access in this ecosystem (`normalize`'s `plans.rs` `plans_dir()`) merely lists the plans directory and does not derive per-session paths. This derivation is the skill's own.
+
 ### Step 4 — Scope C2: soft-abandoned sessions (the dominant, easily-missed population)
 
 Sessions where the assistant's final message *implies more work* and the user simply moved on. Forward-looking sign-offs are **not** closers. This is the largest and most overlooked bucket.
@@ -106,7 +127,7 @@ normalize sessions messages --all-projects --role assistant --since <date> \
   --grep '<soft-abandon pattern>' --json
 ```
 
-Soft-abandon tail signals: `want me to`, `shall i`, `should we`, `let me know if`, `next:`, `remaining:`, `what would you like`, `we still need`, a trailing `?`, conditional offers ("Ready to dispatch?", "Want me to start implementing X?"), or a mid-flow truncation ("Let me write the handoff:" with nothing after).
+Soft-abandon tail signals: `want me to`, `shall i`, `should we`, `let me know if`, `next:`, `remaining:`, `what would you like`, `we still need`, a trailing `?`, conditional offers ("Ready to dispatch?", "Want me to start implementing X?"), or a mid-flow truncation ("Let me write the handoff:" with nothing after). When any of these signals fire, also check for a plan file using the derivation in the **Plan file derivation** section above.
 
 **Filter out** the false positives: tails that say "Let me write the handoff / ready for handoff / Final session summary" mean the `/handoff` skill ran — those are intentional closes, not loose ends.
 
@@ -162,7 +183,7 @@ Then add a one-line entry to `docs/open-threads/index.md` under `## Threads`, li
 - **Scope B** WIP snapshot (Step 1), whole and separate.
 - **LIVE → filed**: each thread, where it was filed (registry vs which `TODO.md`).
 - **DONE / SUPERSEDED / MOOT**: each candidate + the one-line reason it's not live (this is what keeps the next run from re-mining the same dead threads).
-- **Needs user attention**: the small set of genuinely-abandoned recent sessions (Step 3/4 survivors) ranked by recency — these are the resumable ones.
+- **Needs user attention**: the small set of genuinely-abandoned recent sessions (Step 3/4 survivors) ranked by recency — these are the resumable ones. For each entry that has a verified plan file on disk, include the exact path (`~/.claude/plans/<slug>.md`) directly in the entry so the thread is immediately actionable without further lookup.
 
 If a staging file is warranted (large pass, many candidates to triage with the user before promotion), write it to `drafts/` and delete it once promotion is complete — that is what `drafts/open-threads-candidates.md` was.
 
@@ -174,3 +195,4 @@ If a staging file is warranted (large pass, many candidates to triage with the u
 - **Don't hand-parse the session JSONL.** Use `normalize sessions`; it knows the formats.
 - **Don't re-surface known-dead threads.** If a prior run recorded a thread as DEAD/SUPERSEDED, honor that unless new evidence revives it.
 - **Don't suggest project names.** Slugs describe the question, nothing more.
+- **Don't emit an unverified plan file path.** A session having a `slug` field does not mean a plan file exists — `ExitPlanMode` must have been called. Always stat before surfacing; always note when the path is absent rather than silently dropping it.
