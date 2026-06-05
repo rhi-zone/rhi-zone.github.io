@@ -188,7 +188,18 @@ export default withMermaid(
             collapsed: true,
             items: [
               { text: 'Overview', link: '/open-threads/' },
+              { text: 'Closed / Archived', link: '/open-threads/closed' },
+              { text: 'Harness orchestrator fit', link: '/open-threads/harness-orchestrator-fit' },
+              { text: 'Domain generator corpus', link: '/open-threads/domain-generator-corpus' },
+              { text: 'Design-decisions convention', link: '/open-threads/design-decisions-convention' },
+              { text: 'CONTEXT.md adoption', link: '/open-threads/context-md-adoption' },
+              { text: 'Out-of-scope stance', link: '/open-threads/out-of-scope-stance' },
+              { text: 'CLAUDE.md saturation curve', link: '/open-threads/claude-md-saturation-curve' },
+              { text: 'Compaction loss rate', link: '/open-threads/compaction-loss-rate' },
+              { text: 'Specs as software', link: '/open-threads/specs-as-software' },
               { text: 'Worldbuilding namespace', link: '/open-threads/worldbuilding-namespace' },
+              { text: 'Lua on mobile', link: '/open-threads/lua-on-mobile' },
+              { text: 'Existence: persistent awareness', link: '/open-threads/existence-persistent-awareness' },
             ]
           },
           {
@@ -196,6 +207,7 @@ export default withMermaid(
             collapsed: true,
             items: [
               { text: 'Overview', link: '/introspection/' },
+              { text: 'WIP Snapshot', link: '/introspection/wip-snapshot' },
               { text: 'Session Analysis', link: '/introspection/session-analysis' },
               { text: 'Session Deep Dives', link: '/introspection/session-deep-dives' },
               { text: 'Activity Log', collapsed: true, items: [
