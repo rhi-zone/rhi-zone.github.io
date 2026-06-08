@@ -101,6 +101,7 @@ export default withMermaid(
               { text: 'The Decision Stream', link: '/decision-stream' },
               { text: 'Finding Bugs in Existing Code', link: '/finding-bugs-in-existing-code' },
               { text: 'Oracles for Logic Bugs', link: '/logic-bug-oracles' },
+              { text: 'Biasing the Search', link: '/biasing-the-search' },
             ]
           },
           {

@@ -1,6 +1,6 @@
 # Oracles for Logic Bugs in Existing Code
 
-**See also:** [Finding Bugs in Existing Code](/finding-bugs-in-existing-code) (the direct predecessor — the open question this essay answers), [Deterministic Simulation Testing](/deterministic-simulation-testing), [The Decision Stream](/decision-stream), [Vision](/vision), [Ecosystem Design Principles](/decisions/throughlines).
+**See also:** [Finding Bugs in Existing Code](/finding-bugs-in-existing-code) (the direct predecessor — the open question this essay answers), [Biasing the Search](/biasing-the-search) (the search-half companion — how to bias which runs you generate), [Deterministic Simulation Testing](/deterministic-simulation-testing), [The Decision Stream](/decision-stream), [Vision](/vision), [Ecosystem Design Principles](/decisions/throughlines).
 
 The prior essay in this arc established the lever — **novelty = search × a cheap, exact oracle** — and walked through a concrete attempt to operationalize it against rsync. It ended with a wall and an open question, recorded carefully: *is there a useful, incomplete, order-independent, non-enumerating finder for logic bugs in existing code?* This essay records the answer-shape that emerged from a four-branch literature probe. It inherits the same epistemic convention: claims are tagged **settled**, **open**, or **retracted**, and nothing the inquiry did not reach has been manufactured into a resolution.
 
