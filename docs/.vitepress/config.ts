@@ -100,6 +100,7 @@ export default withMermaid(
               { text: 'Deterministic Simulation Testing', link: '/deterministic-simulation-testing' },
               { text: 'The Decision Stream', link: '/decision-stream' },
               { text: 'Finding Bugs in Existing Code', link: '/finding-bugs-in-existing-code' },
+              { text: 'Oracles for Logic Bugs', link: '/logic-bug-oracles' },
             ]
           },
           {
