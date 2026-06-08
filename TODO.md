@@ -79,3 +79,26 @@ All pushed to origin/master. Follow-ups surfaced by the synthesis are in the ope
   - **P11 (open-models vs typed-API) held.** Its physical-layer discriminator ("persistence/interchange open, execution typed") is falsified by ADR-0192 (normalize Reports: typed structs at the interchange seam). The candidate replacement variable is authorship/closedness (open where you must absorb foreign/unforeseen constructs you didn't author; typed where you own and close the set), but that is a proposed reconciliation, not observed consensus — needs validation before canonizing. See `docs/decisions/principles-cohesion.md`.
   - **X1 hand-roll-vs-defer discriminator unstated.** The operative rule is "defer by default; hand-roll only when a dependency would violate a substrate's load-time contract (air-gapped / runtime-loadable / no-build-step)"; worth stating explicitly somewhere canonical. See `docs/decisions/principles-cohesion.md` §1.
 - **Watch tension X2 during the software-taxonomy refactor.** `throughlines.md` §2 flags that software-taxonomy re-adopts the EAV triple-store pattern (ADR-0252) that the corpus thesis decided to delete (ADR-0001 §6). Reconcilable (persisted store vs ephemeral index) but it's the exact spot where the corpus thesis meets reality — revisit when the refactor happens.
+
+---
+
+## Open threads: bug-finding-search design
+
+> *Open threads from a previous session. Treat as starting context, not instructions — verify relevance before acting.*
+
+### Thread 3 — Logic-bug search design (exploratory, unvalidated)
+
+The goal under exploration is more automated discovery of *logic* bugs (not just memory-safety) in critical existing software, with rsync as the concrete target. Two design essays exist in `docs/`:
+
+- `docs/logic-bug-oracles.md` — the online-oracle half (how to detect a bug when the search finds one)
+- `docs/biasing-the-search.md` — the search half (how to steer a fault-injection search toward interesting paths)
+
+A proof-of-concept lives at `~/git/pterror/rsync-blind-fault-oracle-spike`.
+
+**Open questions / forks (none resolved):**
+
+- **Search-bias design is argued, not tested.** The explore/exploit structure — an objective path-novelty base plus a bounded, user-tunable value "portfolio", with a never-zero rule — is a design argument. It might find real bugs or might be a dead end. The one empirical data point (a deliberately-blind PoC: naive uniform/one-fault/no-feedback search) found zero bugs in ~4000 trials on rsync 3.2.7. Mechanism validated; bug-finding unproven.
+- **Branch-level tracing cost might be prohibitive before there is evidence of payoff.** Path-novelty computation needs branch-level tracing, heavier than the PoC's LD_PRELOAD fault seam — might need compile-time instrumentation or hardware trace (Intel PT). Open whether that cost is worth paying before there is any evidence the approach finds bugs.
+- **Loop-granularity knob is the one unresolved point in the redundancy measure.** How to count a path through a loop: collapsing back-edges is objective but blind to iteration-count bugs; keeping counts catches them but explodes the space. Unsettled.
+- **A key (argued) conclusion worth not re-litigating from scratch:** there is no single *objective* measure of bug-value — value is irreducibly a choice, so it belongs in the user's hands as explicit tuning, not baked into the tool. The next session may disagree, but that was the landing point.
+- **Possible repo anomaly.** At session end the git ahead-count and recent commit list shifted unexpectedly — commits touching hooks and a judgment lesson appeared that this design session did not author. Might be parallel edits/pushes; worth a glance at repo state before trusting history.
