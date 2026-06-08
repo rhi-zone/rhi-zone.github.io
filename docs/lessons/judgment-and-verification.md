@@ -28,7 +28,11 @@ Tooling never substitutes for getting the core fix or check correct. A check bui
 
 ## Metadata isn't merit
 
-The existence or status of an artifact proves nothing about its quality. "A PR exists / closes the issue / is merged / has this author" carries no weight in a low-trust context — especially one where the surrounding source itself can't be trusted. The remedy is not to distrust everything; it is to judge the artifact directly: read the change in context, trace the callers, record the verdict with concrete reasons.
+The existence or status of an artifact proves nothing about its quality. "A PR exists / closes the issue / is merged / has this author" carries no weight on its own. The remedy is not to distrust everything; it is to judge the artifact directly: read the change in context, trace the callers, record the verdict with concrete reasons.
+
+## Stale internal conclusions are not ground truth
+
+An undated or aging internal audit note, summary, or "lesson" is a hypothesis frozen at the time it was written. If newer authoritative evidence is available — a live public repo, an API-verified commit, a signature — anchor to that, not to the internal note. An internal conclusion that contradicts the user's consistent direct account and verifiable public reality is suspect, not canonical. The failure mode: a stale audit verdict ("the upstream is contaminated / the bug was fork-introduced") silently poisoned every downstream agent context that loaded it, and was wrongly elevated over the actual public record. Treat undated internal conclusions as perishable; verify against live authoritative sources before forwarding them as fact.
 
 ## Confirm the target before writing into a structured system
 
