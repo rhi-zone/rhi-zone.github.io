@@ -8,6 +8,8 @@ back to CLAUDE.md — they live here precisely to avoid subagent confusion.
 
 The main session is an orchestrator. Allowed actions: `Agent`/`Task*`/`AskUserQuestion`/plan-mode/`ScheduleWakeup`, and Bash limited to `git commit`, `git push`, `git status`, `git log --oneline`. Everything else delegates to a subagent. The hook is evidence of a prompting failure, not a behavioral guide. If a tool call hits the hook AT ALL, the prompt failed to prevent it. Delegate before the decision point, not after.
 
+**Main is the only session that can spawn subagents.** Subagents cannot spawn subagents. So any multi-agent chain A→B is structurally forced through main. That makes relay discipline non-optional: if main forwards an agent's full content to the next agent, all that content lands in main's context — recreating the context-poisoning delegation was meant to avoid, and introducing a laundering hazard (main restating a conclusion instead of passing evidence). The fix is blackboard discipline: agents write to files, main routes on digests.
+
 ### Triggers
 
 Before calling Read, Grep, Glob, or any Bash beyond the four git commands — stop. Dispatch an Agent instead.
@@ -45,6 +47,14 @@ Always set `subagent_type` and `model` explicitly.
 - Dispatch independent subagents in parallel (multiple Agent blocks in one message).
 - Pair `isolation: worktree` with `run_in_background: true`.
 - Code-modifying subagents must verify their own changes before returning (re-read the diff, run tests, etc.). The orchestrator does not get a second pass with git diff — that's hook-blocked.
+
+#### Relay Discipline (blackboard protocol)
+
+Every agent in a multi-step chain writes its full output to a tracked artifact file and returns to main only: (a) a **pointer** (the file path) and (b) a **digest** — whatever the agent itself judges main needs in order to route the next hop. Digest width is the agent's judgment; the instruction is "return what main needs to route; everything else stays behind the pointer." Main routes on digests. Agents exchange payloads by pointer — the next agent reads the artifact by path. Payloads never transit main's context.
+
+This is what makes critic/evaluator agents cheap in a chain: the critic reads the artifact by path in its own context, evaluates, and returns a verdict digest; main routes on the verdict without ever reading the artifact.
+
+Artifact convention: write artifacts to `docs/artifacts/<session>/` (where `<session>` is a short descriptive slug for the current task, e.g. `audit-2026-06-12`). Track and commit them — they are the durable reasoning trail (plans, critic verdicts, gathered evidence) and belong in version control.
 
 ### Workflows
 
