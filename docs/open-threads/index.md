@@ -50,3 +50,4 @@ across repos. None has an owner driving it to a near-term decision.
 ### Paused arcs
 
 - [existence-persistent-awareness](./existence-persistent-awareness) — The `fluffy-rolling-meadow` "Persistent Awareness Display" plan (time/money degradation HUD) was written, presented for sign-off, and never approved or discarded. Plan file untouched since 2026-04-10; not tracked in existence's `TODO.md`.
+- [scribble-awaiting-reincarnate-stability](./scribble-awaiting-reincarnate-stability) — Scribble (sketch-level creative environment) was scaffolded in early 2026 and has been dormant since mid-March. The platform-layer dependency on reincarnate is ready; the blocker is reincarnate's overall toolchain being broken/in flux.
