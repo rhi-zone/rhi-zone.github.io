@@ -10,7 +10,7 @@
 
 ## The arc
 
-**Scribble** (`github.com/rhi-zone/scribble`) is a sketch-level creative environment for games, art, and interactive pieces. It is designed as a reincarnate-native frontend with disjoint runtime implementations — DOM, Canvas 2D, and WebGPU — each with its own stdlib primitives (ADR-0147, accepted 2026-05-29). Desktop targets reincarnate's native backends (wgpu, cpal, winit) directly via reincarnate's platform layer.
+**Scribble** (`github.com/rhi-zone/scribble`) is a *medium for authored content* — structured, live, editor=runtime, where liveness survives publication — delivered at video-level accessibility. It is not an authoring tool; it occupies the slot video and HTML occupy (the form content is published and consumed in), and its bet is to hold Godot-class structured-liveness at content-creator accessibility. See ADR-0286 (`docs/decisions/repo-local/introspection/0286-scribble-is-a-medium-for-authored-content-not-a-tool`) for the full positioning derivation and the named accessibility/power-frontier risk. It is designed as a reincarnate-native frontend with disjoint runtime implementations — DOM, Canvas 2D, and WebGPU — each with its own stdlib primitives (ADR-0147, accepted 2026-05-29). Desktop targets reincarnate's native backends (wgpu, cpal, winit) directly via reincarnate's platform layer.
 
 The project was scaffolded (0 commits, untracked TODO.md draft) and has been dormant since mid-March 2026.
 
@@ -30,7 +30,8 @@ The unblock condition: reincarnate's toolchain stabilizes and its overall shape 
 
 - [/projects/scribble](/projects/scribble)
 - [/projects/reincarnate](/projects/reincarnate)
-- ADR-0147 (scribble disjoint runtime implementations): `docs/decisions/repo-local/scribble/ADR-0147`
+- ADR-0286 (scribble is a medium for authored content, not a tool — positioning derivation): `docs/decisions/repo-local/introspection/0286-scribble-is-a-medium-for-authored-content-not-a-tool`
+- ADR-0147 (scribble disjoint runtime implementations): `docs/decisions/repo-local/introspection/0147-scribble-runtimes-are-intentionally-disjoint-shared-model`
 - ADR-0229, ADR-0230 (reincarnate platform layer redesign): `docs/decisions/repo-local/reincarnate/ADR-0229`, `ADR-0230`
 
 ## Working answer
