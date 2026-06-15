@@ -1,14 +1,9 @@
 # TODO
 ## Seed `design-it-twice` skill (deferred — repo was dirty 2026-06-15)
 
-A new ecosystem skill `design-it-twice.md` was added (canonical: `~/git/rhizone/github-io/tooling/claude-commands/design-it-twice.md`). `propagate-skill.sh` only updates repos that already carry a skill, so brand-new skills are seeded by hand. This repo was dirty during the seeding pass, so it was skipped per the ecosystem-wide refactor rules. Once clean, run:
-
-```sh
-cp ~/.claude/commands/design-it-twice.md "$(git rev-parse --show-toplevel)/.claude/commands/design-it-twice.md"
-~/git/rhizone/normalize/target/debug/normalize init
-git add .claude/commands/design-it-twice.md .gitignore .normalize/
-direnv exec . git commit -m "feat(skills): add design-it-twice"
-git push
-```
-
-(`direnv exec` puts the nix toolchain on PATH so the pre-commit hook passes; never use `--no-verify`.)
+Superseded by the skill-loading redesign (2026-06-16). Skills are no longer seeded by
+hand or from `~/.claude/commands/`. Canonical source is github-io's committed
+`.claude/commands/`; distribution is convergent via `tooling/sync-skills.sh`, which seeds
+any missing skill (including `design-it-twice`) into every listed recipient when it is
+clean. Once this repo is clean it will be picked up by the next `sync-skills.sh` run; no
+manual `cp` step. See github-io CLAUDE.md → Ecosystem-Wide Refactors.

@@ -15,15 +15,46 @@ Project list, paths, and descriptions live in [docs/about.md](docs/about.md). Wh
 3. Dirty repos: add to that repo's TODO.md.
 4. Use conventional commits with scope indicating affected projects.
 
-Propagate `.claude/commands/` skills across all repos:
+Propagate `.claude/commands/` skills across the ecosystem:
 
 ```bash
-~/git/rhizone/github-io/tooling/propagate-skill.sh <skill-file> "<commit message>"
+~/git/rhizone/github-io/tooling/sync-skills.sh [--check] [--prune] [--no-push]
 ```
 
-Updates `~/.claude/commands/<skill-file>` first, then copies to every repo that has it, runs `normalize init`, commits, and pushes where clean.
+**Canonical skill location: github-io's own committed `.claude/commands/`** — one
+directory, two roles. It is *both* the ecosystem's authoring source of truth *and*
+github-io's own harness load path (project scope). Editing a committed file there is
+immediately live for github-io with no symlink. github-io is NOT special: like every
+receiver, it loads its skills from committed in-repo files. There is no
+`tooling/claude-commands/` warehouse (retired) and no `~/.claude` copy.
 
-Canonical skill location: `tooling/claude-commands/` in this repo. Symlink from `~/.claude/commands/` to `tooling/claude-commands/`. Do not write skills to `.claude/` directly.
+`sync-skills.sh` reads bytes only from this committed dir (git-tracked files only —
+an untracked file is never distributed) and fans them out to the recipients listed in:
+- `tooling/skill-recipients.txt` — all 37 recipient repos (baseline + cross-cutting skills)
+- `tooling/skill-recipients-rhizone.txt` — rhi-zone dev-substrate subset (also gets dev-tier skills)
+- `tooling/skill-tiers.txt` — per-skill tier (`all` | `dev`); a skill absent here is hub-only
+
+It is idempotent/convergent, skips dirty receivers FIRST (no mutation of a dirty tree —
+those get a TODO.md line), is non-destructive by default (orphans reported; removed only
+under `--prune`), runs `normalize init`, commits, and pushes clean repos. `--check` is a
+dry-run drift report (stale/missing/orphan) that exits non-zero — a CI/`/loop` guard.
+
+**FORBIDDEN: never create a `~/.claude/commands/` or `~/.claude/skills/` entry for an
+ecosystem skill.** `~/.claude` is global-by-construction with personal-over-project
+precedence, so a single such entry shadows the committed copy of *every* repo you ever
+open — not just github-io's. That is exactly the defect this redesign removed. Skills
+live only in each repo's committed `.claude/commands/`. No `link-skills` helper exists.
+
+<!-- FENCED FUTURE STEP — do NOT start until R1–R4 of the skill-loading redesign land
+     and stabilize (see docs/artifacts/skill-loading-audit/synthesis.md §Resolution 3). -->
+> **Fenced follow-up: migrate `.claude/commands/<name>.md` → `.claude/skills/<name>/SKILL.md`.**
+> Orthogonal to the correctness fix; deliberately deferred. When taken: convert each skill
+> to the modern directory-per-skill format (front-matter `SKILL.md`), load-test each
+> converted skill before deleting its legacy `commands/` file, do it as its own
+> commit-per-repo ecosystem refactor, and defer dirty repos to their TODO.md. Until then the
+> ecosystem stays on flat `.claude/commands/*.md` (with the few directory-shaped skills
+> tolerated as-is). Do not half-migrate: a mixed `commands/`+`skills/` ecosystem is the
+> failure mode this fence exists to prevent.
 
 ### Keeping Docs in Sync
 
