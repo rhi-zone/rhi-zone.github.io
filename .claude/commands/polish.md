@@ -21,24 +21,34 @@ Also check the project type: Rust library, CLI tool, web frontend, CLAUDE.md / d
 
 Present the user with lens options based on project type. Suggest a preset but let them choose or customize. Do not proceed until confirmed.
 
-**For Rust libraries**, default lenses:
+### Universal lenses
+
+These apply to any codebase:
+
 - **api-clarity** — public surface legibility from an external consumer's perspective: naming, ergonomics, discoverability
-- **naming-consistency** — are naming conventions applied uniformly across the codebase?
-- **doc-coverage** — public items documented? doc examples compile? links valid?
+- **api-gaps** — public surface completeness: missing operations, asymmetric coverage, things you'd expect to exist that don't
+- **consistency** — are patterns, contracts, error handling, and validation applied uniformly across analogous components? (goes beyond naming — behavioral consistency)
+- **doc-coverage** — public items documented? examples work? links valid?
 - **error-surface** — error types complete, meaningful, and consistent?
-- **adversarial** — edge cases, bad inputs, panic paths, unwrap()s
+- **completeness** — what inputs or cases does this code silently accept that it should validate or reject?
+- **adversarial** — make the strongest case against this code
 - **overfit** — code over-tuned for one specific scenario at the cost of generality, correctness at edge cases, or readability; algorithms or data structures chosen for a benchmark that doesn't represent real usage
 - **legacy-debt** — unannotated legacy code: stale patterns, commented-out blocks, deprecated paths, or dead code with no comment explaining why it's still present. Priority: unannotated legacy actively poisons agent context — an agent seeing an unexplained old pattern treats it as signal and copies it
 - **incomplete-migrations** — in-progress transitions where old and new patterns coexist without a clear signal about which is canonical: type/struct renames where both names still appear, call sites not yet updated after an API change, mixed import styles, half-migrated error handling, TODOs referencing an in-flight refactor. Severity scales with breadth — a migration spread across dozens of files where old patterns dominate by count is the worst case: a cold agent surveys the codebase, concludes the old pattern is the house style, and copies it forward, making the migration harder to complete with every session
 
-**For CLAUDE.md / documentation**, default lenses:
+### Documentation / CLAUDE.md lenses
+
 - **consistency** — internal coherence, cross-reference accuracy, contradictions
 - **gaps** — missing guidance, undocumented edge cases, assumed context
 - **adversarial** — where literal compliance leads to bad agent behavior
 - **agent-clarity** — would a cold agent, reading this for the first time, follow it correctly?
 
+### Custom lenses
+
+The lenses above are starting points. You can define arbitrary lenses based on the project's needs — if a project has a specific concern (performance, accessibility, security, concurrency safety, etc.), propose it as a lens. The user can also suggest their own.
+
 **Presets to offer:**
-- `comprehensive` — all lenses
+- `comprehensive` — all applicable lenses
 - `quick` — 2 most impactful lenses for the project type
 - `custom` — user picks
 
