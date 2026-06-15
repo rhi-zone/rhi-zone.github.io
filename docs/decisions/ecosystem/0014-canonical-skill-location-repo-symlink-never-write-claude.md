@@ -1,6 +1,6 @@
 # ADR-0014: Canonical skill location is in-repo with symlink; never write to ~/.claude directly
 
-- Status: Accepted
+- Status: Superseded by ADR-0287
 - Date: 2026-05-29
 
 **Context.** Claude Code skills/commands live in `~/.claude/commands/`. A decision was needed about the source of truth for skills shared across repos: edit them in the home dir, or keep them version-controlled in the repo.

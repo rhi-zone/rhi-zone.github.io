@@ -114,7 +114,7 @@ This **answers** the "is single-fault the wrong region / does it find anything" 
 
 > *Open threads from a previous session. Treat as starting context, not instructions — verify relevance before acting.*
 
-- **ADR-0014 is stale.** `docs/decisions/ecosystem/0014-canonical-skill-location-repo-symlink-never-write-claude.md` still describes the retired `tooling/claude-commands` + `~/.claude` symlink mechanism as active. This matters because stale ADRs mislead future sessions — the whole theme of this redesign was framing that survives without the author. The authoritative description of the new mechanism lives in `docs/artifacts/skill-loading-audit/synthesis.md` and the updated CLAUDE.md skill section. Open fork: write a fresh superseding ADR vs amend 0014 in place — either is defensible; the call is yours.
+- **✅ DONE — ADR-0014 superseded by ADR-0287.** New ecosystem ADR documents the committed-`.claude/commands/` + sync-skills.sh mechanism; ADR-0014 Status line annotated "Superseded by ADR-0287" (append-only convention, non-destructive forward pointer).
 
 - **Stale historical references — low-priority judgment call.** `docs/open-threads/closed.md` and `docs/artifacts/seed-design-it-twice-2026-06-15/` may reference old `tooling/claude-commands` + symlink paths. The right action depends on the role of each file: historical record (leave it) vs live instruction (fix it). Check before touching; do not assume either way.
 

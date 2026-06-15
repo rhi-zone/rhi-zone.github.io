@@ -102,6 +102,7 @@ ADRs below, not itself an ADR.
 - ADR-0065 — Dual build output: standalone SPA plus externalized embeddable Vue library
 - ADR-0066 — Iris core requires no external infrastructure; complexity is opt-in
 - ADR-0067 — Iris emits markdown, publishing-agnostic
+- ADR-0287 — Skills are canonical in each repo's committed .claude/commands/, fanned out by sync-skills.sh; never ~/.claude
 
 ### Repo-local
 
