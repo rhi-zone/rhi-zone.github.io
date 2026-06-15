@@ -1,0 +1,35 @@
+# skill-recipients-rhizone.txt — rhi-zone developer-substrate recipients ONLY.
+#
+# One repo per line, path relative to ~/git. Comments and blank lines ignored.
+# These repos ADDITIONALLY receive the DEV-TIER skills (design-an-interface,
+# domain-model, improve-codebase-architecture) on top of the baseline/all-tier set.
+#
+# This list MUST be a subset of skill-recipients.txt. It exists to durably prevent
+# developer-substrate skills from landing in non-rhi-zone (exo-place / para-garden /
+# ptera-world / pterror) repos, per docs/artifacts/skill-loading-audit/recipients.md.
+
+rhizone/concord
+rhizone/crescent
+rhizone/defocus
+rhizone/deskspace
+rhizone/dusklight
+rhizone/gels
+rhizone/interconnect
+rhizone/moonlet
+rhizone/motif
+rhizone/myenv
+rhizone/nanites
+rhizone/normalize
+rhizone/paraphase
+rhizone/playmate
+rhizone/portals
+rhizone/rainbow
+rhizone/reincarnate
+rhizone/rescribe
+rhizone/scribble
+rhizone/server-less
+rhizone/sketchpad
+rhizone/tiltshift
+rhizone/unshape
+rhizone/wick
+rhizone/zone

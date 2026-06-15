@@ -1,0 +1,58 @@
+# skill-recipients.txt — ALL skill-propagation recipient repos.
+#
+# One repo per line, path relative to ~/git. Comments and blank lines ignored.
+# Source of truth for the sync fan-out (replaces propagate-skill.sh find-by-presence).
+# Generated from docs/artifacts/skill-loading-audit/recipients.md (37 recipients;
+# github-io hub excluded — it is the canonical source, not a recipient).
+#
+# TIER: every repo here receives the BASELINE + ALL-TIER skills (see tooling/skill-tiers.txt:
+#   design-it-twice, handoff, polish, survey-open-threads, think-with-the-engineering-taste).
+# The rhi-zone developer-substrate subset additionally receives the DEV-TIER skills; those
+# repos are listed in skill-recipients-rhizone.txt.
+
+# --- rhi-zone (developer substrate) ---
+rhizone/concord
+rhizone/crescent
+rhizone/defocus
+rhizone/deskspace
+rhizone/dusklight
+rhizone/gels
+rhizone/interconnect
+rhizone/moonlet
+rhizone/motif
+rhizone/myenv
+rhizone/nanites
+rhizone/normalize
+rhizone/paraphase
+rhizone/playmate
+rhizone/portals
+rhizone/rainbow
+rhizone/reincarnate
+rhizone/rescribe
+rhizone/scribble
+rhizone/server-less
+rhizone/sketchpad
+rhizone/tiltshift
+rhizone/unshape
+rhizone/wick
+rhizone/zone
+
+# --- exo-place (end-user substrate) ---
+exoplace/aeriea
+exoplace/aspect
+exoplace/hologram
+exoplace/noncanon
+
+# --- para-garden (concrete works) ---
+paragarden/divergence
+paragarden/existence
+paragarden/legacy
+paragarden/postmortem
+paragarden/solarium
+
+# --- ptera-world (personal) ---
+pteraworld/annotated-law
+
+# --- pterror (personal / user-account) ---
+pterror/chub-stage-factory
+pterror/matrix-gen

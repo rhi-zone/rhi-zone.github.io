@@ -1,0 +1,22 @@
+# skill-tiers.txt — per-skill distribution scope (two-tier).
+#
+# Format:  <skill-name>  <tier>
+#   <skill-name> matches an entry in github-io's committed .claude/commands/
+#                (flat file <name>.md OR directory <name>/ with a SKILL.md).
+#   <tier> is one of:
+#     all  — distribute to EVERY repo in skill-recipients.txt
+#     dev  — distribute ONLY to repos in skill-recipients-rhizone.txt
+#            (rhi-zone developer substrate)
+#
+# Comments (#) and blank lines ignored. A skill present in .claude/commands/ but
+# absent from this file is NOT distributed (it stays hub-only) — fail-closed.
+
+design-it-twice                    all
+handoff                            all
+polish                             all
+survey-open-threads                all
+think-with-the-engineering-taste   all
+
+design-an-interface                dev
+domain-model                       dev
+improve-codebase-architecture      dev
