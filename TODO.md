@@ -112,14 +112,14 @@ This **answers** the "is single-fault the wrong region / does it find anything" 
 
 ## 2026-06-16 — Skill-loading redesign follow-ups
 
-> *Skill-loading mechanism redesigned and ecosystem rollout completed (2026-06-15/16 session). Items below are near-term owned follow-ups.*
+> *Open threads from a previous session. Treat as starting context, not instructions — verify relevance before acting.*
 
-- **Supersede ADR `docs/decisions/ecosystem/0014-canonical-skill-location-repo-symlink-never-write-claude.md`.** Still describes the RETIRED mechanism (tooling/claude-commands canonical + ~/.claude symlinks) as active. Write a superseding ADR reflecting the new mechanism: canonical = each repo's committed `.claude/commands/`; github-io is canonical-source AND a normal loader (not special); `tooling/sync-skills.sh` + tiered recipient lists for propagation; `~/.claude` ecosystem-skill entries forbidden (personal-over-project shadowing). Source: `docs/artifacts/skill-loading-audit/synthesis.md` and the updated CLAUDE.md skill-mechanism section.
+- **ADR-0014 is stale.** `docs/decisions/ecosystem/0014-canonical-skill-location-repo-symlink-never-write-claude.md` still describes the retired `tooling/claude-commands` + `~/.claude` symlink mechanism as active. This matters because stale ADRs mislead future sessions — the whole theme of this redesign was framing that survives without the author. The authoritative description of the new mechanism lives in `docs/artifacts/skill-loading-audit/synthesis.md` and the updated CLAUDE.md skill section. Open fork: write a fresh superseding ADR vs amend 0014 in place — either is defensible; the call is yours.
 
-- **Review stale historical references (lower priority).** `docs/open-threads/closed.md` and `docs/artifacts/seed-design-it-twice-2026-06-15/` mention the old tooling/claude-commands + symlink paths. Decide per-file: historical record (leave) or live instruction (fix).
+- **Stale historical references — low-priority judgment call.** `docs/open-threads/closed.md` and `docs/artifacts/seed-design-it-twice-2026-06-15/` may reference old `tooling/claude-commands` + symlink paths. The right action depends on the role of each file: historical record (leave it) vs live instruction (fix it). Check before touching; do not assume either way.
 
-- **aeriea (`~/git/exoplace/aeriea`) not pushed — user action required.** Carries its skill-sync commit plus 4 pre-existing unpushed commits the user wants to handle themselves. No action needed from this repo.
+- **aeriea unpushed — user's call.** `~/git/exoplace/aeriea` has the skill-sync commit plus 4 pre-existing unpushed commits the user wanted to handle personally. Not a github-io action item; listed only so the next session doesn't re-investigate why aeriea is ahead.
 
-- **Dirty repos (defocus, scribble, solarium) deferred.** Each has a TODO.md note; will converge on next clean `tooling/sync-skills.sh` run. No action needed until then.
+- **Dirty repos (defocus, scribble, solarium) — no action needed now.** These were skipped by the sync-skills rollout; each has a TODO.md note. They will converge on the next clean `sync-skills.sh` run. Worth a look only if they stay dirty long-term.
 
-- **FENCED: `.claude/commands/<name>.md` → `.claude/skills/<name>/SKILL.md` migration deferred.** Do not start until the current mechanism stabilizes. Already documented in CLAUDE.md; listed here for visibility.
+- **FENCED: `.claude/commands/<name>.md` → `.claude/skills/<name>/SKILL.md` format migration.** Deliberately deferred — do not start until the current committed-file mechanism stabilizes. Already documented in CLAUDE.md. Listed here for visibility only; the fence exists to prevent a mixed-format ecosystem.
