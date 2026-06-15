@@ -42,6 +42,14 @@ Scaffolding, repo creation, and rename procedures: see [scaffolding/README.md](s
 
 New repos get a CLAUDE.md by running the propagator on an empty file (`tooling/propagate-claude-md.sh`), which appends the ecosystem-common region (with markers). Append repo-specific rules below the `<!-- END ECOSYSTEM RULES -->` marker.
 
+### Control Surface & Harness Management
+
+These rules govern github-io's role as the repo that edits the agent harness config, runs propagation, and coordinates the ecosystem. They are management policy — github-io acts on them; receiver repos only inherit propagated rules, so these stay out of the propagated region.
+
+- No ecosystem changes without checking all affected repos.
+- **Control surface stays self-contained and versioned.** Behavioral rules, hooks, and guidance live in-repo — versioned, diffable, propagatable. Never put them in the unversioned, machine-local `~/.claude/CLAUDE.md`; reach never justifies a non-self-contained home.
+- **Permissions and secrets are the exception to self-containment — never committed, never global.** Self-containment governs the *behavioral* control surface (rules, hooks, skills); authority grants invert it on both axes. Not committed: a committed allow-list runs in every clone, turning the repo into literal malware that hands each contributor the access you granted yourself. Not global/user-level: a standing grant then fires in repos you don't own, where untrusted content abuses it (prompt-injected fetch → exfiltration). The only safe home is the gitignored, per-repo `.claude/settings.local.json` — this machine, these trusted repos; committed `settings.json` stays hooks/config only.
+
 ### GitHub Org Mapping
 
 | Org (GitHub) | Disk Path | Domain |
@@ -103,8 +111,6 @@ Cross-cutting principles distilled from the ecosystem's own decisions (synthesiz
 - No interactive git (no `git rebase -i`, no `git add -i`, no `--no-edit` on rebase).
 - No suggesting project names. LLMs are bad at this; refine the conceptual space only.
 - No tracking cross-project issues in conversation — they go in TODO.md in the affected repo.
-- No ecosystem changes without checking all affected repos.
-- **Control surface stays self-contained and versioned.** Behavioral rules, hooks, and guidance live in-repo — versioned, diffable, propagatable. Never put them in the unversioned, machine-local `~/.claude/CLAUDE.md`; reach never justifies a non-self-contained home.
 - No assuming a tool is missing without checking `nix develop`.
 - Commit completed work in the same turn it finishes. Uncommitted work is lost work.
 
