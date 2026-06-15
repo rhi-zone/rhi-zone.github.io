@@ -107,3 +107,19 @@ This **answers** the "is single-fault the wrong region / does it find anything" 
 - **Loop-granularity knob is the one unresolved point in the redundancy measure.** How to count a path through a loop: collapsing back-edges is objective but blind to iteration-count bugs; keeping counts catches them but explodes the space. Unsettled.
 - **A key (argued) conclusion worth not re-litigating from scratch:** there is no single *objective* measure of bug-value — value is irreducibly a choice, so it belongs in the user's hands as explicit tuning, not baked into the tool. The next session may disagree, but that was the landing point.
 - **Possible repo anomaly.** At session end the git ahead-count and recent commit list shifted unexpectedly — commits touching hooks and a judgment lesson appeared that this design session did not author. Might be parallel edits/pushes; worth a glance at repo state before trusting history.
+
+---
+
+## 2026-06-16 — Skill-loading redesign follow-ups
+
+> *Skill-loading mechanism redesigned and ecosystem rollout completed (2026-06-15/16 session). Items below are near-term owned follow-ups.*
+
+- **Supersede ADR `docs/decisions/ecosystem/0014-canonical-skill-location-repo-symlink-never-write-claude.md`.** Still describes the RETIRED mechanism (tooling/claude-commands canonical + ~/.claude symlinks) as active. Write a superseding ADR reflecting the new mechanism: canonical = each repo's committed `.claude/commands/`; github-io is canonical-source AND a normal loader (not special); `tooling/sync-skills.sh` + tiered recipient lists for propagation; `~/.claude` ecosystem-skill entries forbidden (personal-over-project shadowing). Source: `docs/artifacts/skill-loading-audit/synthesis.md` and the updated CLAUDE.md skill-mechanism section.
+
+- **Review stale historical references (lower priority).** `docs/open-threads/closed.md` and `docs/artifacts/seed-design-it-twice-2026-06-15/` mention the old tooling/claude-commands + symlink paths. Decide per-file: historical record (leave) or live instruction (fix).
+
+- **aeriea (`~/git/exoplace/aeriea`) not pushed — user action required.** Carries its skill-sync commit plus 4 pre-existing unpushed commits the user wants to handle themselves. No action needed from this repo.
+
+- **Dirty repos (defocus, scribble, solarium) deferred.** Each has a TODO.md note; will converge on next clean `tooling/sync-skills.sh` run. No action needed until then.
+
+- **FENCED: `.claude/commands/<name>.md` → `.claude/skills/<name>/SKILL.md` migration deferred.** Do not start until the current mechanism stabilizes. Already documented in CLAUDE.md; listed here for visibility.
