@@ -1,6 +1,6 @@
 # ADR-0014: Canonical skill location is in-repo with symlink; never write to ~/.claude directly
 
-- Status: Superseded by ADR-0287
+- Status: Superseded by ADR-0287 — decision repudiated, mechanism found defective
 - Date: 2026-05-29
 
 > *Superseded by ADR-0287: the `~/.claude` symlink was found defective — a global skill entry shadows every repo's committed copy. The decision below is retained verbatim as history.*
