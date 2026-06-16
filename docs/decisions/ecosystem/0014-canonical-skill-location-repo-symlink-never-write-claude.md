@@ -3,6 +3,8 @@
 - Status: Superseded by ADR-0287
 - Date: 2026-05-29
 
+> *Superseded by ADR-0287: the `~/.claude` symlink was found defective — a global skill entry shadows every repo's committed copy. The decision below is retained verbatim as history.*
+
 **Context.** Claude Code skills/commands live in `~/.claude/commands/`. A decision was needed about the source of truth for skills shared across repos: edit them in the home dir, or keep them version-controlled in the repo.
 
 **Decision.** The canonical skill location is `tooling/claude-commands/` in this repo, with `~/.claude/commands/` symlinked to it. Skills must not be written to `.claude/` directly; they propagate from the repo via the propagator script.
