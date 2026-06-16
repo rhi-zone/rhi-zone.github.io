@@ -3,7 +3,39 @@
     "UserPromptSubmit": [
       {
         "hooks": [
-          {"type": "command", "command": "/home/me/git/rhizone/github-io/tooling/claude-hooks/post-history.sh"}
+          {
+            "type": "command",
+            "command": "/home/me/git/rhizone/github-io/tooling/claude-hooks/post-history.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PROJECT_DIR}/tooling/claude-hooks/inject-orchestrator-rules.sh"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PROJECT_DIR}/tooling/claude-hooks/block-blocking-bash.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PROJECT_DIR}/tooling/claude-hooks/block-mainsession-exploration.sh"
+          }
         ]
       }
     ]
