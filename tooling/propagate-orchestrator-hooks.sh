@@ -111,9 +111,13 @@ if [ "$CHECK" -eq 0 ]; then
 fi
 
 # ── Step 2: settings.json wiring ─────────────────────────────────────────────
-INJECT_CMD="$TARGET_HOOKS/inject-orchestrator-rules.sh"
-BLOCKBASH_CMD="$TARGET_HOOKS/block-blocking-bash.sh"
-EXPLORE_CMD="$TARGET_HOOKS/block-mainsession-exploration.sh"
+# Use ${CLAUDE_PROJECT_DIR} placeholder so the installed command paths are
+# portable — they resolve to the repo root at runtime, not to an absolute
+# machine-local path baked in at install time. Claude Code expands
+# ${CLAUDE_PROJECT_DIR} in hook command strings to the project root.
+INJECT_CMD='${CLAUDE_PROJECT_DIR}/tooling/claude-hooks/inject-orchestrator-rules.sh'
+BLOCKBASH_CMD='${CLAUDE_PROJECT_DIR}/tooling/claude-hooks/block-blocking-bash.sh'
+EXPLORE_CMD='${CLAUDE_PROJECT_DIR}/tooling/claude-hooks/block-mainsession-exploration.sh'
 
 # Desired settings, computed from current (or {}).
 if [ -f "$TARGET_SETTINGS" ]; then
@@ -123,7 +127,7 @@ else
 fi
 
 # Remove any prior orchestrator entries (matched by command basename, any path),
-# then append the canonical entries pointing at this target's absolute paths.
+# then append the canonical entries pointing at this target's portable paths.
 # post-history.sh entries are left untouched (different basename).
 DESIRED="$(printf '%s' "$CURRENT" | jq \
     --arg inject "$INJECT_CMD" \
