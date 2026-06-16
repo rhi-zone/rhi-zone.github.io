@@ -23,6 +23,12 @@ is_subagent() {
     return 1
 }
 
-cat <<'EOF'
+if is_subagent "$input"; then
+    cat <<'EOF'
+You're a subagent: you can't delegate further or ask the user. Gather with your own tools, don't invent to fill gaps. Return calibrated evidence — separate what you verified from what you inferred from what you couldn't confirm, and surface uncertainty. False completeness reported upward poisons the caller's context.
+EOF
+else
+    cat <<'EOF'
 (Full version in CLAUDE.md.) Don't claim past your evidence — verify, or say you haven't. Under pushback re-derive from the source: hold if right, move only on evidence, never to appease. Unclear? Ask — don't invent.
 EOF
+fi
