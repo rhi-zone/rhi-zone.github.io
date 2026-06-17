@@ -1,42 +1,38 @@
 # TODO
 
-Captured at session end. Honest state of what was built, what's pending, what's untested.
+---
 
-## Shipped this session
+## Open threads: reasoning / representation (PRIMARY — unresolved)
 
-- Hook rewritten: strict main-session allowlist (Agent/Task*/AskUserQuestion/EnterPlanMode/ExitPlanMode/ToolSearch/ScheduleWakeup/Skill + `git commit/push/status/log --oneline`). Pure shell/awk, no Python.
-- CLAUDE.md trimmed; ecosystem-common region demarcated with markers; `propagate-claude-md.sh` propagator built.
-- `scaffolding/CLAUDE.md` deleted.
-- Canonical region propagated to all 49 rhizone-ecosystem repos.
-- PHI hook (`post-history.sh`) installed in all 49 repos via `propagate-post-history.sh` propagator.
-- Hook denial message corrected to "orchestrator only" (not "read-only").
-- `docs/claude-code-hooks.md` created documenting hook input + output schemas (empirical).
+> *Open threads from a previous session. Treat as starting context, not instructions — verify relevance before acting.*
 
-## Pending — design discussed, not built
+### Thread — LLM reasoning / representation / intelligence (NEVER RESOLVED)
 
-- **Both-sides adversarial dispatch.** Equal-role subagent pairing where neither side defaults to ship. Not implemented; current adversarial work is single-pass review (which carries asymmetric bias).
-- **Strict-checklist verification mechanism.** The one allowed form of LLM decision-making (per session conclusion). No tooling exists for this yet.
-- **Custom subagent types.** Discussed: `verifier`, `committer`, `researcher` with locked system prompts. Not built.
-- **Filesystem-as-substrate orchestration.** Subagents communicate via work artifacts; main holds no task graph. Current sessions still hold task state in main context.
-- **PHI dynamic content.** Current PHI is static; could be keyed off user prompt content, recent transcript patterns, repo type, etc.
+A long Socratic exchange the user was steering toward an unstated destination. The assistant covered a lot of true terrain (LLMs imitate reasoning; von Neumann bottleneck; 20W brain; intelligence-as-efficiency; tokens overloading representation+compute+generation; flat compute over non-flat decision density; code as the redundant *projection* of abstractions that should be data) but **never reached the user's actual point**. Every time the assistant guessed the destination it was wrong; the session then detoured into a harness bug and the thread was never resumed.
 
-## Pending — unknowns / untested
+Full distillation: `docs/artifacts/handoff-reasoning-thread/handoff.md` (read it before entering this thread).
 
-- **PHI effectiveness unknown.** Just shipped to all repos; no data on whether it actually shifts behavior. Should observe across multiple sessions and revise content if patterns recur.
-- **Bans coverage unknown.** Mined from existing session corpus; new failure modes may surface that current bans don't catch.
-- **Hook handles weird JSON edge cases unknown.** Audit found 4 criticals in earlier python version; current shell/awk version was written more carefully but no fuzz testing.
+**Open question: the user's thesis is genuinely unstated.** Do not re-guess. The next session should ask the user to state it directly. Six prior guesses were all wrong.
 
-## Known imperfections
+---
 
-- Custom checklist mechanism not designed → "decisions only via strict checklist" principle is currently aspirational.
-- Subagent prompts in main are composed ad-hoc each dispatch — no standardized template for the orchestrator-side prompt scaffolding.
-- Adversarial audits worked well this session but were driven by the user, not the system. The friction is still user-maintained.
+## Open threads: harness self-containment migration residuals (2026-06-17)
 
-## Don't forget
+> *Open threads from a previous session. Treat as starting context, not instructions — verify relevance before acting.*
 
-- The PHI hook fires per-session; it doesn't replace CLAUDE.md, which still loads at session start.
-- Hook script files in each repo are local copies; updating canonical content in github-io requires re-running the propagator across all 49 repos.
-- `~/.claude/settings.json` (global) is outside this repo's git tree but holds the block-mainsession-exploration.sh hook reference. Don't lose track of it.
+Work from this session: unified harness propagator (`propagate-harness.sh`), orchestrator hooks wired into committed `settings.json`, hooks split into lean nudge + relay(CLAUDE.md) + workflows doc, handoff distillation artifact. The self-containment migration ran across the ecosystem; these are the still-open pieces:
+
+- **7 repos skipped dirty — need re-run when clean.** defocus, rainbow, server-less, solarium, ashwren, fuwafuwa, pteraworld(root). Each was skipped (no mutation of dirty tree); each should have a TODO.md note from the propagator. Will converge on next clean `propagate-harness.sh` run.
+
+- **`normalize` and `aeriea` — committed but not pushed.** The harness commit landed but these repos had pre-existing unrelated WIP ahead of origin. Owner should review and push when ready; not a github-io action.
+
+- **`fractal` — no git remote configured.** Harness commit is local-only. Needs a remote before it can be pushed.
+
+- **Verify anomaly: `exoplace/github-io` and `paragarden/github-io`.** These were discovered as marker-carrying repos and synced during the migration. Confirm they're legitimate ecosystem repos that should have been touched — or flag if they shouldn't be in the harness propagation set.
+
+- **Dead references in `~/.claude/hooks/` — optional cleanup.** `inject-orchestrator-rules.sh`, `block-*.sh`, `post-history.sh`, `lib/` are now unreferenced after going fully self-contained. Safe to delete; not yet done.
+
+- **PreToolUse block hook — deny branch unexercised.** The committed hook was confirmed loaded on a fresh session (load test passed), but its deny branch was not triggered (model complied before reaching it). A probe forcing a raw Read would confirm denial actually fires.
 
 ---
 
@@ -59,15 +55,9 @@ A new project was sketched: an "omnimedia knowledge corpus" where the corpus is 
 - **Carried open questions:** value-layer validation (post-v0); interactive-component embedding; external query surface (deferred derived layer); corpus-construction process + LLM budgeting; content licensing; finance source scouting; whether entity-level fields (labels/aliases/description) stay conventional keys or become statements (purity vs convenience); identity scheme; literal datatype/unit handling; reference resolution.
 - **Housekeeping:** annotated-law is on disk under `~/git/pteraworld/` but pushed to github:pterror (wrong folder) — might need relocating when convenient.
 
-### Thread 2 — ADR program (multi-phase, user-initiated) ✓ RESOLVED 2026-05-29
+### Thread 2 — ADR program ✓ RESOLVED 2026-05-29
 
-A central ADR store was established at `docs/decisions/` (ADR-0001 + a convention README). All three sub-items completed this session:
-
-- **Back-fill from ecosystem repos** — done. 284 atomic ADRs mined and written: 66 ecosystem-wide to `docs/decisions/ecosystem/`, 218 repo-local to `docs/decisions/repo-local/<repo>/`, numbered ADR-0002–0285 under one global sequence. README updated with partition scheme, classification rule, and index. (commits f1733ac, dae96fc)
-- **Back-fill from introspection logs** — done. Included in the same fan-out pass above.
-- **Meta: principles synthesis** — done. `docs/decisions/throughlines.md`: 15 throughlines, 6 tensions, 11 candidate principles. (commit 98eb7b0)
-
-All pushed to origin/master. Follow-ups surfaced by the synthesis are in the open items below.
+A central ADR store was established at `docs/decisions/` (ADR-0001 + a convention README). All three sub-items completed: back-fill from ecosystem repos (284 atomic ADRs mined, ADR-0002–0285), back-fill from introspection logs (same pass), and principles synthesis (`docs/decisions/throughlines.md`: 15 throughlines, 6 tensions, 11 candidate principles). All pushed.
 
 ---
 
@@ -110,11 +100,11 @@ This **answers** the "is single-fault the wrong region / does it find anything" 
 
 ---
 
-## 2026-06-16 — Skill-loading redesign follow-ups
+## Open threads: skill-loading redesign follow-ups
 
 > *Open threads from a previous session. Treat as starting context, not instructions — verify relevance before acting.*
 
-- **✅ DONE — ADR-0014 superseded by ADR-0287.** New ecosystem ADR documents the committed-`.claude/commands/` + sync-skills.sh mechanism; ADR-0014 Status line annotated "Superseded by ADR-0287" (append-only convention, non-destructive forward pointer).
+- **✅ DONE — ADR-0014 superseded by ADR-0287.** New ecosystem ADR documents the committed-`.claude/commands/` + sync-skills.sh mechanism; ADR-0014 Status line annotated "Superseded by ADR-0287" (append-only convention, non-destructive forward pointer). ADR-0014 also marked repudiated (not merely superseded).
 
 - **Stale historical references — low-priority judgment call.** `docs/open-threads/closed.md` and `docs/artifacts/seed-design-it-twice-2026-06-15/` may reference old `tooling/claude-commands` + symlink paths. The right action depends on the role of each file: historical record (leave it) vs live instruction (fix it). Check before touching; do not assume either way.
 
