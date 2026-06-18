@@ -21,25 +21,38 @@
 #   docs/artifacts/propagate-data-over-code-2026-06-14/summary.md (54 recipients).
 #   The canonical github-io is excluded (it is its own source of truth).
 #
-# DISCIPLINE (mirrors sync-skills.sh):
-#   - Dirty-receiver skip FIRST: a dirty tree is never mutated/committed; it is
-#     reported and a TODO.md line is suggested (and, when TODO.md itself is
-#     clean, appended + committed — matching the ecosystem-refactor rule).
-#   - Idempotent / convergent: a second run on a converged ecosystem writes nothing.
+# DISCIPLINE:
+#   - CLEAN repos: full convergent region replace + hooks + settings, commit, PUSH.
+#   - DIRTY repos: the harness install is ADDITIVE and safety-critical (the
+#     orchestrator block hooks protect the main agent), so we do NOT blanket-skip.
+#     We install the harness and make a HARNESS-ONLY local commit (no push),
+#     under hard invariants:
+#       1. Stage ONLY harness paths via explicit `git add <paths>` (never -A/.);
+#          assert `git diff --cached` contains nothing else or abort that repo.
+#       2. Never clobber an owner-edited harness file: any harness path already
+#          in the owner's uncommitted changes is RESTORED + deferred (recorded),
+#          never overwritten.
+#       3. Never push a dirty repo (owner WIP / may be ahead / may be private).
+#       4. If nothing can be safely installed (e.g. both CLAUDE.md and
+#          settings.json are owner-dirty), fall back to skip + TODO line.
+#   - Idempotent / convergent: a second run on a converged ecosystem (clean OR
+#     dirty) writes nothing and creates no empty commit.
 #   - --check is a dry-run drift report; exits non-zero if any repo would change
-#     or is unreachable; mutates nothing.
-#   - Default mirrors sync-skills.sh: commit AND push clean, changed repos.
+#     or is unreachable; mutates nothing (dirty repos report what WOULD install).
 #
 # Usage:
 #   propagate-harness-all.sh [--check] [--no-push]
 #     --check    Dry run. Report per-repo drift, write/commit/push nothing,
-#                exit non-zero if any drift (or dirty/unreachable recipient).
-#     --no-push  Commit changed clean repos but do not push.
+#                exit non-zero if any drift (or unreachable recipient).
+#     --no-push  Commit changed clean repos but do not push. (Dirty repos are
+#                never pushed regardless.)
 
 set -euo pipefail
 
 HUB="$(cd "$(dirname "$0")/.." && pwd)"          # github-io repo root (canonical source)
-GIT_ROOT="$(cd "$HUB/../.." && pwd)"             # ~/git
+# Scan root for recipient discovery. Defaults to ~/git; overridable via
+# HARNESS_ALL_GIT_ROOT for testing against throwaway fixtures.
+GIT_ROOT="$(cd "${HARNESS_ALL_GIT_ROOT:-$HUB/../..}" && pwd)"
 PROPAGATE="$HUB/tooling/propagate-harness.sh"
 NORMALIZE="$GIT_ROOT/rhizone/normalize/target/debug/normalize"
 CANONICAL_CLAUDE_MD_REAL="$(realpath "$HUB/CLAUDE.md")"
@@ -89,36 +102,115 @@ for repo_path in "${REPOS[@]}"; do
     continue
   fi
 
-  # Dirty check FIRST — never mutate a dirty tree.
+  # Dirty check FIRST. A dirty tree is NOT blanket-skipped: the harness install
+  # is additive + safety-critical, so we install it harness-only (no push),
+  # deferring any harness file the owner is themselves editing (never clobber).
   if [ -n "$(git -C "$repo_path" status --porcelain)" ]; then
-    echo "  DIRTY: skipping (no mutation). Suggested TODO.md line:"
-    echo "    $TODO_LINE"
     dirty_repos=$((dirty_repos + 1))
-    drift_total=$((drift_total + 1))
-    if [ "$CHECK" -eq 0 ]; then
-      # Append the TODO line only if TODO.md is itself clean (don't sweep WIP).
+
+    # Which harness-managed paths is the OWNER already editing? Those we must not
+    # touch. Match CLAUDE.md, .claude/settings.json, and the claude-hooks tree.
+    owner_dirty_harness="$(git -C "$repo_path" status --porcelain \
+      | sed 's/^...//' \
+      | grep -E '^(CLAUDE\.md|\.claude/settings\.json|tooling/claude-hooks/)' || true)"
+    md_dirty=0; settings_dirty=0
+    printf '%s\n' "$owner_dirty_harness" | grep -qx 'CLAUDE.md'            && md_dirty=1       || true
+    printf '%s\n' "$owner_dirty_harness" | grep -qx '.claude/settings.json' && settings_dirty=1 || true
+
+    # --check: report only, mutate nothing.
+    if [ "$CHECK" -eq 1 ]; then
+      if "$PROPAGATE" --check "$repo_path" >/dev/null 2>&1; then
+        echo "  DIRTY but harness already current — no install needed"
+      else
+        echo "  DIRTY: WOULD install harness additively (harness-only commit, no push)"
+        [ -n "$owner_dirty_harness" ] && echo "    would DEFER owner-edited harness file(s): $(printf '%s' "$owner_dirty_harness" | tr '\n' ' ')"
+        drift_total=$((drift_total + 1))
+      fi
+      continue
+    fi
+
+    # Residual fallback: if BOTH core files are owner-dirty, nothing safe to
+    # install — revert to skip + TODO line.
+    if [ "$md_dirty" -eq 1 ] && [ "$settings_dirty" -eq 1 ]; then
+      echo "  DIRTY: CLAUDE.md AND settings.json both owner-edited — cannot install safely; skip + TODO"
+      drift_total=$((drift_total + 1))
       todo="$repo_path/TODO.md"
-      if ! grep -qF "$TODO_LINE" "$todo" 2>/dev/null; then
+      if ! grep -qF -- "$TODO_LINE" "$todo" 2>/dev/null; then
         printf '%s\n' "$TODO_LINE" >> "$todo"
-        if [ -z "$(git -C "$repo_path" status --porcelain -- TODO.md | grep -v '^??')" ] \
-           && git -C "$repo_path" ls-files --error-unmatch TODO.md >/dev/null 2>&1; then
-          # TODO.md was tracked and (other than our line) clean — commit just it.
-          if [ -z "$(git -C "$repo_path" status --porcelain | grep -v 'TODO.md$')" ]; then
-            ( cd "$repo_path"
-              git add TODO.md
-              direnv exec . git commit -q -m "docs(todo): pending harness/CLAUDE.md region sync" 2>/dev/null \
-                || git commit -q -m "docs(todo): pending harness/CLAUDE.md region sync"
-            ) && echo "    TODO.md note committed"
-          else
-            echo "    TODO.md note left on disk (other WIP present; not committed)"
-          fi
-        else
-          echo "    TODO.md note left on disk (untracked or WIP; not committed)"
-        fi
+        echo "    TODO.md note left on disk (owner WIP present; not committed)"
       else
         echo "    TODO.md already carries the note"
       fi
+      continue
     fi
+
+    echo "  DIRTY: installing harness additively (harness-only commit, no push)"
+    [ -n "$owner_dirty_harness" ] && echo "    DEFERRING owner-edited harness file(s): $(printf '%s' "$owner_dirty_harness" | tr '\n' ' ')"
+
+    # Snapshot the owner's WORKING-TREE bytes of every owner-dirty harness file
+    # BEFORE we let the propagator touch anything. We restore these exact bytes
+    # afterward — NOT `git checkout` (which would revert to HEAD/index and so
+    # destroy the owner's uncommitted edit). This is the never-clobber guarantee.
+    snap_dir=""
+    if [ -n "$owner_dirty_harness" ]; then
+      snap_dir="$(mktemp -d)"
+      printf '%s\n' "$owner_dirty_harness" | while IFS= read -r f; do
+        [ -n "$f" ] || continue
+        if [ -f "$repo_path/$f" ]; then
+          mkdir -p "$snap_dir/$(dirname "$f")"
+          cp -p "$repo_path/$f" "$snap_dir/$f"
+        fi
+      done
+    fi
+
+    # Run the convergent propagator (writes harness files).
+    "$PROPAGATE" "$repo_path" >/dev/null
+
+    # Restore owner working-tree bytes for every deferred harness file.
+    if [ -n "$snap_dir" ]; then
+      printf '%s\n' "$owner_dirty_harness" | while IFS= read -r f; do
+        [ -n "$f" ] || continue
+        if [ -e "$snap_dir/$f" ]; then
+          cp -p "$snap_dir/$f" "$repo_path/$f"
+        fi
+      done
+      rm -rf "$snap_dir"
+    fi
+
+    # Stage ONLY harness paths, explicitly — NEVER -A/. — and never the deferred ones.
+    ( cd "$repo_path"
+      for p in CLAUDE.md .claude/settings.json tooling/claude-hooks; do
+        case "$p" in
+          CLAUDE.md)              [ "$md_dirty" -eq 1 ] && continue ;;
+          .claude/settings.json)  [ "$settings_dirty" -eq 1 ] && continue ;;
+        esac
+        git add -- "$p" >/dev/null 2>&1 || true
+      done
+      # Un-stage any deferred hooks-tree files the owner is editing.
+      printf '%s\n' "$owner_dirty_harness" | while IFS= read -r f; do
+        [ -n "$f" ] || continue
+        git reset -q -- "$f" >/dev/null 2>&1 || true
+      done
+
+      if git diff --cached --quiet; then
+        echo "    nothing to install — already current (no commit)"
+        exit 3   # signal: no commit made
+      fi
+
+      # INVARIANT GUARD: staged set must contain ONLY harness paths. If anything
+      # else slipped in, abort this repo (do not commit owner WIP).
+      stray="$(git diff --cached --name-only \
+        | grep -Ev '^(CLAUDE\.md|\.claude/settings\.json|tooling/claude-hooks/)' || true)"
+      if [ -n "$stray" ]; then
+        echo "    ABORT: non-harness path staged ($(printf '%s' "$stray" | tr '\n' ' ')) — resetting, not committing" >&2
+        git reset -q >/dev/null 2>&1 || true
+        exit 3   # signal: no commit made
+      fi
+
+      direnv exec . git commit -q -m "chore(harness): install orchestrator hooks + sync CLAUDE.md region" 2>/dev/null \
+        || git commit -q -m "chore(harness): install orchestrator hooks + sync CLAUDE.md region"
+      echo "    harness-only commit made (NOT pushed — dirty repo)"
+    ) && changed_repos=$((changed_repos + 1)) || true
     continue
   fi
 
@@ -161,8 +253,8 @@ done
 
 echo
 if [ "$CHECK" -eq 1 ]; then
-  echo "drift items: $drift_total  (dirty/skipped: $dirty_repos)"
+  echo "drift items: $drift_total  (dirty receivers: $dirty_repos)"
   [ "$drift_total" -eq 0 ] && { echo "ecosystem converged."; exit 0; } || { echo "DRIFT DETECTED."; exit 1; }
 else
-  echo "repos changed: $changed_repos  (dirty/skipped: $dirty_repos)"
+  echo "repos changed: $changed_repos  (dirty receivers, harness installed locally/no-push where safe: $dirty_repos)"
 fi
