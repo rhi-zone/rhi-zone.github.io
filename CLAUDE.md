@@ -71,7 +71,7 @@ When projects change, update:
 
 Scaffolding, repo creation, and rename procedures: see [scaffolding/README.md](scaffolding/README.md).
 
-New repos get a CLAUDE.md by running the propagator on an empty file (`tooling/propagate-claude-md.sh`), which appends the ecosystem-common region (with markers). Append repo-specific rules below the `<!-- END ECOSYSTEM RULES -->` marker.
+New repos get a CLAUDE.md by running the propagator (`tooling/propagate-harness.sh <target-repo>`) on a repo whose CLAUDE.md is missing the markers. The propagator syncs the ecosystem region between the `<!-- BEGIN ECOSYSTEM RULES -->` / `<!-- END ECOSYSTEM RULES -->` markers — *appending* the region if the markers are absent, *replacing* the region in place if they are present (convergent). It also installs/updates the behavioral hook files and wires `.claude/settings.json`. Append repo-specific rules below the `<!-- END ECOSYSTEM RULES -->` marker. (For an ecosystem-wide rollout, `tooling/propagate-harness-all.sh` discovers all marker-bearing repos and drives the per-repo propagator.)
 
 ### Control Surface & Harness Management
 
@@ -147,7 +147,7 @@ Cross-cutting principles distilled from the ecosystem's own decisions (synthesiz
 
 ### Relay discipline (blackboard protocol)
 
-When you dispatch subagents in a multi-step chain, each subagent writes its full output to a tracked artifact file under `docs/artifacts/<session>/` and returns only a pointer (the path) plus a short digest of what the next step needs. Payloads move between agents by path, never through the dispatching session's context — this avoids context-poisoning and stops conclusions being laundered in place of evidence. A reviewing/critic agent reads the artifact by path and returns a verdict; the dispatcher routes on the verdict without ingesting the artifact.
+Reach for the blackboard when it earns its keep, not for every subagent. When a payload is large or evidence-heavy enough that passing it through the dispatcher's context would poison it — or when a downstream critic/step must read it by path so the dispatcher routes on a verdict without ingesting the evidence — the subagent writes its output to an artifact file and returns only a path + short digest. That is what stops conclusions being laundered in place of evidence. Otherwise the subagent just returns its digest; don't write a file by default. Persist to a tracked path only when the output is durable (in docs-shaped repos, `docs/artifacts/<session>/`); ephemeral relay scratch stays out of the tracked tree, and repos without that path use a repo-appropriate or scratch location.
 
 ## Hard Constraints
 
