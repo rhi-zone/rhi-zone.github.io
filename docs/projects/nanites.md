@@ -3,7 +3,7 @@
 **Flexible orchestration. Stateless functions all the way down.**
 
 ::: info Status: In Development ◑
-~5K lines across 3 crates (nanites-core, nanites-rig, nanites-chat). Core substrate implemented: Task/IoTask split, dynamic graph via ctx.spawn, Frontier, ExecGraph, Scaffold system, TaskRegistry, Runtime. LLM tasks via rig. Active development.
+Core substrate implemented (nanites-core, nanites-rig, nanites-chat): Task/IoTask split, dynamic graph via ctx.spawn, Frontier, ExecGraph, Scaffold system, TaskRegistry, Runtime. LLM tasks via rig. Active development.
 :::
 
 **Repository:** [github.com/rhi-zone/nanites](https://github.com/rhi-zone/nanites)

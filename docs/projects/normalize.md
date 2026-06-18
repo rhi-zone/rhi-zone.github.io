@@ -3,7 +3,7 @@
 **Structural code intelligence for humans and AI agents.**
 
 ::: info Status: Potentially Mature ●
-~257K lines of Rust across 44 crates, 3400+ commits (v0.3.2). Core functionality is solid: the three primitives (`view`/`edit`/`analyze`) ship, with extensive language support (98 languages via tree-sitter), a background indexing daemon (Unix), shadow-git edit tracking, and AI-session analysis. The release binary builds (~58MB). Active development is on the analysis surface (budget, test-ratio, coupling clusters, output formatting). Remaining work is capability expansion rather than foundation building.
+v0.3.2. Core functionality is solid: the three primitives (`view`/`edit`/`analyze`) ship, with extensive language support (98 languages via tree-sitter), a background indexing daemon (Unix), shadow-git edit tracking, and AI-session analysis. Active development is on the analysis surface (budget, test-ratio, coupling clusters, output formatting). Remaining work is capability expansion rather than foundation building.
 :::
 
 Normalize provides tools for understanding, navigating, and modifying code at a structural level (AST, control flow, dependencies) rather than treating code as text.

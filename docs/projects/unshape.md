@@ -3,7 +3,7 @@
 **Constructive media generation in Rust.**
 
 ::: info Status: Potentially Mature ●
-~144K lines of Rust across 44 crates covering 13+ media generation domains (meshes, audio, textures, noise, physics, fluid sim, animation, voxels, point clouds). 750+ tests, comprehensive documentation. Production-grade for offline generation; GPU compute backend partially designed but not yet integrated.
+Covers 13+ media generation domains (meshes, audio, textures, noise, physics, fluid sim, animation, voxels, point clouds), with comprehensive documentation and an extensive test suite. Production-grade for offline generation; GPU compute backend partially designed but not yet integrated.
 :::
 
 Unshape provides composable primitives for procedural generation of meshes, audio, textures, vector graphics, and skeletal animation.

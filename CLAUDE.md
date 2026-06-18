@@ -110,6 +110,16 @@ nav: [
 ]
 ```
 
+**Describe projects by capability + maturity, never by volume or activity.** A project's
+status block leads with a qualitative **maturity stage** (Idea / Sketch / Growing / In
+Development / Fleshed Out / Potentially Mature — reuse the page's existing label) + an
+**implemented-vs-planned** capability description + a **version, only if the project
+genuinely versions**. Never report status via volume/activity metrics — lines of code,
+file/crate/package counts, commit counts — or hardcoded dates (last-commit/last-active):
+they rot per-commit and measure the projection (the codebase) rather than the project (its
+capability). If liveness is genuinely wanted, *generate* it from the repo at build time;
+do not write it into prose. (Decision: ADR-0288.)
+
 ## Activity Logs
 
 - `docs/introspection/log/` — weekly snapshots, named by end date (e.g. `2026-02-25.md`). Read the most recent first when evaluating direction or focus.

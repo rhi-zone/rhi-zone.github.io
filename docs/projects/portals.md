@@ -3,7 +3,7 @@
 **Standard library interfaces.**
 
 ::: info Status: Fleshed Out ◐
-~8.2K lines of Rust across 50 crates: 23 interface crates, 20 native backends, 3 mock backends, 5 WASM backends, 2 portable backends. Capability audit completed. Roadmap fully completed (8/8 checkpoints). Maturity limited primarily by ecosystem adoption rather than design/implementation gaps.
+Interface crates with native, mock, WASM, and portable backends. Capability audit completed. Roadmap fully completed (all checkpoints). Maturity limited primarily by ecosystem adoption rather than design/implementation gaps.
 :::
 
 **Repository:** [github.com/rhi-zone/portals](https://github.com/rhi-zone/portals)

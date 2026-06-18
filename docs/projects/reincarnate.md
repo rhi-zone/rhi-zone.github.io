@@ -3,7 +3,7 @@
 **Legacy software lifting framework in Rust.**
 
 ::: info Status: Fleshed Out ◐
-~2000 commits, 192 Rust files across a multi-crate workspace (core IR + CLI, three frontends, a TypeScript backend, a TS type-checker, and the GameMaker data.win parser). Active lifting for Flash (AVM2), GameMaker (GMS1/GMS2), and Twine (SugarCube + Harlowe), emitting compiled TypeScript over per-engine replacement runtimes. IR-level transform passes including type inference/narrowing, mem2reg, coroutine lowering, and const folding. Validated against production games (e.g. Dead Estate). Remaining work: additional frontends and format coverage.
+Multi-crate workspace (core IR + CLI, three frontends, a TypeScript backend, a TS type-checker, and the GameMaker data.win parser). Active lifting for Flash (AVM2), GameMaker (GMS1/GMS2), and Twine (SugarCube + Harlowe), emitting compiled TypeScript over per-engine replacement runtimes. IR-level transform passes including type inference/narrowing, mem2reg, coroutine lowering, and const folding. Validated against production games (e.g. Dead Estate). Remaining work: additional frontends and format coverage.
 :::
 
 Reincarnate extracts application logic from obsolete bytecode/script runtimes and re-emits it as modern web code. It decompiles to an SSA-like intermediate representation, runs transform passes, then emits compiled TypeScript alongside a swappable replacement runtime — not an interpreter bundle. The original runtime is fully replaced.

@@ -3,7 +3,7 @@
 **rhi ecosystem monorepo: Lua-based tools, scaffolds, and orchestration.**
 
 ::: info Status: Fleshed Out ◐
-279 commits. Rust core plus substantial Lua codebase. Functional object store with query API, working HTTP+WebSocket server. Cross-project integration with server-less, keybinds, normalize. Seeds for myenv scaffolding. Foundation solid, active development.
+Rust core plus substantial Lua codebase. Functional object store with query API, working HTTP+WebSocket server. Cross-project integration with server-less, keybinds, normalize. Seeds for myenv scaffolding. Foundation solid, active development.
 :::
 
 **Repository:** [github.com/rhi-zone/zone](https://github.com/rhi-zone/zone)

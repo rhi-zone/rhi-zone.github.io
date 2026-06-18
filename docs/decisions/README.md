@@ -103,6 +103,7 @@ ADRs below, not itself an ADR.
 - ADR-0066 — Iris core requires no external infrastructure; complexity is opt-in
 - ADR-0067 — Iris emits markdown, publishing-agnostic
 - ADR-0287 — Skills are canonical in each repo's committed .claude/commands/, fanned out by sync-skills.sh; never ~/.claude
+- ADR-0288 — Describe projects by capability and maturity, not volume or activity metrics
 
 ### Repo-local
 
