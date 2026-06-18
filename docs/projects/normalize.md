@@ -3,7 +3,7 @@
 **Structural code intelligence for humans and AI agents.**
 
 ::: info Status: Potentially Mature ●
-~128K lines of Rust across 14 crates, 2281 commits. Core functionality is solid with extensive language support (98 languages via tree-sitter), comprehensive CLI, and rich documentation. Active feature development (budget, test-ratio, clusters, session analysis). Remaining work is capability expansion rather than foundation building.
+~257K lines of Rust across 44 crates, 3400+ commits (v0.3.2). Core functionality is solid: the three primitives (`view`/`edit`/`analyze`) ship, with extensive language support (98 languages via tree-sitter), a background indexing daemon (Unix), shadow-git edit tracking, and AI-session analysis. The release binary builds (~58MB). Active development is on the analysis surface (budget, test-ratio, coupling clusters, output formatting). Remaining work is capability expansion rather than foundation building.
 :::
 
 Normalize provides tools for understanding, navigating, and modifying code at a structural level (AST, control flow, dependencies) rather than treating code as text.
@@ -13,7 +13,7 @@ Normalize provides tools for understanding, navigating, and modifying code at a 
 - **98 Languages** - Tree-sitter grammars for comprehensive language support
 - **Structural Editing** - AST-based code modifications with fuzzy matching
 - **Background Indexing** - Daemon maintains symbol/call graph index
-- **Shadow Git** - Hunk-level edit tracking in `.normalize/.git`
+- **Shadow Git** - Automatic edit history tracking in `.normalize/shadow/`
 - **Session Analysis** - Parse and analyze AI agent logs (Claude Code, Gemini CLI, etc.)
 
 ## Three primitives
@@ -52,8 +52,7 @@ Normalize provides tools for understanding, navigating, and modifying code at a 
 
 | Crate | Description |
 |-------|-------------|
-| `normalize-typegen` | Polyglot type/validator generation from schemas |
-| `normalize-jsonschema` | JSON Schema codegen |
+| `normalize-typegen` | Polyglot type/validator generation from schemas (incl. JSON Schema) |
 | `normalize-openapi` | OpenAPI client codegen |
 
 ### Package management
@@ -66,7 +65,8 @@ Normalize provides tools for understanding, navigating, and modifying code at a 
 
 | Crate | Description |
 |-------|-------------|
-| `normalize-sessions` | Session log parsing (Claude Code, Gemini CLI, etc.) |
+| `normalize-chat-sessions` | Session log parsing (Claude Code, Gemini CLI, OpenAI Codex) |
+| `normalize-session-analysis` | Session cost/usage/model metrics |
 | `normalize-cli-parser` | Parse CLI `--help` output |
 
 ## Quick start
