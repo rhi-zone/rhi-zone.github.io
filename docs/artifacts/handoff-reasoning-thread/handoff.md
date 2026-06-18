@@ -353,10 +353,18 @@ synthesized in `docs/artifacts/decision-editing-space/synthesis.md`. The arc:
   **verification-smear** is its un-fakeable ground truth.
 - The constructive landing: the **editor-as-reconciler** (locate / edit-as-decision
   / store-as-decision / propagate / fill-spawned), where four organs already
-  ship at scale and **the LLM is organ-5 — the spawned-decision filler at the
-  leaves**, gated by a verifier-at-leaf and bounded by compositionality. This is
-  the ecosystem's own "oracle at the leaves, never the control loop," reached
-  from the editing side.
+  ship at scale and **organ 5 — filling spawned decisions — is staffed by search +
+  verification (the non-LLM intelligence the thread was about): candidates are
+  searched/synthesized and *decided by an exact verifier at the leaf*; a learned
+  proposer (an LLM, if any) is at most a non-load-bearing branching prior that
+  narrows the search, never the decider; and where no cheap-total verifier exists
+  the leaf escalates to a human** (where a generative proposer is *most* dangerous,
+  confident-wrong and ungated). This is the ecosystem's own "oracle at the leaves,
+  never the control loop" read literally — oracle proposes, the exact substrate
+  decides — reached from the editing side. (An earlier draft of this section put
+  "the LLM" in the organ-5 decision role; that was corrected — it contradicted the
+  thread's non-LLM-intelligence thrust and the control-loop principle. See the
+  synthesis §7 correction note.)
 
 See the synthesis for the honest boundary (non-compositional global properties,
 the oracle's own weights, cross-org authority, essential duplication,

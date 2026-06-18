@@ -54,8 +54,10 @@ partitions into two kinds of content:
   shrapnel".)
 - **Spawned / new-info-from-oracle** — sites the change *forces to exist* but cannot
   *fill*; they admit multiple program-consistent completions with no basis in the program
-  to choose. **Information must be injected by an oracle** (human, or model-at-the-leaf).
-  (F3's "spawned decisions".)
+  to choose. **Information must enter from outside the program** — a candidate is proposed
+  (by search/synthesis, by a human, or by a learned proposer) and *decided* by an exact
+  verifier at the leaf; where no such verifier exists, the only safe source is a human.
+  (F3's "spawned decisions"; the oracle *proposes*, it never *decides* — see §7/§9.)
 
 This is exactly the thread's **reducible-redundancy vs irreducible-decision-content**
 line, seen at editing time. Five frames confirm the *same* axis from genuinely different
@@ -279,7 +281,9 @@ The fusion of IaC's inversion + the constraint-solver's fixpoint engine + CDCL's
 learn-from-conflict (F5) names the destination: **the editor of the future is a
 reconciler.** You edit a *decision / desired-state*; a fixpoint engine derives every
 consequence it can (the M shrapnel), surfaces the *forced-but-undetermined* sites (the S
-holes) as a worklist, an oracle fills only the holes, each fill re-enters and re-triggers
+holes) as a worklist, each hole is filled by a *verified* candidate (search/synthesis
+proposes, an exact verifier at the leaf decides; no verifier → escalate to a human), each
+accepted fill re-enters and re-triggers
 propagation, and derived artifacts are **read-only projections** maintained by continuous
 reconciliation. Every piece already exists, battle-tested, in some discipline; none is
 assembled.
@@ -296,24 +300,49 @@ The state-of-the-art survey (F16) sharpens this into **five organs**:
    differential dataflow; CDCL in every SMT solver).
 5. **Fill / refuse spawned decisions** — **the historical missing organ.** Hazel built the
    *socket* (typed holes = forced spawned decisions made first-class) and pre-LLM **nobody
-   had a filler**.
+   had an automated way to staff it**.
 
-**Four organs already ship at scale; organ 5 is the gap, and the LLM is its first
-non-human filler** — the first entity that can supply undetermined-but-forced behavioral
-content at a leaf. This is *why prior whole-vision attempts failed structurally and why
+**Four organs already ship at scale; organ 5 is the gap — and what newly fills it is
+search + synthesis over the decision structure, *decided by exact verification*** (the
+non-LLM intelligence this whole thread was about). The decision-content organ 5 must
+produce is the *spawned* decision: the irreducible, high-entropy bit. That is **exactly the
+reasoning the thread established LLMs only imitate and degrade on**, so the LLM must *not*
+be the thing that makes these decisions. The competence comes from **search over the space
+of program-consistent candidates + a cheap-total verifier that decides accept/reject** —
+the verifier is the decision-maker; correctness rests entirely on it. A learned proposer
+(an LLM, or any heuristic) is at most a **branching prior that narrows the search, and is
+load-bearing for nothing** — strip it and the verifier still decides correctly, just over a
+wider frontier. This is the literal reading of "oracle at the leaves, never the control
+loop" (cf. AlphaZero: the policy/value net *proposes and prunes*; MCTS-search + the exact
+rules of the game *decide*; the net is replaceable, the rules are not).
+
+> **Correction (recorded, not retconned).** An earlier framing of this synthesis named
+> "the LLM" as organ-5's filler and decider — "the first entity that can supply
+> undetermined-but-forced behavioral content at a leaf." That was wrong and self-contradictory:
+> it put the imitator that *degrades on exactly the irreducible decisions* into the role of
+> *making* those decisions, collapsing "oracle proposes" into "oracle decides" — the
+> control-loop role the ecosystem principle (and F11) forbid. It also contradicted the thread's
+> own thrust, which is **non-LLM intelligence**. Organ 5 is staffed by search + verification;
+> a learned proposer is an optional, non-load-bearing prior; and where no cheap-total verifier
+> exists, organ 5 cannot be safely automated at all and escalates to a human (per F11).
+
+This is *why prior whole-vision attempts failed structurally and why
 "now" may differ* (F16 Part B/C): strip the contingent blockers (text/diff/merge interop,
 ecosystem bootstrap, editing friction — each individually hard, each historically sank a
 company) and *every* corpse — Intentional Software, MPS outside DSL niches, Hazel,
 Smalltalk — died on **the same defect: editing one decision was cheap, the mechanical
-shrapnel was free, but nothing could fill the spawned decisions, so on every
+shrapnel was free, but nothing could *automatically* staff the spawned decisions, so on every
 behavior-*changing* edit the system collapsed back into "a fancier way for the human to
 type the new behavior" and lost to text on friction.** IDE refactorings are the lone
-whole-success precisely because they *definitionally restrict themselves to S = 0*. The
-LLM removes exactly that one structural blocker — **gated by F11's verifier-at-leaf and
-bounded by F10's compositionality** (the LLM proposes, the verifier gates, refuse-to-invent
-at unverifiable leaves; where no cheap verifier exists, route to the human — strictly the
-pre-LLM behavior, no regression). The new risk the graveyard never faced:
-**confident-wrong spawned content.**
+whole-success precisely because they *definitionally restrict themselves to S = 0*. What
+removes that one structural blocker now is **search + verification at the leaf** — **decided
+by F11's verifier-at-leaf and bounded by F10's compositionality** (candidates are searched
+or synthesized — a learned proposer may narrow that search — and the verifier accepts or
+rejects; where no cheap-total verifier exists, organ 5 is *not* automated, it routes to the
+human — strictly the pre-LLM behavior, no regression). The new risk a *generative* proposer
+would introduce, and the reason it cannot be the decider: **confident-wrong spawned
+content** that no verifier gates — most dangerous at exactly the unverifiable leaves, which
+is precisely where it must escalate to a human instead.
 
 **The cognitive fit** (F17). The editor is a bet about cognition, and it is *substantially
 right in a bounded way*: the human's intent is **decision-shaped but not
@@ -380,11 +409,16 @@ one; the honest map states the precondition.
 
 ## 9. The loop closed
 
-The thread opened with "LLMs suck at reasoning / at code." It resolves to: **the LLM is
-the organ-5 filler at the leaves — gated by a verifier-at-leaf, bounded by
-compositionality, never the control loop.** That is the ecosystem's own standing principle
-("the LLM is an oracle at the leaves, never the control loop; determinism is a hard
-invariant"), arrived at independently from the editing side.
+The thread opened with "LLMs suck at reasoning / at code." It resolves to: **organ 5 — the
+filling of spawned decisions — is staffed by search + synthesis over the decision structure,
+*decided by exact verification at the leaf*, bounded by compositionality; a learned proposer
+(an LLM, if any) is at most a non-load-bearing branching prior, and where no cheap-total
+verifier exists the leaf escalates to a human.** The competence is non-LLM intelligence —
+search and verification — which is what the thread was about all along; the LLM is never the
+decision-maker (and is *most* dangerous exactly where no verifier can gate it). That is the
+ecosystem's own standing principle ("the LLM is an oracle at the leaves, never the control
+loop; determinism is a hard invariant") read literally — oracle *proposes*, the exact
+substrate *decides* — arrived at independently from the editing side.
 
 The two arguments are **one argument**. The representation argument (the thread): meaning
 is structured, structure is redundancy, the disease is flat compute over non-flat
@@ -425,6 +459,6 @@ refusing to pretend, wherever it doesn't.
 | **F13** — deletion / negative | Addition = ∃-act (local, machine-completable tree); deletion = ∀-claim (global, backward closure over an open frontier, non-invertible, destroys rationale); convert negative→positive. |
 | **F14** — economics | Localizable ≠ should-localize: cost taxonomy (C1–C5, only C1 cheap-and-visible); change-reason test for essential vs incidental duplication; factor reducible, *preserve* irreducible; under-localize when unsure. |
 | **F15** — social / ownership | Authority-structural unlocalizability ≠ representational; representation is knowing, authority is acting; cross-org → decoupling, not tooling; the read/write-symmetry test. |
-| **F16** — state of the art + graveyard | Five organs; 1–4 ship at scale, organ 5 (fill spawned) is the historical gap; prior projectional/intentional editors died for want of it; the LLM is its first filler. |
+| **F16** — state of the art + graveyard | Five organs; 1–4 ship at scale, organ 5 (fill spawned) is the historical gap; prior projectional/intentional editors died for want of an *automated* filler; what fills it now is search + verification (verifier decides; learned proposer optional, non-load-bearing; escalate where no verifier). |
 | **F17** — cognitive / intent | Intent is decision-*shaped* but not decision-*complete*: figure held, ground discovered; compiler-as-work-queue; build as iterative dialogue, not an up-front form. |
 | **F18** — interaction design | Plan/apply loop; trust tension dissolves by reviewing the *decision + proof token*, not the shrapnel; verifier-at-leaf earns invisible trust; behavior-diff not source-diff; honest open problems. |
