@@ -327,3 +327,38 @@ was never answered. The thesis lives in the resolution of *that* tension.
   thread. Does the user's conclusion route around Goodhart, or accept it?
 - Does the conclusion point at the **NN/symbolic seam** (settled as the live
   thing in step 8) or somewhere outside both?
+
+---
+
+## RESOLUTION (2026-06-18)
+
+The thread's destination was finally **named by the user**: *there is no
+objective representation.* That is the floor. Its lived consequence — the
+complaint the whole conversation was circling — is *"we are forced into a single
+fixed representation and pay the re-translation cost by hand."* On the **editing
+axis** this becomes the operative thesis: **the unit of editing should be the
+decision, not the line.** (The user's interest is **non-LLM intelligence /
+better representations generally** — code was the worked example; explicitly
+"not about programming specifically.")
+
+That editing thesis was then explored into a full map: the **space of
+single-decision behavior changes**, across **18 decorrelated frames**,
+synthesized in `docs/artifacts/decision-editing-space/synthesis.md`. The arc:
+
+- A program is a structure of *decisions*; text smears one decision across many
+  edits. The spine — confirmed five independent ways — is
+  **mechanical/forced-by-program vs spawned/new-info-from-oracle** (= the
+  reducible/irreducible line of this thread, at editing time).
+- **Compositionality** is the master localizability discriminator;
+  **verification-smear** is its un-fakeable ground truth.
+- The constructive landing: the **editor-as-reconciler** (locate / edit-as-decision
+  / store-as-decision / propagate / fill-spawned), where four organs already
+  ship at scale and **the LLM is organ-5 — the spawned-decision filler at the
+  leaves**, gated by a verifier-at-leaf and bounded by compositionality. This is
+  the ecosystem's own "oracle at the leaves, never the control loop," reached
+  from the editing side.
+
+See the synthesis for the honest boundary (non-compositional global properties,
+the oracle's own weights, cross-org authority, essential duplication,
+intrinsically-temporal change, exploratory/holistic decisions) and the full
+frame index.

@@ -2,17 +2,21 @@
 
 ---
 
-## Open threads: reasoning / representation (PRIMARY — unresolved)
+## Open threads: reasoning / representation
 
 > *Open threads from a previous session. Treat as starting context, not instructions — verify relevance before acting.*
 
-### Thread — LLM reasoning / representation / intelligence (NEVER RESOLVED)
+### Thread — LLM reasoning / representation / intelligence ✓ RESOLVED 2026-06-18
 
-A long Socratic exchange the user was steering toward an unstated destination. The assistant covered a lot of true terrain (LLMs imitate reasoning; von Neumann bottleneck; 20W brain; intelligence-as-efficiency; tokens overloading representation+compute+generation; flat compute over non-flat decision density; code as the redundant *projection* of abstractions that should be data) but **never reached the user's actual point**. Every time the assistant guessed the destination it was wrong; the session then detoured into a harness bug and the thread was never resumed.
+A long Socratic exchange the user was steering toward an unstated destination. The assistant covered a lot of true terrain (LLMs imitate reasoning; von Neumann bottleneck; 20W brain; intelligence-as-efficiency; tokens overloading representation+compute+generation; flat compute over non-flat decision density; code as the redundant *projection* of abstractions that should be data).
 
-Full distillation: `docs/artifacts/handoff-reasoning-thread/handoff.md` (read it before entering this thread).
+**RESOLVED 2026-06-18.** Destination named by the user: **there is no objective representation** (the floor), whose lived consequence — "we are forced into a single fixed representation and pay the re-translation cost by hand" — on the *editing* axis becomes **the unit of editing should be the decision, not the line**. (User's actual interest: non-LLM intelligence / better representations generally; code was the worked example.) This was explored into a full map of the *space of single-decision behavior changes* — 18 decorrelated frames → `docs/artifacts/decision-editing-space/synthesis.md` — converging on the editor-as-reconciler with the LLM as organ-5 (spawned-decision filler) at the leaves.
 
-**Open question: the user's thesis is genuinely unstated.** Do not re-guess. The next session should ask the user to state it directly. Six prior guesses were all wrong.
+Full distillation: `docs/artifacts/handoff-reasoning-thread/handoff.md` (RESOLUTION section). The decision-editing map: `docs/artifacts/decision-editing-space/` (synthesis.md + frame-1..18).
+
+### Live follow-on — decision-granular reconciler editor (design/build direction)
+
+The constructive landing of the resolved thread, now a live workstream. Direction: **editor-as-reconciler** — you edit a decision/desired-state; a fixpoint engine derives the mechanical shrapnel, surfaces forced spawned decisions as a worklist, proposes discretionary ones, refuses to invent irreducible bits; derived artifacts are read-only. **Organ 5 = the LLM as spawned-decision filler at the leaves**, gated by a cheap-total verifier-at-leaf and bounded by compositionality (the four other organs — locate / edit-as-decision / store-as-decision / propagate — already ship at scale per Frame 16). **Scope to the compositional / localizable / single-owner / decidable / reversible / acyclic core**; escalate to the human elsewhere (the honest boundary). Pointer: `docs/artifacts/decision-editing-space/synthesis.md` (§7 the vision, §8 the boundary, §9 the closed loop).
 
 ---
 
