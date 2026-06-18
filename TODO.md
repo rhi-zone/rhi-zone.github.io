@@ -26,17 +26,33 @@ The constructive landing of the resolved thread, now a live workstream. Directio
 
 Work from this session: unified harness propagator (`propagate-harness.sh`), orchestrator hooks wired into committed `settings.json`, hooks split into lean nudge + relay(CLAUDE.md) + workflows doc, handoff distillation artifact. The self-containment migration ran across the ecosystem; these are the still-open pieces:
 
-- **7 repos skipped dirty — need re-run when clean.** defocus, rainbow, server-less, solarium, ashwren, fuwafuwa, pteraworld(root). Each was skipped (no mutation of dirty tree); each should have a TODO.md note from the propagator. Will converge on next clean `propagate-harness.sh` run.
-
-- **`normalize` and `aeriea` — committed but not pushed.** The harness commit landed but these repos had pre-existing unrelated WIP ahead of origin. Owner should review and push when ready; not a github-io action.
-
-- **`fractal` — no git remote configured.** Harness commit is local-only. Needs a remote before it can be pushed.
+- **Dirty-skip / unpushed / no-remote residuals — superseded by the 2026-06-18 relay-rule propagation section below.** The 7-repos-dirty list, normalize/aeriea unpushed, and fractal-no-remote items have been re-run and refreshed there; see that section for the current state.
 
 - **Verify anomaly: `exoplace/github-io` and `paragarden/github-io`.** These were discovered as marker-carrying repos and synced during the migration. Confirm they're legitimate ecosystem repos that should have been touched — or flag if they shouldn't be in the harness propagation set.
 
 - **Dead references in `~/.claude/hooks/` — optional cleanup.** `inject-orchestrator-rules.sh`, `block-*.sh`, `post-history.sh`, `lib/` are now unreferenced after going fully self-contained. Safe to delete; not yet done.
 
 - **PreToolUse block hook — deny branch unexercised.** The committed hook was confirmed loaded on a fresh session (load test passed), but its deny branch was not triggered (model complied before reaching it). A probe forcing a raw Read would confirm denial actually fires.
+
+---
+
+## Harness / relay-rule propagation outcome (2026-06-18)
+
+Relay-discipline rule scoped and propagated ecosystem-wide; supersedes the 2026-06-17 dirty-skip / unpushed / no-remote residuals above.
+
+**Done:**
+
+- **Relay-discipline rule scoped + propagated.** No file-per-subagent; the blackboard protocol applies only to large/poisoning payloads or critic-by-path. Hub (github-io `9f4ae0f`) pushed; 41 recipients region-updated + pushed. Full orchestrator harness installed on 5 formerly-hookless repos: ascent-interpreter, claude-code-hub, private-recipient-a, keybinds, ooxml.
+- **New ecosystem-loop driver `tooling/propagate-harness-all.sh`.** Convergent replace-between-markers per repo, dirty-skip-first + TODO line, `--check` dry-run, `--no-push`. Fixed a stale doc pointer (`propagate-claude-md.sh` → `propagate-harness.sh`).
+
+**Residuals / open (cross-repo — track here):**
+
+- **`aeriea`, `normalize` — relay region committed locally, intentionally NOT pushed.** Owner reviews + pushes (standing rule). Not a github-io action. (Folds the prior 2026-06-17 normalize/aeriea note.)
+- **`private-recipient-a` — harness committed locally; push FAILS.** Remote is `git@github.com:private-account/private-recipient-a.git` (third-party account, no push access). **OPEN DECISION:** keep it as a local-only recipient, or drop it from the harness recipient set. It carries the ECOSYSTEM RULES marker, which is why it was discovered.
+- **`fractal` — no git remote configured.** Region committed local-only (pre-existing). Needs a remote before it can publish. (Folds the prior 2026-06-17 fractal note.)
+- **`software-taxonomy` — committed + pushed after retry.** Its `flake.lock` is 0 bytes / corrupt (since 2026-05-23), which broke direnv → bun → pre-commit mid-run. Needs a separate flake.lock repair.
+- **8 dirty repos skipped with an uncommitted TODO line.** solarium, pteraworld, ashwren, fuwafuwa, defocus, rainbow, server-less, private-recipient-b. Will converge on the next clean `propagate-harness-all.sh` run. (private-recipient-b's TODO.md now has a duplicate propagation line — dedupe later.)
+- **Recipient-list divergence.** Harness propagation uses marker-grep discovery (~53 repos); `skill-recipients.txt` is 37 (a strict subset). Consider reconciling/documenting which list governs what.
 
 ---
 
