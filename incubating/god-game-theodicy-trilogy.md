@@ -236,3 +236,28 @@ Each leaves a residue. The ONLY full cover for cancer-as-such remains the **gene
 | **Natural** (cancer, genetic, disaster) | no | **no** (circumstance; often FREES) | generativity trilemma ONLY — contestable value-bet |
 
 The trilogy needs BOTH, scoped; conflating them is the category error the natural-evil cases keep exposing. The leash SURVIVES but only over moral evil / will-intervention — "the god whose hand you never feel" is profound about the domain of FREE ACTION, and has no jurisdiction over a child's cancer. The earlier "GAMEPLAY CRYSTALLIZATION" (leash vs let-go, continuous) stands ONLY for moral-evil/will cases; for natural evil the live choice is generativity's open-vs-closed, not leash-vs-let-go.
+
+## REFINEMENT — (C) is a universal FLOOR, not a member of either engine (the two-engine partition is LAYERED, not flat)
+
+Surfaced by the differential-design pass (a critic caught that the design granted the MORAL engine a crisp, perfectly-targetable "choice" event while subjecting the NATURAL engine to the full `is_cancerous`->`mutation_load` over-match horror). Open to challenge.
+
+**Question:** does (C) the specification problem undercut the clean two-engine partition (leash=moral, generativity=natural)?
+**Answer: NO — but it proves the partition was mis-stated as FLAT when it is LAYERED, and the design's error was exempting the moral engine from the (C) floor.**
+
+"Override his free choice to murder his brother" is NO more specifiable than "remove the cancer":
+- intent is graded (idle rage -> fantasy -> first step -> raised arm; no crisp instant of "a decision");
+- culpability is a spectrum (premeditation / passion / coercion / intoxication / amygdala tumor / lifetime of abuse that shaped the will) — "FREE, culpable choice" is a VALUATION, not a world-column;
+- the choice is downstream of formative causes the agent didn't choose (where does "his free act" end and "what was done to him" begin?).
+So "override the murder" resolves to some literal neural/behavioral predicate that OVER- and UNDER-matches exactly like `mutation_load` (catches the coerced/ill/justifiably-afraid; misses the borderline-culpable). The monkey's paw curls identically. (C) bites the moral side too.
+
+**Honest asymmetry-within-the-symmetry:** the moral case has a weak individuating anchor the natural case lacks — FIRST-PERSON OWNERSHIP (the agent's own willing constitutes the act as his; "cancer" has no owner). This SOFTENS (C) on the moral side but does NOT dissolve it (ownership is phenomenological, not a clean editable substrate target; God still needs a column to edit).
+
+**The structure is THREE LAYERS, not two engines:**
+1. **(C) / specification = universal FLOOR** — *can you even say what to do?* Bites ALL intervention, moral and natural. (Already named "the floor under everything"; the later two-engine taxonomy forgot the moral room stands on it.)
+2. **Leash / freedom = moral second-order** — *even if* specifiable, overriding a will makes pets.
+3. **Generativity / value-bet = natural second-order** — *even if* specifiable and no will leashed, removing the harm-KIND closes the world.
+(C) is SHARED SUBSTRATE beneath both engines, NOT a member of either. The leash-vs-generativity partition survives — it distinguishes the SECOND-ORDER justification, layered on a FIRST-ORDER problem common to both.
+
+**Consequences (this is a GAIN, not a wound):**
+- (C) does not weaken the leash; it ADDS a second independent indictment. Moral intervention now fails on TWO grounds (can't specify cleanly AND even-if-you-could it makes pets) — over-determined toward restraint, mirroring natural evil's structure. The two halves rhyme more than the flat taxonomy showed.
+- Philosophy fix == design fix: putting (C) back on the moral engine means OVERRIDE faces its OWN literalism flood (matching the coerced bystander, the ill, the justified anger — not just the murder). So the specification/literalism step becomes UNIVERSAL across both engines; they diverge only at the CONSEQUENCE layer (leash-notch vs world-going-quiet). That shared first move is the cross-engine connective tissue the design lacked.
