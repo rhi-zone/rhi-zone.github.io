@@ -162,3 +162,31 @@ The completeness pass caught that "OVERRIDE compiles cleanly because a choice is
 - Engines then SHARE their first move (the specification flood) and diverge only at the CONSEQUENCE layer: moral commit = leash-notch + specimen recolor; natural commit = world-going-quiet.
 - This (a) removes the unearned moral crispness, (b) over-determines moral intervention against itself (fails on specifiability AND leash — two independent grounds), and (c) supplies the cross-engine connective tissue the gardener-critique said was missing ("two minigames sharing a console") — the engines are now one grammar with two consequence-tails, not two separate puzzles.
 - Honest asymmetry to preserve: the moral target has a weak individuating anchor (first-person ownership) the natural target lacks, so its flood may be slightly less brutal — render that, don't erase it.
+
+## OPEN THREADS — parked 2026-06-20 (resume here)
+
+Project shelved here; this is the resume point. Companion philosophy spine: god-game-theodicy-trilogy.md.
+
+### Design
+
+1. **(TOP NEXT PROBLEM) Novelty-as-footnote — the natural engine structurally argues for the museum (the inverse of its thesis).** Novelty only ever appears as a retrospective annotation on a harm card, never as its own queue item, so nothing ever demands attention on novelty's behalf — which tilts the bet toward closing the world. Proposed-but-unwritten fix: novelty needs its OWN petitions ("this just emerged, it's fragile, it exists only because variation is up"), so closing the world visibly kills PENDING novelty-petitions in the SAME currency (attention/queue) as harm. PROTOTYPE this (the INSTANCE/RULE/PASS choice on the leukemia petition) before building anything else — it's where the whole bet lives or dies.
+2. **Named twin novelty is a scripted set-piece wearing emergent clothing.** The "this antibody that saved that child came off the same die as this leukemia" pairing has to be authored, which relocates the wish-compiler fatal flaw (authored → finite → gameable) from the PREVIEW to the twin-pairing. Unsolved.
+3. **"World goes quiet" as the RULE-edit cost is still one global scalar (variation_rate) with a diegetic skin.** Renaming the readout (colors flatten, birth-feed slows) doesn't close the felt-vs-told slider gap — it reskins it.
+4. **The leash got demoted from continuous held-force to a per-commit menu notch.** Restore the continuous-effort body grammar ("you are never not choosing"; every act of help is a microgram of control as ongoing felt tension), not a discrete transactional click.
+5. **Restraint-pays-a-dividend was dropped.** Letting-be should be GENERATIVE moment-to-moment (the under-leashed person stays more vivid / more taut), not only punitive. Its absence weakens the "wisdom not wall" claim on the moral side.
+6. **The self-regress QUERY ("look too far down, find your own queue") is the thinnest mechanic.** Asserted with no ludic content — no verb, no change to play, no reason to dig there. Still a narrated twist reachable by clicking, not a played mechanic.
+7. **INSTANCE edit straddles both engines and leaks the clean partition.** Unresolved whether INSTANCE on a will-petition also costs autonomy: if not, it's the laundering the partition forbids; if yes, "always clean" is false for the moral engine.
+8. **PREVIEW honesty boundary.** Present-state match is computable/legible, but the SCRUB on individual future threads is partly authored → residual genre-collapse risk that a player learns "scope tighter, accept partial, pass" as a solved-puzzle grammar.
+9. **The natural/generativity engine is STILL the unsolved half overall** (the design doc admits it ~4x). First concrete step: prototype the INSTANCE/RULE/PASS choice on the leukemia petition (see item 1).
+10. **Inhabitant attachment is assumed, not earned.** The leash payload depends on the player caring about named inhabitants; it lives or dies in writing and characterization, not design.
+
+### Philosophy
+
+11. **Tone fork (lonely-default / luminous-lens) is RECOMMENDED but remains the user's aesthetic call** — not finally decided.
+12. **The open/closed master cut: no escape has been FOUND, but exhaustiveness is NOT proven.** A genuine "fourth world" (open + safe via some non-future-reading novelty source) remains unrefuted, only un-found. Hold as "no escape found," not "no escape exists."
+13. **Ownership-anchor asymmetry.** The moral specification-flood is plausibly LESS brutal than the natural one (first-person ownership weakly individuates the act; cancer has no owner). Flagged, not resolved.
+14. **(C)-as-universal-floor may have further consequences not yet chased.**
+
+### Meta
+
+15. **Triangulation finding.** Three independent design frames plus the synthesis ALL fumbled the natural/generativity half — strong evidence it's a genuinely hard MEDIUM-specific problem, not a cleverness gap. Games excel at per-person / visible / immediate freedom cost (moral/leash); they're worst at global / diffuse / counterfactual / metaphysical (natural/generativity).
