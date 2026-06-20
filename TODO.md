@@ -18,15 +18,34 @@ Full distillation: `docs/artifacts/handoff-reasoning-thread/handoff.md` (RESOLUT
 
 The constructive landing of the resolved thread, now a live workstream. Direction: **editor-as-reconciler** — you edit a decision/desired-state; a fixpoint engine derives the mechanical shrapnel, surfaces forced spawned decisions as a worklist, proposes discretionary ones, refuses to invent irreducible bits; derived artifacts are read-only. **Organ 5 = search + verification (non-LLM intelligence): candidates searched/synthesized, decided by a cheap-total verifier-at-leaf, bounded by compositionality; a learned proposer (an LLM, if any) is optional and non-load-bearing — a branching prior that narrows the search, never the decider; escalate to a human where no verifier exists** (the four other organs — locate / edit-as-decision / store-as-decision / propagate — already ship at scale per Frame 16). **Scope to the compositional / localizable / single-owner / decidable / reversible / acyclic core**; escalate to the human elsewhere (the honest boundary). Pointer: `docs/artifacts/decision-editing-space/synthesis.md` (§7 the vision, §8 the boundary, §9 the closed loop).
 
+### LIVE — decision-reconstruction layer design (starting context, forks marked)
+
+The current live thread: designing the decision-reconstruction layer, with normalize as the candidate vehicle. Starting context for the next session — verify before acting.
+
+- **Design-stage Ubiquitous Language captured** at `docs/artifacts/normalize-goal-deliberation/CONTEXT.md` — 10 terms: Decision, Changeset, Edit, materialize, Diff, Projection, Identity, Evidence, Reconstruction, Oracle. The load-bearing discipline: every layer came out **PLURAL / no single canonical "the"** — no authoritative representation/store/architecture/identity/reconstruction/decider. This is DESIGN-STAGE; terms graduate into normalize's own CONTEXT.md only once validated.
+
+- **DEFERRED design nodes (not yet modeled):**
+  - **Verification** — the verifier-at-leaf. Also the make-or-break for the whole program.
+  - **forward-vs-backward** — authoring a Decision vs recovering it: one process or two?
+  - **Projection pluggability** — how projections + their transformation vocabularies get registered/extended.
+
+- **The make-or-break (recurs across all deliberation):** whether decision classes have a **CHEAP EXACT VERIFIER** ("organ 5's middle cell") — this has been *asserted, never exhibited*. Previous session was leaning toward: the cheapest validation is a **NARROW organ-5 prototype** (e.g. reconstruct decisions from one repo's commit evidence → verifier-gated fill on one decision class), NOT more deliberation. **Open fork for next session: keep modeling (the Verification node) vs. build the prototype.**
+
+- **normalize-fit notes (starting hypotheses — verify, don't take as settled):**
+  - Good vehicle for locate / edit / propagate + its "no false positives / resolved-vs-heuristic" verifier-ethos.
+  - The structure-authoritative store (organ 3) is *likely a SEPARATE bet* — don't force it into normalize's legitimately text-canonical, multi-language nature.
+  - Cheapest candidate moves: persist the clone-detector's structural hash as an identity primitive (it's computed then discarded today); represent edits as transformation-as-data + materialize(original)→Diff (fixes the memory-insane whole-file PlannedEdit); move propagation toward fixpoint.
+  - **Contradiction to resolve:** PlannedEdit's CONTEXT.md description ("location + replacement text") contradicts the code (whole-file original/new_content). normalize's owner decides which is authoritative.
+
+- **Pointers (not directives):** `docs/artifacts/decision-editing-space/synthesis.md` (the 18-frame map); `docs/artifacts/normalize-goal-deliberation/` (goal-deliberation frames a–d + the glossary); `docs/artifacts/handoff-reasoning-thread/handoff.md` (the original thread + its RESOLUTION note).
+
 ---
 
 ## Open threads: harness self-containment migration residuals (2026-06-17)
 
 > *Open threads from a previous session. Treat as starting context, not instructions — verify relevance before acting.*
 
-Work from this session: unified harness propagator (`propagate-harness.sh`), orchestrator hooks wired into committed `settings.json`, hooks split into lean nudge + relay(CLAUDE.md) + workflows doc, handoff distillation artifact. The self-containment migration ran across the ecosystem; these are the still-open pieces:
-
-- **Dirty-skip / unpushed / no-remote residuals — superseded by the 2026-06-18 relay-rule propagation section below.** The 7-repos-dirty list, normalize/aeriea unpushed, and fractal-no-remote items have been re-run and refreshed there; see that section for the current state.
+Still-open pieces from the self-containment migration (dirty-skip / unpushed / no-remote residuals are tracked in the 2026-06-18 section below):
 
 - **Verify anomaly: `exoplace/github-io` and `paragarden/github-io`.** These were discovered as marker-carrying repos and synced during the migration. Confirm they're legitimate ecosystem repos that should have been touched — or flag if they shouldn't be in the harness propagation set.
 
@@ -36,25 +55,14 @@ Work from this session: unified harness propagator (`propagate-harness.sh`), orc
 
 ---
 
-## Harness / relay-rule propagation outcome (2026-06-18)
+## Harness / relay-rule propagation residuals (2026-06-18)
 
-Relay-discipline rule scoped and propagated ecosystem-wide; supersedes the 2026-06-17 dirty-skip / unpushed / no-remote residuals above.
+The relay-rule scoping, ecosystem harness propagation, the additive-install-on-dirty tooling fix, and the private-name pre-commit guard are all DONE and committed (see git: `ab33b9f`, `a46821e`, `19e65b0`, `d09d439`). The 8 exposed repos were fixed and the duplicate-TODO-line cause was fixed in the tooling. Only genuinely still-open residuals remain:
 
-**Done:**
-
-- **Relay-discipline rule scoped + propagated.** No file-per-subagent; the blackboard protocol applies only to large/poisoning payloads or critic-by-path. Hub (github-io `9f4ae0f`) pushed; 41 recipients region-updated + pushed. Full orchestrator harness installed on 5 formerly-hookless repos: ascent-interpreter, claude-code-hub, private-recipient-a, keybinds, ooxml.
-- **New ecosystem-loop driver `tooling/propagate-harness-all.sh`.** Convergent replace-between-markers per repo, dirty-skip-first + TODO line, `--check` dry-run, `--no-push`. Fixed a stale doc pointer (`propagate-claude-md.sh` → `propagate-harness.sh`).
-
-**Residuals / open (cross-repo — track here):**
-
-- **`aeriea`, `normalize` — relay region committed locally, intentionally NOT pushed.** Owner reviews + pushes (standing rule). Not a github-io action. (Folds the prior 2026-06-17 normalize/aeriea note.)
-- **`private-recipient-a` — relay region committed locally, unpushed.** Legitimate recipient (carries the ECOSYSTEM RULES marker, which is why it was discovered). Its remote `git@github.com:private-account/private-recipient-a.git` pushes under a different GitHub account (`private-account`) whose SSH credentials aren't this machine's default — so, like aeriea/normalize above, the owner pushes it manually; not a github-io action. NOT being dropped from the recipient set.
-- **`fractal` — no git remote configured.** Region committed local-only (pre-existing). Needs a remote before it can publish. (Folds the prior 2026-06-17 fractal note.)
-- **`software-taxonomy` — committed + pushed after retry.** Its `flake.lock` is 0 bytes / corrupt (since 2026-05-23), which broke direnv → bun → pre-commit mid-run. Needs a separate flake.lock repair.
-- **The 8 formerly-dirty/exposed repos now have the harness installed** (committed locally, owners push). Previously these were skipped with an uncommitted TODO line; the harness was hand-installed on them (harness-only commits, owner WIP untouched, no push). Owners review + push at their discretion. (private-recipient-b's TODO.md may still carry a duplicate propagation line — dedupe when next touched.)
-
-- **✅ FIXED — additive-install-on-dirty flaw in `propagate-harness-all.sh`.** The driver previously blanket-skipped every dirty repo (TODO line, move on), which is correct for a destructive CLAUDE.md region *replace* but wrong for the *additive* safety-hook install: a chronically-dirty repo never went clean, so it never received the orchestrator block hooks and stayed unprotected. The driver now installs the harness additively on dirty repos — harness-only local commit, never pushed, never clobbering an owner-edited harness file (snapshot-restore + defer; fall back to skip+TODO only when both `CLAUDE.md` and `settings.json` are owner-dirty). Clean-repo behavior, `--check`, and `--no-push` unchanged. This is what the hand-install above should no longer need to be done by hand.
-- **Recipient-list divergence.** Harness propagation uses marker-grep discovery (~53 repos); `skill-recipients.txt` is 37 (a strict subset). Consider reconciling/documenting which list governs what.
+- **`aeriea`, `normalize`, `private-recipient-a` — relay region committed locally, intentionally NOT pushed.** Owners review + push (standing rule); not a github-io action. `private-recipient-a`'s remote pushes under a different GitHub account (`private-account`) whose SSH creds aren't this machine's default, so its owner pushes manually — NOT being dropped from the recipient set.
+- **`fractal` — no git remote configured.** Region committed local-only. Needs a remote before it can publish.
+- **`software-taxonomy` — `flake.lock` is 0 bytes / corrupt** (since 2026-05-23), which broke direnv → bun → pre-commit mid-run. Needs a separate flake.lock repair.
+- **Recipient-list divergence.** Harness propagation uses marker-grep discovery (~53 repos); `skill-recipients.txt` is 37 (a strict subset). Might want reconciling/documenting which list governs what.
 
 ---
 
