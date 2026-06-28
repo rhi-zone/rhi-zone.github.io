@@ -37,7 +37,7 @@ if [[ "${CLAUDE_HOOK_DEBUG:-}" == "1" ]]; then
 fi
 
 # ── denial helper ─────────────────────────────────────────────────────────────
-DENY_MSG="Main session is orchestrator only. Allowed: Agent/Task*/AskUserQuestion/EnterPlanMode/ExitPlanMode/SendUserFile/Skill/ToolSearch/ScheduleWakeup/Workflow; Bash limited to git commit, git push, git status, git log --oneline (no chaining, no command substitution, no eval/source). Delegate everything else to a subagent."
+DENY_MSG="Main session is orchestrator only. Allowed: Agent/SendMessage/Task*/AskUserQuestion/EnterPlanMode/ExitPlanMode/SendUserFile/Skill/ToolSearch/ScheduleWakeup/Workflow; Bash limited to git commit, git push, git status, git log --oneline (no chaining, no command substitution, no eval/source). Delegate everything else to a subagent."
 
 deny() {
     local tool_name="$1"
@@ -134,7 +134,7 @@ fi
 
 # ── orchestration tools (always allowed) ─────────────────────────────────────
 case "$tool_name" in
-    Agent|Task|TaskCreate|TaskUpdate|TaskList|TaskGet|TaskOutput|TaskStop|\
+    Agent|SendMessage|Task|TaskCreate|TaskUpdate|TaskList|TaskGet|TaskOutput|TaskStop|\
     AskUserQuestion|EnterPlanMode|ExitPlanMode|SendUserFile|Skill|ToolSearch|ScheduleWakeup|Workflow)
         exit 0
         ;;
