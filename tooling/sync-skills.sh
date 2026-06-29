@@ -209,8 +209,14 @@ for repo in $REPOS; do
   ( cd "$repo_path"
     direnv allow . >/dev/null 2>&1 || true
     [ -x "$NORMALIZE" ] && direnv exec . "$NORMALIZE" init >/dev/null 2>&1 || true
-    # Stage skills writes AND commands removals in one commit (atomic migration).
-    git add .claude/skills .claude/commands .gitignore .normalize/ >/dev/null 2>&1 || true
+    # Stage skills writes in the SAME commit as the Pass-3 command removals (atomic
+    # migration). Stage each path independently and ONLY if it exists; never pass the
+    # bare `.claude/commands` pathspec — the Pass-3 `git rm` already staged the command
+    # removals, and once that dir is fully emptied the pathspec matches nothing, which
+    # makes a combined `git add` abort atomically (exit 128) and drop the new skills/.
+    for p in .claude/skills .gitignore .normalize; do
+      [ -e "$p" ] && git add "$p" >/dev/null 2>&1 || true
+    done
     if git diff --cached --quiet; then
       echo "  nothing staged"
     else
