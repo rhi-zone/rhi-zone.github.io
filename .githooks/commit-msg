@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+set -e
+
+# --- private-name guard for the commit MESSAGE (generic; names live machine-local,
+# never committed) ---
+# Mirror of .githooks/pre-commit's staged-content scan, applied to the commit
+# message file (passed as $1 by the commit-msg hook). Denylist: one pattern per
+# line, blank/`#` lines ignored. Located under .git/ so it is structurally
+# uncommittable. Absent -> skip (operator opted out).
+msgfile="$1"
+denylist="$(git rev-parse --git-dir)/info/private-names"
+if [ -f "$denylist" ]; then
+  msg_blocked=0
+  message="$(cat "$msgfile" 2>/dev/null || true)"
+  while IFS= read -r pattern; do
+    case "$pattern" in
+      ''|\#*) continue ;;
+    esac
+    if printf '%s' "$message" | grep -iqF -- "$pattern"; then
+      # Do NOT echo the private name itself — only that a denylisted entry matched.
+      echo "BLOCKED: commit message matches a denylisted private name; redact it." >&2
+      msg_blocked=1
+    fi
+  done < "$denylist"
+  if [ "$msg_blocked" -ne 0 ]; then
+    echo "Commit aborted: remove the private name(s) from the commit message." >&2
+    echo "(Denylist: $denylist — machine-local, never commit it.)" >&2
+    exit 1
+  fi
+else
+  echo "Note: no private-name denylist at $denylist — skipping private-name guard." >&2
+fi
