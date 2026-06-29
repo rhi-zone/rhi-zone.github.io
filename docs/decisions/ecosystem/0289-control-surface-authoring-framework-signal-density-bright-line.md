@@ -1,7 +1,24 @@
 # ADR-0289: Control surface (CLAUDE.md) — authoring framework and main-session ingestion as a signal-density bright line
 
 ## Status
-Accepted — design settled; rewrite pending.
+Accepted — rewrite implemented 2026-06-29; propagation held.
+
+## Resolution (2026-06-29)
+
+The editorial rewrite is **DONE** this session — a faithful delete/compress/merge pass, not a redesign:
+
+- The universal axioms were de-duplicated into an embodied `## Disposition` section (failure-mode names preserved: confabulation, option-dumping, false-independence, stale-context, backpedaling). The final axiom set is now **settled** — S1/S2/E1/E2/P1 re-derived under the universality+embodiment lens into `## Disposition`.
+- Contradiction **C1** resolved by scoping: unsure-whether-a-decision-warrants-the-full-process → treat as if it clears the bar; unsure-about-a-fact/intent → ask/verify. **C2** resolved toward orchestrator mode (implementation happens in subagents, not the main session).
+- The dangling `docs/decisions/throughlines.md` pointer **and** the eight use-case-taste "Ecosystem Design Principles" bullets were **removed from the propagated region** (the taste bullets were verified covered in throughlines.md before deletion).
+- Management policy (sync-skills, doc-sync checklist, scaffolding, org table, crate naming, docs-site, activity logs) compressed into the github-io-local region. The C4 commands→skills fence compressed to a one-line deferred/held note.
+
+**Both open forks resolved by the user — both toward PROPAGATED:**
+- *Orchestrator stance* — the hard "main session is an orchestrator, never ingests raw foreign content, guessing is not an available move" disposition is **kept in the propagated region** (under `## Delegation & relay`).
+- *Migration axiom* — "finish migrations before building on top; fence what you can't finish" is **kept in the propagated region** under `## Disposition` (a universal work-discipline axiom — unfinished migrations leave pre-migration code as active context-poisoning).
+
+**Orchestrator-hook finding** (corrects the §2 / "Still open" promote premise): the orchestrator-only enforcement is **already** a committed `PreToolUse` hook (`tooling/claude-hooks/block-mainsession-exploration.sh`) wired through committed `.claude/settings.json` and already in the harness propagator's managed path set — so it **already propagates** to every marker-bearing receiver. Nothing to promote; the only residual is convergence verification (`tooling/propagate-harness-all.sh --check`) when propagation runs.
+
+**Still HELD / open:** C4 — the actual `.claude/commands/*.md` → `.claude/skills/<name>/SKILL.md` migration (only the fence *text* was compressed; the migration itself is deferred). Propagation (54 repos) + github-io push remain held on purpose, now also carrying this CLAUDE.md rewrite as drift.
 
 ## Context
 
@@ -40,10 +57,11 @@ Editorial reduction, NOT design-it-twice (narrow design space — subtraction ag
 
 ## Still open
 
-- Final axiom set: only D1 (dropped) and P2 (hardened to no-ad-hoc) and the frame are settled. S1/S2/E1/E2/P1 to be re-derived under universality+embodiment during the rewrite.
-- C4: finish the `.claude/commands/*.md` -> `.claude/skills/<name>/SKILL.md` migration, or drop the self-exempting fence (the repo is currently in the mixed state its own fence names as the failure mode).
-- The rewrite itself — region by region, in a fresh high-signal session, with bulky current-file ingestion done in subagents and drafts returned for review.
-- Propagation (54 repos) + github-io push: HELD until the rewrite and any orchestrator-hook changes settle, to avoid double-churning the ecosystem. Unpropagated drift to carry at that time: SendMessage fix (fb1f9c1), plan-mode stand-down (8d6b2d9), orchestrator-rules stance rewrite (87cde38).
+- ~~Final axiom set~~ — **DONE (2026-06-29).** Settled: S1/S2/E1/E2/P1 re-derived under universality+embodiment into `## Disposition` (alongside the already-settled D1 dropped, P2 hardened to no-ad-hoc, and the frame).
+- ~~The rewrite itself~~ — **DONE (2026-06-29).** Editorial delete/compress/merge pass complete; both forks resolved toward propagated (orchestrator stance kept; migration axiom kept — see Resolution above).
+- ~~Orchestrator-hook promote~~ — **moot (2026-06-29).** The enforcement is already a committed, already-propagating `PreToolUse` hook; nothing to promote. Only residual: convergence verification when propagation runs.
+- C4: finish the `.claude/commands/*.md` -> `.claude/skills/<name>/SKILL.md` migration, or drop the self-exempting fence (the repo is currently in the mixed state its own fence names as the failure mode). **Still open** — only the CLAUDE.md fence *text* was compressed this session; the migration itself was NOT done.
+- Propagation (54 repos) + github-io push: **still HELD on purpose.** Now also carries this CLAUDE.md rewrite as drift. Previously-listed unpropagated drift still pending too: SendMessage fix (fb1f9c1), plan-mode stand-down (8d6b2d9), orchestrator-rules stance rewrite (87cde38).
 
 ## Evidence (this session's adversarial audits)
 
