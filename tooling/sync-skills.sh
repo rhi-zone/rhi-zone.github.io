@@ -96,6 +96,17 @@ done < <(grep -v '^[[:space:]]*#' "$TIERS" | grep -v '^[[:space:]]*$') >> "$PLAN
 
 REPOS="$(cut -f1 "$PLAN" | sort -u)"
 
+# Managed skill names = every git-tracked skill dir in the canonical source. The
+# directory-per-skill migration replaces each receiver's OLD .claude/commands/<name>
+# (file or dir) with .claude/skills/<name>/. Removal is keyed STRICTLY to these
+# names so a receiver's own repo-local .claude/commands/<other> is never touched.
+MANAGED_SKILLS=""
+for d in "$SRC"/*/; do
+  [ -d "$d" ] || continue
+  name="$(basename "$d")"
+  skill_is_tracked "$name" && MANAGED_SKILLS="$MANAGED_SKILLS $name"
+done
+
 drift_total=0
 changed_repos=0
 
@@ -166,6 +177,25 @@ for repo in $REPOS; do
     done
   fi
 
+  # Pass 3: directory-per-skill migration — remove this receiver's OLD ecosystem
+  # command files (.claude/commands/<name>.md or .claude/commands/<name>/) for every
+  # managed skill name, in the SAME commit that writes .claude/skills/<name>/. Keyed
+  # strictly to MANAGED_SKILLS so repo-local commands are never removed. Convergent:
+  # once gone, the git ls-files guard makes this a no-op (no extra commit).
+  for name in $MANAGED_SKILLS; do
+    for cand in ".claude/commands/$name.md" ".claude/commands/$name"; do
+      [ -n "$(git -C "$repo_path" ls-files "$cand" 2>/dev/null)" ] || continue
+      if [ "$CHECK" -eq 1 ]; then
+        echo "  CMD-DEL: $cand (old command — to be removed)"
+        drift_total=$((drift_total + 1)); repo_changed=1
+      else
+        echo "  CMD-DEL: $cand"
+        git -C "$repo_path" rm -r -q --ignore-unmatch "$cand" >/dev/null 2>&1 || true
+        repo_changed=1
+      fi
+    done
+  done
+
   if [ "$CHECK" -eq 1 ]; then
     continue
   fi
@@ -179,11 +209,12 @@ for repo in $REPOS; do
   ( cd "$repo_path"
     direnv allow . >/dev/null 2>&1 || true
     [ -x "$NORMALIZE" ] && direnv exec . "$NORMALIZE" init >/dev/null 2>&1 || true
-    git add .claude/skills .gitignore .normalize/ >/dev/null 2>&1 || true
+    # Stage skills writes AND commands removals in one commit (atomic migration).
+    git add .claude/skills .claude/commands .gitignore .normalize/ >/dev/null 2>&1 || true
     if git diff --cached --quiet; then
       echo "  nothing staged"
     else
-      direnv exec . git commit -q -m "chore(claude-commands): sync ecosystem skills from github-io" \
+      direnv exec . git commit -q -m "chore(skills): sync ecosystem skills from github-io (directory-per-skill)" \
         && echo "  committed"
       if [ "$PUSH" -eq 1 ] && [ -z "$(git status --porcelain)" ]; then
         git push 2>&1 | tail -1 | sed 's/^/    /'
