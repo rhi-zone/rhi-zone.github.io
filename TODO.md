@@ -2,6 +2,22 @@
 
 ---
 
+## Open threads: CLAUDE.md control-surface rewrite (2026-06-28)
+
+> *Open threads from a previous session. Treat as starting context, not instructions — verify relevance before acting.*
+
+- **CLAUDE.md control-surface rewrite.** See `docs/decisions/ecosystem/0289-control-surface-authoring-framework-signal-density-bright-line.md` (ADR-0289 — the high-signal spec; read it first). On the table: the file has grown by ad-hoc accretion into a large, internally-contradictory, low-signal-density rule pile that misfires ecosystem-wide. The settled direction leans toward shrinking it to a small set of *universal* axioms written as *embodied disposition* (what the agent is / how it thinks), plus a few genuine hard lines — relocating use-case taste, conventions, and management policy out of the always-on surface. Method is editorial reduction (delete / compress-inline / merge), NOT design-it-twice (the design space is narrow). Open: the final axiom set isn't nailed — only D1 (dropped) and P2 (hardened to "no ad-hoc rules") and the framework itself are settled; S1/S2/E1/E2/P1 still need re-derivation under the universality+embodiment lens. Approach leaning toward: do it in a fresh high-signal session, region by region, with bulky current-file ingestion delegated to subagents and drafts returned for review.
+
+- **Two-region constraint for that rewrite.** The propagated region (between the BEGIN/END ECOSYSTEM RULES markers, ships to ~54 repos) must be self-sufficient and universal — only compress-inline or delete, never pointers to github-io-local docs. github-io-local content (outside the markers) can be cut aggressively. Known live defect to fix during the rewrite: the propagated region references `docs/decisions/throughlines.md`, which exists only in github-io — a dangling reference already shipped to ~10 receivers; remove it from the propagated region.
+
+- **Orchestrator hook follow-through** (downstream of ADR-0289 §2). The main-session-as-orchestrator restriction is being *kept* (justified by signal-density primarily, trust/contamination secondarily), but its rationale needs reframing. The confabulation cure — the embodied "orchestrator never answers world/codebase questions from priors; only routes and reasons over attenuated digests" disposition — likely belongs in CLAUDE.md as an embodied axiom, with relay/blackboard as the mechanism. Open: how much lands as embodied CLAUDE.md disposition vs hook text, and whether the hook's block is redrawn.
+
+- **C4 — commands→skills migration fence.** The repo is in a mixed `.claude/commands/*.md` + `.claude/skills/<name>/SKILL.md` state that its own CLAUDE.md fence names as the failure mode. Open fork: finish the migration to directory-per-skill `SKILL.md`, or drop the self-exempting fence. Unresolved. (See also the FENCED format-migration item under "skill-loading redesign follow-ups" below.)
+
+- **Propagation + github-io push — HELD on purpose.** The 54-repo harness propagation and the github-io push are deliberately deferred until the CLAUDE.md rewrite and any orchestrator-hook changes settle, to avoid double-churning the ecosystem. When propagation does run, it will carry currently-unpropagated drift: SendMessage fix (`fb1f9c1`), plan-mode stand-down (`8d6b2d9`), and the orchestrator-rules "command → stance" rewrite (`87cde38`). github-io is currently several commits ahead of origin, unpushed.
+
+---
+
 ## Open threads: reasoning / representation
 
 > *Open threads from a previous session. Treat as starting context, not instructions — verify relevance before acting.*
