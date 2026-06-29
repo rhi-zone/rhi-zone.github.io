@@ -91,15 +91,29 @@ drift_total=0
 changed_repos=0
 dirty_repos=0
 
-for repo_path in "${REPOS[@]}"; do
-  repo="${repo_path#"$GIT_ROOT"/}"
+# End-of-run classification (apply mode). One repo's failure must NEVER abort the
+# batch: each repo is isolated, its outcome recorded here, and the run continues.
+SUCCEEDED=()        # clean repo: committed (+pushed unless --no-push)
+DIRTY_ADDITIVE=()   # dirty repo: harness-only local commit, never pushed
+SKIPPED=()          # already-current, both-core-dirty (TODO), missing, nothing-staged
+FAILED=()           # propagate error, push rejected/unreachable remote, commit error
+
+# ── Per-repo processing, fully isolated. Returns 0 always (records its own
+#    outcome); the known failure-prone calls (propagator, commit, push) are
+#    explicitly guarded and turned into FAILED records with a reason, so an
+#    unreachable remote (git push exit 128) or any per-repo error can no longer
+#    propagate up and abort the batch. ─────────────────────────────────────────
+process_one_repo() {
+  local repo_path="$1"
+  local repo="${repo_path#"$GIT_ROOT"/}"
   echo
   echo "=== $repo ==="
 
   if [ ! -d "$repo_path/.git" ]; then
     echo "  MISSING: not a git repo at $repo_path — reported, skipped"
     drift_total=$((drift_total + 1))
-    continue
+    SKIPPED+=("$repo: not a git repo")
+    return 0
   fi
 
   # Dirty check FIRST. A dirty tree is NOT blanket-skipped: the harness install
@@ -110,6 +124,7 @@ for repo_path in "${REPOS[@]}"; do
 
     # Which harness-managed paths is the OWNER already editing? Those we must not
     # touch. Match CLAUDE.md, .claude/settings.json, and the claude-hooks tree.
+    local owner_dirty_harness md_dirty settings_dirty
     owner_dirty_harness="$(git -C "$repo_path" status --porcelain \
       | sed 's/^...//' \
       | grep -E '^(CLAUDE\.md|\.claude/settings\.json|tooling/claude-hooks/)' || true)"
@@ -126,7 +141,7 @@ for repo_path in "${REPOS[@]}"; do
         [ -n "$owner_dirty_harness" ] && echo "    would DEFER owner-edited harness file(s): $(printf '%s' "$owner_dirty_harness" | tr '\n' ' ')"
         drift_total=$((drift_total + 1))
       fi
-      continue
+      return 0
     fi
 
     # Residual fallback: if BOTH core files are owner-dirty, nothing safe to
@@ -134,14 +149,15 @@ for repo_path in "${REPOS[@]}"; do
     if [ "$md_dirty" -eq 1 ] && [ "$settings_dirty" -eq 1 ]; then
       echo "  DIRTY: CLAUDE.md AND settings.json both owner-edited — cannot install safely; skip + TODO"
       drift_total=$((drift_total + 1))
-      todo="$repo_path/TODO.md"
+      local todo="$repo_path/TODO.md"
       if ! grep -qF -- "$TODO_LINE" "$todo" 2>/dev/null; then
         printf '%s\n' "$TODO_LINE" >> "$todo"
         echo "    TODO.md note left on disk (owner WIP present; not committed)"
       else
         echo "    TODO.md already carries the note"
       fi
-      continue
+      SKIPPED+=("$repo: dirty, both core files owner-edited (TODO left)")
+      return 0
     fi
 
     echo "  DIRTY: installing harness additively (harness-only commit, no push)"
@@ -151,7 +167,7 @@ for repo_path in "${REPOS[@]}"; do
     # BEFORE we let the propagator touch anything. We restore these exact bytes
     # afterward — NOT `git checkout` (which would revert to HEAD/index and so
     # destroy the owner's uncommitted edit). This is the never-clobber guarantee.
-    snap_dir=""
+    local snap_dir=""
     if [ -n "$owner_dirty_harness" ]; then
       snap_dir="$(mktemp -d)"
       printf '%s\n' "$owner_dirty_harness" | while IFS= read -r f; do
@@ -163,8 +179,21 @@ for repo_path in "${REPOS[@]}"; do
       done
     fi
 
-    # Run the convergent propagator (writes harness files).
-    "$PROPAGATE" "$repo_path" >/dev/null
+    # Run the convergent propagator (writes harness files). Guarded: a propagator
+    # failure records FAILED and bails this repo (after restoring any snapshot)
+    # rather than aborting the batch.
+    if ! "$PROPAGATE" "$repo_path" >/dev/null 2>&1; then
+      echo "    FAILED: propagator errored on dirty repo — skipping (no commit)" >&2
+      if [ -n "$snap_dir" ]; then
+        printf '%s\n' "$owner_dirty_harness" | while IFS= read -r f; do
+          [ -n "$f" ] || continue
+          [ -e "$snap_dir/$f" ] && cp -p "$snap_dir/$f" "$repo_path/$f"
+        done
+        rm -rf "$snap_dir"
+      fi
+      FAILED+=("$repo: propagator error (dirty-additive install)")
+      return 0
+    fi
 
     # Restore owner working-tree bytes for every deferred harness file.
     if [ -n "$snap_dir" ]; then
@@ -178,6 +207,7 @@ for repo_path in "${REPOS[@]}"; do
     fi
 
     # Stage ONLY harness paths, explicitly — NEVER -A/. — and never the deferred ones.
+    local rc=0
     ( cd "$repo_path"
       for p in CLAUDE.md .claude/settings.json tooling/claude-hooks; do
         case "$p" in
@@ -204,14 +234,23 @@ for repo_path in "${REPOS[@]}"; do
       if [ -n "$stray" ]; then
         echo "    ABORT: non-harness path staged ($(printf '%s' "$stray" | tr '\n' ' ')) — resetting, not committing" >&2
         git reset -q >/dev/null 2>&1 || true
-        exit 3   # signal: no commit made
+        exit 4   # signal: aborted on stray (treat as failure)
       fi
 
       direnv exec . git commit -q -m "chore(harness): install orchestrator hooks + sync CLAUDE.md region" 2>/dev/null \
-        || git commit -q -m "chore(harness): install orchestrator hooks + sync CLAUDE.md region"
+        || git commit -q -m "chore(harness): install orchestrator hooks + sync CLAUDE.md region" \
+        || exit 5   # commit failed
       echo "    harness-only commit made (NOT pushed — dirty repo)"
-    ) && changed_repos=$((changed_repos + 1)) || true
-    continue
+    ) || rc=$?
+
+    case "$rc" in
+      0) changed_repos=$((changed_repos + 1)); DIRTY_ADDITIVE+=("$repo: harness-only commit (not pushed)") ;;
+      3) SKIPPED+=("$repo: dirty, already current (nothing to install)") ;;
+      4) FAILED+=("$repo: non-harness path staged — aborted, not committed") ;;
+      5) FAILED+=("$repo: harness-only commit failed") ;;
+      *) FAILED+=("$repo: dirty-additive install failed (exit $rc)") ;;
+    esac
+    return 0
   fi
 
   # Clean repo: run the single-target propagator.
@@ -222,39 +261,93 @@ for repo_path in "${REPOS[@]}"; do
       echo "  WOULD UPDATE (drift above)"
       drift_total=$((drift_total + 1))
     fi
-    continue
+    return 0
   fi
 
-  # Apply, then commit/push only if it actually changed something.
-  "$PROPAGATE" "$repo_path"
+  # Apply, then commit/push only if it actually changed something. Guarded: a
+  # propagator failure records FAILED and bails rather than aborting the batch.
+  if ! "$PROPAGATE" "$repo_path"; then
+    echo "  FAILED: propagator errored — skipping" >&2
+    FAILED+=("$repo: propagator error")
+    return 0
+  fi
   if [ -z "$(git -C "$repo_path" status --porcelain)" ]; then
     echo "  already current — no changes"
-    continue
+    SKIPPED+=("$repo: already current")
+    return 0
   fi
 
+  local rc=0
   ( cd "$repo_path"
     direnv allow . >/dev/null 2>&1 || true
     [ -x "$NORMALIZE" ] && direnv exec . "$NORMALIZE" init >/dev/null 2>&1 || true
     git add CLAUDE.md tooling/claude-hooks .claude/settings.json .gitignore .normalize/ >/dev/null 2>&1 || true
     if git diff --cached --quiet; then
       echo "  nothing staged"
-    else
-      direnv exec . git commit -q -m "chore(harness): sync ecosystem CLAUDE.md region + hooks from github-io" \
-        && echo "  committed"
-      if [ "$PUSH" -eq 1 ] && [ -z "$(git status --porcelain)" ]; then
-        git push 2>&1 | tail -1 | sed 's/^/    /'
-      elif [ "$PUSH" -eq 1 ]; then
-        echo "    not pushed: tree not clean after commit"
-      fi
+      exit 3   # signal: nothing to commit
     fi
-  )
-  changed_repos=$((changed_repos + 1))
+    direnv exec . git commit -q -m "chore(harness): sync ecosystem CLAUDE.md region + hooks from github-io" \
+      || exit 5   # commit failed
+    echo "  committed"
+    if [ "$PUSH" -eq 1 ]; then
+      if [ -n "$(git status --porcelain)" ]; then
+        echo "    not pushed: tree not clean after commit"
+        exit 0
+      fi
+      # Capture push output so a failing remote (exit 128: unreachable/rejected)
+      # is detected and reported WITHOUT a pipeline masking it or set -e aborting
+      # the batch. The error is recorded by the caller via exit 6.
+      local push_out push_rc=0
+      push_out="$(git push 2>&1)" || push_rc=$?
+      printf '%s\n' "$push_out" | tail -1 | sed 's/^/    /'
+      [ "$push_rc" -eq 0 ] || exit 6   # push failed (unreachable/rejected remote)
+    fi
+  ) || rc=$?
+
+  case "$rc" in
+    0) changed_repos=$((changed_repos + 1))
+       if [ "$PUSH" -eq 1 ]; then SUCCEEDED+=("$repo: committed + pushed"); else SUCCEEDED+=("$repo: committed (--no-push)"); fi ;;
+    3) SKIPPED+=("$repo: nothing staged after propagate") ;;
+    5) FAILED+=("$repo: commit failed") ;;
+    6) FAILED+=("$repo: git push failed (unreachable/rejected remote)") ;;
+    *) FAILED+=("$repo: clean-repo processing failed (exit $rc)") ;;
+  esac
+  return 0
+}
+
+for repo_path in "${REPOS[@]}"; do
+  repo="${repo_path#"$GIT_ROOT"/}"
+  # Belt-and-braces: even an unexpected non-zero from the function (set -e ERR)
+  # must not abort the batch — record it and move on.
+  process_one_repo "$repo_path" || FAILED+=("$repo: unexpected error (per-repo processing aborted)")
 done
 
 echo
 if [ "$CHECK" -eq 1 ]; then
   echo "drift items: $drift_total  (dirty receivers: $dirty_repos)"
   [ "$drift_total" -eq 0 ] && { echo "ecosystem converged."; exit 0; } || { echo "DRIFT DETECTED."; exit 1; }
-else
-  echo "repos changed: $changed_repos  (dirty receivers, harness installed locally/no-push where safe: $dirty_repos)"
 fi
+
+# ── Apply-mode end-of-run summary: classified, with per-repo reasons. ──────────
+print_group() {
+  local title="$1"; shift
+  [ "$#" -eq 0 ] && return 0
+  echo "$title ($#):"
+  local item
+  for item in "$@"; do echo "  - $item"; done
+}
+
+echo "═══ rollout summary ═══"
+print_group "SUCCEEDED (clean, committed/pushed)"        "${SUCCEEDED[@]}"
+print_group "DIRTY-ADDITIVE (harness-only commit, no push)" "${DIRTY_ADDITIVE[@]}"
+print_group "SKIPPED / DEFERRED"                          "${SKIPPED[@]}"
+print_group "FAILED"                                      "${FAILED[@]}"
+echo
+echo "totals: succeeded=${#SUCCEEDED[@]}  dirty-additive=${#DIRTY_ADDITIVE[@]}  skipped=${#SKIPPED[@]}  failed=${#FAILED[@]}"
+
+if [ "${#FAILED[@]}" -gt 0 ]; then
+  echo "ROLLOUT INCOMPLETE: ${#FAILED[@]} repo(s) failed (see FAILED above)." >&2
+  exit 1
+fi
+echo "rollout complete: no failures."
+exit 0
