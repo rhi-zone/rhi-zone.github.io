@@ -13,9 +13,12 @@ changes, update it.
 
 ## Skill propagation
 
-Canonical skill location: github-io's own committed `.claude/commands/` — simultaneously
+Canonical skill location: github-io's own committed `.claude/skills/` — simultaneously
 the ecosystem's authoring source of truth and github-io's own project-scope load path
 (no warehouse, no `~/.claude` copy; editing a committed file there is immediately live).
+The ecosystem is on the directory-per-skill format: every skill is
+`.claude/skills/<name>/SKILL.md` (YAML front-matter with `name` + `description`, plus
+optional sibling files under the same directory).
 `tooling/sync-skills.sh [--check] [--prune] [--no-push]` fans the git-tracked files out to
 the recipients in `tooling/skill-recipients.txt`, `…-rhizone.txt`, and `skill-tiers.txt`
 (per-skill `all`|`dev`; absent = hub-only). Idempotent/convergent; skips dirty receivers
@@ -25,13 +28,7 @@ and pushes clean repos; `--check` is a dry-run drift guard that exits non-zero.
 **Never create a `~/.claude/commands/` or `~/.claude/skills/` entry for an ecosystem
 skill.** `~/.claude` is global with personal-over-project precedence, so one entry shadows
 the committed copy of *every* repo you open. Skills live only in each repo's committed
-`.claude/commands/`. No `link-skills` helper exists.
-
-> Deferred (held): migrate `.claude/commands/*.md` → `.claude/skills/<name>/SKILL.md` as
-> its own per-repo ecosystem refactor (front-matter `SKILL.md`, load-test before deleting
-> the legacy file, defer dirty repos to TODO.md). Until taken, the ecosystem stays on flat
-> `commands/`. Do not half-migrate — a mixed `commands/`+`skills/` ecosystem is the failure
-> mode this fence prevents.
+`.claude/skills/`. No `link-skills` helper exists.
 
 ## Harness propagation
 

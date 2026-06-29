@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
-# sync-skills.sh — distribute github-io's committed .claude/commands/ skills to
+# sync-skills.sh — distribute github-io's committed .claude/skills/ skills to
 # the ecosystem recipient repos. Replaces propagate-skill.sh.
 #
+# Layout: directory-per-skill — every skill is .claude/skills/<name>/SKILL.md
+# (+ optional sibling files under the same directory).
+#
 # CONTRACT (see docs/artifacts/skill-loading-audit/synthesis.md §Resolution 5):
-#   - Source = github-io's committed .claude/commands/ (git-tracked files ONLY).
-#     NEVER reads or writes ~/.claude. An untracked file in .claude/commands/ is
+#   - Source = github-io's committed .claude/skills/ (git-tracked files ONLY).
+#     NEVER reads or writes ~/.claude. An untracked file in .claude/skills/ is
 #     NOT distributed (closes the "on disk, not in git" drift class at the source).
 #   - Recipients = explicit committed lists (tooling/skill-recipients.txt and, for
 #     dev-tier skills, tooling/skill-recipients-rhizone.txt). No find-by-presence.
@@ -26,7 +29,7 @@
 set -euo pipefail
 
 HUB="$(cd "$(dirname "$0")/.." && pwd)"        # github-io repo root
-SRC="$HUB/.claude/commands"                     # canonical source (committed)
+SRC="$HUB/.claude/skills"                       # canonical source (committed)
 GIT_ROOT="$(cd "$HUB/../.." && pwd)"            # ~/git  (recipient paths are relative to this; HUB is ~/git/rhizone/github-io)
 RECIPIENTS_ALL="$HUB/tooling/skill-recipients.txt"
 RECIPIENTS_DEV="$HUB/tooling/skill-recipients-rhizone.txt"
@@ -52,27 +55,17 @@ done
 read_list() { grep -v '^[[:space:]]*#' "$1" | grep -v '^[[:space:]]*$'; }
 
 # Is a skill name git-tracked in the canonical source?
-#   flat:  .claude/commands/<name>.md
-#   dir:   .claude/commands/<name>/ (any tracked file under it)
+#   dir:   .claude/skills/<name>/ (a directory with at least one tracked file,
+#          conventionally <name>/SKILL.md plus optional siblings).
 skill_is_tracked() {
   name="$1"
-  if [ -f "$SRC/$name.md" ]; then
-    git -C "$HUB" ls-files --error-unmatch ".claude/commands/$name.md" >/dev/null 2>&1
-  elif [ -d "$SRC/$name" ]; then
-    [ -n "$(git -C "$HUB" ls-files ".claude/commands/$name")" ]
-  else
-    return 1
-  fi
+  [ -d "$SRC/$name" ] && [ -n "$(git -C "$HUB" ls-files ".claude/skills/$name")" ]
 }
 
-# List the relative paths (under .claude/commands/) a skill contributes.
+# List the relative paths (under .claude/skills/) a skill contributes.
 skill_files() {
   name="$1"
-  if [ -f "$SRC/$name.md" ]; then
-    git -C "$HUB" ls-files ".claude/commands/$name.md"
-  else
-    git -C "$HUB" ls-files ".claude/commands/$name"
-  fi
+  git -C "$HUB" ls-files ".claude/skills/$name"
 }
 
 # Recipient list path for a tier.
@@ -126,7 +119,7 @@ for repo in $REPOS; do
   fi
 
   want_skills="$(awk -F'\t' -v r="$repo" '$1==r{print $2}' "$PLAN" | sort -u)"
-  dest="$repo_path/.claude/commands"
+  dest="$repo_path/.claude/skills"
 
   repo_changed=0
 
@@ -152,12 +145,14 @@ for repo in $REPOS; do
   if [ -d "$dest" ]; then
     # Only consider git-tracked files in the receiver as orphan candidates
     # (untracked / repo-specific files are left alone).
-    tracked="$(git -C "$repo_path" ls-files .claude/commands 2>/dev/null || true)"
+    tracked="$(git -C "$repo_path" ls-files .claude/skills 2>/dev/null || true)"
     for rel in $tracked; do
-      base="$(basename "$rel")"
-      # repo-specific allowlist: never treat these as orphans
-      case "$base" in
-        SUMMARY.md|character.md|build-stage.md|design-stage.md) continue ;;
+      # repo-specific carve-outs: never treat these as orphans. Matched on the
+      # FULL relative path (glob), not basename — under the directory-per-skill
+      # layout every skill's main file is SKILL.md, so a basename rule would
+      # degenerate and risk swallowing legitimate skill files.
+      case "$rel" in
+        */SUMMARY.md|*/character.md|*/build-stage.md|*/design-stage.md) continue ;;
       esac
       if ! printf '%s\n' "$wanted_rel" | grep -qxF "$rel"; then
         if [ "$PRUNE" -eq 1 ] && [ "$CHECK" -eq 0 ]; then
@@ -184,7 +179,7 @@ for repo in $REPOS; do
   ( cd "$repo_path"
     direnv allow . >/dev/null 2>&1 || true
     [ -x "$NORMALIZE" ] && direnv exec . "$NORMALIZE" init >/dev/null 2>&1 || true
-    git add .claude/commands .gitignore .normalize/ >/dev/null 2>&1 || true
+    git add .claude/skills .gitignore .normalize/ >/dev/null 2>&1 || true
     if git diff --cached --quiet; then
       echo "  nothing staged"
     else
