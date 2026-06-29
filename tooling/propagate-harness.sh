@@ -38,6 +38,7 @@ block-mainsession-exploration.sh
 post-history.sh
 orchestrator-rules.md
 orchestrator-workflows.md
+SUMMARY.md
 lib/agent-id.sh
 lib/extract-command.awk
 lib/tokenize-bash.awk
