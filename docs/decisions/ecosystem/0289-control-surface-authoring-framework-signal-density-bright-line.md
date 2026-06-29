@@ -1,0 +1,52 @@
+# ADR-0289: Control surface (CLAUDE.md) — authoring framework and main-session ingestion as a signal-density bright line
+
+## Status
+Accepted — design settled; rewrite pending.
+
+## Context
+
+CLAUDE.md grew by ad-hoc accretion into a large, internally-contradictory, low-signal rule pile. Failure modes observed ecosystem-wide: baseless option-dumping and confident-wrong decisions; skills (esp. design-it-twice) triggering inconsistently because conditional rules fire unreliably; cross-artifact contradictions (CLAUDE.md vs injected hooks); and the document violating its own anti-accretion rule. Three adversarial audits this session located the concrete defects (see Evidence).
+
+## Decision
+
+### 1. Authoring framework — two axes
+
+**Include test: universality.** Content earns a place in the always-on surface only if it applies across essentially all of the agent's work (universal behavioral or thought-/design-shaping axioms). Use-case-specific taste (e.g. "LLM as oracle at the leaves / determinism as invariant", "prefer data over code at a seam"), conventions, and reference material do NOT belong — they relocate to the relevant project/design docs (consulted when relevant) or to github-io's local management region. A conditional preference stated as an always-on rule gets pattern-matched into contexts where it doesn't apply and derails them.
+
+**Form: embodiment, not guardrails.** Universal axioms are written as embodied disposition (what the agent *is* and how it thinks), not external rules to check against. A rule is a conditional gate: it fires unreliably and invites compliance-performance over thinking. An embodied principle shapes generation continuously — no trigger to miss. Caveats: (a) embodiment must cash out in concrete observable behavior ("value rigor" is fluff — name what the agent *does* differently); (b) genuine bright lines stay flatly non-negotiable; embodiment may carry the hardness but must not soften it into a vibe.
+
+**Corollary — no ad-hoc rules.** When something breaks, repair or add a *principle*, never bolt on a patch. The file must be structurally incapable of growing into a rule-list. (Also recorded as the "Authoring the control surface" meta-note in CLAUDE.md, commit 0d9d2ba.)
+
+### 2. Main-session-as-orchestrator (resolves "orchestrator-only vs loosen")
+
+**Decision:** keep the hard block on the main session ingesting raw, autonomously tool-retrieved foreign content. The main session ingests only (a) the user's direct input and (b) attenuated digests from its own subagents — never raw file/command output.
+
+**Primary justification — signal density.** The control loop's decision quality is a function of its context's signal-to-noise. Raw foreign material (pre-refactor code is *anti-signal* — it anchors the model to the state being left) plus verbose self-reasoning dilute and, via softmax normalization, actively *suppress* the user's direction (a small, positionally-buried fraction of tokens). Always-on degradation, not a tail risk; universal — passes the include-test with no dial.
+
+**Secondary justification — trust/contamination.** Foreign content can carry injection or subtly shift priors/goals. Main-session contamination is uniquely bad: persistent, propagating (it poisons the briefs of every subagent subsequently spawned), silent, and irreversible — categorically worse than disposable, scoped subagent contamination. A tail-risk layer atop the S/N case.
+
+**Confabulation cure (distinct from the block).** The block creates a cost gradient (verify = expensive spawn; guess = free), which tempts confabulation. The cure is NOT to loosen the block and allow direct reads — it is the embodied disposition: *the orchestrator does not answer world/codebase questions from its own priors; its only epistemic act is route -> reason over the returned, attenuated digest.* Guessing is removed as an available move. Relay/blackboard is the mechanism: the subagent writes raw evidence to a file the orchestrator never opens and returns a path + attenuated, provenance-marked digest.
+
+**What was actually broken** (the restriction itself was right): its stated rationale (was "context-size"; is actually S/N + trust), the missing confabulation cure, and SendMessage being absent from the orchestrator allow-list (fixed, commit fb1f9c1).
+
+### 3. Region rules for the rewrite
+
+- Two regions. The **propagated region** (between the BEGIN/END ECOSYSTEM RULES markers, ships to ~54 repos) must be **self-sufficient and universal** — only compress-inline or delete; never a pointer to github-io-local docs. The **github-io-local** content (outside the markers) may be cut aggressively and may point to local docs.
+- **Live defect to fix:** the propagated region currently references docs/decisions/throughlines.md, which exists only in github-io — a dangling reference already shipped to ~10 receivers. Remove it from the propagated region.
+
+### 4. Shrink method
+
+Editorial reduction, NOT design-it-twice (narrow design space — subtraction against known principles + verification, not open-ended design). Operations: **delete** (not load-bearing), **compress-inline** (load-bearing), **merge** (duplicates). Every retained line must earn its place by a concrete behavior it changes.
+
+## Still open
+
+- Final axiom set: only D1 (dropped) and P2 (hardened to no-ad-hoc) and the frame are settled. S1/S2/E1/E2/P1 to be re-derived under universality+embodiment during the rewrite.
+- C4: finish the `.claude/commands/*.md` -> `.claude/skills/<name>/SKILL.md` migration, or drop the self-exempting fence (the repo is currently in the mixed state its own fence names as the failure mode).
+- The rewrite itself — region by region, in a fresh high-signal session, with bulky current-file ingestion done in subagents and drafts returned for review.
+- Propagation (54 repos) + github-io push: HELD until the rewrite and any orchestrator-hook changes settle, to avoid double-churning the ecosystem. Unpropagated drift to carry at that time: SendMessage fix (fb1f9c1), plan-mode stand-down (8d6b2d9), orchestrator-rules stance rewrite (87cde38).
+
+## Evidence (this session's adversarial audits)
+
+- **Contradictions:** C1 — "when unsure, treat as if it clears the bar" (twin-stated in CLAUDE.md Meta + design-it-twice section 1) vs "Unclear? Ask / verify" (hooks). C2 — "Clean repos: make the changes directly" vs "Implementation happens in subagents, not here". C4 — "Do not half-migrate" fence vs the repo's own tolerated mixed commands/+skills/ state.
+- **Redundancy:** verify/evidence rule stated 3x; "re-read the source" 2x; design-it-twice discipline 3x (Meta prose + two skills).
+- **Monkeypatches:** several single-incident rules; the file violates its own "rules added only on recurring failure" gate.
