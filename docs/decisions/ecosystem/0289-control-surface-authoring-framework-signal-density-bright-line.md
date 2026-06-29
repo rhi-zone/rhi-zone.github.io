@@ -1,7 +1,7 @@
 # ADR-0289: Control surface (CLAUDE.md) — authoring framework and main-session ingestion as a signal-density bright line
 
 ## Status
-Accepted — rewrite implemented 2026-06-29; propagation held.
+Accepted — rewrite implemented 2026-06-29; propagation executed 2026-06-29 (39 pushed / 9 dirty-additive / 3 skipped / 3 residual owner-action). C4 open.
 
 ## Resolution (2026-06-29)
 
@@ -18,7 +18,9 @@ The editorial rewrite is **DONE** this session — a faithful delete/compress/me
 
 **Orchestrator-hook finding** (corrects the §2 / "Still open" promote premise): the orchestrator-only enforcement is **already** a committed `PreToolUse` hook (`tooling/claude-hooks/block-mainsession-exploration.sh`) wired through committed `.claude/settings.json` and already in the harness propagator's managed path set — so it **already propagates** to every marker-bearing receiver. Nothing to promote; the only residual is convergence verification (`tooling/propagate-harness-all.sh --check`) when propagation runs.
 
-**Still HELD / open:** C4 — the actual `.claude/commands/*.md` → `.claude/skills/<name>/SKILL.md` migration (only the fence *text* was compressed; the migration itself is deferred). Propagation (54 repos) + github-io push remain held on purpose, now also carrying this CLAUDE.md rewrite as drift.
+**Propagation — EXECUTED 2026-06-29 (no longer held).** The 54-repo harness propagation was run. Hub (github-io) pushed to origin/master: `2c90224` (CLAUDE.md rewrite) and `33c1620` (propagation-resilience fix — per-repo failure isolation + classified end-of-run summary, replacing the old whole-batch abort-on-first-push-failure). Rollout: 39 clean repos committed + pushed (the dangling `throughlines.md` reference / old propagated region is now replaced and live in the clean set); 9 dirty repos got harness-only additive commits (never pushed, per policy); 3 skipped/already-current (incl. one expected-skip recipient — converged to a no-op; its push fails by design under separate production credentials). 3 residual FAILURES, all owner-action and left safe: `rhizone/fractal` (no remote; committed local-only `6088283`), `rhizone/normalize` (`normalize rules run` errors `missing-summary` — `tooling/claude-hooks/` lacks a `SUMMARY.md`), `pterror/software-taxonomy` (0-byte/corrupt `flake.lock` blocks `nix develop` → bun validator). **Tooling follow-ups discovered (deferred):** commit receivers inside each receiver's own dev env (`direnv exec <receiver> ...`; note nested `direnv exec` swaps rather than stacks envs); ship a `SUMMARY.md` in the propagated `tooling/claude-hooks/` payload so doc-completeness rules don't block the harness commit.
+
+**Still open:** C4 — the actual `.claude/commands/*.md` → `.claude/skills/<name>/SKILL.md` migration (only the fence *text* was compressed; the migration itself is deferred).
 
 ## Context
 
@@ -61,7 +63,7 @@ Editorial reduction, NOT design-it-twice (narrow design space — subtraction ag
 - ~~The rewrite itself~~ — **DONE (2026-06-29).** Editorial delete/compress/merge pass complete; both forks resolved toward propagated (orchestrator stance kept; migration axiom kept — see Resolution above).
 - ~~Orchestrator-hook promote~~ — **moot (2026-06-29).** The enforcement is already a committed, already-propagating `PreToolUse` hook; nothing to promote. Only residual: convergence verification when propagation runs.
 - C4: finish the `.claude/commands/*.md` -> `.claude/skills/<name>/SKILL.md` migration, or drop the self-exempting fence (the repo is currently in the mixed state its own fence names as the failure mode). **Still open** — only the CLAUDE.md fence *text* was compressed this session; the migration itself was NOT done.
-- Propagation (54 repos) + github-io push: **still HELD on purpose.** Now also carries this CLAUDE.md rewrite as drift. Previously-listed unpropagated drift still pending too: SendMessage fix (fb1f9c1), plan-mode stand-down (8d6b2d9), orchestrator-rules stance rewrite (87cde38).
+- ~~Propagation (54 repos) + github-io push~~ — **DONE 2026-06-29.** Executed: hub pushed (`2c90224`, `33c1620`); 39 clean pushed / 9 dirty-additive / 3 skipped / 3 residual owner-action (`fractal` no-remote, `normalize` missing-summary, `software-taxonomy` corrupt flake.lock). The previously-pending drift (SendMessage fix `fb1f9c1`, plan-mode stand-down `8d6b2d9`, orchestrator-rules stance rewrite `87cde38`) shipped with this propagation. See Resolution for the full outcome + tooling follow-ups.
 
 ## Evidence (this session's adversarial audits)
 
