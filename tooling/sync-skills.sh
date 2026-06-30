@@ -223,7 +223,14 @@ for repo in $REPOS; do
       direnv exec . git commit -q -m "chore(skills): sync ecosystem skills from github-io (directory-per-skill)" \
         && echo "  committed"
       if [ "$PUSH" -eq 1 ] && [ -z "$(git status --porcelain)" ]; then
-        git push 2>&1 | tail -1 | sed 's/^/    /'
+        # A remote-less recipient (e.g. a repo not yet published) is a legitimate
+        # state: commit lands locally, there is nothing to push. Name it, and never
+        # let a missing remote — or a rejected push — abort the ecosystem fan-out.
+        if [ -z "$(git remote)" ]; then
+          echo "    not pushed: no remote configured (committed locally)"
+        else
+          git push 2>&1 | tail -1 | sed 's/^/    /' || echo "    push failed (committed locally)"
+        fi
       elif [ "$PUSH" -eq 1 ]; then
         echo "    not pushed: tree not clean after commit"
       fi
