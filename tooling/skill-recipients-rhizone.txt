@@ -13,6 +13,7 @@ rhizone/crescent
 rhizone/defocus
 rhizone/deskspace
 rhizone/dusklight
+rhizone/fractal
 rhizone/gels
 rhizone/interconnect
 rhizone/moonlet
