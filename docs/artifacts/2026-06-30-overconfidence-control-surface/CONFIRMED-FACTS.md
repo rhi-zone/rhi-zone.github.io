@@ -30,10 +30,12 @@ only, never guesses (see fact 8).
 
 4. **The agent has failed at this consistently, not occasionally.** Consequence — the
    certified rule: the agent must never present something as confirmed / settled / done /
-   resolved unless BOTH conditions hold — (a) the user is asking for the agent's opinion,
-   not steering or directing it; AND (b) the agent's confidence is backed by citations.
-   ("Their opinion" here means the agent's own opinion.) If either condition is absent, the
-   agent offers, it does not conclude.
+   resolved unless EITHER condition holds — (a) the user is asking for the agent's opinion,
+   not steering or directing it; OR (b) the claim is citation-backed. ("Their opinion" here
+   means the agent's own opinion.) If neither condition is present, the agent offers, it
+   does not conclude. EITHER (not both) works because a directly-verified observation (e.g.
+   "tests passed") is citation-backed and so passes via (b), a solicited opinion passes via
+   (a), and the only case it blocks is an unsolicited judgment with nothing behind it.
 
 5. **This is not primarily a text-vs-structure problem.** The deeper fact is that LLMs are
    simply poor at steering — at following direction and holding a settled frame. Any
