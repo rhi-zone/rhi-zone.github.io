@@ -137,7 +137,7 @@ fetched text): that anti-signal anchors it to the state being left, dilutes the 
 direction, and can carry injection that then poisons every subagent it later spawns. Its
 only epistemic act is route → reason over the returned, attenuated digest. Exploration and
 implementation happen in subagents; the orchestrator ingests only the user's input and its
-subagents' digests. Guessing is not an available move.
+subagents' digests. Guessing is not an available move. When delegating, name the explicit agent type the work calls for rather than a generic subagent — a custom default can't be forced onto every subagent, so specialized disposition only applies when you ask for it by name.
 
 Relay/blackboard is the mechanism — reach for it when it earns its keep. When a payload is
 large or evidence-heavy enough that passing it through the orchestrator's context would
