@@ -69,7 +69,19 @@ independently.)
 - Generic over petgraph's `Graph`/`StableGraph` × directedness × weights from a **single
   trait-bound set** (compiled against petgraph 0.8.3).
 - Template-matching is a thin **parallel arm** delegating to petgraph VF2 — deliberately **not**
-  unified into the census enum (that unification was rejected as cosmetic).
+  unified into the census enum (that unification was rejected as cosmetic). petgraph's
+  `subgraph_isomorphisms_iter` returns **node-INDUCED** subgraph isomorphisms natively (verified —
+  [vf2-gate.md](../../artifacts/2026-07-02-motif-engine/vf2-gate.md)), so the **induced** arm is
+  *free* (call petgraph, no filter) and suits the graphlet/biology rim. **This corrects an earlier
+  [V]-tagged claim** in the adjudication that VF2 yields monomorphisms with induced obtained by a
+  non-edge filter — that is inverted three ways (docstring verbatim "'subgraph' always means a
+  'node-induced subgraph'"; source `is_feasible` rejects extra host edges; empirically
+  P3-in-triangle yields 0 induced, not 6), a reminder that even verified tags can be wrong and that
+  the adversarial oracle is what caught it. Non-induced (monomorphism) matching **cannot** be
+  recovered by filtering petgraph's output (induced ⊂ monomorphism — a post-filter only shrinks)
+  and would need its **own** enumerator = new work with no petgraph home. Automorphism-dedup for the
+  arm's "distinct instances" readout: edge-set / orbit keying is the safe default; node-set keying
+  over-collapses when one vertex set admits multiple embeddings.
 - The pattern-first alternative was **refuted** at the census-scaling joint: per-`Pattern`
   census is O(classes × scan); only one ESU pass bucketed by canonical label scales. `Pattern`
   survives, demoted to consumer-facing vocabulary.
@@ -78,19 +90,40 @@ independently.)
 - Kernels: only the graphlet kernel reduces to census vectors; WL and shortest-path kernels are
   siblings.
 - Induced vs non-induced is a **threaded parameter** (this fixes the seed's silent
-  non-induced semantics).
+  non-induced semantics). Note the asymmetry established above: the induced value is petgraph-native
+  and free; the non-induced arm is new implementation work, gated on a consumer actually needing it.
 
 **Gates.** Empirical, via real builds (nix cargo) against petgraph 0.8.3 —
-[k4k5-gate.md](../../artifacts/2026-07-02-motif-engine/k4k5-gate.md):
+[k4k5-gate.md](../../artifacts/2026-07-02-motif-engine/k4k5-gate.md),
+[lazy-iter-gate.md](../../artifacts/2026-07-02-motif-engine/lazy-iter-gate.md),
+[orbit-gate.md](../../artifacts/2026-07-02-motif-engine/orbit-gate.md),
+[vf2-gate.md](../../artifacts/2026-07-02-motif-engine/vf2-gate.md):
 
 - **CLOSED:** the generic spine compiles and runs over all graph-type × directedness × weight
   combinations; k=3 census plus k=4/k=5 graphlet *class* labelling is stable
   (insertion-order-invariant) and correct (class counts 2 / 6 / 21; the 73 orbits reproduced
   from scratch).
-- **OPEN (live, not resolved):** per-node **orbit** attribution (GDV/GDD — cheap/addable,
-  distinct from class labelling); **scalable k=5** (naive canonicalization is untenable at
-  biological scale — needs ORCA orbit-equations or a g-trie); lazy `impl Iterator` versus the
-  adjacency-borrow lifetime; VF2 induced-filter untested; directed k≥4 deferred.
+- **CLOSED — lazy-iterator core signature:** the core primitive is a lazy explicit-stack
+  `Iterator` yielding `Instance` that **owns an O(V+E) adjacency snapshot** (not the pure-borrowing
+  shape — petgraph's only O(1) borrowing probe is its O(V²) adjacency matrix, infeasible at scale).
+  `count` is a streaming fold — measured peak 44–249 KiB vs `collect`'s 448 MiB (up to 4590× less);
+  `collect` = `.collect()`. `Instance` should carry `G::NodeId`, not `usize`. The recursive form is
+  kept as a permanent test oracle.
+- **CLOSED — per-node orbit attribution (GDV/GDD):** correct across all 73 orbits at k≤5
+  undirected — attribution via the arg-perm witnessing the instance→canonical isomorphism, orbit
+  looked up in the union-find automorphism registry (automorphism-invariant, so order-independent).
+  Verified vs an independent combination-based brute-force oracle (zero mismatches on
+  paths/cycles/stars/K4-6 + 12 fuzzed random) and `Σ_v GDV = count · orbit_size`; cost ~1.01×
+  (effectively free). Follow-on (not correctness): internal orbit ids are stable but not ORCA's
+  published permutation — a mechanical lookup.
+- **CLOSED — VF2 induced arm (with a correction):** induced template matching over petgraph is
+  correct and native — see the polarity correction in the spine section above.
+- **OPEN (live, not resolved):** **scalable k=5** (naive canonicalization is untenable at
+  biological scale — needs ORCA orbit-equations or a g-trie); the **non-induced (monomorphism)
+  template arm** (new work, gated on confirming a consumer needs it — the graphlet rim wants
+  induced; only the normalize `find_diamonds` seed had non-induced semantics, and that copy stays
+  in normalize); throughput benchmark of owning-snapshot vs borrowing; ORCA-permutation alignment
+  (mechanical); directed k≥4 deferred by design.
 
 **V1 slice.** Motif discovery + subgraph census: k=3 plus k=4 named motifs (diamond seed, FFL,
 bi-fan), seeded by `find_diamonds`.
