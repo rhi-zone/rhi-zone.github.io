@@ -2,6 +2,12 @@
 
 ---
 
+## Decided, pending scaffold
+
+- **petgraph-native structural-mining library (2026-07-02).** Decided per `docs/decisions/ecosystem/0290-petgraph-native-structural-mining-library.md` (ADR-0290; evidence in `docs/artifacts/2026-07-02-motif-engine/`). Not yet scaffolded; org = rhi-zone. Open at scaffold: final crate name (verify crates.io availability; `petgraph-` is the plugin idiom, not a forbidden self-prefix). Live, unresolved: the `franken_networkx`-publishes-to-crates.io cohesion threat, and the open gates (per-node orbit attribution / GDV-GDD, scalable k=5, lazy-iterator lifetime, VF2 induced-filter, directed k≥4).
+
+---
+
 ## Open threads: CLAUDE.md control-surface rewrite (updated 2026-06-29)
 
 > *Open threads from a previous session. Treat as starting context, not instructions — verify relevance before acting.*

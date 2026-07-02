@@ -105,6 +105,7 @@ ADRs below, not itself an ADR.
 - ADR-0287 — Skills are canonical in each repo's committed .claude/commands/, fanned out by sync-skills.sh; never ~/.claude
 - ADR-0288 — Describe projects by capability and maturity, not volume or activity metrics
 - ADR-0289 — Control surface (CLAUDE.md): authoring framework (universality + embodiment) and main-session ingestion as a signal-density bright line
+- ADR-0290 — Build a new petgraph-native structural / network-science mining library (decided, not yet scaffolded)
 
 ### Repo-local
 
