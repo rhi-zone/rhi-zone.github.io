@@ -89,9 +89,29 @@ independently.)
   census as a sibling module — both independent design framings converged on this.
 - Kernels: only the graphlet kernel reduces to census vectors; WL and shortest-path kernels are
   siblings.
-- Induced vs non-induced is a **threaded parameter** (this fixes the seed's silent
-  non-induced semantics). Note the asymmetry established above: the induced value is petgraph-native
-  and free; the non-induced arm is new implementation work, gated on a consumer actually needing it.
+- Induced vs non-induced is **settled per-arm, not one shared runtime toggle** (this fixes the
+  seed's silent non-induced semantics), and the two arms differ in what they can honestly honour —
+  full decision: [non-induced-decision.md](../../artifacts/2026-07-02-motif-engine/non-induced-decision.md).
+  - **Census / named-catalog arm — exposes `Induced { Yes, No }`, both implemented.** Non-induced
+    *counts* AND non-induced *named instances* are derivable from the induced census by a fixed
+    per-(P,C) table `s(P,C)` (edge-preserving spanning embeddings of connected pattern P into
+    graphlet class C): `mono(P in G) = Σ_{C ⊇ P} indCount(C)·s(P,C)`, a bounded post-pass — **no
+    separate monomorphism enumerator**. **VERIFIED [V]** at k=3/4/5: the sum matched an independent
+    brute-force labelled-monomorphism oracle **1105/1105** over 45 host graphs (paths, cycles,
+    stars, K4–K7, 24 fuzzed random G(n,p)), all 29 connected classes as P; table build ~5 ms
+    one-time. Normalization: both sides count *labelled* embeddings (no automorphism factor, exact
+    integer equality); for distinct-occurrence counts divide both sides by `|Aut(P)| = s(P,P)` (a
+    post-hoc scalar, identity unaffected). Concrete beneficiary: the normalize `find_diamonds`
+    non-induced semantics — recovered with no regression.
+  - **Template (arbitrary-graph) arm — induced-native via petgraph only.** Non-induced
+    (monomorphism) over an arbitrary template is **deliberately deferred**: it has zero grounding
+    beneficiary (science domains are induced; software's small named patterns are served by the
+    census/catalog arm; unbounded/disconnected patterns are out of scope) and the k-bounded `s(P,C)`
+    trick does not apply. Reserved as a *future additive method* (or type-gated), **never** an
+    erroring runtime toggle.
+  - **API-honesty principle:** do not share one runtime `Induced::No` across an arm that cannot
+    honour it — expose the toggle only where both values are real, and gate the illegal combination
+    in the type system rather than accept-then-error.
 
 **Gates.** Empirical, via real builds (nix cargo) against petgraph 0.8.3 —
 [k4k5-gate.md](../../artifacts/2026-07-02-motif-engine/k4k5-gate.md),
@@ -118,12 +138,20 @@ independently.)
   published permutation — a mechanical lookup.
 - **CLOSED — VF2 induced arm (with a correction):** induced template matching over petgraph is
   correct and native — see the polarity correction in the spine section above.
+- **CLOSED — census-arm non-induced (counts and named instances):** derivable from the induced
+  census via the fixed `s(P,C)` table + bounded post-pass, **no separate monomorphism enumerator**.
+  Verified [V] at k=3/4/5 — `Σ_C indCount(C)·s(P,C)` matched an independent brute-force
+  labelled-monomorphism oracle 1105/1105 over 45 host graphs, all 29 connected classes; table build
+  ~5 ms. The seed's non-induced `find_diamonds` semantics recovered without regression. Full record:
+  [non-induced-decision.md](../../artifacts/2026-07-02-motif-engine/non-induced-decision.md).
+- **DEFERRED BY DECISION (not open — no beneficiary today):** the **non-induced (monomorphism)
+  arbitrary-template arm** — science domains are induced, software's small named patterns are served
+  by the census/catalog arm, and unbounded/disconnected patterns are out of scope, so it has zero
+  concrete grounding consumer. Reserved additively (a future method / type-gated entry), never an
+  erroring runtime toggle; nothing is foreclosed.
 - **OPEN (live, not resolved):** **scalable k=5** (naive canonicalization is untenable at
-  biological scale — needs ORCA orbit-equations or a g-trie); the **non-induced (monomorphism)
-  template arm** (new work, gated on confirming a consumer needs it — the graphlet rim wants
-  induced; only the normalize `find_diamonds` seed had non-induced semantics, and that copy stays
-  in normalize); throughput benchmark of owning-snapshot vs borrowing; ORCA-permutation alignment
-  (mechanical); directed k≥4 deferred by design.
+  biological scale — needs ORCA orbit-equations or a g-trie); throughput benchmark of owning-snapshot
+  vs borrowing; ORCA-permutation alignment (mechanical); directed k≥4 deferred by design.
 
 **V1 slice.** Motif discovery + subgraph census: k=3 plus k=4 named motifs (diamond seed, FFL,
 bi-fan), seeded by `find_diamonds`.
