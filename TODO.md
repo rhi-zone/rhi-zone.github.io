@@ -8,6 +8,15 @@
 
 ---
 
+## Ecosystem propagation residuals (2026-07-03)
+
+- **Re-run `tooling/propagate-harness-all.sh` and `tooling/sync-skills.sh` once dirty receivers are clean.** Dirty at run time: exoplace/aeriea, exoplace/hologram, paragarden/solarium, pteraworld, pterror/ashwren, pterror/fuwafuwa, rhizone/defocus, rhizone/fractal, rhizone/rainbow, rhizone/server-less (harness landed there as unpushed harness-only commits; skills were skipped in aeriea, solarium, defocus, fractal, rainbow, server-less). One further dirty receiver is tracked in the machine-local TODO.local.md.
+- **pterror/software-taxonomy — harness deferred.** Owner-edited CLAUDE.md + hook files; revisit once the owner edits settle.
+- **pteraworld/annotated-law — not cloned locally, skills skipped.** Clone it or drop it from the recipient lists.
+- One push-retry residual is tracked in the machine-local TODO.local.md (private repo name).
+
+---
+
 ## Open threads: control-surface (updated 2026-07-02)
 
 > *Open threads from a previous session. Treat as starting context, not instructions — verify relevance before acting.*
