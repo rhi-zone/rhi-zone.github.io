@@ -105,6 +105,38 @@ Cost is controlled structurally, not by hoping runs stay small:
 - Transcript access is targeted seeks only — the most expensive source class is never
   scanned.
 
+## Off-meter batch sweep
+
+`bin/batch-extract.mjs` (bun/node, ESM) runs the stage-2 extraction sweep off the
+subscription meter via the Anthropic Message Batches API at Haiku batch rates
+($0.50/$2.50 per MTok — 50% of the $1/$5 list price). Selection: `ledger/index.jsonl`
+entries with `marker_count > 0` whose path has no records yet in `ledger/events.jsonl`
+(already-mined docs are skipped). The prompt sent to each miner is built by reading
+`schema.md` fresh off disk and embedding it verbatim alongside blind-extraction
+instructions and the doc's line-numbered text — `hypotheses.md` is never read or
+referenced, keeping the containment rule intact.
+
+Three modes:
+
+- **`--dry-run` (default)** — prints the candidate doc list plus estimated input/output
+  tokens (bytes / 3.5 + a fixed prompt-overhead constant; output ≈ 40% of input) and the
+  estimated dollar cost. No network calls.
+- **`--submit`** — requires `ANTHROPIC_API_KEY`. Builds one batch request per doc
+  (`model: claude-haiku-4-5`, `max_tokens: 8192`, structured-output JSON schema for the
+  records array) and submits via `POST /v1/messages/batches`. Saves the batch id and a
+  `custom_id -> path` map to `ledger/batch-state.json` (Batches `custom_id` is restricted
+  to `[a-zA-Z0-9_-]{1,64}`, so doc paths are hashed into a safe id and reversed on
+  collect).
+- **`--collect`** — polls the batch until `processing_status === "ended"`, then streams
+  results and matches them by `custom_id` (results arrive in any order — never by
+  position). Each doc's records are appended to `ledger/candidate-records.jsonl` per-doc
+  as they arrive (checkpointed), annotated with `extraction: {model, run: "batch-1"}` and
+  `verification: {status: "unverified"}`. Failed/errored/expired results are recorded as
+  explicit failure lines, never silently skipped.
+
+Uses `@anthropic-ai/sdk` if importable, otherwise falls back to raw `fetch` with
+`x-api-key` + `anthropic-version: 2023-06-01`.
+
 ## Prose register (synthesis stage)
 
 For any later synthesis/essay drafting stage that needs a voice reference rather than a
