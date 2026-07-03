@@ -1,10 +1,17 @@
 # Hypothesis register — falsifiability first
 
+> **PRE-REGISTRATION — CONTEXT FENCE.** This file is a PRE-REGISTRATION (committed
+> a633f8e, 2026-07-03). It must **NEVER** be included in the context of any extraction,
+> skim, pre-filter, or induction agent — hypotheses handed to miners prime the theory
+> into the findings (confirmation harvesting). It is read only by (a) the post-hoc
+> matching stage operating on the verified ledger, and (b) the human arbiter.
+
 Each hypothesis states: the claim, what evidence would support it, its prediction in the
 record (what the verified evidence ledger should look like if true), and an explicit
-COUNTEREXAMPLE HUNT — what would refute it. Extraction agents (stage 2) must hunt
+COUNTEREXAMPLE HUNT — what would refute it. The post-hoc matching stage must hunt
 counterexamples with the same energy as support; a hypothesis nobody tried to break is
-not evidence-grounded. `hypothesis_ids` in evidence records reference the H-numbers here.
+not evidence-grounded. `hypothesis_id` in mapping-table records (see schema.md)
+references the H-numbers here.
 
 ## H1 — Delegability is a property of decisions, not projects
 
