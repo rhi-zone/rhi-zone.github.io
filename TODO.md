@@ -179,3 +179,5 @@ This **answers** the "is single-fault the wrong region / does it find anything" 
 - **Dirty repos (defocus, scribble, solarium) — C4 now applied (scoped, unpushed).** The 5 previously-dirty C4 recipients (aeriea, defocus, normalize, rainbow, solarium) now have the directory-per-skill migration as a scoped additive commit — owner WIP untouched, not pushed (owner to push alongside WIP). See the C4 item above. (scribble retains its own TODO.md note; worth a look only if it stays dirty long-term.)
 
 - **✅ DONE (2026-06-29): `.claude/commands/<name>.md` → `.claude/skills/<name>/SKILL.md` format migration.** Executed this session — see the C4 item under "Open threads: CLAUDE.md control-surface rewrite" above for the full outcome (hub migrated, `sync-skills.sh` atomic-convergent, all 37 receivers on the skills/ layout — the 5 previously-dirty repos via a scoped unpushed commit, the CLAUDE.md fence removed).
+
+- propagate-harness-all: ship cost-tier delegation principle (CLAUDE.md ecosystem region edited 2026-07-03)
