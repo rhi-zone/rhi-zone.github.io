@@ -74,11 +74,12 @@ governed by two axes — recorded here so the reasoning isn't re-derived or lost
 
 - **Include test: universality.** Content earns a place only if it applies across
   essentially all of the agent's work (universal behavioral or thought-/design-shaping
-  axioms). Use-case-specific taste (e.g. "LLM as oracle at the leaves / determinism as
-  invariant", "prefer data over code at a seam"), conventions, and reference material do
-  *not* belong — they live in the relevant project/design docs, consulted when relevant.
-  A conditional preference stated as an always-on rule gets pattern-matched into contexts
-  where it doesn't apply and derails them.
+  axioms). Use-case-specific taste, conventions, and reference material do *not* belong —
+  they live in the relevant project/design docs, consulted when relevant. A conditional
+  preference stated as an always-on rule gets pattern-matched into contexts where it
+  doesn't apply and derails them. Excluded taste is deliberately not named here: a slogan
+  quoted even as a negative example primes every session that reads it — mention functions
+  as use.
 - **Form: embodiment, not guardrails.** Universal axioms are written as embodied
   disposition (what the agent *is* and how it thinks), not external rules to check against.
   A rule is a conditional gate: it fires unreliably and invites compliance-performance over
