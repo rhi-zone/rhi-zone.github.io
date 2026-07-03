@@ -7,6 +7,7 @@ rhi is a glue layer for computers—removing boundaries between you and what you
 | [Normalize](/projects/normalize) | Structural code intelligence across 98 languages | <span class="badge-layer layer-semantics">Semantics</span> | <span class="badge-domain domain-code">Code</span> |
 | [Gels](/projects/gels) | Trait-based grammar inference for tree-sitter | <span class="badge-layer layer-semantics">Semantics</span> | <span class="badge-domain domain-code">Code</span> |
 | [Motif](/projects/motif) | Structural exploration of mathematics | <span class="badge-layer layer-semantics">Semantics</span> | <span class="badge-domain domain-code">Code</span> |
+| [Graphlet](/projects/graphlet) | Petgraph-native graphlet analysis and subgraph mining | <span class="badge-layer layer-semantics">Semantics</span> | <span class="badge-domain domain-core">Core</span> |
 | [Wick](/projects/wick) | Minimal expression language (WGSL, Cranelift, Lua) | <span class="badge-layer layer-semantics">Semantics</span> | <span class="badge-domain domain-media">Media</span> |
 | [Concord](/projects/concord) | API bindings IR and cross-language codegen | <span class="badge-layer layer-semantics">Semantics</span> | <span class="badge-domain domain-code">Code</span> |
 | [Portals](/projects/portals) | Capability-based standard library interfaces | <span class="badge-layer layer-semantics">Semantics</span> | <span class="badge-domain domain-core">Core</span> |

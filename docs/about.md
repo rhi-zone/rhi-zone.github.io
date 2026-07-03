@@ -104,6 +104,7 @@ Our projects are designed the same way: independent tools that compose well toge
 | [normalize](/projects/normalize) | AST-aware navigation and editing across 98 languages |
 | [gels](/projects/gels) | Trait-based grammar inference targeting tree-sitter |
 | [motif](/projects/motif) | Structural exploration of mathematics across fields |
+| [graphlet](/projects/graphlet) | Petgraph-native graphlet analysis and small-subgraph structural mining |
 
 ### Generation
 

@@ -20,6 +20,7 @@ export default withMermaid(
               { text: 'Normalize', link: 'https://docs.rhi.zone/normalize/' },
               { text: 'Gels', link: 'https://docs.rhi.zone/gels/' },
               { text: 'Motif', link: 'https://docs.rhi.zone/motif/' },
+              { text: 'Graphlet', link: 'https://docs.rhi.zone/graphlet/' },
             ]},
             { text: 'Generation', items: [
               { text: 'Unshape', link: 'https://docs.rhi.zone/unshape/' },
@@ -118,6 +119,7 @@ export default withMermaid(
               { text: 'Normalize', link: '/projects/normalize' },
               { text: 'Gels', link: '/projects/gels' },
               { text: 'Motif', link: '/projects/motif' },
+              { text: 'Graphlet', link: '/projects/graphlet' },
             ]
           },
           {

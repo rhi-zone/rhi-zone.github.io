@@ -21,6 +21,9 @@ features:
   - title: "motif ○"
     details: Structural math exploration. Cross-field translation and invariant detection.
     link: /projects/motif
+  - title: "graphlet ◔"
+    details: Petgraph-native graphlet analysis. Subgraph census, graphlet degree vectors, and motif detection.
+    link: /projects/graphlet
   # Generation
   - title: "unshape ●"
     details: Constructive media. Procedural meshes, audio, textures, vector art, and rigging.
