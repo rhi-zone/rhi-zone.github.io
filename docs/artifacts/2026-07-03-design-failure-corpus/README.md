@@ -104,3 +104,12 @@ Cost is controlled structurally, not by hoping runs stay small:
 - Stage 4 and stage 7 are deterministic code / user judgment, not model spend.
 - Transcript access is targeted seeks only — the most expensive source class is never
   scanned.
+
+## Prose register (synthesis stage)
+
+For any later synthesis/essay drafting stage that needs a voice reference rather than a
+generic default: approximate the register from `~/git/pteraworld/public/content/` (the
+author's own prior writing). Prior art in this space — e.g.
+[simonwillison.net](https://simonwillison.net/) — is tolerated as a genre reference but
+not to be replicated stylistically; the voice comes from the pteraworld corpus, not from
+imitating another writer's blog.
