@@ -11,7 +11,6 @@
 # Comments (#) and blank lines ignored. A skill present in .claude/skills/ but
 # absent from this file is NOT distributed (it stays hub-only) — fail-closed.
 
-design-it-twice                    all
 handoff                            all
 polish                             all
 survey-open-threads                all

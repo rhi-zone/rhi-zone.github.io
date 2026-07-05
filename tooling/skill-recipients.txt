@@ -6,7 +6,7 @@
 # github-io hub excluded — it is the canonical source, not a recipient).
 #
 # TIER: every repo here receives the BASELINE + ALL-TIER skills (see tooling/skill-tiers.txt:
-#   design-it-twice, handoff, polish, survey-open-threads, think-with-the-engineering-taste).
+#   handoff, polish, survey-open-threads, think-with-the-engineering-taste).
 # The rhi-zone developer-substrate subset additionally receives the DEV-TIER skills; those
 # repos are listed in skill-recipients-rhizone.txt.
 
