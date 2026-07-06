@@ -9,6 +9,11 @@
 #   3. Wire all matching .claude/settings.json entries idempotently via jq —
 #      strips any stale/absolute entries (matched by script basename) and
 #      re-adds them pointing at ${CLAUDE_PROJECT_DIR}.
+#   4. Verify the installed hooks EXECUTE (claude-hooks/verify-hooks.sh:
+#      static dep check + smoke payloads; deny is success, crash is failure).
+#      Apply mode: verification failure is a hard error. --check mode: a
+#      receiver whose current hooks crash at runtime is reported as drift.
+#      The verifier itself ships with the hooks so receivers can self-check.
 #
 # Hook set managed:
 #   UserPromptSubmit ("")   inject-orchestrator-rules.sh
@@ -39,6 +44,7 @@ post-history.sh
 orchestrator-rules.md
 orchestrator-workflows.md
 SUMMARY.md
+verify-hooks.sh
 lib/agent-id.sh
 lib/extract-command.awk
 lib/extract-field.awk
@@ -51,6 +57,7 @@ inject-orchestrator-rules.sh
 block-blocking-bash.sh
 block-mainsession-exploration.sh
 post-history.sh
+verify-hooks.sh
 lib/agent-id.sh
 "
 
@@ -179,6 +186,28 @@ if [ "$CHECK" -eq 0 ]; then
         dst="$TARGET_HOOKS/$rel"
         [ -f "$dst" ] && chmod +x "$dst" || true
     done
+fi
+
+# ── Step 2b: runtime hook verification ───────────────────────────────────────
+# Static deps + smoke payloads via the canonical verifier (read-only), so a
+# hook that would CRASH in the receiver (missing lib/ helper, awk fatal) is
+# caught here instead of on the receiver's next tool call. A deliberate deny
+# is success; only a crash fails. In --check mode this verifies the hooks as
+# they currently sit on disk (runtime drift, not just file drift); in apply
+# mode a failure after install is a hard error — never leave a receiver with
+# crashing hooks.
+VERIFIER="$CANONICAL_HOOKS/verify-hooks.sh"
+if [ "$CHECK" -eq 1 ]; then
+    if [ -d "$TARGET_HOOKS" ] && ! "$VERIFIER" "$TARGET_HOOKS" >/dev/null 2>&1; then
+        drift=1
+        printf '[check] hooks FAIL runtime verification in %s (detail: %s %s)\n' \
+            "$TARGET_HOOKS" "$VERIFIER" "$TARGET_HOOKS"
+    fi
+else
+    if ! "$VERIFIER" "$TARGET_HOOKS"; then
+        printf '[harness-propagator] ERROR: hook runtime verification FAILED in %s — receiver hooks would crash; aborting\n' "$TARGET_HOOKS" >&2
+        exit 1
+    fi
 fi
 
 # ── Step 3: settings.json wiring ─────────────────────────────────────────────
