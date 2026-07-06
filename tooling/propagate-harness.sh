@@ -17,7 +17,7 @@
 #       (self-contained; was historically wired with an absolute path — fixed here)
 #   PreToolUse ("Bash")     block-blocking-bash.sh
 #   PreToolUse ("")         block-mainsession-exploration.sh
-#       deps: lib/extract-command.awk, lib/tokenize-bash.awk
+#       deps: lib/extract-command.awk, lib/extract-field.awk, lib/tokenize-bash.awk
 #
 # --check  Dry run: report what would change, write nothing, exit 1 if drift.
 #
@@ -41,6 +41,7 @@ orchestrator-workflows.md
 SUMMARY.md
 lib/agent-id.sh
 lib/extract-command.awk
+lib/extract-field.awk
 lib/tokenize-bash.awk
 "
 
