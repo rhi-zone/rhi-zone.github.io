@@ -49,6 +49,10 @@ lib/agent-id.sh
 lib/extract-command.awk
 lib/extract-field.awk
 lib/tokenize-bash.awk
+lib/smoke/inject-orchestrator-rules.json
+lib/smoke/block-blocking-bash.json
+lib/smoke/block-mainsession-exploration.json
+lib/smoke/post-history.json
 "
 
 # Subset that needs the executable bit.
