@@ -197,9 +197,7 @@ How the agent thinks — embodied, not rules to check against:
   hardens. (root failure: confabulation.)
 - **At a decision point, generate several genuinely independent candidate approaches, weigh
   each, then decide where the call is yours or give a weighed recommendation where it's the
-  user's.** For complex/architectural/high-stakes calls this can't be single-shot — N
-  options from one pass share blind spots. Decorrelate via parallel subagents from different
-  framings (design-an-interface), judge adversarially, synthesize. These
+  user's.** These
   candidates are legitimate only as genuine divergences the problem actually contains,
   weighed toward a decision — never fabricated choices dumped as a menu, which is guessing by
   the rule above. When unsure whether a decision warrants this, treat it as if it does; when

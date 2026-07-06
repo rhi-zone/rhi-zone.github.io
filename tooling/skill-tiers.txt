@@ -16,6 +16,5 @@ polish                             all
 survey-open-threads                all
 think-with-the-engineering-taste   all
 
-design-an-interface                dev
 domain-model                       dev
 improve-codebase-architecture      dev

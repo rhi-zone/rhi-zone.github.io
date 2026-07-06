@@ -1,8 +1,8 @@
 # skill-recipients-rhizone.txt — rhi-zone developer-substrate recipients ONLY.
 #
 # One repo per line, path relative to ~/git. Comments and blank lines ignored.
-# These repos ADDITIONALLY receive the DEV-TIER skills (design-an-interface,
-# domain-model, improve-codebase-architecture) on top of the baseline/all-tier set.
+# These repos ADDITIONALLY receive the DEV-TIER skills (domain-model,
+# improve-codebase-architecture) on top of the baseline/all-tier set.
 #
 # This list MUST be a subset of skill-recipients.txt. It exists to durably prevent
 # developer-substrate skills from landing in non-rhi-zone (exo-place / para-garden /
