@@ -13,17 +13,30 @@
 #     dev-tier skills, tooling/skill-recipients-rhizone.txt). No find-by-presence.
 #   - Two-tier scoping = tooling/skill-tiers.txt maps each skill to tier all|dev.
 #   - Idempotent / convergent: a second run on a converged ecosystem writes nothing.
-#   - Dirty-receiver skip FIRST: a repo with a dirty tree is never mutated/committed;
-#     it is reported and a TODO.md line is suggested. No rm on a dirty tree.
+#   - CONVERGE-ALWAYS, no skips: every recipient is processed every run, dirty
+#     tree or not. Only .claude/skills (+ .gitignore/.normalize) is ever staged —
+#     a dirty tree elsewhere is left untouched, never a reason to skip a repo.
+#   - CONFLICT EDGE: if a tracked file this script is about to overwrite or
+#     remove carries UNCOMMITTED owner edits, the owner's on-disk bytes are
+#     preserved first as an untracked sibling `<file>.local-edit` (an existing
+#     `.local-edit` is overwritten only if byte-different; otherwise left alone),
+#     then canon is installed/removed and committed. Canon always wins in the
+#     tree; owner bytes are never destroyed. Reported LOUDLY per occurrence.
+#   - No TODO.md writes, anywhere, ever — all reporting is run-output only.
+#   - PUSH SAFETY: before pushing a receiver, its unpushed commits (`@{u}..HEAD`)
+#     must ALL match this script's own housekeeping commit-message pattern; if
+#     any unpushed commit is unrelated owner work, the commit still lands but
+#     the push is withheld and reported (a withheld push is not a skip — the
+#     tree converged).
 #   - Non-destructive default: orphan skills (present in receiver, absent from the
 #     skill set for that receiver's tier) are REPORTED; removed only under --prune.
 #   - Pure POSIX cp/diff. No rsync, no TOML parser. Portable across per-flake toolsets.
 #
 # Usage:
 #   sync-skills.sh [--check] [--prune] [--no-push]
-#     --check    Dry run. Report drift (stale / missing / orphan) per repo, write
-#                nothing, and exit non-zero if any drift exists. CI/loop guard.
-#     --prune    Also remove (git rm) orphan skills from receivers (clean repos only).
+#     --check    Dry run. Report drift (stale / missing / orphan / conflict) per
+#                repo, write nothing, and exit non-zero if any drift exists.
+#     --prune    Also remove (git rm) orphan skills from receivers.
 #     --no-push  Commit but do not push.
 
 set -euo pipefail
@@ -77,6 +90,41 @@ tier_list() {
   esac
 }
 
+# CONFLICT EDGE: if $repo_path/$rel is tracked and carries uncommitted owner
+# edits, snapshot its current on-disk bytes to "$rel.local-edit" (an existing
+# snapshot is overwritten only if byte-different; else left alone) BEFORE
+# canon overwrites or removes it. No-op if the file doesn't exist or isn't
+# dirty. Always reports; only writes the snapshot in apply mode.
+conflict_snapshot() {
+  repo_path="$1" rel="$2"
+  dst="$repo_path/$rel"
+  [ -f "$dst" ] || return 0
+  [ -n "$(git -C "$repo_path" status --porcelain -- "$rel" 2>/dev/null)" ] || return 0
+  if [ "$CHECK" -eq 1 ]; then
+    echo "  CONFLICT: $rel has uncommitted owner edits (would preserve as $rel.local-edit)"
+    return 0
+  fi
+  edit="$dst.local-edit"
+  if [ -f "$edit" ] && cmp -s "$dst" "$edit"; then
+    : # identical snapshot already recorded
+  else
+    cp -p "$dst" "$edit"
+  fi
+  echo "  CONFLICT: $rel has uncommitted owner edits — preserved as $rel.local-edit (canon installed)"
+}
+
+# PUSH SAFETY: every unpushed commit ahead of the upstream must match this
+# script's own housekeeping pattern, or the push is withheld (commit still
+# stands — a withheld push is not a skip). No upstream at all (never-pushed
+# branch) is not gated here — handled by the caller as a first push.
+SYNC_COMMIT_RE='^chore\(skills\): sync ecosystem skills from github-io|^chore\(harness\): remove propagation skip-notices — mechanism retired'
+push_is_safe() {
+  repo_path="$1"
+  git -C "$repo_path" rev-parse --abbrev-ref --symbolic-full-name '@{u}' >/dev/null 2>&1 || return 0
+  bad="$(git -C "$repo_path" log --format=%s '@{u}..HEAD' 2>/dev/null | grep -Ev "$SYNC_COMMIT_RE" || true)"
+  [ -z "$bad" ]
+}
+
 # Build: for each repo, the set of skill names it should carry.
 # Emits lines "repo<TAB>skill" to a temp file.
 PLAN="$(mktemp)"; trap 'rm -f "$PLAN"' EXIT
@@ -121,14 +169,6 @@ for repo in $REPOS; do
     continue
   fi
 
-  # Dirty check FIRST — never mutate a dirty tree.
-  if [ -n "$(git -C "$repo_path" status --porcelain)" ]; then
-    echo "  DIRTY: skipping (no mutation). Suggested TODO.md line:"
-    echo "    - [ ] sync ecosystem skills: run github-io/tooling/sync-skills.sh once clean"
-    drift_total=$((drift_total + 1))
-    continue
-  fi
-
   want_skills="$(awk -F'\t' -v r="$repo" '$1==r{print $2}' "$PLAN" | sort -u)"
   dest="$repo_path/.claude/skills"
 
@@ -148,6 +188,7 @@ for repo in $REPOS; do
     elif ! diff -q "$src_file" "$dst_file" >/dev/null 2>&1; then
       echo "  STALE:   $rel"
       drift_total=$((drift_total + 1)); repo_changed=1
+      conflict_snapshot "$repo_path" "$rel"
       [ "$CHECK" -eq 1 ] || cp "$src_file" "$dst_file"
     fi
   done
@@ -168,6 +209,7 @@ for repo in $REPOS; do
       if ! printf '%s\n' "$wanted_rel" | grep -qxF "$rel"; then
         if [ "$PRUNE" -eq 1 ] && [ "$CHECK" -eq 0 ]; then
           echo "  PRUNE:   $rel"
+          conflict_snapshot "$repo_path" "$rel"
           git -C "$repo_path" rm -q "$rel"; repo_changed=1
         else
           echo "  ORPHAN:  $rel (reported; use --prune to remove)"
@@ -190,6 +232,7 @@ for repo in $REPOS; do
         drift_total=$((drift_total + 1)); repo_changed=1
       else
         echo "  CMD-DEL: $cand"
+        conflict_snapshot "$repo_path" "$cand"
         git -C "$repo_path" rm -r -q --ignore-unmatch "$cand" >/dev/null 2>&1 || true
         repo_changed=1
       fi
@@ -205,7 +248,9 @@ for repo in $REPOS; do
     continue
   fi
 
-  # Commit (clean repo guaranteed by the dirty check above).
+  # Commit. Staged paths are ecosystem-only (.claude/skills, .gitignore,
+  # .normalize) — a dirty tree elsewhere is left completely untouched, whether
+  # or not this repo was clean going in (converge-always: no dirty-tree skip).
   ( cd "$repo_path"
     direnv allow . >/dev/null 2>&1 || true
     [ -x "$NORMALIZE" ] && direnv exec . "$NORMALIZE" init >/dev/null 2>&1 || true
@@ -222,12 +267,15 @@ for repo in $REPOS; do
     else
       direnv exec . git commit -q -m "chore(skills): sync ecosystem skills from github-io (directory-per-skill)" \
         && echo "  committed"
-      if [ "$PUSH" -eq 1 ] && [ -z "$(git status --porcelain)" ]; then
+      if [ "$PUSH" -eq 1 ] && [ -z "$(git status --porcelain -- .claude/skills .gitignore .normalize)" ]; then
         # A remote-less recipient (e.g. a repo not yet published) is a legitimate
         # state: commit lands locally, there is nothing to push. Name it, and never
         # let a missing remote — or a rejected push — abort the ecosystem fan-out.
         if [ -z "$(git remote)" ]; then
           echo "    not pushed: no remote configured (committed locally)"
+        elif ! push_is_safe "$repo_path"; then
+          echo "    PUSH WITHHELD: unpushed commit(s) ahead of upstream aren't recognized housekeeping — commit landed, not pushed:"
+          git log --format='      - %s' '@{u}..HEAD' 2>/dev/null
         else
           git push 2>&1 | tail -1 | sed 's/^/    /' || echo "    push failed (committed locally)"
         fi

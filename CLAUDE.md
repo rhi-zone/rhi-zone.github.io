@@ -21,9 +21,18 @@ The ecosystem is on the directory-per-skill format: every skill is
 optional sibling files under the same directory).
 `tooling/sync-skills.sh [--check] [--prune] [--no-push]` fans the git-tracked files out to
 the recipients in `tooling/skill-recipients.txt`, `…-rhizone.txt`, and `skill-tiers.txt`
-(per-skill `all`|`dev`; absent = hub-only). Idempotent/convergent; skips dirty receivers
-first (→ TODO.md line); non-destructive unless `--prune`; runs `normalize init`; commits
-and pushes clean repos; `--check` is a dry-run drift guard that exits non-zero.
+(per-skill `all`|`dev`; absent = hub-only). Idempotent/convergent, and **converge-always —
+skips are forbidden**: every recipient is processed every run, dirty tree or not; only
+`.claude/skills` (+ `.gitignore`/`.normalize`) is ever staged, so owner dirt elsewhere is
+never touched and never a reason to exempt a repo. If a tracked file about to be
+overwritten or removed carries uncommitted owner edits, those bytes are preserved first as
+an untracked `<file>.local-edit` sibling (overwritten only if byte-different; else left
+alone) — canon always wins in the tree, owner bytes are never destroyed; each conflict is
+reported loudly. No TODO.md writes, ever. Non-destructive unless `--prune`; runs `normalize
+init`. Before pushing a receiver, every unpushed commit ahead of upstream must match the
+script's own housekeeping message pattern — if not, the commit still lands but the push is
+withheld and reported (a withheld push is not a skip). `--check` is a dry-run drift guard
+(reports drift and conflicts, exits non-zero on drift).
 
 **Never create a `~/.claude/commands/` or `~/.claude/skills/` entry for an ecosystem
 skill.** `~/.claude` is global with personal-over-project precedence, so one entry shadows
@@ -35,18 +44,24 @@ the committed copy of *every* repo you open. Skills live only in each repo's com
 New/updated repos get the ecosystem region + behavioral hooks + `.claude/settings.json`
 wiring via `tooling/propagate-harness.sh <repo>` (appends the region if the markers are
 absent, convergent in-place replace if present); `tooling/propagate-harness-all.sh` drives
-all marker-bearing repos. Append repo-specific rules below the `END` marker. Propagation
-handles dirty repos additively — it does not blanket-skip them:
+all marker-bearing repos. Append repo-specific rules below the `END` marker.
+**Converge-always — skips are forbidden:** every recipient is processed every run, clean or
+dirty; only harness paths (`CLAUDE.md`, `.claude/settings.json`, `tooling/claude-hooks/`)
+are ever staged via explicit `git add` (never `-A`), so owner dirt elsewhere is never
+touched and never a reason to exempt a repo.
 
-- **Clean repo:** full region + hooks + settings, committed and pushed.
-- **Dirty repo:** still gets the safety-critical harness, but stage ONLY harness paths
-  (`CLAUDE.md`, `.claude/settings.json`, `tooling/claude-hooks/`) via explicit `git add`
-  (never `-A`), commit a harness-only message, and NEVER push (owner WIP may be private).
-  Never clobber a harness file the owner is editing (snapshot-restore + defer); if both
-  `CLAUDE.md` and `.claude/settings.json` are owner-dirty, skip + TODO.md line.
-- `--check` is a no-mutation dry-run (exits non-zero on drift); `--no-push` suppresses
-  clean-repo pushes (dirty repos are never pushed regardless). A converged re-run is a
-  no-op.
+- If a harness path the run is about to overwrite carries uncommitted owner edits, those
+  bytes are preserved first as an untracked `<path>.local-edit` sibling (overwritten only
+  if byte-different; else left alone), then canon is installed and committed. Canon always
+  wins in the tree; owner bytes are never destroyed. Each conflict is reported loudly.
+  (Replaces the old both-core-dirty skip and the snapshot-restore-defer dance.)
+- No TODO.md writes into receivers, ever — all reporting is run-output only.
+- Before pushing any receiver (clean or dirty-tree install alike), every unpushed commit
+  ahead of upstream must match this ecosystem's own housekeeping commit-message patterns;
+  if any unpushed commit is unrelated owner work, the commit still lands but the push is
+  withheld and reported (a withheld push is not a skip — the tree converged).
+- `--check` is a no-mutation dry-run (reports drift and conflicts, exits non-zero on
+  drift); `--no-push` suppresses pushes. A converged re-run is a no-op.
 
 Scaffolding, repo creation, and rename procedures: [scaffolding/README.md](scaffolding/README.md).
 
