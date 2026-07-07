@@ -232,12 +232,14 @@ process_one_repo() {
       if [ "$PUSH" -eq 1 ]; then
         if [ -n "$(git status --porcelain -- CLAUDE.md .claude/settings.json tooling/claude-hooks)" ]; then
           echo "    not pushed: harness paths not clean after commit"
-          exit 0
+          exit 7
         elif [ -z "$(git remote)" ]; then
           echo "    not pushed: no remote configured (committed locally)"
+          exit 7
         elif ! push_is_safe "$repo_path"; then
           echo "    PUSH WITHHELD: unpushed commit(s) ahead of upstream aren't recognized housekeeping — commit landed, not pushed:"
           git log --format='      - %s' '@{u}..HEAD' 2>/dev/null
+          exit 7
         else
           local push_out push_rc=0
           push_out="$(git push 2>&1)" || push_rc=$?
@@ -248,7 +250,9 @@ process_one_repo() {
     ) || rc=$?
 
     case "$rc" in
-      0) changed_repos=$((changed_repos + 1)); DIRTY_ADDITIVE+=("$repo: harness commit installed") ;;
+      0) changed_repos=$((changed_repos + 1))
+         if [ "$PUSH" -eq 1 ]; then DIRTY_ADDITIVE+=("$repo: harness commit installed + pushed"); else DIRTY_ADDITIVE+=("$repo: harness commit installed (--no-push)"); fi ;;
+      7) changed_repos=$((changed_repos + 1)); DIRTY_ADDITIVE+=("$repo: harness commit installed, push withheld/no-remote (see run output)") ;;
       3) SKIPPED+=("$repo: dirty, already current (nothing to install)") ;;
       4) FAILED+=("$repo: non-harness path staged — aborted, not committed") ;;
       5) FAILED+=("$repo: harness-only commit failed") ;;
@@ -297,16 +301,16 @@ process_one_repo() {
     if [ "$PUSH" -eq 1 ]; then
       if [ -n "$(git status --porcelain -- CLAUDE.md tooling/claude-hooks .claude/settings.json .gitignore .normalize)" ]; then
         echo "    not pushed: harness paths not clean after commit"
-        exit 0
+        exit 7
       fi
       if [ -z "$(git remote)" ]; then
         echo "    not pushed: no remote configured (committed locally)"
-        exit 0
+        exit 7   # signal: committed, not pushed (still converged)
       fi
       if ! push_is_safe "$repo_path"; then
         echo "    PUSH WITHHELD: unpushed commit(s) ahead of upstream aren't recognized housekeeping — commit landed, not pushed:"
         git log --format='      - %s' '@{u}..HEAD' 2>/dev/null
-        exit 0
+        exit 7   # signal: committed, push withheld (still converged)
       fi
       # Capture push output so a failing remote (exit 128: unreachable/rejected)
       # is detected and reported WITHOUT a pipeline masking it or set -e aborting
@@ -321,6 +325,8 @@ process_one_repo() {
   case "$rc" in
     0) changed_repos=$((changed_repos + 1))
        if [ "$PUSH" -eq 1 ]; then SUCCEEDED+=("$repo: committed + pushed"); else SUCCEEDED+=("$repo: committed (--no-push)"); fi ;;
+    7) changed_repos=$((changed_repos + 1))
+       SUCCEEDED+=("$repo: committed, push withheld/no-remote (see run output)") ;;
     3) SKIPPED+=("$repo: nothing staged after propagate") ;;
     5) FAILED+=("$repo: commit failed") ;;
     6) FAILED+=("$repo: git push failed (unreachable/rejected remote)") ;;
