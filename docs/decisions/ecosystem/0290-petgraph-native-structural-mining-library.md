@@ -1,6 +1,7 @@
 # ADR-0290: Build a new petgraph-native structural / network-science mining library
 
-- Status: Accepted (decided; not yet scaffolded)
+- Status: Accepted; implemented (scaffolded, built out through the full rim, and verified — see
+  addendum below; not yet published to crates.io)
 - Date: 2026-07-02
 
 **Context.** normalize carries a ~50-line `find_diamonds` motif detector. Asking whether it
@@ -144,14 +145,59 @@ independently.)
   labelled-monomorphism oracle 1105/1105 over 45 host graphs, all 29 connected classes; table build
   ~5 ms. The seed's non-induced `find_diamonds` semantics recovered without regression. Full record:
   [non-induced-decision.md](../../artifacts/2026-07-02-motif-engine/non-induced-decision.md).
-- **DEFERRED BY DECISION (not open — no beneficiary today):** the **non-induced (monomorphism)
-  arbitrary-template arm** — science domains are induced, software's small named patterns are served
-  by the census/catalog arm, and unbounded/disconnected patterns are out of scope, so it has zero
-  concrete grounding consumer. Reserved additively (a future method / type-gated entry), never an
-  erroring runtime toggle; nothing is foreclosed.
-- **OPEN (live, not resolved):** **scalable k=5** (naive canonicalization is untenable at
-  biological scale — needs ORCA orbit-equations or a g-trie); throughput benchmark of owning-snapshot
-  vs borrowing; ORCA-permutation alignment (mechanical); directed k≥4 deferred by design.
+- **RESOLVED — non-induced (monomorphism) arbitrary-template arm:** implemented after all, alongside
+  the induced arm, rather than staying deferred; both are now real runtime options on the template
+  arm, not just the census/catalog arm.
+- **RESOLVED — scalable k=5:** a fast ORCA-style orbit-equation counter landed, verified exact
+  against the naive counter, ~100x faster at k=5. Exact enumeration at k=5 and directed k=5 remain
+  computationally slow by nature (see Remaining open items below) — the resolution is that a fast
+  path now exists, not that k=5 is cheap in the absolute.
+- **RESOLVED — directed graphlets:** directed graphlets and orbits implemented through k=5 (9364
+  automorphism classes, matching OEIS A003085), plus the 16-type directed triad census. The
+  ORCA-permutation alignment follow-on was mechanical and is done.
+
+## Post-decision: full rim implemented and verified (addendum, 2026-07-08)
+
+All seven scope areas identified above were subsequently built out to k<=5 and are implemented in
+the crate today, not merely designed:
+
+- **Census + canonical labelling** (k<=5, undirected simple graphs), unchanged from the closed gate
+  above.
+- **Graphlet degree vectors / distribution (GDV/GDD)** across all 73 orbits, now backed by a fast
+  ORCA-style orbit-equation counter in addition to the original brute-force oracle — verified exact
+  against the oracle, roughly 100x faster at k=5.
+- **Motif catalog**: named motifs plus a registerable catalog for arbitrary patterns, with counting
+  for arbitrary registered patterns, not just the original diamond/FFL/bi-fan seed set.
+- **Template matching**: both induced (native VF2, as closed above) and now also non-induced
+  (monomorphism) matching over arbitrary templates — the arm previously deferred by decision (no
+  beneficiary at the time) was built after all.
+- **Null-model generators**: configuration model, double-edge-swap rewiring, Watts-Strogatz, and a
+  documented-partial LFR (LFR remains genuinely incomplete; the partial status is documented in the
+  crate, not silently claimed as full).
+- **Significance testing**: z-scores, empirical p-values, and significance profiles computed against
+  null-model ensembles.
+- **Neighborhood statistics and kernels**: link prediction, clustering, assortativity, rich-club
+  (the "cohesion re-homing" set), plus Weisfeiler-Lehman, shortest-path, and graphlet kernels (the
+  "true algorithmic void" kernels).
+- **Directed graphlets**: directed graphlets and orbits through k=5 (9364 automorphism classes,
+  matching OEIS A003085), plus the 16-type directed triad census — directed k>=4, previously deferred
+  by design, was built after all.
+
+**Verification.** The crate carries 110 tests. Three independent adversarial re-audits examined the
+counting core and the ORCA-style counter; all three found the counting core sound, and confirmed the
+ORCA-style implementation is clean-room versus the GPL-licensed reference ORCA implementation (no
+code or expression-level derivation from the GPL source — an important check given the crate's own
+minimal-dependency, permissively-licensed design constraint). The re-audits surfaced a handful of
+low/medium findings, all since fixed: NaN normalization in the significance-profile computation on
+degenerate (zero-variance) null-model ensembles, a missing guard against comparing kernels computed
+at different k, stale documentation links, and hardened assertions in the release path.
+
+**What remains genuinely open** (not overstated by the above): LFR is a documented partial
+implementation, not a complete one; exact k=5 census enumeration and directed-graphlet computation
+at k=5 are both computationally slow in absolute terms (the ORCA-style speedup narrows this, it does
+not remove it); graphlets are bounded to k<=5 (no k=6+ support). The crate is **not yet published to
+crates.io** and has no consumers outside this ecosystem's own verification work — maturity is judged
+accordingly (Fleshed Out, not Potentially Mature) in the project docs.
 
 **V1 slice.** Motif discovery + subgraph census: k=3 plus k=4 named motifs (diamond seed, FFL,
 bi-fan), seeded by `find_diamonds`.
