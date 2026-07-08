@@ -43,7 +43,6 @@ block-mainsession-exploration.sh
 post-history.sh
 orchestrator-rules.md
 orchestrator-workflows.md
-SUMMARY.md
 verify-hooks.sh
 lib/agent-id.sh
 lib/extract-command.awk

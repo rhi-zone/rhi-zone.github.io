@@ -30,4 +30,3 @@ only in the project devshell).
   harness JSON for `block-mainsession-exploration.sh`.
 - `lib/tokenize-bash.awk` — splits a decoded bash command into quote-aware
   segments and checks each against the git-verb allowlist.
-- `SUMMARY.md` — this file.
