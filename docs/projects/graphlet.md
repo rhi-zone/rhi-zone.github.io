@@ -3,7 +3,7 @@
 **Petgraph-native graphlet analysis and small-subgraph structural mining.**
 
 ::: info Status: Fleshed Out ◐
-The full rim from ADR-0290 is implemented and heavily verified: subgraph census with canonical labelling up to 5 nodes, per-node graphlet degree vectors and distribution across all 73 orbits with a fast ORCA-style counter (verified exact, roughly 100x faster at k=5 than the naive counter), a named + registerable motif catalog with arbitrary-pattern counting, both induced and non-induced (monomorphism) template matching, null-model generators (configuration model, double-edge-swap, Watts-Strogatz, and a documented-partial LFR), significance testing (z-scores, empirical p-values, significance profiles), neighborhood statistics (link prediction, clustering, assortativity, rich-club), graph kernels (Weisfeiler-Lehman, shortest-path, graphlet), and directed graphlets/orbits through k=5 plus the 16-type directed triad census. Depends only on petgraph and rand. Not yet published to crates.io or used outside the ecosystem.
+The full rim from ADR-0290 is implemented and heavily verified: subgraph census with canonical labelling up to 5 nodes, per-node graphlet degree vectors and distribution across all 73 orbits with a fast ORCA-style counter (verified exact, roughly 100x faster at k=5 than the naive counter), a named + registerable motif catalog with arbitrary-pattern counting, both induced and non-induced (monomorphism) template matching, null-model generators (configuration model, double-edge-swap, Watts-Strogatz, and a documented-partial LFR), significance testing (z-scores, empirical p-values, significance profiles), neighborhood statistics (link prediction, clustering, assortativity, rich-club), graph kernels (Weisfeiler-Lehman, shortest-path, graphlet), and directed graphlets/orbits through k=5 plus the 16-type directed triad census. Depends only on petgraph and rand. Published to crates.io as 0.1.0; not yet used outside the ecosystem.
 :::
 
 Graphlet works directly on petgraph's graph types to enumerate, count, and classify the small connected subgraphs (graphlets) that appear in a network, describe each node by the orbits it participates in, test structural significance against null models, and compare graphs via structure-aware kernels.
@@ -27,9 +27,11 @@ Backed by 110 tests and three independent adversarial re-audits, which found the
 
 ## Remaining scope
 
-Genuinely open: LFR is a documented partial implementation; exact k=5 enumeration and directed k=5 are computationally slow; graphlets are bounded to k<=5. Not yet published to crates.io.
+Genuinely open: LFR is a documented partial implementation; exact k=5 enumeration and directed k=5 are computationally slow; graphlets are bounded to k<=5.
 
 ## Links
 
 - [GitHub](https://github.com/rhi-zone/graphlet)
 - [Documentation](https://rhi.zone/graphlet/)
+- [crates.io](https://crates.io/crates/graphlet)
+- [docs.rs](https://docs.rs/graphlet)

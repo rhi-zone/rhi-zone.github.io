@@ -1,7 +1,7 @@
 # ADR-0290: Build a new petgraph-native structural / network-science mining library
 
 - Status: Accepted; implemented (scaffolded, built out through the full rim, and verified — see
-  addendum below; not yet published to crates.io)
+  addendum below; published to crates.io as 0.1.0)
 - Date: 2026-07-02
 
 **Context.** normalize carries a ~50-line `find_diamonds` motif detector. Asking whether it
@@ -195,9 +195,10 @@ at different k, stale documentation links, and hardened assertions in the releas
 **What remains genuinely open** (not overstated by the above): LFR is a documented partial
 implementation, not a complete one; exact k=5 census enumeration and directed-graphlet computation
 at k=5 are both computationally slow in absolute terms (the ORCA-style speedup narrows this, it does
-not remove it); graphlets are bounded to k<=5 (no k=6+ support). The crate is **not yet published to
-crates.io** and has no consumers outside this ecosystem's own verification work — maturity is judged
-accordingly (Fleshed Out, not Potentially Mature) in the project docs.
+not remove it); graphlets are bounded to k<=5 (no k=6+ support). The crate **was published to
+crates.io as 0.1.0** (<https://crates.io/crates/graphlet>) and still has no consumers outside this
+ecosystem's own verification work — maturity is judged accordingly (Fleshed Out, not Potentially
+Mature, since publication alone does not establish outside use) in the project docs.
 
 **V1 slice.** Motif discovery + subgraph census: k=3 plus k=4 named motifs (diamond seed, FFL,
 bi-fan), seeded by `find_diamonds`.
