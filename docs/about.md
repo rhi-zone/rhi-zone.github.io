@@ -184,6 +184,7 @@ Use any project standalone. Compose them when it makes sense. No vendor lock-in.
 
 | Project | Path | Description |
 |---------|------|-------------|
+| **mycelium** | `~/git/mycelium` | Polyglot runtime powered by GraalVM — seamless cross-language interoperability (JS, Ruby, Python, C, Rust) with automatic compilation and HTTP module loading |
 | **sketchpad** | `~/git/rhizone/sketchpad` | Stable Diffusion in pure Rust (burn) |
 | **ooxml** | `~/git/ooxml` | Office Open XML library for Rust |
 | **claude-code-hub** | `~/git/claude-code-hub` | Orchestration hub for Claude Code agents |
