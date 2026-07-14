@@ -42,7 +42,7 @@ Most tools pick one variant and ignore the rest, or build specialized solutions 
 | **Tool configuration** | Every tool has different config format | **myenv**: Schema-validated manifests |
 | **Legacy runtimes** | Flash, Java applets, obsolete VMs | **reincarnate**: Lift to modern web runtimes |
 | **File access** | Separate apps for browsing, viewing, editing, sharing | **deskspace**: One surface for all file interactions |
-| **Lua ecosystem** | Barren stdlib, abandoned packages, no typechecker | **crescent**: Comprehensive vendorable LuaJIT libraries |
+| **Lua ecosystem** | Barren stdlib, abandoned packages, no typechecker | **crescent**: Zero-dependency, vendoring-first — ~90 pure-Lua libraries covering the entire surface of software, owned outright |
 
 This is why the projects don't need deep technical integration—each unifies its own domain. They share a solution pattern, not a codebase.
 
@@ -137,7 +137,7 @@ Our projects are designed the same way: independent tools that compose well toge
 | Project | Key Idea |
 |---------|----------|
 | [moonlet](/projects/moonlet) | Lua runtime with plugin system for ecosystem integration |
-| [crescent](/projects/crescent) | Comprehensive LuaJIT ecosystem — stdlib, typechecker, package manager |
+| [crescent](/projects/crescent) | Zero-dependency, vendoring-first Lua ecosystem — ~90 pure-Lua libraries you own outright |
 | [dusklight](/projects/dusklight) | Universal client with control plane for any data source |
 | [deskspace](/projects/deskspace) | Unified file workspace — browse, view, edit, share as one surface |
 
@@ -187,7 +187,7 @@ Use any project standalone. Compose them when it makes sense. No vendor lock-in.
 | **sketchpad** | `~/git/rhizone/sketchpad` | Stable Diffusion in pure Rust (burn) |
 | **ooxml** | `~/git/ooxml` | Office Open XML library for Rust |
 | **claude-code-hub** | `~/git/claude-code-hub` | Orchestration hub for Claude Code agents |
-| **hologram** | `~/git/exoplace/hologram` | Discord RP bot with knowledge graph and RAG |
+| **hologram** | `~/git/exoplace/hologram` | Discord bot for collaborative worldbuilding and roleplay — entity-facts model with RAG-backed memory |
 | **aspect** | `~/git/exoplace/aspect` | Card-based identity exploration sandbox |
 | **noncanon** | `~/git/exoplace/noncanon` | Local-first collaborative worldbuilding library |
 | **aeriea** | `~/git/exoplace/aeriea` | A place to be — embodied modern-life sandbox built around 100% immersion |
@@ -202,7 +202,7 @@ Use any project standalone. Compose them when it makes sense. No vendor lock-in.
 | **fuwafuwa** | `~/git/pterror/fuwafuwa` | Autonomous AI presence on Moltbook and Discord — emotional state tracking, probabilistic freetime scheduling, warm excitable voice |
 | **matrix-gen** | `~/git/pterror/matrix-gen` | Multi-agent social simulator for synthesizing diverse instruction data (Rust impl of MATRIX, arxiv 2410.14251) |
 | **chub-stage-factory** | `~/git/pterror/chub-stage-factory` | Self-contained Claude Code workspace for designing and shipping a Chub stage |
-| **software-taxonomy** | `~/git/pterror/software-taxonomy` | Cladistic taxonomy of software treated as biological organisms — JSONL corpus with rich featuresets and modelled evolutionary history |
+| **software-taxonomy** | `~/git/pterror/software-taxonomy` | General knowledge graph of software (entities, predicates, statements) — cladistic taxonomy is a derived view over `subclass_of`, not a fixed schema |
 | **statosphere-guide** | `~/git/pterror/statosphere-guide` | Comprehensive unofficial guide to Statosphere — variables, functions, classifiers, generators, stage lifecycle, and JSON schema reference |
 | **statosphere-studio** | `~/git/pterror/statosphere-studio` | Best-in-class Statosphere config editor — embeddable Vue 3 component with built-in help, templates, shareable URL hashes, and runtime-gotcha lints |
 | **redacted-project** | *(private)* | Refer to only as "redacted-project" in ecosystem docs. Do not reveal or speculate about the actual repo name. |
