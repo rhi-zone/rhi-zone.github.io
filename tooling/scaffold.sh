@@ -157,7 +157,7 @@ step_done_rust() {
         10) grep -q "$org/$project_name" "$GITHUB_IO/tooling/skill-recipients.txt" 2>/dev/null ;;
         11) [ -f "$target/CLAUDE.md" ] && grep -q 'README.md' "$target/CLAUDE.md" ;;
         12) [ -d "$target/.direnv" ] ;;
-        13) git -C "$target" log --oneline -1 >/dev/null 2>&1 ;;
+        13) [ "$(git -C "$target" rev-list --count HEAD)" -gt 1 ] ;;
         14) gh repo view "$org/$project_name" >/dev/null 2>&1 ;;
         15) gh api "repos/$org/$project_name/pages" >/dev/null 2>&1 ;;
         16) [ ! -f "$target/SCAFFOLD.state" ] ;;
@@ -186,7 +186,7 @@ step_done_bun() {
         13) grep -q "$org/$project_name" "$GITHUB_IO/tooling/skill-recipients.txt" 2>/dev/null ;;
         14) [ -f "$target/CLAUDE.md" ] && grep -q 'README.md' "$target/CLAUDE.md" ;;
         15) [ -d "$target/.direnv" ] ;;
-        16) git -C "$target" log --oneline -1 >/dev/null 2>&1 ;;
+        16) [ "$(git -C "$target" rev-list --count HEAD)" -gt 1 ] ;;
         17) gh repo view "$org/$project_name" >/dev/null 2>&1 ;;
         18) gh api "repos/$org/$project_name/pages" >/dev/null 2>&1 ;;
         19) [ ! -f "$target/SCAFFOLD.state" ] ;;
@@ -213,7 +213,7 @@ step_done_godot() {
         11) grep -q "$org/$project_name" "$GITHUB_IO/tooling/skill-recipients.txt" 2>/dev/null ;;
         12) [ -f "$target/CLAUDE.md" ] && grep -q 'README.md' "$target/CLAUDE.md" ;;
         13) [ -d "$target/.direnv" ] ;;
-        14) git -C "$target" log --oneline -1 >/dev/null 2>&1 ;;
+        14) [ "$(git -C "$target" rev-list --count HEAD)" -gt 1 ] ;;
         15) gh repo view "$org/$project_name" >/dev/null 2>&1 ;;
         16) gh api "repos/$org/$project_name/pages" >/dev/null 2>&1 ;;
         17) [ ! -f "$target/SCAFFOLD.state" ] ;;
@@ -238,7 +238,7 @@ step_done_docs() {
         9) grep -q "$org/$project_name" "$GITHUB_IO/tooling/skill-recipients.txt" 2>/dev/null ;;
         10) [ -f "$target/CLAUDE.md" ] && grep -q 'README.md' "$target/CLAUDE.md" ;;
         11) [ -d "$target/.direnv" ] ;;
-        12) git -C "$target" log --oneline -1 >/dev/null 2>&1 ;;
+        12) [ "$(git -C "$target" rev-list --count HEAD)" -gt 1 ] ;;
         13) gh repo view "$org/$project_name" >/dev/null 2>&1 ;;
         14) gh api "repos/$org/$project_name/pages" >/dev/null 2>&1 ;;
         15) [ ! -f "$target/SCAFFOLD.state" ] ;;
@@ -262,7 +262,7 @@ step_done_static() {
         8) grep -q "$org/$project_name" "$GITHUB_IO/tooling/skill-recipients.txt" 2>/dev/null ;;
         9) [ -f "$target/CLAUDE.md" ] && grep -q 'README.md' "$target/CLAUDE.md" ;;
         10) [ -d "$target/.direnv" ] ;;
-        11) git -C "$target" log --oneline -1 >/dev/null 2>&1 ;;
+        11) [ "$(git -C "$target" rev-list --count HEAD)" -gt 1 ] ;;
         12) gh repo view "$org/$project_name" >/dev/null 2>&1 ;;
         13) gh api "repos/$org/$project_name/pages" >/dev/null 2>&1 ;;
         14) [ ! -f "$target/SCAFFOLD.state" ] ;;
@@ -410,6 +410,7 @@ EOF
         9)
             title="Run harness propagation"
             body=$(cat <<EOF
+touch "$target/CLAUDE.md"
 "$GITHUB_IO/tooling/propagate-harness.sh" "$target"
 EOF
 )
@@ -732,6 +733,7 @@ EOF
         12)
             title="Run harness propagation"
             body=$(cat <<EOF
+touch "$target/CLAUDE.md"
 "$GITHUB_IO/tooling/propagate-harness.sh" "$target"
 EOF
 )
@@ -984,6 +986,7 @@ EOF
         10)
             title="Run harness propagation"
             body=$(cat <<EOF
+touch "$target/CLAUDE.md"
 "$GITHUB_IO/tooling/propagate-harness.sh" "$target"
 EOF
 )
@@ -1194,6 +1197,7 @@ EOF
         8)
             title="Run harness propagation"
             body=$(cat <<EOF
+touch "$target/CLAUDE.md"
 "$GITHUB_IO/tooling/propagate-harness.sh" "$target"
 EOF
 )
@@ -1371,6 +1375,7 @@ EOF
         7)
             title="Run harness propagation"
             body=$(cat <<EOF
+touch "$target/CLAUDE.md"
 "$GITHUB_IO/tooling/propagate-harness.sh" "$target"
 EOF
 )
