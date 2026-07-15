@@ -14,7 +14,6 @@ Standard files for new Rust monorepos in the rhi ecosystem.
 | `.github/workflows/deploy-docs.yml` | VitePress docs to GitHub Pages |
 | `flake.nix` | Nix dev shell with Rust + mold + bun |
 | `docs/package.json` | VitePress with mermaid plugin |
-| `CLAUDE.md` | Project-specific Claude instructions template |
 | `README.md` | Project README template |
 
 ## Placeholders
@@ -29,8 +28,8 @@ Copy and substitute placeholders. Run via a subagent (Sonnet, general-purpose) �
 ```bash
 cp -r ~/git/0000000_pterror/.git ~/git/rhizone/new-project/.git
 cp -r scaffolding/. ~/git/rhizone/new-project/
-sed -i 's/PROJECT_NAME/new-project/g' ~/git/rhizone/new-project/flake.nix ~/git/rhizone/new-project/docs/package.json ~/git/rhizone/new-project/CLAUDE.md
-sed -i 's/PROJECT_DESCRIPTION/Description here/g' ~/git/rhizone/new-project/flake.nix ~/git/rhizone/new-project/CLAUDE.md
+sed -i 's/PROJECT_NAME/new-project/g' ~/git/rhizone/new-project/flake.nix ~/git/rhizone/new-project/docs/package.json
+sed -i 's/PROJECT_DESCRIPTION/Description here/g' ~/git/rhizone/new-project/flake.nix
 ```
 
 Copy git from `~/git/0000000_pterror` (template repo with proper history/config). Do NOT use `git init`.
@@ -40,7 +39,9 @@ Manual steps after copy:
 - Create `docs/.vitepress/config.ts` + `docs/index.md` (required for VitePress build in pre-commit hook).
 - Run `bun install` in `docs/` before first commit — hook runs `vitepress build`, needs node_modules.
 - Confirm `.envrc` and `flake.nix` were copied (easy to miss). `.envrc` sources `.envrc.local` (gitignored) — secrets go there, never in `.envrc`.
-- Fill in CLAUDE.md `## Origin` section: why the project exists, naming rationale, key design decisions. The scaffolding conversation is not accessible from inside the new repo.
+- Fill in `README.md` with the project's goals and motivating use cases: why the project exists, what it's for, key design decisions. The scaffolding conversation is not accessible from inside the new repo.
+- Run `tooling/propagate-harness.sh ~/git/ORG_PATH/new-project` to install `CLAUDE.md` (ecosystem region + behavioral hooks) and wire `.claude/settings.json`.
+- In the repo-local section of the new `CLAUDE.md` (below the `END ECOSYSTEM RULES` marker), add a pointer to the README, e.g. `Project goals and design context: [README.md](README.md)`.
 - Optionally add `TODO.md` with initial directions.
 
 ## Creating the GitHub Repo
