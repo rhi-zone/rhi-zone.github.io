@@ -159,7 +159,11 @@ drift_total=0
 changed_repos=0
 
 for repo in $REPOS; do
-  repo_path="$GIT_ROOT/$repo"
+  if [ "${repo#/}" != "$repo" ]; then
+    repo_path="$repo"
+  else
+    repo_path="$GIT_ROOT/$repo"
+  fi
   echo
   echo "=== $repo ==="
 
