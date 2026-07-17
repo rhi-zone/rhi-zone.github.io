@@ -161,10 +161,17 @@ process_one_repo() {
   if [ -n "$(git -C "$repo_path" status --porcelain)" ]; then
     dirty_repos=$((dirty_repos + 1))
 
+    # Excludes existing *.local-edit snapshots: those are untracked byproducts
+    # of a prior conflict_snapshot, not harness paths the propagator writes.
+    # Without this exclusion an untracked "foo.sh.local-edit" itself matches
+    # the harness-path patterns below and gets fed BACK into conflict_snapshot,
+    # which then snapshots it to "foo.sh.local-edit.local-edit" — a chain that
+    # grows one ".local-edit" longer every run.
     local owner_dirty_harness
     owner_dirty_harness="$(git -C "$repo_path" status --porcelain \
       | sed 's/^...//' \
-      | grep -E '^(CLAUDE\.md|\.claude/settings\.json|tooling/claude-hooks/)' || true)"
+      | grep -E '^(CLAUDE\.md|\.claude/settings\.json|tooling/claude-hooks/)' \
+      | grep -v '\.local-edit$' || true)"
 
     # --check: report only, mutate nothing.
     if [ "$CHECK" -eq 1 ]; then
@@ -203,29 +210,32 @@ process_one_repo() {
       return 0
     fi
 
-    # Stage ONLY harness paths, explicitly — NEVER -A/. — canon wins even over
-    # the owner-dirty ones (their prior bytes already live in .local-edit).
+    # Stage and commit ONLY the specific harness files that actually changed,
+    # by explicit pathspec — NEVER -A/., NEVER `git commit -a`, and NEVER a
+    # bare `git diff --cached`/`git commit` that reads the whole index. What
+    # else the owner has staged (e.g. lib/vt/init.lua) is not this script's
+    # concern and is never inspected or touched — converge-always forbids
+    # aborting a repo because of pre-existing unrelated staged content.
     local rc=0
     ( cd "$repo_path"
-      git add -- CLAUDE.md .claude/settings.json tooling/claude-hooks >/dev/null 2>&1 || true
+      # Excludes *.local-edit siblings (conflict_snapshot's own untracked
+      # byproducts, e.g. freshly written by this same run above) — those must
+      # stay untracked working-tree artifacts, never enter history.
+      harness_changed=()
+      while IFS= read -r f; do
+        [ -n "$f" ] && harness_changed+=("$f")
+      done < <(git status --porcelain -- CLAUDE.md .claude/settings.json tooling/claude-hooks \
+                 | sed 's/^...//' | grep -v '\.local-edit$' || true)
 
-      if git diff --cached --quiet; then
+      if [ "${#harness_changed[@]}" -eq 0 ]; then
         echo "    nothing to install — already current (no commit)"
         exit 3   # signal: no commit made
       fi
 
-      # INVARIANT GUARD: staged set must contain ONLY harness paths. If anything
-      # else slipped in, abort this repo (do not commit owner WIP).
-      stray="$(git diff --cached --name-only \
-        | grep -Ev '^(CLAUDE\.md|\.claude/settings\.json|tooling/claude-hooks/)' || true)"
-      if [ -n "$stray" ]; then
-        echo "    ABORT: non-harness path staged ($(printf '%s' "$stray" | tr '\n' ' ')) — resetting, not committing" >&2
-        git reset -q >/dev/null 2>&1 || true
-        exit 4   # signal: aborted on stray (treat as failure)
-      fi
+      git add -- "${harness_changed[@]}"
 
-      direnv exec . git commit -q -m "chore(harness): install orchestrator hooks + sync CLAUDE.md region" 2>/dev/null \
-        || git commit -q -m "chore(harness): install orchestrator hooks + sync CLAUDE.md region" \
+      direnv exec . git commit -q -m "chore(harness): install orchestrator hooks + sync CLAUDE.md region" -- "${harness_changed[@]}" 2>/dev/null \
+        || git commit -q -m "chore(harness): install orchestrator hooks + sync CLAUDE.md region" -- "${harness_changed[@]}" \
         || exit 5   # commit failed
       echo "    harness-only commit made"
 
@@ -254,7 +264,6 @@ process_one_repo() {
          if [ "$PUSH" -eq 1 ]; then DIRTY_ADDITIVE+=("$repo: harness commit installed + pushed"); else DIRTY_ADDITIVE+=("$repo: harness commit installed (--no-push)"); fi ;;
       7) changed_repos=$((changed_repos + 1)); DIRTY_ADDITIVE+=("$repo: harness commit installed, push withheld/no-remote (see run output)") ;;
       3) SKIPPED+=("$repo: dirty, already current (nothing to install)") ;;
-      4) FAILED+=("$repo: non-harness path staged — aborted, not committed") ;;
       5) FAILED+=("$repo: harness-only commit failed") ;;
       6) FAILED+=("$repo: git push failed (unreachable/rejected remote)") ;;
       *) FAILED+=("$repo: dirty-tree install failed (exit $rc)") ;;
