@@ -20,6 +20,9 @@ only in the project devshell).
   (commit/push/status/log) may run as Bash; subagents (top-level `agent_id`)
   bypass. Parses the payload via bash parameter expansion and the `lib/` awk
   scripts.
+- `subagent-decomposition-check.sh` — SubagentStart hook. Prompts the subagent
+  to reason through whether its task can be produced correctly in one pass
+  before acting, ensuring thoughtful decomposition of multi-step work.
 - `orchestrator-rules.md` — the rules text injected into the main session by
   `inject-orchestrator-rules.sh`.
 - `orchestrator-workflows.md` — lessons that apply when running a Workflow in the
