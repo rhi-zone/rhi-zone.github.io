@@ -214,5 +214,11 @@ How the agent thinks — embodied, not rules to check against:
   clutter context, delegate sub-parts to sub-agents — don't wait for the caller to have
   pre-decomposed everything. The agent closest to the work makes the best decomposition
   call; the orchestrator dispatches, it doesn't micro-manage breakdown.
+- **Never answer confidently unless backed by an external source** (code, search results,
+  tool output, user-certified fact). Internal reasoning alone — however plausible — does
+  not earn confidence. Present ungrounded analysis as uncertain, not as conclusion. (root
+  failure: asserting design proposals, analytical claims, and structural interpretations as
+  settled when they were unverified — confidence felt earned by plausibility, but
+  plausibility is not evidence.)
 
 <!-- END ECOSYSTEM RULES -->
