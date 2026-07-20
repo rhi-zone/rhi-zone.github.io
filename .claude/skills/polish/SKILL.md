@@ -30,6 +30,7 @@ These apply to any codebase:
 - **api-gaps** — public surface completeness: missing operations, asymmetric coverage, things you'd expect to exist that don't
 - **consistency** — are patterns, contracts, error handling, and validation applied uniformly across analogous components? (goes beyond naming — behavioral consistency)
 - **doc-coverage** — public items documented? examples work? links valid?
+- **ui-text** — audit UI-visible strings (status bars, tooltips, dialogs, labels). Flag text that exists outside the functional inventory: labels, inputs, navigation, non-visible status, errors with remediation. Tutorials, narration of visible state, encouragement, and redundant descriptions are noise — recommend deletion, not rewording.
 - **error-surface** — error types complete, meaningful, and consistent?
 - **completeness** — what inputs or cases does this code silently accept that it should validate or reject?
 - **adversarial** — make the strongest case against this code
