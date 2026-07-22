@@ -41,6 +41,8 @@ inject-orchestrator-rules.sh
 block-blocking-bash.sh
 block-mainsession-exploration.sh
 post-history.sh
+subagent-decomposition-check.sh
+plan-envelope-antibody.sh
 orchestrator-rules.md
 orchestrator-workflows.md
 verify-hooks.sh
@@ -60,6 +62,8 @@ inject-orchestrator-rules.sh
 block-blocking-bash.sh
 block-mainsession-exploration.sh
 post-history.sh
+subagent-decomposition-check.sh
+plan-envelope-antibody.sh
 verify-hooks.sh
 lib/agent-id.sh
 "
@@ -214,11 +218,13 @@ else
 fi
 
 # ── Step 3: settings.json wiring ─────────────────────────────────────────────
-# All four hook commands use portable ${CLAUDE_PROJECT_DIR} paths.
+# All hook commands use portable ${CLAUDE_PROJECT_DIR} paths.
 INJECT_CMD='${CLAUDE_PROJECT_DIR}/tooling/claude-hooks/inject-orchestrator-rules.sh'
 HISTORY_CMD='${CLAUDE_PROJECT_DIR}/tooling/claude-hooks/post-history.sh'
 BLOCKBASH_CMD='${CLAUDE_PROJECT_DIR}/tooling/claude-hooks/block-blocking-bash.sh'
 EXPLORE_CMD='${CLAUDE_PROJECT_DIR}/tooling/claude-hooks/block-mainsession-exploration.sh'
+SUBAGENT_DECOMP_CMD='${CLAUDE_PROJECT_DIR}/tooling/claude-hooks/subagent-decomposition-check.sh'
+PLAN_ENVELOPE_CMD='${CLAUDE_PROJECT_DIR}/tooling/claude-hooks/plan-envelope-antibody.sh'
 
 if [ -f "$TARGET_SETTINGS" ]; then
     CURRENT="$(cat "$TARGET_SETTINGS")"
@@ -229,25 +235,36 @@ fi
 # Build desired state:
 #   - Strip ALL stale entries for each managed basename (any path, absolute or portable).
 #   - Re-append canonical entries with ${CLAUDE_PROJECT_DIR} paths.
-# Order: inject-orchestrator-rules, post-history under UserPromptSubmit;
+# Order: inject-orchestrator-rules, post-history, plan-envelope-antibody under UserPromptSubmit;
+#        subagent-decomposition-check under SubagentStart;
 #        block-blocking-bash (Bash matcher), block-mainsession-exploration under PreToolUse.
 DESIRED="$(printf '%s' "$CURRENT" | jq \
     --arg inject  "$INJECT_CMD" \
     --arg history "$HISTORY_CMD" \
     --arg blockbash "$BLOCKBASH_CMD" \
-    --arg explore "$EXPLORE_CMD" '
+    --arg explore "$EXPLORE_CMD" \
+    --arg subagent_decomp "$SUBAGENT_DECOMP_CMD" \
+    --arg plan_envelope "$PLAN_ENVELOPE_CMD" '
     def strip($pat):
         map(select((.hooks // [] | map(.command | test($pat)) | any) | not));
 
     .hooks //= {} |
     .hooks.UserPromptSubmit //= [] |
+    .hooks.SubagentStart //= [] |
     .hooks.PreToolUse //= [] |
 
     .hooks.UserPromptSubmit |= (
         strip("inject-orchestrator-rules\\.sh$")
         | strip("post-history\\.sh$")
+        | strip("plan-envelope-antibody\\.sh$")
         + [ { "matcher": "", "hooks": [ { "type": "command", "command": $inject  } ] } ]
         + [ { "matcher": "", "hooks": [ { "type": "command", "command": $history } ] } ]
+        + [ { "matcher": "", "hooks": [ { "type": "command", "command": $plan_envelope } ] } ]
+    ) |
+
+    .hooks.SubagentStart |= (
+        strip("subagent-decomposition-check\\.sh$")
+        + [ { "matcher": "", "hooks": [ { "type": "command", "command": $subagent_decomp } ] } ]
     ) |
 
     .hooks.PreToolUse |= (
@@ -267,6 +284,8 @@ if [ "$NORM_CURRENT" != "$NORM_DESIRED" ]; then
         printf '[check] would WIRE settings: %s\n' "$TARGET_SETTINGS"
         printf '          UserPromptSubmit += inject-orchestrator-rules.sh (%s)\n' "$INJECT_CMD"
         printf '          UserPromptSubmit += post-history.sh              (%s)\n' "$HISTORY_CMD"
+        printf '          UserPromptSubmit += plan-envelope-antibody.sh    (%s)\n' "$PLAN_ENVELOPE_CMD"
+        printf '          SubagentStart[""] += subagent-decomposition-check.sh (%s)\n' "$SUBAGENT_DECOMP_CMD"
         printf '          PreToolUse[Bash]  += block-blocking-bash.sh      (%s)\n' "$BLOCKBASH_CMD"
         printf '          PreToolUse[""]    += block-mainsession-exploration.sh (%s)\n' "$EXPLORE_CMD"
         printf '        resulting settings.json:\n'
