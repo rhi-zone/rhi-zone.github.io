@@ -30,7 +30,7 @@ Myenv manages tool configs from a single `myenv.toml` manifest and scaffolds new
 ```
 myenv.toml  →  myenv generate  →  .moonlet/config.toml
                                   →  .reincarnate/config.toml
-                                  →  .wick/config.toml
+                                  →  .dew/config.toml
 ```
 
 This keeps tools simple and decoupled from myenv.
@@ -50,13 +50,13 @@ assets = "./assets"
 source = "./dump/game.exe"
 output = "{{assets}}/raw"
 
-[wick]
-pipeline = "main.wick"
+[dew]
+pipeline = "main.dew"
 input = "{{assets}}/raw"
 output = "{{assets}}/processed"
 ```
 
-Running `myenv generate` creates `.reincarnate/config.toml` and `.wick/config.toml`. Tools read their native configs—no special runtime behavior.
+Running `myenv generate` creates `.reincarnate/config.toml` and `.dew/config.toml`. Tools read their native configs—no special runtime behavior.
 
 ## Seeds
 

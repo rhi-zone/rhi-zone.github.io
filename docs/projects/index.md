@@ -8,7 +8,7 @@ rhi is a glue layer for computers—removing boundaries between you and what you
 | [Gels](/projects/gels) | Trait-based grammar inference for tree-sitter | <span class="badge-layer layer-semantics">Semantics</span> | <span class="badge-domain domain-code">Code</span> |
 | [Motif](/projects/motif) | Structural exploration of mathematics | <span class="badge-layer layer-semantics">Semantics</span> | <span class="badge-domain domain-code">Code</span> |
 | [Graphlet](/projects/graphlet) | Petgraph-native graphlet/motif and structural-network-mining library | <span class="badge-layer layer-semantics">Semantics</span> | <span class="badge-domain domain-core">Core</span> |
-| [Wick](/projects/wick) | Minimal expression language (WGSL, Cranelift, Lua) | <span class="badge-layer layer-semantics">Semantics</span> | <span class="badge-domain domain-media">Media</span> |
+| [Dew](/projects/dew) | Minimal expression language (WGSL, Cranelift, Lua) | <span class="badge-layer layer-semantics">Semantics</span> | <span class="badge-domain domain-media">Media</span> |
 | [Concord](/projects/concord) | API bindings IR and cross-language codegen | <span class="badge-layer layer-semantics">Semantics</span> | <span class="badge-domain domain-code">Code</span> |
 | [Portals](/projects/portals) | Capability-based standard library interfaces | <span class="badge-layer layer-semantics">Semantics</span> | <span class="badge-domain domain-core">Core</span> |
 | [Server-Less](/projects/server-less) | Composable derive macros for Rust | <span class="badge-layer layer-semantics">Semantics</span> | <span class="badge-domain domain-code">Code</span> |

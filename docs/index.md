@@ -28,9 +28,9 @@ features:
   - title: "unshape ●"
     details: Constructive media. Procedural meshes, audio, textures, vector art, and rigging.
     link: /projects/unshape
-  - title: "wick ●"
-    details: Minimal expression language. Expressions wick through backends — one source, every surface.
-    link: /projects/wick
+  - title: "dew ●"
+    details: Minimal expression language. One source condenses into every backend.
+    link: /projects/dew
   # Games & Worlds
   - title: "playmate ◔"
     details: Game design primitives. State machines, character controllers, camera systems.

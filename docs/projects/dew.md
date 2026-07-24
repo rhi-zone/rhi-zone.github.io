@@ -1,4 +1,4 @@
-# Wick
+# Dew
 
 **Minimal expression language for procedural generation.**
 
@@ -6,7 +6,7 @@
 Production-ready core language with 4 domain crates (scalar, linalg, complex, quaternion) and 10 code generation backends (WGSL, GLSL, OpenCL, CUDA, HIP, Rust, C, TokenStream, Lua, Cranelift). Exhaustive tests, property-based testing, editor support. Web playground is the only incomplete UX piece.
 :::
 
-Wick is a domain-specific expression language designed for procedural generation workflows. Expressions flow through backends like liquid wicking through fiber — one source, every surface reached.
+Dew is a domain-specific expression language designed for procedural generation workflows. Small, ephemeral, perfectly formed — like a droplet condensed from logic, parsed once and emitted to every backend.
 
 ## Key features
 
@@ -20,13 +20,13 @@ Wick is a domain-specific expression language designed for procedural generation
 
 | Crate | Description |
 |-------|-------------|
-| `wick-core` | Core AST and parsing |
-| `wick-scalar` | Scalar math (sin, cos, lerp, smoothstep, etc.) |
-| `wick-linalg` | Linear algebra (Vec2-4, Mat2-4, dot, cross, normalize) |
-| `wick-complex` | Complex numbers (exp, log, polar, conjugate) |
-| `wick-quaternion` | Quaternions (slerp, axis-angle, rotate) |
-| `wick-cond` | Conditional backend helpers |
-| `wick-all` | Unified value type for domain composition |
+| `dew-core` | Core AST and parsing |
+| `dew-scalar` | Scalar math (sin, cos, lerp, smoothstep, etc.) |
+| `dew-linalg` | Linear algebra (Vec2-4, Mat2-4, dot, cross, normalize) |
+| `dew-complex` | Complex numbers (exp, log, polar, conjugate) |
+| `dew-quaternion` | Quaternions (slerp, axis-angle, rotate) |
+| `dew-cond` | Conditional backend helpers |
+| `dew` | Unified value type for domain composition |
 
 ## Backends
 
@@ -45,9 +45,9 @@ Wick is a domain-specific expression language designed for procedural generation
 
 ## Related projects
 
-- [Unshape](/projects/unshape) - Procedural media generation using Wick expressions
+- [Unshape](/projects/unshape) - Procedural media generation using Dew expressions
 
 ## Links
 
-- [GitHub](https://github.com/rhi-zone/wick)
-- [Documentation](https://rhi.zone/wick/)
+- [GitHub](https://github.com/rhi-zone/dew)
+- [Documentation](https://rhi.zone/dew/)

@@ -115,7 +115,7 @@ Typed side:
   author this shape or must I absorb a foreign one?"**, not "data layer vs API
   layer." 0192 actually belongs to P2, and its appearance under X3 as the "typed
   API layer" exemplar is a miscategorization.
-- **0284 (wick homogeneous expressions) — WEAK, as the review flagged. Confirmed.**
+- **0284 (dew homogeneous expressions) — WEAK, as the review flagged. Confirmed.**
   0284 is about *intra-expression numeric-type homogeneity* (no mixing f32/f64 in
   one expression; convert at boundaries). That is a **uniformity/coercion** decision,
   not an open-vs-typed decision. It has essentially nothing to say about whether a

@@ -5,7 +5,7 @@
 
 **Context.** When naming Rust crates across many ecosystem projects, a convention was needed: namespace them under a common prefix (e.g. `rhi-`) or use bare names. crates.io is a flat global namespace, so prefix-vs-bare affects availability and identity.
 
-**Decision.** Crates use NO prefix; bare names like `normalize-core`, `rescribe`, `wick` are used and reserved on crates.io, and binary names match project names.
+**Decision.** Crates use NO prefix; bare names like `normalize-core`, `rescribe`, `dew` are used and reserved on crates.io, and binary names match project names.
 
 **Alternatives rejected.**
 - *Namespace crates under an ecosystem prefix (e.g. `rhi-normalize`)* — Bare names are available on crates.io and the projects are positioned as independent tools (not a coupled suite), so a shared prefix is neither needed nor desired.

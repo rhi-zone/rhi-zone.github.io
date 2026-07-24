@@ -1,6 +1,6 @@
 # Testing Philosophy
 
-A reference for what kinds of tests to write and why. Derived from patterns across the rhi ecosystem — ooxml, wick, rescribe, normalize, crescent.
+A reference for what kinds of tests to write and why. Derived from patterns across the rhi ecosystem — ooxml, dew, rescribe, normalize, crescent.
 
 ## What makes a bad test
 
@@ -37,7 +37,7 @@ Strongest because they don't require a reference implementation. If eval and Cra
 If multiple independent implementations (different backends, different code paths, different languages) all agree, they're very likely correct. The test doesn't need to know the right answer.
 
 ```rust
-// wick: eval, Lua, Cranelift must agree
+// dew: eval, Lua, Cranelift must agree
 let eval_result = eval_backend.run(&expr);
 let lua_result = lua_backend.run(&expr);
 let jit_result = cranelift_backend.run(&expr);
@@ -85,7 +85,7 @@ fuzz!(|data: &[u8]| {
 For richer fuzz targets, generate *semantically valid* inputs and assert stronger invariants:
 
 ```rust
-// wick: type-aware fuzzer generates well-typed expressions
+// dew: type-aware fuzzer generates well-typed expressions
 // then asserts parity, not just "no panic"
 fuzz!(|expr: WellTypedExpr| {
     assert_close(eval(&expr), lua_eval(&expr));
@@ -123,7 +123,7 @@ Document edge cases as named fixtures or corpus entries, not inline magic values
 
 Natural fits:
 - ooxml/rescribe: "for any valid XML conforming to the schema, roundtrip preserves semantic content"
-- wick: "for any well-typed expression, all backends agree" (currently fuzz-only, no shrinking)
+- dew: "for any well-typed expression, all backends agree" (currently fuzz-only, no shrinking)
 - crescent: "for any type that satisfies an interface, tier-downgrade produces identical output"
 - normalize: "for any source file, index rebuild is idempotent"
 

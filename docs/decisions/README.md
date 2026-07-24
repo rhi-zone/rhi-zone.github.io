@@ -454,7 +454,7 @@ ADRs below, not itself an ADR.
 - ADR-0276 — Op serialization via type_name + erased_serde, resolved through a registry
 - ADR-0277 — Unshape is a library defining the plugin contract; the host handles loading
 
-#### wick
+#### dew
 
 - ADR-0278 — C backend emits expression logic only; user supplies type system and ops
 - ADR-0279 — Domain value types are arrays, not named-field structs

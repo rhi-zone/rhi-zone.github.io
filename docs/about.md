@@ -28,7 +28,7 @@ Most tools pick one variant and ignore the rest, or build specialized solutions 
 | **Package ecosystems** | apt, brew, npm, crates.io, pip (different APIs) | **normalize**: Unified `Ecosystem` and `PackageIndex` traits |
 | **Development tools** | Different linters, formatters, type checkers | **normalize**: Unified tool interface with SARIF/JSON output |
 | **Media generation** | Separate APIs for textures, audio, meshes | **unshape**: `Field<I, O>` trait for any continuous domain |
-| **Expression languages** | WGSL, Cranelift, Lua, shader languages | **wick**: Single AST compiles to all backends |
+| **Expression languages** | WGSL, Cranelift, Lua, shader languages | **dew**: Single AST compiles to all backends |
 | **API specifications** | OpenAPI, gRPC, headers, Thrift | **concord**: One IR, generate bindings for all |
 | **Unknown binary formats** | Each format requires bespoke RE expertise | **tiltshift**: Iterative structure extraction from opaque binary data |
 | **Format conversion** | Hunt for exotic tools per format pair | **paraphase**: Type-driven route planning |
@@ -111,7 +111,7 @@ Our projects are designed the same way: independent tools that compose well toge
 | Project | Key Idea |
 |---------|----------|
 | [unshape](/projects/unshape) | Composable procedural primitives for meshes, audio, textures |
-| [wick](/projects/wick) | Minimal expression language (WGSL, Cranelift, Lua) |
+| [dew](/projects/dew) | Minimal expression language (WGSL, Cranelift, Lua) |
 
 ### Games & worlds
 
@@ -156,7 +156,7 @@ Our projects are designed the same way: independent tools that compose well toge
 The projects are independent tools that can compose when useful:
 
 **Actual integrations:**
-- **unshape** uses **wick** for procedural expressions (library dependency)
+- **unshape** uses **dew** for procedural expressions (library dependency)
 - **moonlet** has plugins for **normalize** (runtime bindings)
 - **moonlet** uses **portals** capability interfaces (shared trait definitions)
 

@@ -8,6 +8,6 @@
 **Decision.** Quaternions use [x, y, z, w] (scalar last), following the GLM/glTF convention.
 
 **Alternatives rejected.**
-- *[w, x, y, z] scalar-first (math-text convention)* — Lost to interoperability with graphics tooling: GLM and glTF use scalar-last [x,y,z,w], and wick's backends target graphics/GPU ecosystems (WGSL, glam, CUDA float4), so matching that convention avoids reordering at the boundary.
+- *[w, x, y, z] scalar-first (math-text convention)* — Lost to interoperability with graphics tooling: GLM and glTF use scalar-last [x,y,z,w], and dew's backends target graphics/GPU ecosystems (WGSL, glam, CUDA float4), so matching that convention avoids reordering at the boundary.
 
 **Consequences.** All quaternion value layouts, backend emission (vec4/float4), and the C quat_t struct ({x,y,z,w}) honor scalar-last. conj is (w,-x,-y,-z) over this layout. Cross-backend parity tests must assume this order. Mined from: /home/me/git/rhizone/wick/docs/domain-crates-design.md (244), /home/me/git/rhizone/wick/docs/domain-crates-design.md (90).

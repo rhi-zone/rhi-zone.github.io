@@ -26,7 +26,7 @@ declare -A REPOS=(
   [motif]="$HOME/git/rhizone/motif"
   # Generation
   [unshape]="$HOME/git/rhizone/unshape"
-  [wick]="$HOME/git/rhizone/wick"
+  [dew]="$HOME/git/rhizone/dew"
   # Games & Worlds
   [playmate]="$HOME/git/rhizone/playmate"
   [interconnect]="$HOME/git/rhizone/interconnect"

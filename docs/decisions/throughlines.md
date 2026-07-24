@@ -390,7 +390,7 @@ rescribe (ADR-0238), concord (ADR-0090/0093), hologram (ADR-0124), and the corpu
 compile-time exhaustiveness — pushing correctness onto convention, fidelity tracking,
 and runtime validation. This sits in tension with the ecosystem's strong typed-surface
 discipline (normalize's typed Reports, ADR-0192; unshape's fixed-enum `Value` chosen
-over `dyn Trait`, ADR-0272; wick's type-homogeneous expressions, ADR-0284). The line the
+over `dyn Trait`, ADR-0272; dew's type-homogeneous expressions, ADR-0284). The line the
 corpus actually draws: **openness at the data/IR layer that must absorb unknown
 constructs, strong typing at the API/value layer that executes.** Coherent, but it means
 "prefer the type system" and "prefer the open bag" are both true depending on which seam
