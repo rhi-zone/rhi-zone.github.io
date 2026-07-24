@@ -437,6 +437,11 @@ export default withMermaid(
       search: {
         provider: 'local'
       },
+
+      editLink: {
+        pattern: 'https://github.com/rhi-zone/github-io/edit/master/docs/:path',
+        text: 'Edit this page on GitHub'
+      },
     },
 
     vite: {
