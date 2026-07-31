@@ -43,17 +43,32 @@
 #     --check    Dry run. Report drift (stale / missing / conflict) per repo,
 #                write nothing, and exit non-zero if any drift exists.
 #     --no-push  Commit but do not push.
+#     --retire <old-name>  On a persona rename, also remove
+#                .claude/agents/<old-name>.md from every receiver that still
+#                has it (in the same commit as the new persona's install).
+#                Same conflict discipline applies: uncommitted owner edits to
+#                the retiring file are preserved as <old-name>.md.local-edit
+#                first. Repeatable, for retiring more than one old name at
+#                once.
 
 set -euo pipefail
 
 HUB="$(cd "$(dirname "$0")/.." && pwd)"           # github-io repo root (canonical source)
 
 AGENT_NAME=""
+RETIRE_NAMES=()
 CHECK=0; PUSH=1
+prev_arg=""
 for arg in "$@"; do
+  if [ "$prev_arg" = "--retire" ]; then
+    RETIRE_NAMES+=("$arg")
+    prev_arg=""
+    continue
+  fi
   case "$arg" in
     --check)   CHECK=1 ;;
     --no-push) PUSH=0 ;;
+    --retire)  prev_arg="--retire" ;;
     -*) echo "unknown flag: $arg" >&2; exit 2 ;;
     *)
       if [ -n "$AGENT_NAME" ]; then
@@ -64,6 +79,7 @@ for arg in "$@"; do
       ;;
   esac
 done
+[ "$prev_arg" = "--retire" ] && { echo "error: --retire requires an old-name argument" >&2; exit 2; }
 [ -n "$AGENT_NAME" ] || { echo "error: <agent-name> is required, e.g. \`sync-agent-persona.sh general-purpose\`" >&2; exit 2; }
 
 SRC_FILE="$HUB/.claude/agents/$AGENT_NAME.md"
@@ -100,18 +116,46 @@ mapfile -t REPOS < <(discover)
 echo "recipient-list source: grep '<!-- BEGIN ECOSYSTEM RULES -->' over ~/git CLAUDE.md (excl. worktrees, canonical github-io)"
 echo "recipients discovered: ${#REPOS[@]}"
 
-# CONFLICT EDGE: if $repo_path/$rel is tracked and carries uncommitted owner
-# edits, snapshot its current on-disk bytes to "$rel.local-edit" (an existing
-# snapshot is overwritten only if byte-different; else left alone) BEFORE
-# canon overwrites it. No-op if the file doesn't exist or isn't dirty. Always
-# reports; only writes the snapshot in apply mode.
-conflict_snapshot() {
+# FOREIGN-FILE CHECK (agent persona file only): a tracked file can be clean
+# (fully committed) and STILL be a pre-existing owner artifact this sync
+# script has never installed — e.g. a repo that authored its own
+# .claude/agents/<name>.md before this script ever ran under that name (or
+# before this persona name existed at all). "Clean" only proves there's no
+# uncommitted diff right now; it says nothing about provenance. Detect this
+# by checking whether the file's most recent touching commit matches ANY
+# past run of this script's housekeeping pattern (any persona name) — if
+# not, the file was owner-authored, not canon-installed, even though it's
+# currently clean.
+is_foreign_committed_file() {
   repo_path="$1" rel="$2"
+  git -C "$repo_path" ls-files --error-unmatch "$rel" >/dev/null 2>&1 || return 1
+  last_msg="$(git -C "$repo_path" log -1 --format=%s -- "$rel" 2>/dev/null || true)"
+  [ -n "$last_msg" ] || return 1
+  printf '%s' "$last_msg" | grep -Eq '^chore\(agent\): sync .+ persona from github-io$' && return 1
+  return 0
+}
+
+# CONFLICT EDGE: if $repo_path/$rel is about to be overwritten and either (a)
+# carries uncommitted owner edits, or (b) — agent-file callers only, via
+# check_foreign=1 — is a clean but foreign (never canon-installed) file,
+# snapshot its current on-disk bytes to "$rel.local-edit" (an existing
+# snapshot is overwritten only if byte-different; else left alone) BEFORE
+# canon overwrites it. No-op if the file doesn't exist or neither condition
+# holds. Always reports; only writes the snapshot in apply mode.
+conflict_snapshot() {
+  repo_path="$1" rel="$2" check_foreign="${3:-0}"
   dst="$repo_path/$rel"
   [ -f "$dst" ] || return 0
-  [ -n "$(git -C "$repo_path" status --porcelain -- "$rel" 2>/dev/null)" ] || return 0
+  reason=""
+  if [ -n "$(git -C "$repo_path" status --porcelain -- "$rel" 2>/dev/null)" ]; then
+    reason="uncommitted owner edits"
+  elif [ "$check_foreign" -eq 1 ] && is_foreign_committed_file "$repo_path" "$rel"; then
+    reason="a pre-existing owner-authored file this script has never installed"
+  else
+    return 0
+  fi
   if [ "$CHECK" -eq 1 ]; then
-    echo "  CONFLICT: $rel has uncommitted owner edits (would preserve as $rel.local-edit)"
+    echo "  CONFLICT: $rel has $reason (would preserve as $rel.local-edit)"
     return 0
   fi
   edit="$dst.local-edit"
@@ -120,7 +164,7 @@ conflict_snapshot() {
   else
     cp -p "$dst" "$edit"
   fi
-  echo "  CONFLICT: $rel has uncommitted owner edits — preserved as $rel.local-edit (canon installed)"
+  echo "  CONFLICT: $rel has $reason — preserved as $rel.local-edit (canon installed)"
 }
 
 # PUSH SAFETY: every unpushed commit ahead of the upstream must match this
@@ -176,7 +220,7 @@ for repo_path in "${REPOS[@]}"; do
   elif ! diff -q "$SRC_FILE" "$dst_agent" >/dev/null 2>&1; then
     echo "  STALE:   $REL_AGENT"
     drift_total=$((drift_total + 1)); repo_changed=1
-    conflict_snapshot "$repo_path" "$REL_AGENT"
+    conflict_snapshot "$repo_path" "$REL_AGENT" 1
     [ "$CHECK" -eq 1 ] || cp "$SRC_FILE" "$dst_agent"
   fi
 
@@ -204,6 +248,24 @@ for repo_path in "${REPOS[@]}"; do
     fi
   fi
 
+  # ── retiring old persona name(s), e.g. peer.md superseded by this rename ─
+  retire_rels=()
+  for old_name in "${RETIRE_NAMES[@]}"; do
+    rel_retire="/.claude/agents/$old_name.md"
+    rel_retire="${rel_retire#/}"
+    dst_retire="$repo_path/$rel_retire"
+    [ -f "$dst_retire" ] || continue
+    echo "  RETIRE:  $rel_retire (superseded by $REL_AGENT)"
+    drift_total=$((drift_total + 1)); repo_changed=1
+    if [ "$CHECK" -eq 1 ]; then
+      conflict_snapshot "$repo_path" "$rel_retire"
+    else
+      conflict_snapshot "$repo_path" "$rel_retire"
+      rm -f "$dst_retire"
+      retire_rels+=("$rel_retire")
+    fi
+  done
+
   if [ "$CHECK" -eq 1 ]; then
     if [ "$repo_changed" -eq 0 ]; then
       echo "  already current"
@@ -218,14 +280,15 @@ for repo_path in "${REPOS[@]}"; do
   fi
 
   # Commit. Staged paths are agent-persona-only (.claude/agents/<name>.md,
-  # .claude/settings.json) — a dirty tree elsewhere is left completely
-  # untouched, whether or not this repo was clean going in (converge-always:
-  # no dirty-tree skip).
+  # .claude/settings.json, and any retired .claude/agents/<old-name>.md) — a
+  # dirty tree elsewhere is left completely untouched, whether or not this
+  # repo was clean going in (converge-always: no dirty-tree skip).
   rc=0
   (
     cd "$repo_path"
-    for p in "$REL_AGENT" .claude/settings.json; do
-      [ -e "$p" ] && git add "$p" >/dev/null 2>&1 || true
+    staged_paths=("$REL_AGENT" .claude/settings.json "${retire_rels[@]}")
+    for p in "${staged_paths[@]}"; do
+      git add -A -- "$p" >/dev/null 2>&1 || true
     done
     if git diff --cached --quiet; then
       echo "  nothing staged"
@@ -238,7 +301,7 @@ for repo_path in "${REPOS[@]}"; do
         exit 5
       fi
       if [ "$PUSH" -eq 1 ]; then
-        if [ -n "$(git status --porcelain -- "$REL_AGENT" .claude/settings.json)" ]; then
+        if [ -n "$(git status --porcelain -- "${staged_paths[@]}")" ]; then
           echo "    not pushed: agent-persona paths not clean after commit"
         elif [ -z "$(git remote)" ]; then
           echo "    not pushed: no remote configured (committed locally)"
