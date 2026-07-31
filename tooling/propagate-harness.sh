@@ -23,6 +23,7 @@
 #   PreToolUse ("Bash")     block-blocking-bash.sh
 #   PreToolUse ("")         block-mainsession-exploration.sh
 #       deps: lib/extract-command.awk, lib/extract-field.awk, lib/tokenize-bash.awk
+#   PreToolUse ("Agent")    require-explicit-agent-type.sh
 #
 # --check  Dry run: report what would change, write nothing, exit 1 if drift.
 #
@@ -43,6 +44,7 @@ block-mainsession-exploration.sh
 post-history.sh
 subagent-decomposition-check.sh
 plan-envelope-antibody.sh
+require-explicit-agent-type.sh
 orchestrator-rules.md
 orchestrator-workflows.md
 verify-hooks.sh
@@ -54,6 +56,7 @@ lib/smoke/inject-orchestrator-rules.payload
 lib/smoke/block-blocking-bash.payload
 lib/smoke/block-mainsession-exploration.payload
 lib/smoke/post-history.payload
+lib/smoke/require-explicit-agent-type.payload
 "
 
 # Subset that needs the executable bit.
@@ -64,6 +67,7 @@ block-mainsession-exploration.sh
 post-history.sh
 subagent-decomposition-check.sh
 plan-envelope-antibody.sh
+require-explicit-agent-type.sh
 verify-hooks.sh
 lib/agent-id.sh
 "
@@ -225,6 +229,7 @@ BLOCKBASH_CMD='${CLAUDE_PROJECT_DIR}/tooling/claude-hooks/block-blocking-bash.sh
 EXPLORE_CMD='${CLAUDE_PROJECT_DIR}/tooling/claude-hooks/block-mainsession-exploration.sh'
 SUBAGENT_DECOMP_CMD='${CLAUDE_PROJECT_DIR}/tooling/claude-hooks/subagent-decomposition-check.sh'
 PLAN_ENVELOPE_CMD='${CLAUDE_PROJECT_DIR}/tooling/claude-hooks/plan-envelope-antibody.sh'
+REQUIRE_AGENT_TYPE_CMD='${CLAUDE_PROJECT_DIR}/tooling/claude-hooks/require-explicit-agent-type.sh'
 
 if [ -f "$TARGET_SETTINGS" ]; then
     CURRENT="$(cat "$TARGET_SETTINGS")"
@@ -237,14 +242,16 @@ fi
 #   - Re-append canonical entries with ${CLAUDE_PROJECT_DIR} paths.
 # Order: inject-orchestrator-rules, post-history, plan-envelope-antibody under UserPromptSubmit;
 #        subagent-decomposition-check under SubagentStart;
-#        block-blocking-bash (Bash matcher), block-mainsession-exploration under PreToolUse.
+#        block-blocking-bash (Bash matcher), block-mainsession-exploration ("" matcher),
+#        require-explicit-agent-type (Agent matcher) under PreToolUse.
 DESIRED="$(printf '%s' "$CURRENT" | jq \
     --arg inject  "$INJECT_CMD" \
     --arg history "$HISTORY_CMD" \
     --arg blockbash "$BLOCKBASH_CMD" \
     --arg explore "$EXPLORE_CMD" \
     --arg subagent_decomp "$SUBAGENT_DECOMP_CMD" \
-    --arg plan_envelope "$PLAN_ENVELOPE_CMD" '
+    --arg plan_envelope "$PLAN_ENVELOPE_CMD" \
+    --arg require_agent_type "$REQUIRE_AGENT_TYPE_CMD" '
     def strip($pat):
         map(select((.hooks // [] | map(.command | test($pat)) | any) | not));
 
@@ -270,8 +277,10 @@ DESIRED="$(printf '%s' "$CURRENT" | jq \
     .hooks.PreToolUse |= (
         strip("block-blocking-bash\\.sh$")
         | strip("block-mainsession-exploration\\.sh$")
+        | strip("require-explicit-agent-type\\.sh$")
         + [ { "matcher": "Bash", "hooks": [ { "type": "command", "command": $blockbash } ] } ]
         + [ { "matcher": "",     "hooks": [ { "type": "command", "command": $explore  } ] } ]
+        + [ { "matcher": "Agent", "hooks": [ { "type": "command", "command": $require_agent_type } ] } ]
     )
 ')"
 
@@ -288,6 +297,7 @@ if [ "$NORM_CURRENT" != "$NORM_DESIRED" ]; then
         printf '          SubagentStart[""] += subagent-decomposition-check.sh (%s)\n' "$SUBAGENT_DECOMP_CMD"
         printf '          PreToolUse[Bash]  += block-blocking-bash.sh      (%s)\n' "$BLOCKBASH_CMD"
         printf '          PreToolUse[""]    += block-mainsession-exploration.sh (%s)\n' "$EXPLORE_CMD"
+        printf '          PreToolUse[Agent] += require-explicit-agent-type.sh (%s)\n' "$REQUIRE_AGENT_TYPE_CMD"
         printf '        resulting settings.json:\n'
         printf '%s\n' "$DESIRED" | jq .
     else
