@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 # sync-agent-persona.sh — distribute github-io's committed agent persona
-# (.claude/agents/peer.md + the top-level "agent" settings.json key) to every
-# ecosystem recipient repo. Mirrors sync-skills.sh's discipline; see that file
-# for the fuller rationale behind each rule reproduced below.
+# (.claude/agents/<name>.md + the top-level "agent" settings.json key) to
+# every ecosystem recipient repo, for whichever persona name is passed as the
+# argument. Mirrors sync-skills.sh's discipline; see that file for the fuller
+# rationale behind each rule reproduced below.
 #
 # CONTRACT:
 #   - Source = github-io's committed .claude/agents/<name>.md (git-tracked
@@ -32,7 +33,13 @@
 #   - Pure POSIX cp/diff + jq for the settings.json mutation. No rsync.
 #
 # Usage:
-#   sync-agent-persona.sh [--check] [--no-push]
+#   sync-agent-persona.sh <agent-name> [--check] [--no-push]
+#     <agent-name>  Required. Name of the persona to sync — must match a
+#                   git-tracked .claude/agents/<agent-name>.md in github-io.
+#                   (e.g. "general-purpose"). Also used to derive this
+#                   script's own housekeeping commit-message pattern, so a
+#                   persona rename is a pure argument change, never an edit
+#                   to this file.
 #     --check    Dry run. Report drift (stale / missing / conflict) per repo,
 #                write nothing, and exit non-zero if any drift exists.
 #     --no-push  Commit but do not push.
@@ -40,10 +47,28 @@
 set -euo pipefail
 
 HUB="$(cd "$(dirname "$0")/.." && pwd)"           # github-io repo root (canonical source)
-AGENT_NAME="peer"
+
+AGENT_NAME=""
+CHECK=0; PUSH=1
+for arg in "$@"; do
+  case "$arg" in
+    --check)   CHECK=1 ;;
+    --no-push) PUSH=0 ;;
+    -*) echo "unknown flag: $arg" >&2; exit 2 ;;
+    *)
+      if [ -n "$AGENT_NAME" ]; then
+        echo "error: agent name given more than once (\"$AGENT_NAME\" then \"$arg\")" >&2
+        exit 2
+      fi
+      AGENT_NAME="$arg"
+      ;;
+  esac
+done
+[ -n "$AGENT_NAME" ] || { echo "error: <agent-name> is required, e.g. \`sync-agent-persona.sh general-purpose\`" >&2; exit 2; }
+
 SRC_FILE="$HUB/.claude/agents/$AGENT_NAME.md"
 REL_AGENT="/.claude/agents/$AGENT_NAME.md"
-REL_AGENT="${REL_AGENT#/}"                        # .claude/agents/peer.md
+REL_AGENT="${REL_AGENT#/}"                        # .claude/agents/<name>.md
 # Scan root for recipient discovery. Defaults to ~/git; overridable via
 # AGENT_SYNC_GIT_ROOT for testing against throwaway fixtures.
 GIT_ROOT="$(cd "${AGENT_SYNC_GIT_ROOT:-$HUB/../..}" && pwd)"
@@ -53,15 +78,6 @@ if ! command -v jq >/dev/null 2>&1; then
   echo "error: jq is required (not on PATH)" >&2
   exit 2
 fi
-
-CHECK=0; PUSH=1
-for arg in "$@"; do
-  case "$arg" in
-    --check)   CHECK=1 ;;
-    --no-push) PUSH=0 ;;
-    *) echo "unknown flag: $arg" >&2; exit 2 ;;
-  esac
-done
 
 [ -f "$SRC_FILE" ] || { echo "error: source $SRC_FILE not found" >&2; exit 2; }
 git -C "$HUB" ls-files --error-unmatch "$REL_AGENT" >/dev/null 2>&1 \
