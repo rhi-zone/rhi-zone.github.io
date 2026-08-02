@@ -18,6 +18,8 @@
 # Hook set managed:
 #   UserPromptSubmit ("")   inject-orchestrator-rules.sh
 #       deps: lib/agent-id.sh, orchestrator-rules.md, orchestrator-workflows.md
+#   UserPromptSubmit ("")   inject-style-rules.sh
+#       deps: style-rules.md
 #   UserPromptSubmit ("")   post-history.sh
 #       (self-contained; was historically wired with an absolute path — fixed here)
 #   PreToolUse ("Bash")     block-blocking-bash.sh
@@ -39,6 +41,7 @@ CANONICAL_HOOKS="$SCRIPT_DIR/claude-hooks"
 # All hook files to copy (relative to claude-hooks/).
 HOOK_FILES="
 inject-orchestrator-rules.sh
+inject-style-rules.sh
 block-blocking-bash.sh
 block-mainsession-exploration.sh
 post-history.sh
@@ -47,12 +50,14 @@ plan-envelope-antibody.sh
 require-explicit-agent-type.sh
 orchestrator-rules.md
 orchestrator-workflows.md
+style-rules.md
 verify-hooks.sh
 lib/agent-id.sh
 lib/extract-command.awk
 lib/extract-field.awk
 lib/tokenize-bash.awk
 lib/smoke/inject-orchestrator-rules.payload
+lib/smoke/inject-style-rules.payload
 lib/smoke/block-blocking-bash.payload
 lib/smoke/block-mainsession-exploration.payload
 lib/smoke/post-history.payload
@@ -62,6 +67,7 @@ lib/smoke/require-explicit-agent-type.payload
 # Subset that needs the executable bit.
 EXEC_FILES="
 inject-orchestrator-rules.sh
+inject-style-rules.sh
 block-blocking-bash.sh
 block-mainsession-exploration.sh
 post-history.sh
@@ -224,6 +230,7 @@ fi
 # ── Step 3: settings.json wiring ─────────────────────────────────────────────
 # All hook commands use portable ${CLAUDE_PROJECT_DIR} paths.
 INJECT_CMD='${CLAUDE_PROJECT_DIR}/tooling/claude-hooks/inject-orchestrator-rules.sh'
+STYLE_CMD='${CLAUDE_PROJECT_DIR}/tooling/claude-hooks/inject-style-rules.sh'
 HISTORY_CMD='${CLAUDE_PROJECT_DIR}/tooling/claude-hooks/post-history.sh'
 BLOCKBASH_CMD='${CLAUDE_PROJECT_DIR}/tooling/claude-hooks/block-blocking-bash.sh'
 EXPLORE_CMD='${CLAUDE_PROJECT_DIR}/tooling/claude-hooks/block-mainsession-exploration.sh'
@@ -246,6 +253,7 @@ fi
 #        require-explicit-agent-type (Agent matcher) under PreToolUse.
 DESIRED="$(printf '%s' "$CURRENT" | jq \
     --arg inject  "$INJECT_CMD" \
+    --arg style   "$STYLE_CMD" \
     --arg history "$HISTORY_CMD" \
     --arg blockbash "$BLOCKBASH_CMD" \
     --arg explore "$EXPLORE_CMD" \
@@ -262,9 +270,11 @@ DESIRED="$(printf '%s' "$CURRENT" | jq \
 
     .hooks.UserPromptSubmit |= (
         strip("inject-orchestrator-rules\\.sh$")
+        | strip("inject-style-rules\\.sh$")
         | strip("post-history\\.sh$")
         | strip("plan-envelope-antibody\\.sh$")
         + [ { "matcher": "", "hooks": [ { "type": "command", "command": $inject  } ] } ]
+        + [ { "matcher": "", "hooks": [ { "type": "command", "command": $style   } ] } ]
         + [ { "matcher": "", "hooks": [ { "type": "command", "command": $history } ] } ]
         + [ { "matcher": "", "hooks": [ { "type": "command", "command": $plan_envelope } ] } ]
     ) |
@@ -292,6 +302,7 @@ if [ "$NORM_CURRENT" != "$NORM_DESIRED" ]; then
     if [ "$CHECK" -eq 1 ]; then
         printf '[check] would WIRE settings: %s\n' "$TARGET_SETTINGS"
         printf '          UserPromptSubmit += inject-orchestrator-rules.sh (%s)\n' "$INJECT_CMD"
+        printf '          UserPromptSubmit += inject-style-rules.sh        (%s)\n' "$STYLE_CMD"
         printf '          UserPromptSubmit += post-history.sh              (%s)\n' "$HISTORY_CMD"
         printf '          UserPromptSubmit += plan-envelope-antibody.sh    (%s)\n' "$PLAN_ENVELOPE_CMD"
         printf '          SubagentStart[""] += subagent-decomposition-check.sh (%s)\n' "$SUBAGENT_DECOMP_CMD"
