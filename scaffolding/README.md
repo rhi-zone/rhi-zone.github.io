@@ -6,7 +6,7 @@ Standard files for new Rust monorepos in the rhi ecosystem.
 
 | File | Purpose |
 |------|---------|
-| `.cargo/config.toml` | Target bloat reduction, mold linker hint |
+| `.cargo/config.toml` | Target bloat reduction, mold linker hint, shared `target-dir` across worktrees |
 | `.envrc` | direnv + nix-direnv integration |
 | `.gitignore` | Standard ignores for Rust + Nix + Node |
 | `.githooks/pre-commit` | fmt → clippy (fast checks first) |
@@ -15,6 +15,20 @@ Standard files for new Rust monorepos in the rhi ecosystem.
 | `flake.nix` | Nix dev shell with Rust + mold + bun |
 | `docs/package.json` | VitePress with mermaid plugin |
 | `README.md` | Project README template |
+
+### Shared target-dir across worktrees
+
+`.cargo/config.toml` sets `[build] target-dir = "target"`, which Cargo resolves relative
+to the main checkout root (the parent of the `.cargo` directory holding the file). Agent
+worktrees live nested inside the main checkout at `.claude/worktrees/<id>/`, so Cargo's
+ancestor-directory config search finds the main checkout's `.cargo/config.toml` from any
+worktree too — every worktree of a repo builds into the same `target/` in the main
+checkout instead of each accumulating its own multi-GB copy. This is per-repo sharing
+(worktrees of the *same* repo share one `target/`), not cross-repo. Cargo's build-directory
+locking makes concurrent builds against the shared dir safe — they serialize rather than
+corrupt, just with reduced parallelism across concurrent agents/worktrees. See the comment
+in `.cargo/config.toml` for the mechanism; `CARGO_TARGET_DIR` overrides it per-shell if
+ever needed.
 
 ## Placeholders
 
