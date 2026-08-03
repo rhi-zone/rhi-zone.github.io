@@ -86,6 +86,36 @@ push_is_safe() {
   [ -z "$bad" ]
 }
 
+# BUG FIX (see commit message): "content already matches canon, nothing to
+# install this run" must NOT short-circuit the push check. A repo can be
+# content-current AND sitting on unpushed commits (from a prior run that
+# committed but withheld/skipped the push, or from owner work later judged
+# safe). Every such repo gets a push attempt here, still behind the same
+# push_is_safe gate. Call only when apply mode + PUSH=1; the caller decides
+# what to do with "nothing was ahead" (3) vs actual push outcomes.
+# Returns: 3 = nothing ahead / no upstream / push disabled (no-op, not an
+# error); 0 = pushed; 7 = withheld (unsafe commits) or no remote configured;
+# 6 = push command itself failed (unreachable/rejected remote).
+push_pending_if_ahead() {
+  local repo_path="$1"
+  [ "$PUSH" -eq 1 ] || return 3
+  git -C "$repo_path" rev-parse --abbrev-ref --symbolic-full-name '@{u}' >/dev/null 2>&1 || return 3
+  [ -n "$(git -C "$repo_path" log '@{u}..HEAD' --format=%H 2>/dev/null)" ] || return 3
+  if [ -z "$(git -C "$repo_path" remote)" ]; then
+    echo "    not pushed: no remote configured (pre-existing unpushed commit(s) present)"
+    return 7
+  fi
+  if ! push_is_safe "$repo_path"; then
+    echo "    PUSH WITHHELD: pre-existing unpushed commit(s) ahead of upstream aren't recognized housekeeping — not pushed:"
+    git -C "$repo_path" log --format='      - %s' '@{u}..HEAD' 2>/dev/null
+    return 7
+  fi
+  local push_out push_rc=0
+  push_out="$(git -C "$repo_path" push 2>&1)" || push_rc=$?
+  printf '%s\n' "$push_out" | tail -1 | sed 's/^/    /'
+  [ "$push_rc" -eq 0 ] && return 0 || return 6
+}
+
 # CONFLICT EDGE: if $repo_path/$rel is tracked and carries uncommitted owner
 # edits, snapshot its current bytes to "$rel.local-edit" (overwritten only if
 # byte-different from an existing snapshot; else left alone) before canon
@@ -229,7 +259,16 @@ process_one_repo() {
 
       if [ "${#harness_changed[@]}" -eq 0 ]; then
         echo "    nothing to install — already current (no commit)"
-        exit 3   # signal: no commit made
+        # BUG FIX: content-current must not short-circuit the push check —
+        # this repo may still be sitting on pre-existing unpushed commits.
+        prc=0
+        push_pending_if_ahead "$repo_path" || prc=$?
+        case "$prc" in
+          3) exit 3 ;;   # truly nothing to do
+          0) exit 8 ;;   # pushed pre-existing commit(s), no new harness commit
+          7) exit 9 ;;   # push withheld/no-remote for pre-existing commit(s)
+          *) exit 10 ;;  # push of pre-existing commit(s) failed
+        esac
       fi
 
       git add -- "${harness_changed[@]}"
@@ -266,6 +305,9 @@ process_one_repo() {
       3) SKIPPED+=("$repo: dirty, already current (nothing to install)") ;;
       5) FAILED+=("$repo: harness-only commit failed") ;;
       6) FAILED+=("$repo: git push failed (unreachable/rejected remote)") ;;
+      8) SKIPPED+=("$repo: dirty, already current, pushed pre-existing unpushed commit(s)") ;;
+      9) SKIPPED+=("$repo: dirty, already current, push withheld/no-remote for pre-existing unpushed commit(s) (see run output)") ;;
+      10) FAILED+=("$repo: dirty, already current, but push of pre-existing unpushed commit(s) failed") ;;
       *) FAILED+=("$repo: dirty-tree install failed (exit $rc)") ;;
     esac
     return 0
@@ -291,7 +333,16 @@ process_one_repo() {
   fi
   if [ -z "$(git -C "$repo_path" status --porcelain)" ]; then
     echo "  already current — no changes"
-    SKIPPED+=("$repo: already current")
+    # BUG FIX: content-current must not short-circuit the push check — this
+    # repo may still be sitting on pre-existing unpushed commits.
+    local prc=0
+    push_pending_if_ahead "$repo_path" || prc=$?
+    case "$prc" in
+      3) SKIPPED+=("$repo: already current") ;;
+      0) SKIPPED+=("$repo: already current, pushed pre-existing unpushed commit(s)") ;;
+      7) SKIPPED+=("$repo: already current, push withheld/no-remote for pre-existing unpushed commit(s) (see run output)") ;;
+      *) FAILED+=("$repo: already current, but push of pre-existing unpushed commit(s) failed") ;;
+    esac
     return 0
   fi
 
@@ -302,7 +353,17 @@ process_one_repo() {
     git add CLAUDE.md tooling/claude-hooks .claude/settings.json .gitignore .normalize/ >/dev/null 2>&1 || true
     if git diff --cached --quiet; then
       echo "  nothing staged"
-      exit 3   # signal: nothing to commit
+      # BUG FIX: propagator content already matches canon (nothing to stage)
+      # must not short-circuit the push check — this repo may still be
+      # sitting on pre-existing unpushed commits.
+      prc=0
+      push_pending_if_ahead "$repo_path" || prc=$?
+      case "$prc" in
+        3) exit 3 ;;   # truly nothing to do
+        0) exit 8 ;;   # pushed pre-existing commit(s), no new harness commit
+        7) exit 9 ;;   # push withheld/no-remote for pre-existing commit(s)
+        *) exit 10 ;;  # push of pre-existing commit(s) failed
+      esac
     fi
     direnv exec . git commit -q -m "chore(harness): sync ecosystem CLAUDE.md region + hooks from github-io" \
       || exit 5   # commit failed
@@ -339,6 +400,9 @@ process_one_repo() {
     3) SKIPPED+=("$repo: nothing staged after propagate") ;;
     5) FAILED+=("$repo: commit failed") ;;
     6) FAILED+=("$repo: git push failed (unreachable/rejected remote)") ;;
+    8) SKIPPED+=("$repo: nothing staged after propagate, pushed pre-existing unpushed commit(s)") ;;
+    9) SKIPPED+=("$repo: nothing staged after propagate, push withheld/no-remote for pre-existing unpushed commit(s) (see run output)") ;;
+    10) FAILED+=("$repo: nothing staged after propagate, but push of pre-existing unpushed commit(s) failed") ;;
     *) FAILED+=("$repo: clean-repo processing failed (exit $rc)") ;;
   esac
   return 0
