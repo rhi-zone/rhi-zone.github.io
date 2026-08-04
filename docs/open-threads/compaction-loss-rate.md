@@ -4,7 +4,7 @@
 
 **Status:** Open — measurement-blocked
 
-**Surfaced in:** `docs/introspection/investigations/2026-05-20-whats-wrong/synthesis.md` — "two confirmed cases over 60 days is sparse; users don't always notice when an agreement is lost, so the count is a floor"; instances at `db532ce7` (normalize), `9501a0b0` (crescent)
+**Surfaced in:** `docs/automated-introspection/investigations/2026-05-20-whats-wrong/synthesis.md` — "two confirmed cases over 60 days is sparse; users don't always notice when an agreement is lost, so the count is a floor"; instances at `db532ce7` (normalize), `9501a0b0` (crescent)
 
 ---
 

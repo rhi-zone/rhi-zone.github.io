@@ -26,19 +26,19 @@ Run via a subagent (Sonnet, general-purpose). The main session cannot execute th
    ```
    `/insights` reports are otherwise ephemeral — the source dir only retains the latest timestamped file. `cp -n` (no-clobber) into the sibling `insights-history/` dir builds an append-only archive that the `--update` mirror of `usage-data/` cannot clobber. The `report-*.html` glob intentionally excludes the `report.html` alias (no dash), so only unique timestamped reports are archived.
 
-2. Find missing days: list `docs/introspection/log/daily/` and diff against today.
+2. Find missing days: list `docs/automated-introspection/log/daily/` and diff against today.
 
 3. Spawn haiku agents in parallel, one per missing day:
    ```bash
    CLAUDE_SESSIONS_DIR=/mnt/ssd/ai/claude-sessions/projects ~/git/rhizone/normalize/target/debug/normalize sessions messages --all-projects --role user --since YYYY-MM-DD --until YYYY-MM-DD+1 --limit 0 --show-usage
    ```
-   Each writes to `docs/introspection/log/daily/YYYY-MM-DD.md`. Quiet days: note as such. Include `## Token Usage` with per-session output tokens and cache hit ratios.
+   Each writes to `docs/automated-introspection/log/daily/YYYY-MM-DD.md`. Quiet days: note as such. Include `## Token Usage` with per-session output tokens and cache hit ratios.
 
    If synthesis insights feel thin: re-run agents on existing logs with `--show-usage` output, instructing them to flag token outliers (debugging churn, cold-start cache inefficiency, architectural output spikes). Then re-run opus synthesis.
 
 4. Add new days to sidebar in `docs/.vitepress/config.ts` under Daily Logs.
 
-5. If a week or more of new days: spawn an opus agent to read all daily logs and write/update `docs/introspection/log/synthesis-<start>-<end>.md`. Tell it CLAUDE.md conventions may have evolved over the period.
+5. If a week or more of new days: spawn an opus agent to read all daily logs and write/update `docs/automated-introspection/log/synthesis-<start>-<end>.md`. Tell it CLAUDE.md conventions may have evolved over the period.
 
 6. Commit and push.
 

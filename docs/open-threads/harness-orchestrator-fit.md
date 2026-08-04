@@ -4,7 +4,7 @@
 
 **Status:** Open — explicitly flagged "no agent tested this directly"
 
-**Surfaced in:** session `7b1ce10e` (2026-05-13 → 2026-05-20: "CLEARLY claude code's harness is not designed for sonnet top level agents at all"); also `9e8bf1e4` (reincarnate, 149-subagent session), `033086a7` (reincarnate, 199 subagents); named as untested in `docs/introspection/investigations/2026-05-20-whats-wrong/synthesis.md`
+**Surfaced in:** session `7b1ce10e` (2026-05-13 → 2026-05-20: "CLEARLY claude code's harness is not designed for sonnet top level agents at all"); also `9e8bf1e4` (reincarnate, 149-subagent session), `033086a7` (reincarnate, 199 subagents); named as untested in `docs/automated-introspection/investigations/2026-05-20-whats-wrong/synthesis.md`
 
 ---
 

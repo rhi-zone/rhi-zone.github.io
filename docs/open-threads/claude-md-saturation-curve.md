@@ -4,7 +4,7 @@
 
 **Status:** Open — measurable but unmeasured
 
-**Surfaced in:** `docs/introspection/investigations/2026-05-20-whats-wrong/synthesis.md`, "What we still don't know" — "no measurement of whether commits-per-violation is rising (saturating) or falling (still mining)"
+**Surfaced in:** `docs/automated-introspection/investigations/2026-05-20-whats-wrong/synthesis.md`, "What we still don't know" — "no measurement of whether commits-per-violation is rising (saturating) or falling (still mining)"
 
 ---
 

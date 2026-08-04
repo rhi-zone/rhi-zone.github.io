@@ -138,10 +138,10 @@ report status by volume/activity (LoC, file/commit counts) or hardcoded dates â€
 and measure the codebase, not the project; generate liveness from the repo at build time if
 wanted. (ADR-0288.)
 
-**Activity logs:** `docs/introspection/log/` (weekly, named by end date), `/daily/`
+**Activity logs:** `docs/automated-introspection/log/` (weekly, named by end date), `/daily/`
 (per-day across projects), `/synthesis-*.md` (range patterns). Read the most recent first
 before asking "what should we work on?". Update procedure:
-[docs/introspection/README.md](docs/introspection/README.md).
+[docs/automated-introspection/README.md](docs/automated-introspection/README.md).
 
 <!-- BEGIN ECOSYSTEM RULES -->
 

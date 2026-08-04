@@ -4,7 +4,7 @@
 
 **Status:** Open
 
-**Surfaced in:** `docs/introspection/investigations/2026-05-20-whats-wrong/synthesis.md`, "Hypotheses no one tested but the data implies" (H-DOMAIN-GENERATOR-COMPRESSION); the May 13 "Counterweight: don't fake confidence" rule (`7521987c`) is held up as the working case
+**Surfaced in:** `docs/automated-introspection/investigations/2026-05-20-whats-wrong/synthesis.md`, "Hypotheses no one tested but the data implies" (H-DOMAIN-GENERATOR-COMPRESSION); the May 13 "Counterweight: don't fake confidence" rule (`7521987c`) is held up as the working case
 
 ---
 
