@@ -8,7 +8,7 @@
 
 ---
 
-## Ecosystem-wide bug: cargo `config.local.toml` include never merges on stable — needs propagation (2026-08-05, updated 2026-08-05)
+## Ecosystem-wide bug: cargo `config.local.toml` include never merges on stable — needs propagation (2026-08-05, updated 2026-08-05, worktree-policy conclusion finalized 2026-08-05)
 
 **Not applicable to github-io itself** — verified: github-io has no `Cargo.toml` anywhere in
 the repo root (`scaffolding/` has its own separate `flake.nix`), and `flake.nix` provisions
@@ -110,15 +110,58 @@ found they didn't. The actual causes were:
   blind whole-file `git add` / `git commit` rather than scoping to their own diff hunks, which
   bundled unrelated crates' in-progress work into the wrong commits.
 
-**Lesson for the ecosystem convention, worth propagating alongside the target-dir fix:**
-worktree isolation should be reserved for work that genuinely needs it — shared/cross-cutting
-files, or otherwise-overlapping file sets — not applied as a blanket default for any parallel
-agent work. Modular crate-per-file work can safely share one tree directly, provided
-cross-cutting shared files are either eliminated or their edits are carefully scoped/serialized
-(e.g. `git add <specific paths>` instead of `git add -A`/whole-file commits). rescribe is
-currently mid-fix on this specifically: splitting `streaming_apis.rs` into per-format files to
-eliminate the shared-touchpoint collision surface, in progress as of this note (not complete —
-check rescribe's own state before assuming this is done).
+**SUPERSEDED lesson (do not use):** an earlier version of this note said worktree isolation
+"should be reserved for work that genuinely needs it — shared/cross-cutting files, or
+otherwise-overlapping file sets." Further discussion in the same rescribe session found this
+framing incoherent and replaced it with the corrected conclusion below — kept here, struck,
+only so the correction is traceable, not as guidance.
+
+**UPDATE (2026-08-05, same rescribe session, final on this point): corrected conclusion on
+worktree-usage policy.** The superseded framing above got the mechanism backwards. Worktree
+isolation does **not** solve the shared-file collision problem at all — it only *relocates*
+the collision from live-edit time to merge time: two isolated agents both editing the same
+logical file on separate branches still have to reconcile it eventually, and that
+reconciliation is exactly what produced the bundling/stash-contamination incidents recorded
+above. What worktree isolation actually protects against is a different, narrower thing:
+careless, non-file-scoped git operations (`git add -A`, whole-tree `git stash`) colliding
+across concurrent agents even when the files they're each editing are genuinely disjoint —
+a tooling-discipline problem, not a file-overlap problem.
+
+The corrected rule, reached through discussion and checked against real alternatives:
+- Multiple agents working in parallel against **one shared tree** (no `git worktree` at all)
+  is fine, and actually preferable — zero extra build/disk cost, no
+  `incremental/`-cache-duplication concern at all — **provided** three conditions hold:
+  (1) disjoint files across agents (no two agents editing the same file); (2) disciplined git
+  operations (never whole-tree `git add -A`, never repo-wide `git stash`, commits scoped to
+  only the files/hunks each agent actually owns); (3) no shared cross-cutting file needing
+  simultaneous edits from more than one agent — eliminate such files via refactor (e.g.
+  rescribe's own fix: splitting the single shared `streaming_apis.rs` test file into one file
+  per format) or serialize access to them, rather than reaching for isolation.
+- The "need two different git states simultaneously" case, initially thought to be a genuine
+  remaining justification for worktrees, was also examined and rejected as a common case:
+  almost all such needs are actually "compare results across commits," which doesn't require
+  true simultaneity — sequential checkout in **one** directory (build/test commit A, capture
+  results, checkout commit B in the same path, build/test, compare) covers it with zero extra
+  build cache. True simultaneity (rare) can often be covered by a throwaway
+  `git archive <commit> | tar -x` snapshot to a scratch directory (a real buildable snapshot,
+  no `.git` linkage, fully disposable) rather than a real `git worktree`, avoiding the
+  incremental-cache-duplication cost entirely for that case too.
+- **Conclusion:** given the confirmed, unavoidable per-worktree cost (`incremental/`
+  cache duplication with no fix — see the mechanism table below) and that no remaining common
+  use case actually requires a literal `git worktree`, worktree isolation should be treated as
+  **rare and specifically justified**, not a default reached for whenever "multiple agents are
+  running in parallel." This narrows the superseded framing above further, rather than
+  restoring any part of it.
+
+This conclusion is ecosystem-wide harness/agent-orchestration convention, not a rescribe-local
+detail — it applies to any repo in the ecosystem that uses parallel/worktree-isolated agent
+dispatch, which is why it's recorded here alongside the disk-mechanism findings rather than
+only in rescribe.
+
+rescribe is currently mid-fix on the concrete instance that motivated this: splitting
+`streaming_apis.rs` into per-format files to eliminate the shared-touchpoint collision surface
+that isolation would only have deferred to merge time — in progress as of this note (not
+complete — check rescribe's own state before assuming this is done).
 
 **Summary of state, so this isn't misread:**
 | Mechanism | Status |
@@ -126,6 +169,7 @@ check rescribe's own state before assuming this is done).
 | `config.local.toml` include never merging (unstable flag) | **Fixed** — symlink/junction + `post-checkout` hook (rescribe `303bba6eca`/`b8d7e49236`/`9a46158b03`) |
 | `target/debug/incremental/` not deduplicating across worktree paths | **Not fixed** — no validated solution; open item above |
 | Multi-agent collisions this session | **Root cause was shared `git stash` + a shared cross-cutting test file with unscoped commits, not lack of file-level worktree isolation** — process/convention fix in progress in rescribe, not yet complete |
+| Worktree-usage policy | **Corrected (final on this point):** shared-file collisions aren't solved by isolation, only deferred to merge time; isolation should be rare and specifically justified, not a default for parallel agent work — see corrected conclusion above |
 
 ---
 
