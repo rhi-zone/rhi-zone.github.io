@@ -8,6 +8,48 @@
 
 ---
 
+## Ecosystem-wide bug: cargo `config.local.toml` include never merges on stable — needs propagation (2026-08-05)
+
+**Not applicable to github-io itself** — verified: github-io has no `Cargo.toml` anywhere in
+the repo root (`scaffolding/` has its own separate `flake.nix`), and `flake.nix` provisions
+only `bun` + `jq`. It is a vitepress/bun docs site, not a cargo/Rust project, and has no
+worktree/target-dir build-cache mechanism of any kind (`scripts/` contains only
+`freshness.sh`; searched for `worktree`/`target/` mentions across `TODO.md`/`TODO.local.md`
+— none). So this bug cannot recur here; noted per the ecosystem convention of tracking
+cross-project issues in the affected repo's TODO.md, since github-io is the repo that
+coordinates ecosystem-wide propagation.
+
+**The bug (confirmed in rescribe, `~/git/rhizone/rescribe`):** the cross-git-worktree
+shared `target/` build-cache mechanism relied on `.cargo/config.toml`'s
+`include = ["config.local.toml"]` directive. That directive is gated behind the unstable
+`-Z config-include` cargo flag and **silently never merges on stable cargo** — confirmed via
+direct reproduction (CARGO_LOG tracing showed the included file never loads) plus an
+isolated scratch-dir repro outside any repo. Consequence: every worktree built its own full
+local `target/` instead of sharing one, and 11 concurrent agent worktrees filled a machine's
+disk to ~100% (~137GB total duplicated).
+
+**The fix (implemented and verified end-to-end in rescribe — reference implementation):**
+replace the cargo-config-based sharing with filesystem-level symlinks/junctions. Each
+worktree's `target/` becomes a symlink (unix/mac) or NTFS junction-with-symlink-fallback
+(windows) pointing at the main checkout's `target/`, created automatically by a
+`.githooks/post-checkout` hook (empirically confirmed `git worktree add` fires
+`post-checkout`), so no manual per-worktree step is required. Windows specifics verified:
+junctions (`mklink /J`) need no admin/Developer Mode for a regular user but only work within
+one NTFS volume; true symlinks work cross-drive but need `SeCreateSymbolicLinkPrivilege`
+(admin, or Developer Mode on Windows 10 1703+). Tries junction first, falls back to symlink,
+hard-errors with a clear message if both fail — no silent failure path. rescribe commits:
+`303bba6eca` (script rewrite), `b8d7e49236` (the `post-checkout` hook), `9a46158b03` (docs
+correction — also removed stale claims that direnv/nix covered this automatically, false
+once an earlier `CARGO_TARGET_DIR` shellHook was removed).
+
+**Open action for a future session:** audit every cargo/Rust repo in the ecosystem for the
+same `config.local.toml`-include pattern (or any other unstable-cargo-flag-dependent
+sharing mechanism) and propagate the rescribe symlink/junction fix to each one found
+broken the same way. Not yet done — no repos have been audited as part of this note; that
+audit is the next step, not a claim that any specific repo besides rescribe is affected.
+
+---
+
 ## Ecosystem propagation residuals (2026-07-03)
 
 - **Re-run `tooling/propagate-harness-all.sh` and `tooling/sync-skills.sh` once dirty receivers are clean.** Dirty at run time: exoplace/aeriea, exoplace/hologram, paragarden/solarium, pteraworld, pterror/ashwren, pterror/fuwafuwa, rhizone/defocus, rhizone/fractal, rhizone/rainbow, rhizone/server-less (harness landed there as unpushed harness-only commits; skills were skipped in aeriea, solarium, defocus, fractal, rainbow, server-less). One further dirty receiver is tracked in the machine-local TODO.local.md.
