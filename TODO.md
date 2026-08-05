@@ -8,7 +8,7 @@
 
 ---
 
-## Ecosystem-wide bug: cargo `config.local.toml` include never merges on stable — needs propagation (2026-08-05)
+## Ecosystem-wide bug: cargo `config.local.toml` include never merges on stable — needs propagation (2026-08-05, updated 2026-08-05)
 
 **Not applicable to github-io itself** — verified: github-io has no `Cargo.toml` anywhere in
 the repo root (`scaffolding/` has its own separate `flake.nix`), and `flake.nix` provisions
@@ -47,6 +47,85 @@ same `config.local.toml`-include pattern (or any other unstable-cargo-flag-depen
 sharing mechanism) and propagate the rescribe symlink/junction fix to each one found
 broken the same way. Not yet done — no repos have been audited as part of this note; that
 audit is the next step, not a claim that any specific repo besides rescribe is affected.
+
+**UPDATE (2026-08-05, same day, same rescribe session): a second, distinct, still-UNFIXED
+disk-bloat mechanism was found — do not read the symlink fix above as closing the
+disk-bloat problem, it only closes one of two causes.**
+
+Even after `target/` is correctly shared via symlink/junction across worktrees,
+`target/debug/incremental/` specifically does **not** deduplicate across worktrees. Confirmed
+via direct evidence in rescribe: ran `strings` on a cached `metadata.rmeta` inside the shared
+`incremental/` directory and found literal absolute worktree-specific source paths baked into
+it, e.g. `/home/.../worktrees/agent-XXXX/crates/rescribe-core/src/document.rs`. rustc's
+incremental-compilation cache fingerprints embed the absolute source-file path, so identical
+source code built from two different worktree checkout paths lands in entirely separate,
+non-overlapping incremental cache directories — confirmed concretely: one crate had 8 distinct
+top-level hash directories under `incremental/` across worktrees for what should be "the same"
+build. Net effect: sharing `target/` via symlink stops *new redundant full builds*, but does
+**not** stop `incremental/` itself from growing unboundedly as more worktrees get created and
+torn down — each worktree's incremental contribution just piles up in the shared directory
+forever, never reclaimed. This is a separate mechanism from the `config.local.toml` bug above
+and is **not fixed** by the symlink/junction change.
+
+**No standard fix exists — this was researched via web search, not assumed.**
+`--remap-path-prefix` was tested as a candidate fix and *confirmed* to affect the actual
+incremental fingerprint (not just cosmetic debug-info text — the SVH-derived hash component
+matched across differently-pathed builds when both were remapped to the same canonical path).
+However, a synthetic reproduction test could **not** cleanly reproduce the original real-worktree
+symptom end-to-end, so this candidate fix is **not validated** and was **not implemented**.
+Broader research found no accepted upstream solution:
+- `sccache` does not solve this and actively conflicts with `CARGO_INCREMENTAL` (must be
+  disabled to use sccache alongside it).
+- No rust-lang RFC or accepted cargo issue addresses incremental-cache portability across
+  worktrees/checkout paths. RFC 3127 / `-Z trim-paths` addresses paths baked into
+  binaries/debuginfo for build reproducibility — a different problem, not incremental-cache
+  portability.
+- Every real-world workaround found treats rustc's incremental cache as fundamentally
+  non-portable across absolute paths and works around it rather than fixing it: hardlinking
+  only `deps/` + `.fingerprint/` between worktrees (explicitly *not* `incremental/`); full
+  per-worktree isolation with no sharing at all (`cargo-worktree`); or replacing incremental
+  compilation entirely with a custom content-addressed cache that excludes absolute paths from
+  its cache key (`kache`).
+
+**Open item for whoever picks this up:** either (a) implement the hardlink-only-`deps`-and-
+`.fingerprint` pattern and leave `incremental/` unshared (it stays worktree-local and is
+reclaimed automatically when the worktree is torn down), or (b) accept periodic
+manual/scripted pruning of the shared `incremental/` directory as an ongoing operational cost.
+**Neither has been implemented in rescribe yet** — this is open, not resolved.
+
+**UPDATE (2026-08-05, same session): root-cause correction on what actually caused this
+session's multi-agent collisions.** This reframes the read of the note above — the
+`config.local.toml`/symlink fix addresses genuine disk-bloat mechanisms, but it was **not**
+the primary cause of the multi-agent collisions observed during a large concurrent
+crate-migration effort in rescribe (multiple agents, each migrating a different, independently
+modular format crate to a shared new trait system). Format crates in rescribe are already
+properly modular — separate directories, disjoint file sets — so concurrent edits to
+*different* crates should never collide on the files themselves, and further investigation
+found they didn't. The actual causes were:
+- **`git stash` is a single shared stack across all worktrees of a repo, not per-worktree** —
+  confirmed directly: multiple agents' `stash push`/`stash pop` operations collided with each
+  other, each agent's stash sometimes popping another agent's changes.
+- **A single shared cross-cutting test file**, `crates/rescribe-fixtures/tests/streaming_apis.rs`,
+  that every crate-migration needed to add its own section to — combined with agents doing
+  blind whole-file `git add` / `git commit` rather than scoping to their own diff hunks, which
+  bundled unrelated crates' in-progress work into the wrong commits.
+
+**Lesson for the ecosystem convention, worth propagating alongside the target-dir fix:**
+worktree isolation should be reserved for work that genuinely needs it — shared/cross-cutting
+files, or otherwise-overlapping file sets — not applied as a blanket default for any parallel
+agent work. Modular crate-per-file work can safely share one tree directly, provided
+cross-cutting shared files are either eliminated or their edits are carefully scoped/serialized
+(e.g. `git add <specific paths>` instead of `git add -A`/whole-file commits). rescribe is
+currently mid-fix on this specifically: splitting `streaming_apis.rs` into per-format files to
+eliminate the shared-touchpoint collision surface, in progress as of this note (not complete —
+check rescribe's own state before assuming this is done).
+
+**Summary of state, so this isn't misread:**
+| Mechanism | Status |
+|---|---|
+| `config.local.toml` include never merging (unstable flag) | **Fixed** — symlink/junction + `post-checkout` hook (rescribe `303bba6eca`/`b8d7e49236`/`9a46158b03`) |
+| `target/debug/incremental/` not deduplicating across worktree paths | **Not fixed** — no validated solution; open item above |
+| Multi-agent collisions this session | **Root cause was shared `git stash` + a shared cross-cutting test file with unscoped commits, not lack of file-level worktree isolation** — process/convention fix in progress in rescribe, not yet complete |
 
 ---
 
