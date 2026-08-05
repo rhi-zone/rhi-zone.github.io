@@ -163,11 +163,11 @@ before asking "what should we work on?". Update procedure:
   forward from the anchor.
 - Commit completed work in the same turn it finishes. Uncommitted work is lost work.
 - No worktree isolation on Agent calls, full stop — no exception for parallel agents.
-  Isolation doesn't solve shared-file collisions, it only defers them to merge time. And
-  cargo/rustc's incremental-compilation cache bakes absolute source paths into its
-  fingerprints, so identical code built from two different worktree checkouts can never
-  share that cache — a structural, unfixable cost, not an inconvenience (confirmed in
-  rescribe; see TODO.md).
+  Isolation doesn't solve shared-file collisions, it only defers them to merge time. It
+  also forfeits any build/tool cache keyed on absolute source path — for a Rust project
+  specifically, cargo/rustc's incremental-compilation cache bakes in the checkout path, so
+  identical code built from two different worktrees can never share that cache: a
+  structural, unfixable cost, not an inconvenience.
 
 ## Disposition
 
