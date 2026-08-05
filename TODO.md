@@ -169,7 +169,7 @@ complete — check rescribe's own state before assuming this is done).
 | `config.local.toml` include never merging (unstable flag) | **Fixed** — symlink/junction + `post-checkout` hook (rescribe `303bba6eca`/`b8d7e49236`/`9a46158b03`) |
 | `target/debug/incremental/` not deduplicating across worktree paths | **Not fixed** — no validated solution; open item above |
 | Multi-agent collisions this session | **Root cause was shared `git stash` + a shared cross-cutting test file with unscoped commits, not lack of file-level worktree isolation** — process/convention fix in progress in rescribe, not yet complete |
-| Worktree-usage policy | **Corrected (final on this point):** shared-file collisions aren't solved by isolation, only deferred to merge time; isolation should be rare and specifically justified, not a default for parallel agent work — see corrected conclusion above |
+| Worktree-usage policy | **Resolved, do not re-litigate.** Codified as an unconditional Hard Constraint in `CLAUDE.md` (no worktree isolation on Agent calls, full stop, no carve-out for parallel agents) — supersedes the "rare and specifically justified" framing above, which still left a parallel-agent exception open |
 
 ---
 
