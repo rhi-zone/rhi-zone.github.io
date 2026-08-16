@@ -358,3 +358,9 @@ This **answers** the "is single-fault the wrong region / does it find anything" 
 - **reincarnate — Unknown→Value kernel settled, rename authorized.** Per introspection record, remaining work discussed was transduction into enforcing media (rename, type-level enforcement in the Rust, counterexample tests, legacy-treatment sweep) — believed delegable end-to-end and would unblock scribble; also framed as the live test of the enforcement-media theory. Unstarted, unscheduled.
 
 - **Cost regime (context, already enforced in hooks).** Workflow tool denied unconditionally by owner directive 2026-07-03; Agent calls require an explicit model tier; frontier tiers require user-approved cost plus a `[frontier-approved]` marker. ~73% of weekly quota was consumed as of 2026-07-03 evening — sessions should budget accordingly until reset. (Relates to the `propagate-harness-all` cost-tier delegation principle already landed in CLAUDE.md's ecosystem region, 2026-07-03.)
+
+---
+
+## Decision-mining evidence corpus (2026-08-16)
+
+Temporary corpus extracted from transcripts for analysis ("why do i have to keep making decisions, why can't i automate everything") moved to durable storage: `~git/rhizone/github-io/.decision-mining/` (gitignored, not committed). Two subdirectories: `extracted/` (64 files, 104MB — filtered transcript segments), `tasks/` (73 files including 64 dereferenced agent outputs + 9 metadata files, totaling ~105MB). All symlink targets (originally in `~/.claude/projects/`) have been dereferenced and copied into the corpus directory for self-containedness. No pending action — documented here as provenance record.

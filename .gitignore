@@ -6,6 +6,7 @@ TODO.local.md
 bun.lock
 docs/.vitepress/cache/
 docs/.vitepress/dist/
+.decision-mining/
 
 # Normalize
 .normalize/*
