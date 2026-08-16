@@ -1,6 +1,45 @@
 # Scaffolding Templates
 
-Standard files for new Rust monorepos in the rhi ecosystem.
+Standard files for new repos in the rhi ecosystem.
+
+## Current tool: `tooling/scaffold.sh`
+
+`tooling/scaffold.sh` is the current, stateful scaffolding tool and should be used instead
+of the manual copy/sed walkthrough further down (that walkthrough predates the script and
+only ever covered the Rust case — the script supersedes it and also covers templates the
+walkthrough never did, notably Godot). Run it via a subagent (Sonnet, general-purpose) —
+these commands cannot run in the main session.
+
+```bash
+tooling/scaffold.sh init <template> <org> <project-name> <description>
+tooling/scaffold.sh next [target-dir]     # print the next unfinished step's instructions
+tooling/scaffold.sh status [target-dir]   # show progress
+```
+
+Templates: `rust` (Cargo workspace + VitePress docs), `bun` (ESM monorepo w/ bun
+workspaces + VitePress docs), `godot` (Godot 4 project — `flake.nix` with `godot_4`,
+`project.godot`, `scenes/`/`scripts/`/`assets/`/`tests/` dirs, Godot-appropriate
+`.gitignore`, VitePress docs), `docs` (writing/documentation-only, VitePress, no code
+artifacts), `static` (minimal static HTML site, no build step).
+
+Orgs: `rhi-zone`, `exo-place`, `ptera-world`, `para-garden`, `pterror` — mapped to disk
+paths per the table at the bottom of this doc.
+
+State lives in `<target>/SCAFFOLD.state` (key=value; not gitignored, so its presence in
+`git status` is the visible "scaffolding in progress" signal). Each `next` invocation
+probes the filesystem/git state each step should have produced, silently advances past any
+already-done steps, then prints the next unfinished step's instructions and exits — an
+agent drives it by repeatedly running `next` and executing what it prints. The final step
+of every template deletes `SCAFFOLD.state`. Idempotent to resume: re-running `next` after
+an interruption picks up exactly where it left off.
+
+Every template's step sequence ends the same way: fill in README.md, run
+`tooling/propagate-harness.sh`, add the repo to the skill-recipients lists, `direnv allow`,
+initial commit, `gh repo create --push`, enable GitHub Pages, clean up `SCAFFOLD.state`.
+
+The reference material below (placeholders, file inventory, shared target-dir mechanism)
+still describes what's inside `scaffolding/` and is accurate; the "Scaffolding New Repos"
+walkthrough section is superseded by the script for the cases it covers.
 
 ## Files Included
 
@@ -35,7 +74,7 @@ ever needed.
 - `PROJECT_NAME` — lowercase project name (e.g., `interconnect`)
 - `PROJECT_DESCRIPTION` — short description
 
-## Scaffolding New Repos
+## Scaffolding New Repos (manual walkthrough, superseded — see `tooling/scaffold.sh` above)
 
 Copy and substitute placeholders. Run via a subagent (Sonnet, general-purpose) — these commands cannot run in the main session.
 

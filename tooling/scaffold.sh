@@ -154,7 +154,7 @@ step_done_rust() {
         7) [ -d "$target/docs/node_modules" ] ;;
         8) [ -f "$target/README.md" ] && [ "$(wc -l < "$target/README.md")" -gt 5 ] ;;
         9) [ -f "$target/CLAUDE.md" ] ;;
-        10) grep -q "$org/$project_name" "$GITHUB_IO/tooling/skill-recipients.txt" 2>/dev/null ;;
+        10) grep -q "$org_dir/$project_name" "$GITHUB_IO/tooling/skill-recipients.txt" 2>/dev/null ;;
         11) [ -f "$target/CLAUDE.md" ] && grep -q 'README.md' "$target/CLAUDE.md" ;;
         12) [ -d "$target/.direnv" ] ;;
         13) [ "$(git -C "$target" rev-list --count HEAD)" -gt 1 ] ;;
@@ -183,7 +183,7 @@ step_done_bun() {
         10) [ -d "$target/node_modules" ] ;;
         11) [ -f "$target/README.md" ] && [ "$(wc -l < "$target/README.md")" -gt 5 ] ;;
         12) [ -f "$target/CLAUDE.md" ] ;;
-        13) grep -q "$org/$project_name" "$GITHUB_IO/tooling/skill-recipients.txt" 2>/dev/null ;;
+        13) grep -q "$org_dir/$project_name" "$GITHUB_IO/tooling/skill-recipients.txt" 2>/dev/null ;;
         14) [ -f "$target/CLAUDE.md" ] && grep -q 'README.md' "$target/CLAUDE.md" ;;
         15) [ -d "$target/.direnv" ] ;;
         16) [ "$(git -C "$target" rev-list --count HEAD)" -gt 1 ] ;;
@@ -210,7 +210,7 @@ step_done_godot() {
         8) [ -d "$target/docs/node_modules" ] ;;
         9) [ -f "$target/README.md" ] && [ "$(wc -l < "$target/README.md")" -gt 5 ] ;;
         10) [ -f "$target/CLAUDE.md" ] ;;
-        11) grep -q "$org/$project_name" "$GITHUB_IO/tooling/skill-recipients.txt" 2>/dev/null ;;
+        11) grep -q "$org_dir/$project_name" "$GITHUB_IO/tooling/skill-recipients.txt" 2>/dev/null ;;
         12) [ -f "$target/CLAUDE.md" ] && grep -q 'README.md' "$target/CLAUDE.md" ;;
         13) [ -d "$target/.direnv" ] ;;
         14) [ "$(git -C "$target" rev-list --count HEAD)" -gt 1 ] ;;
@@ -235,7 +235,7 @@ step_done_docs() {
         6) [ -d "$target/docs/node_modules" ] ;;
         7) [ -f "$target/README.md" ] && [ "$(wc -l < "$target/README.md")" -gt 5 ] ;;
         8) [ -f "$target/CLAUDE.md" ] ;;
-        9) grep -q "$org/$project_name" "$GITHUB_IO/tooling/skill-recipients.txt" 2>/dev/null ;;
+        9) grep -q "$org_dir/$project_name" "$GITHUB_IO/tooling/skill-recipients.txt" 2>/dev/null ;;
         10) [ -f "$target/CLAUDE.md" ] && grep -q 'README.md' "$target/CLAUDE.md" ;;
         11) [ -d "$target/.direnv" ] ;;
         12) [ "$(git -C "$target" rev-list --count HEAD)" -gt 1 ] ;;
@@ -259,7 +259,7 @@ step_done_static() {
         5) [ -f "$target/index.html" ] && grep -q "$project_name" "$target/index.html" ;;
         6) [ -f "$target/README.md" ] && [ "$(wc -l < "$target/README.md")" -gt 5 ] ;;
         7) [ -f "$target/CLAUDE.md" ] ;;
-        8) grep -q "$org/$project_name" "$GITHUB_IO/tooling/skill-recipients.txt" 2>/dev/null ;;
+        8) grep -q "$org_dir/$project_name" "$GITHUB_IO/tooling/skill-recipients.txt" 2>/dev/null ;;
         9) [ -f "$target/CLAUDE.md" ] && grep -q 'README.md' "$target/CLAUDE.md" ;;
         10) [ -d "$target/.direnv" ] ;;
         11) [ "$(git -C "$target" rev-list --count HEAD)" -gt 1 ] ;;
@@ -418,9 +418,9 @@ EOF
         10)
             title="Add to propagation lists"
             body=$(cat <<EOF
-grep -q "$org/$project_name" "$GITHUB_IO/tooling/skill-recipients.txt" || echo "$org/$project_name" >> "$GITHUB_IO/tooling/skill-recipients.txt"
+grep -q "$org_dir/$project_name" "$GITHUB_IO/tooling/skill-recipients.txt" || echo "$org_dir/$project_name" >> "$GITHUB_IO/tooling/skill-recipients.txt"
 if [ "$org" = "rhi-zone" ]; then
-    grep -q "$org/$project_name" "$GITHUB_IO/tooling/skill-recipients-rhizone.txt" || echo "$org/$project_name" >> "$GITHUB_IO/tooling/skill-recipients-rhizone.txt"
+    grep -q "$org_dir/$project_name" "$GITHUB_IO/tooling/skill-recipients-rhizone.txt" || echo "$org_dir/$project_name" >> "$GITHUB_IO/tooling/skill-recipients-rhizone.txt"
 fi
 EOF
 )
@@ -741,9 +741,9 @@ EOF
         13)
             title="Add to propagation lists"
             body=$(cat <<EOF
-grep -q "$org/$project_name" "$GITHUB_IO/tooling/skill-recipients.txt" || echo "$org/$project_name" >> "$GITHUB_IO/tooling/skill-recipients.txt"
+grep -q "$org_dir/$project_name" "$GITHUB_IO/tooling/skill-recipients.txt" || echo "$org_dir/$project_name" >> "$GITHUB_IO/tooling/skill-recipients.txt"
 if [ "$org" = "rhi-zone" ]; then
-    grep -q "$org/$project_name" "$GITHUB_IO/tooling/skill-recipients-rhizone.txt" || echo "$org/$project_name" >> "$GITHUB_IO/tooling/skill-recipients-rhizone.txt"
+    grep -q "$org_dir/$project_name" "$GITHUB_IO/tooling/skill-recipients-rhizone.txt" || echo "$org_dir/$project_name" >> "$GITHUB_IO/tooling/skill-recipients-rhizone.txt"
 fi
 EOF
 )
@@ -994,9 +994,9 @@ EOF
         11)
             title="Add to propagation lists"
             body=$(cat <<EOF
-grep -q "$org/$project_name" "$GITHUB_IO/tooling/skill-recipients.txt" || echo "$org/$project_name" >> "$GITHUB_IO/tooling/skill-recipients.txt"
+grep -q "$org_dir/$project_name" "$GITHUB_IO/tooling/skill-recipients.txt" || echo "$org_dir/$project_name" >> "$GITHUB_IO/tooling/skill-recipients.txt"
 if [ "$org" = "rhi-zone" ]; then
-    grep -q "$org/$project_name" "$GITHUB_IO/tooling/skill-recipients-rhizone.txt" || echo "$org/$project_name" >> "$GITHUB_IO/tooling/skill-recipients-rhizone.txt"
+    grep -q "$org_dir/$project_name" "$GITHUB_IO/tooling/skill-recipients-rhizone.txt" || echo "$org_dir/$project_name" >> "$GITHUB_IO/tooling/skill-recipients-rhizone.txt"
 fi
 EOF
 )
@@ -1205,9 +1205,9 @@ EOF
         9)
             title="Add to propagation lists"
             body=$(cat <<EOF
-grep -q "$org/$project_name" "$GITHUB_IO/tooling/skill-recipients.txt" || echo "$org/$project_name" >> "$GITHUB_IO/tooling/skill-recipients.txt"
+grep -q "$org_dir/$project_name" "$GITHUB_IO/tooling/skill-recipients.txt" || echo "$org_dir/$project_name" >> "$GITHUB_IO/tooling/skill-recipients.txt"
 if [ "$org" = "rhi-zone" ]; then
-    grep -q "$org/$project_name" "$GITHUB_IO/tooling/skill-recipients-rhizone.txt" || echo "$org/$project_name" >> "$GITHUB_IO/tooling/skill-recipients-rhizone.txt"
+    grep -q "$org_dir/$project_name" "$GITHUB_IO/tooling/skill-recipients-rhizone.txt" || echo "$org_dir/$project_name" >> "$GITHUB_IO/tooling/skill-recipients-rhizone.txt"
 fi
 EOF
 )
@@ -1383,9 +1383,9 @@ EOF
         8)
             title="Add to propagation lists"
             body=$(cat <<EOF
-grep -q "$org/$project_name" "$GITHUB_IO/tooling/skill-recipients.txt" || echo "$org/$project_name" >> "$GITHUB_IO/tooling/skill-recipients.txt"
+grep -q "$org_dir/$project_name" "$GITHUB_IO/tooling/skill-recipients.txt" || echo "$org_dir/$project_name" >> "$GITHUB_IO/tooling/skill-recipients.txt"
 if [ "$org" = "rhi-zone" ]; then
-    grep -q "$org/$project_name" "$GITHUB_IO/tooling/skill-recipients-rhizone.txt" || echo "$org/$project_name" >> "$GITHUB_IO/tooling/skill-recipients-rhizone.txt"
+    grep -q "$org_dir/$project_name" "$GITHUB_IO/tooling/skill-recipients-rhizone.txt" || echo "$org_dir/$project_name" >> "$GITHUB_IO/tooling/skill-recipients-rhizone.txt"
 fi
 EOF
 )

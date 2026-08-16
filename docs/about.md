@@ -192,6 +192,7 @@ Use any project standalone. Compose them when it makes sense. No vendor lock-in.
 | **aspect** | `~/git/exoplace/aspect` | Card-based identity exploration sandbox |
 | **noncanon** | `~/git/exoplace/noncanon` | Local-first collaborative worldbuilding library |
 | **aeriea** | `~/git/exoplace/aeriea` | A place to be — embodied modern-life sandbox built around 100% immersion |
+| **dopamine-engine** | `~/git/paragarden/dopamine-engine` | Godot gacha game — deep rarity tiers as the core power system, an upgradeable drop-machine, and audio/visual juice as the actual design focus |
 | **existence** | `~/git/paragarden/existence` | Text-based HTML5 game — power anti-fantasy |
 | **legacy** | `~/git/paragarden/legacy` | Worldbuilding project — what humanity left behind |
 | **divergence** | `~/git/paragarden/divergence` | Worldbuilding project — what happens when the floor gets built |

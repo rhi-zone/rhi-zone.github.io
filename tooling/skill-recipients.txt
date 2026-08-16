@@ -46,6 +46,7 @@ exoplace/noncanon
 
 # --- para-garden (concrete works) ---
 paragarden/divergence
+paragarden/dopamine-engine
 paragarden/existence
 paragarden/legacy
 paragarden/postmortem
