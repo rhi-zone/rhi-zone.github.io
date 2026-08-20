@@ -1,9 +1,21 @@
 #!/usr/bin/env bash
-# PreToolUse hook for Agent / SendMessage. Appends subagent-only context
+# PreToolUse hook for Agent (spawn only). Appends subagent-only context
 # (style-rules.md + subagent-role-note.md, in that order) to the end of the
-# outgoing prompt (Agent) or message (SendMessage) field, so subagents — and
-# agents already running when SendMessage is used to talk to them — get that
-# context alongside their actual task.
+# outgoing prompt field, so a newly spawned subagent gets that context
+# alongside its actual task.
+#
+# Agent-only, not Agent+SendMessage: SendMessage talks to an ALREADY-RUNNING
+# agent, which already got this block once at spawn (via this same hook, or
+# via UserPromptSubmit for a top-level session). Splicing it onto every
+# SendMessage call as well means a long-lived agent re-accumulates a fresh
+# copy of both notes in its context on every single turn someone messages
+# it — pure stacking waste, not "safety" (there is no missed-injection risk
+# to guard against: an agent that exists already received its copy). So the
+# injection surface is deliberately narrowed to the spawn point only, both
+# here in the case statement and in settings.json's matcher (belt and
+# suspenders — the matcher keeps the hook from even running on SendMessage,
+# the case statement keeps it inert if some caller ever widens the matcher
+# again).
 #
 # Why this mechanism, not SubagentStart (history/rationale):
 # subagent-role-note.sh used to be wired as a SubagentStart hook that just
@@ -23,18 +35,18 @@
 # point docs don't cover.
 #
 # What DOES work, and is already proven by this file's original style-rules-only
-# version: PreToolUse on the Agent/SendMessage tool call fires in the CALLER's
-# context, before the subagent starts, and can rewrite tool_input via
+# version: PreToolUse on the Agent tool call fires in the CALLER's context,
+# before the subagent starts, and can rewrite tool_input via
 #   {"hookSpecificOutput":{"hookEventName":"PreToolUse","updatedInput":{...}}}
 # This is documented, supported PreToolUse behavior (not "additionalContext" —
 # PreToolUse doesn't support that — but a literal rewrite of the tool call's
-# own arguments). Since the Agent tool's `prompt` / SendMessage's `message`
-# field IS the literal text the recipient receives, splicing onto it delivers
-# real content into exactly the subagent(s) being targeted, and by construction
-# NEVER fires for the top-level session's own prompts (those arrive via
-# UserPromptSubmit, a different event this hook isn't wired to) — the
-# differentiator we actually need falls out of which tool is being called, not
-# out of parsing agent_id at all.
+# own arguments). Since the Agent tool's `prompt` field IS the literal text
+# the new subagent receives, splicing onto it delivers real content into
+# exactly the subagent being spawned, and by construction NEVER fires for the
+# top-level session's own prompts (those arrive via UserPromptSubmit, a
+# different event this hook isn't wired to) — the differentiator we actually
+# need falls out of which tool is being called, not out of parsing agent_id
+# at all.
 #
 # Both pieces of subagent-only context are appended in ONE hook, in ONE splice
 # pass, rather than as two separate PreToolUse hooks on the same matcher:
@@ -62,14 +74,15 @@
 # is never parsed or reconstructed, just echoed. See lib/splice-field.awk for
 # the splice itself and why its raw-text key matching is safe here.
 #
-# Inject-always, not inject-once-per-recipient: SendMessage targets an
-# already-running agent that (if spawned via Agent through this same hook, or
-# via UserPromptSubmit for a top-level session) already got the guide once.
-# Tracking "already injected for recipient X" is state, and state drifts from
-# reality — a recipient can restart, a name can get reused by a different
-# agent, cross-session sends don't share this hook's state at all. Redundant
-# injection costs a few tokens; a wrong dedup decision costs a silently
-# unstyled agent. Simplest-correct wins here.
+# Inject-once-at-spawn, not inject-on-every-message: this hook used to also
+# match SendMessage, on the theory that redundant injection was harmless.
+# It isn't — SendMessage targets an ALREADY-RUNNING agent that got this
+# block once at spawn, so re-splicing it on every subsequent message stacks
+# a fresh copy of both notes into that agent's context on every turn anyone
+# talks to it. There's no missed-injection risk to guard against by keeping
+# SendMessage in scope (an already-spawned agent already has its copy), so
+# the fix is to narrow the injection surface to the spawn point only, not to
+# add dedup/tracking state.
 
 set -euo pipefail
 
@@ -98,7 +111,6 @@ tool_name=$(printf '%s' "$prefix" | grep -oE '"tool_name"\s*:\s*"[^"]*"' | head 
 
 case "$tool_name" in
   Agent) field=prompt ;;
-  SendMessage) field=message ;;
   *) exit 0 ;;
 esac
 

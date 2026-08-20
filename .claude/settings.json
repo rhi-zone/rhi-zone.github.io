@@ -59,7 +59,7 @@
         ]
       },
       {
-        "matcher": "Agent|SendMessage",
+        "matcher": "Agent",
         "hooks": [
           {
             "type": "command",
