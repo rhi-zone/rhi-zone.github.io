@@ -257,7 +257,6 @@ ADRs below, not itself an ADR.
 - ADR-0149 — Crescent package manager: multi-version directory layout with no build step, ever
 - ADR-0150 — Crescent apps vendor all dependencies into self-contained tarballs; security via explicit capability grants, not a package manager
 - ADR-0152 — reincarnate type-checking goes only through the CLI check subcommand, never raw tsc/tsgo
-- ADR-0153 — redacted-project/private-recipient-a: pedagogical modeling replaces gamification
 - ADR-0154 — Connector architecture: Transport trait, fixed to the Discord pattern
 - ADR-0155 — Reincarnate core IR holds only frontend-agnostic builtins; operators and backend-varying logic decompose out of core
 - ADR-0156 — Tests are the specification; COVERAGE.md is derived, not authored

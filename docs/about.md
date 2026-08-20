@@ -207,7 +207,6 @@ Use any project standalone. Compose them when it makes sense. No vendor lock-in.
 | **software-taxonomy** | `~/git/pterror/software-taxonomy` | General knowledge graph of software (entities, predicates, statements) — cladistic taxonomy is a derived view over `subclass_of`, not a fixed schema |
 | **statosphere-guide** | `~/git/pterror/statosphere-guide` | Comprehensive unofficial guide to Statosphere — variables, functions, classifiers, generators, stage lifecycle, and JSON schema reference |
 | **statosphere-studio** | `~/git/pterror/statosphere-studio` | Best-in-class Statosphere config editor — embeddable Vue 3 component with built-in help, templates, shareable URL hashes, and runtime-gotcha lints |
-| **redacted-project** | *(private)* | Refer to only as "redacted-project" in ecosystem docs. Do not reveal or speculate about the actual repo name. |
 
 ## Related projects
 
