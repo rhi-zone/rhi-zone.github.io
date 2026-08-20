@@ -23,8 +23,17 @@ only in the project devshell).
 - `subagent-decomposition-check.sh` — SubagentStart hook. Prompts the subagent
   to reason through whether its task can be produced correctly in one pass
   before acting, ensuring thoughtful decomposition of multi-step work.
+- `inject-subagent-context-agent.sh` — PreToolUse(Agent|SendMessage) hook.
+  Splices `style-rules.md` + `subagent-role-note.md` onto the end of the
+  outgoing `prompt`/`message` field via `updatedInput`, so subagents (and
+  anyone messaged via SendMessage) get that context. Replaces a prior
+  SubagentStart-based approach for the role note that never worked —
+  SubagentStart doesn't support additionalContext at all; see the header
+  comment in this script for the full mechanism writeup.
 - `orchestrator-rules.md` — the rules text injected into the main session by
   `inject-orchestrator-rules.sh`.
+- `subagent-role-note.md` — short "you are a subagent" note spliced into
+  subagent-bound prompts/messages by `inject-subagent-context-agent.sh`.
 - `orchestrator-workflows.md` — lessons that apply when running a Workflow in the
   main session; read before running one.
 - `lib/agent-id.sh` — canonical `is_subagent <json>` subagent detector (pure
