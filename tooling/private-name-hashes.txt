@@ -1,0 +1,24 @@
+# Private-name hash list — SAFE TO COMMIT.
+#
+# Each line is a SHA-256 hex digest of a protected name, NORMALIZED as:
+# lowercase, then strip everything except [a-z0-9] (so "Acme-Widgets-Parents"
+# and "acme widgets parents" and "ACME_WIDGETS_PARENTS" all normalize to the
+# same string before hashing). No casing/spacing variants need separate
+# entries — the checker applies the identical normalization to candidate
+# text before hashing, so one hash per name covers all of those.
+#
+# This file intentionally contains ONLY hashes, never the plaintext names.
+# Checked with: tooling/check-private-name-hashes.js (see that file for the
+# tokenization + substring-matching approach, and for how to add a new
+# name's hash without ever writing the plaintext into this repo).
+#
+# Paired with (but independent of) the local-only, untracked
+# .git/info/private-names plaintext denylist used by .githooks/pre-commit.
+# That file still doesn't travel with clones; this one does.
+
+8b49f4b2889cbdc6ef3a81b4613f61bae7d9742217890c071d14b4cdc6596f3a
+67848ce9ed7cccdbffe74f235ee97bf7528b249f7de6b0bf90da1489d9b503a4
+da3a1a08665ca431b0927febd595822a4768408f71814e968e13fe1d314f5cff
+d62f49c93213dd3a08c6715fe6272346660c8a0040d51439ae86dafd5ddad12f
+99b669e0a7e3180c92be63d92a5933942ec28406470be3a7a867bae33d25c1db
+e63fc67f3d5eeebf1225e565519aef80cd1f8e528b13c0c9ad42a6d57bc015d5

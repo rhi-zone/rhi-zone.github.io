@@ -34,6 +34,27 @@ else
   echo "Note: no private-name denylist at $denylist — skipping private-name guard." >&2
 fi
 
+# --- private-name hash guard (generic; catches names even w/o the local-only denylist above) ---
+hash_checker="$(git rev-parse --show-toplevel)/tooling/check-private-name-hashes.js"
+if [ -f "$hash_checker" ]; then
+  hash_blocked=0
+  while IFS= read -r -d '' file; do
+    # Skip binary files: git numstat marks them "-\t-\t".
+    if git diff --cached --numstat -- "$file" | grep -q '^-	-	'; then
+      continue
+    fi
+    if ! git show ":$file" | "$hash_checker" -; then
+      hash_blocked=1
+    fi
+  done < <(git diff --cached --name-only -z --diff-filter=ACM)
+  if [ "$hash_blocked" -ne 0 ]; then
+    echo "Commit aborted: staged content matched a protected-name hash (see BLOCKED lines above)." >&2
+    exit 1
+  fi
+else
+  echo "Note: no tooling/check-private-name-hashes.js — skipping hash guard." >&2
+fi
+
 # --- VitePress build ---
 echo "Running VitePress build..."
 cd docs && bun run build

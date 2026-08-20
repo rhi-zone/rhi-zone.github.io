@@ -34,11 +34,13 @@ Run via a subagent (Sonnet, general-purpose). The main session cannot execute th
    ```
    Each writes to `docs/automated-introspection/log/daily/YYYY-MM-DD.md`. Quiet days: note as such. Include `## Token Usage` with per-session output tokens and cache hit ratios.
 
+   Before writing the draft to disk, pipe it through the hash guard: `echo "$draft" | tooling/check-private-name-hashes.js -` (or `tooling/check-private-name-hashes.js -` fed the draft on stdin). Exit 0 means clean; exit 1 prints the offending token(s) — redact and recheck before writing the file. This catches protected names pre-write, ahead of (and independent of) the commit-time hook check in `.githooks/pre-commit`.
+
    If synthesis insights feel thin: re-run agents on existing logs with `--show-usage` output, instructing them to flag token outliers (debugging churn, cold-start cache inefficiency, architectural output spikes). Then re-run opus synthesis.
 
 4. Add new days to sidebar in `docs/.vitepress/config.ts` under Daily Logs.
 
-5. If a week or more of new days: spawn an opus agent to read all daily logs and write/update `docs/automated-introspection/log/synthesis-<start>-<end>.md`. Tell it CLAUDE.md conventions may have evolved over the period.
+5. If a week or more of new days: spawn an opus agent to read all daily logs and write/update `docs/automated-introspection/log/synthesis-<start>-<end>.md`. Tell it CLAUDE.md conventions may have evolved over the period. Same as step 3: pipe the draft through `tooling/check-private-name-hashes.js -` before writing to disk.
 
 6. Commit and push.
 
