@@ -26,20 +26,29 @@ only in the project devshell).
   (commit/push/status/log) may run as Bash; subagents (top-level `agent_id`)
   bypass. Parses the payload via bash parameter expansion and the `lib/` awk
   scripts.
-- `subagent-decomposition-check.sh` — SubagentStart hook. Prompts the subagent
-  to reason through whether its task can be produced correctly in one pass
-  before acting, ensuring thoughtful decomposition of multi-step work.
-- `inject-subagent-context-agent.sh` — PreToolUse(Agent|SendMessage) hook.
-  Splices `style-rules.md` + `subagent-role-note.md` onto the end of the
-  outgoing `prompt`/`message` field via `updatedInput`, so subagents (and
-  anyone messaged via SendMessage) get that context. Replaces a prior
-  SubagentStart-based approach for the role note that never worked —
-  SubagentStart doesn't support additionalContext at all; see the header
-  comment in this script for the full mechanism writeup.
+- `subagent-context-start.sh` — SubagentStart hook. Emits `style-rules.md` +
+  `subagent-role-note.md` + `subagent-coordinator-note.md` as one combined
+  `additionalContext` blob, once, at spawn. Supersedes the old
+  PreToolUse(Agent)-splice approach — SubagentStart's `additionalContext`
+  support was tested end-to-end against the installed Claude Code version
+  (2.1.231) on 2026-08-22 and confirmed working; a prior claim in this repo's
+  history that it wasn't supported was wrong (or stale against a version
+  change). See this script's header for the verification writeup.
+- `subagent-context-refresh.sh` — PostToolUse hook (all tools, gated to
+  subagents only via `lib/agent-id.sh`). Re-emits `style-rules.md` as
+  `additionalContext` on ~1-in-8 of a subagent's own tool-call rounds, so a
+  long-running subagent's style discipline doesn't go stale mid-task.
+  Replaces the periodic-refresh half of the old
+  PreToolUse(SendMessage)-splice hook — decoupled from "a message arrived"
+  and tied to the subagent's own activity instead.
 - `orchestrator-rules.md` — the rules text injected into the main session by
   `inject-orchestrator-rules.sh`.
-- `subagent-role-note.md` — short "you are a subagent" note spliced into
-  subagent-bound prompts/messages by `inject-subagent-context-agent.sh`.
+- `subagent-role-note.md` — short "you are a subagent" note injected at spawn
+  by `subagent-context-start.sh`.
+- `subagent-coordinator-note.md` — clarifies that a coordinator's SendMessage
+  mid-task is normal task-direction, not something to treat as suspect —
+  without softening the actual consent/permission guardrail. Injected at
+  spawn by `subagent-context-start.sh`.
 - `orchestrator-workflows.md` — lessons that apply when running a Workflow in the
   main session; read before running one.
 - `lib/agent-id.sh` — canonical `is_subagent <json>` subagent detector (pure

@@ -27,6 +27,10 @@
 #   PreToolUse ("")         block-mainsession-exploration.sh
 #       deps: lib/extract-command.awk, lib/extract-field.awk, lib/tokenize-bash.awk
 #   PreToolUse ("Agent")    require-explicit-agent-type.sh
+#   SubagentStart ("")      subagent-context-start.sh
+#       deps: style-rules.md, subagent-role-note.md, subagent-coordinator-note.md
+#   PostToolUse ("")        subagent-context-refresh.sh
+#       deps: lib/agent-id.sh, style-rules.md
 #
 # --check  Dry run: report what would change, write nothing, exit 1 if drift.
 #
@@ -47,12 +51,15 @@ block-blocking-bash.sh
 block-runaway-find.sh
 block-mainsession-exploration.sh
 post-history.sh
-subagent-decomposition-check.sh
 plan-envelope-antibody.sh
 require-explicit-agent-type.sh
+subagent-context-start.sh
+subagent-context-refresh.sh
 orchestrator-rules.md
 orchestrator-workflows.md
 style-rules.md
+subagent-role-note.md
+subagent-coordinator-note.md
 verify-hooks.sh
 lib/agent-id.sh
 lib/extract-command.awk
@@ -65,6 +72,8 @@ lib/smoke/block-runaway-find.payload
 lib/smoke/block-mainsession-exploration.payload
 lib/smoke/post-history.payload
 lib/smoke/require-explicit-agent-type.payload
+lib/smoke/subagent-context-start.payload
+lib/smoke/subagent-context-refresh.payload
 "
 
 # Subset that needs the executable bit.
@@ -75,9 +84,10 @@ block-blocking-bash.sh
 block-runaway-find.sh
 block-mainsession-exploration.sh
 post-history.sh
-subagent-decomposition-check.sh
 plan-envelope-antibody.sh
 require-explicit-agent-type.sh
+subagent-context-start.sh
+subagent-context-refresh.sh
 verify-hooks.sh
 lib/agent-id.sh
 "
@@ -239,9 +249,10 @@ HISTORY_CMD='${CLAUDE_PROJECT_DIR}/tooling/claude-hooks/post-history.sh'
 BLOCKBASH_CMD='${CLAUDE_PROJECT_DIR}/tooling/claude-hooks/block-blocking-bash.sh'
 RUNAWAYFIND_CMD='${CLAUDE_PROJECT_DIR}/tooling/claude-hooks/block-runaway-find.sh'
 EXPLORE_CMD='${CLAUDE_PROJECT_DIR}/tooling/claude-hooks/block-mainsession-exploration.sh'
-SUBAGENT_DECOMP_CMD='${CLAUDE_PROJECT_DIR}/tooling/claude-hooks/subagent-decomposition-check.sh'
 PLAN_ENVELOPE_CMD='${CLAUDE_PROJECT_DIR}/tooling/claude-hooks/plan-envelope-antibody.sh'
 REQUIRE_AGENT_TYPE_CMD='${CLAUDE_PROJECT_DIR}/tooling/claude-hooks/require-explicit-agent-type.sh'
+SUBAGENT_CONTEXT_START_CMD='${CLAUDE_PROJECT_DIR}/tooling/claude-hooks/subagent-context-start.sh'
+SUBAGENT_CONTEXT_REFRESH_CMD='${CLAUDE_PROJECT_DIR}/tooling/claude-hooks/subagent-context-refresh.sh'
 
 if [ -f "$TARGET_SETTINGS" ]; then
     CURRENT="$(cat "$TARGET_SETTINGS")"
@@ -253,9 +264,10 @@ fi
 #   - Strip ALL stale entries for each managed basename (any path, absolute or portable).
 #   - Re-append canonical entries with ${CLAUDE_PROJECT_DIR} paths.
 # Order: inject-orchestrator-rules, post-history, plan-envelope-antibody under UserPromptSubmit;
-#        subagent-decomposition-check under SubagentStart;
+#        subagent-context-start under SubagentStart;
 #        block-blocking-bash (Bash matcher), block-mainsession-exploration ("" matcher),
-#        require-explicit-agent-type (Agent matcher) under PreToolUse.
+#        require-explicit-agent-type (Agent matcher), subagent-context-refresh ("" matcher)
+#        under PreToolUse / PostToolUse respectively.
 DESIRED="$(printf '%s' "$CURRENT" | jq \
     --arg inject  "$INJECT_CMD" \
     --arg style   "$STYLE_CMD" \
@@ -263,9 +275,10 @@ DESIRED="$(printf '%s' "$CURRENT" | jq \
     --arg blockbash "$BLOCKBASH_CMD" \
     --arg runawayfind "$RUNAWAYFIND_CMD" \
     --arg explore "$EXPLORE_CMD" \
-    --arg subagent_decomp "$SUBAGENT_DECOMP_CMD" \
     --arg plan_envelope "$PLAN_ENVELOPE_CMD" \
-    --arg require_agent_type "$REQUIRE_AGENT_TYPE_CMD" '
+    --arg require_agent_type "$REQUIRE_AGENT_TYPE_CMD" \
+    --arg subagent_context_start "$SUBAGENT_CONTEXT_START_CMD" \
+    --arg subagent_context_refresh "$SUBAGENT_CONTEXT_REFRESH_CMD" '
     def strip($pat):
         map(select((.hooks // [] | map(.command | test($pat)) | any) | not));
 
@@ -273,6 +286,7 @@ DESIRED="$(printf '%s' "$CURRENT" | jq \
     .hooks.UserPromptSubmit //= [] |
     .hooks.SubagentStart //= [] |
     .hooks.PreToolUse //= [] |
+    .hooks.PostToolUse //= [] |
 
     .hooks.UserPromptSubmit |= (
         strip("inject-orchestrator-rules\\.sh$")
@@ -287,7 +301,8 @@ DESIRED="$(printf '%s' "$CURRENT" | jq \
 
     .hooks.SubagentStart |= (
         strip("subagent-decomposition-check\\.sh$")
-        + [ { "matcher": "", "hooks": [ { "type": "command", "command": $subagent_decomp } ] } ]
+        | strip("subagent-context-start\\.sh$")
+        + [ { "matcher": "", "hooks": [ { "type": "command", "command": $subagent_context_start } ] } ]
     ) |
 
     .hooks.PreToolUse |= (
@@ -295,10 +310,16 @@ DESIRED="$(printf '%s' "$CURRENT" | jq \
         | strip("block-runaway-find\\.sh$")
         | strip("block-mainsession-exploration\\.sh$")
         | strip("require-explicit-agent-type\\.sh$")
+        | strip("inject-subagent-context-agent\\.sh$")
         + [ { "matcher": "Bash", "hooks": [ { "type": "command", "command": $blockbash } ] } ]
         + [ { "matcher": "Bash", "hooks": [ { "type": "command", "command": $runawayfind } ] } ]
         + [ { "matcher": "",     "hooks": [ { "type": "command", "command": $explore  } ] } ]
         + [ { "matcher": "Agent", "hooks": [ { "type": "command", "command": $require_agent_type } ] } ]
+    ) |
+
+    .hooks.PostToolUse |= (
+        strip("subagent-context-refresh\\.sh$")
+        + [ { "matcher": "", "hooks": [ { "type": "command", "command": $subagent_context_refresh } ] } ]
     )
 ')"
 
@@ -313,11 +334,12 @@ if [ "$NORM_CURRENT" != "$NORM_DESIRED" ]; then
         printf '          UserPromptSubmit += inject-style-rules.sh        (%s)\n' "$STYLE_CMD"
         printf '          UserPromptSubmit += post-history.sh              (%s)\n' "$HISTORY_CMD"
         printf '          UserPromptSubmit += plan-envelope-antibody.sh    (%s)\n' "$PLAN_ENVELOPE_CMD"
-        printf '          SubagentStart[""] += subagent-decomposition-check.sh (%s)\n' "$SUBAGENT_DECOMP_CMD"
+        printf '          SubagentStart[""] += subagent-context-start.sh   (%s)\n' "$SUBAGENT_CONTEXT_START_CMD"
         printf '          PreToolUse[Bash]  += block-blocking-bash.sh      (%s)\n' "$BLOCKBASH_CMD"
         printf '          PreToolUse[Bash]  += block-runaway-find.sh      (%s)\n' "$RUNAWAYFIND_CMD"
         printf '          PreToolUse[""]    += block-mainsession-exploration.sh (%s)\n' "$EXPLORE_CMD"
         printf '          PreToolUse[Agent] += require-explicit-agent-type.sh (%s)\n' "$REQUIRE_AGENT_TYPE_CMD"
+        printf '          PostToolUse[""]   += subagent-context-refresh.sh (%s)\n' "$SUBAGENT_CONTEXT_REFRESH_CMD"
         printf '        resulting settings.json:\n'
         printf '%s\n' "$DESIRED" | jq .
     else
