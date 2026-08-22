@@ -28,19 +28,25 @@ Run via a subagent (Sonnet, general-purpose). The main session cannot execute th
 
 2. Find missing days: list `docs/automated-introspection/log/daily/` and diff against today.
 
-3. Spawn haiku agents in parallel, one per missing day:
+3. Spawn haiku agents in parallel, one per missing day. **Never invoke `normalize` directly for this** — go through the private-project exclusion wrapper instead, so excluded projects' sessions are never read into the generating agent's context in the first place (not filtered/redacted after generation):
    ```bash
-   CLAUDE_SESSIONS_DIR=/mnt/ssd/ai/claude-sessions/projects ~/git/rhizone/normalize/target/debug/normalize sessions messages --all-projects --role user --since YYYY-MM-DD --until YYYY-MM-DD+1 --limit 0 --show-usage
+   CLAUDE_SESSIONS_DIR=/mnt/ssd/ai/claude-sessions/projects tooling/normalize-excluding-private.sh sessions messages --all-projects --role user --since YYYY-MM-DD --until YYYY-MM-DD+1 --limit 0 --show-usage
    ```
    Each writes to `docs/automated-introspection/log/daily/YYYY-MM-DD.md`. Quiet days: note as such. Include `## Token Usage` with per-session output tokens and cache hit ratios.
 
-   Before writing the draft to disk, pipe it through the hash guard: `echo "$draft" | tooling/check-private-name-hashes.js -` (or `tooling/check-private-name-hashes.js -` fed the draft on stdin). Exit 0 means clean; exit 1 prints the offending token(s) — redact and recheck before writing the file. This catches protected names pre-write, ahead of (and independent of) the commit-time hook check in `.githooks/pre-commit`.
+   **Private-project exclusion.** `tooling/normalize-excluding-private.sh` wraps the `normalize` binary: it reads directory basenames from `.git/info/private-names` (machine-local, gitignored-by-design — see that file for the current list), resolves each to its mangled `~/.claude/projects/`-style dir name, and builds a scratch dir of symlinks to every *other* project before calling `normalize` with `CLAUDE_SESSIONS_DIR` pointed at that scratch dir. `--all-projects` then only ever sees the non-excluded dirs — normalize has no idea the private ones exist, so the agent generating the log never sees their content either. This is the default; only bypass it (call `normalize` directly) for known one-off ecosystem-only investigations where you've separately confirmed no private project is in scope.
+
+   Effect on daily logs: a day where a private project is the *only* activity gets no mention of it at all — same as if nothing happened that day (no "1 private session" placeholder, no count that includes it). A day with both ecosystem and private-project activity still gets a log, but every count/list in it is built only from the non-excluded sessions — the private activity is fully absent, not summarized down.
+
+   Before writing the draft to disk, pipe it through the hash guard: `echo "$draft" | tooling/check-private-name-hashes.js -` (or `tooling/check-private-name-hashes.js -` fed the draft on stdin). Exit 0 means clean; exit 1 prints the offending token(s) — redact and recheck before writing the file. This catches protected names pre-write, ahead of (and independent of) the commit-time hook check in `.githooks/pre-commit`. It stays in place as a second layer even with the exclusion wrapper — the wrapper stops private *sessions* from being read, the hash guard catches private *names* if they get typed/pasted into a draft some other way.
 
    If synthesis insights feel thin: re-run agents on existing logs with `--show-usage` output, instructing them to flag token outliers (debugging churn, cold-start cache inefficiency, architectural output spikes). Then re-run opus synthesis.
 
 4. Add new days to sidebar in `docs/.vitepress/config.ts` under Daily Logs.
 
-5. If a week or more of new days: spawn an opus agent to read all daily logs and write/update `docs/automated-introspection/log/synthesis-<start>-<end>.md`. Tell it CLAUDE.md conventions may have evolved over the period. Same as step 3: pipe the draft through `tooling/check-private-name-hashes.js -` before writing to disk.
+5. If a week or more of new days: spawn an opus agent to read all daily logs and write/update `docs/automated-introspection/log/synthesis-<start>-<end>.md`. Tell it CLAUDE.md conventions may have evolved over the period. Same as step 3: go through `tooling/normalize-excluding-private.sh` for any session re-querying, and pipe the draft through `tooling/check-private-name-hashes.js -` before writing to disk.
+
+**Scope note:** this exclusion procedure applies going forward only. Daily logs already published before it was adopted are not being retroactively regenerated under it.
 
 6. Commit and push.
 
@@ -59,9 +65,9 @@ Before any session analysis (run via a subagent):
    ```
 2. Run with `CLAUDE_SESSIONS_DIR=/mnt/ssd/ai/claude-sessions/projects` prefix, not from `~/.claude/`.
 
-Session analysis:
+Session analysis (same private-project exclusion as daily logs — see above):
 ```bash
-CLAUDE_SESSIONS_DIR=/mnt/ssd/ai/claude-sessions/projects ~/git/rhizone/normalize/target/debug/normalize sessions stats --all-projects --limit 0 --group-by project,day --since YYYY-MM-DD --until YYYY-MM-DD --compact
+CLAUDE_SESSIONS_DIR=/mnt/ssd/ai/claude-sessions/projects tooling/normalize-excluding-private.sh sessions stats --all-projects --limit 0 --group-by project,day --since YYYY-MM-DD --until YYYY-MM-DD --compact
 ```
 
 Structural exploration:
