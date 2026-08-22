@@ -15,6 +15,12 @@ only in the project devshell).
 - `block-blocking-bash.sh` — PreToolUse(Bash) hook. Denies commands that never
   return on their own (follow/stream/watch) and would hang the session until
   timeout; `run_in_background:true` is the sanctioned escape hatch.
+- `block-runaway-find.sh` — PreToolUse(Bash) hook. Denies `find` invocations
+  rooted at a handful of known-enormous or virtual paths (`/`, `/nix/store`,
+  `/proc`, `/sys`, `/root`, `/usr`, bare `/home`/`$HOME`/`~`) that reproducibly
+  hang a Bash call for the full timeout walking a tree with tens of thousands
+  of entries — `-maxdepth` does not reliably save these roots, so it blocks on
+  the root path itself rather than trusting bounding flags.
 - `block-mainsession-exploration.sh` — PreToolUse hook. Enforces that the main
   session is a pure orchestrator: only an allow-listed set of git verbs
   (commit/push/status/log) may run as Bash; subagents (top-level `agent_id`)

@@ -23,6 +23,7 @@
 #   UserPromptSubmit ("")   post-history.sh
 #       (self-contained; was historically wired with an absolute path — fixed here)
 #   PreToolUse ("Bash")     block-blocking-bash.sh
+#   PreToolUse ("Bash")     block-runaway-find.sh
 #   PreToolUse ("")         block-mainsession-exploration.sh
 #       deps: lib/extract-command.awk, lib/extract-field.awk, lib/tokenize-bash.awk
 #   PreToolUse ("Agent")    require-explicit-agent-type.sh
@@ -43,6 +44,7 @@ HOOK_FILES="
 inject-orchestrator-rules.sh
 inject-style-rules.sh
 block-blocking-bash.sh
+block-runaway-find.sh
 block-mainsession-exploration.sh
 post-history.sh
 subagent-decomposition-check.sh
@@ -59,6 +61,7 @@ lib/tokenize-bash.awk
 lib/smoke/inject-orchestrator-rules.payload
 lib/smoke/inject-style-rules.payload
 lib/smoke/block-blocking-bash.payload
+lib/smoke/block-runaway-find.payload
 lib/smoke/block-mainsession-exploration.payload
 lib/smoke/post-history.payload
 lib/smoke/require-explicit-agent-type.payload
@@ -69,6 +72,7 @@ EXEC_FILES="
 inject-orchestrator-rules.sh
 inject-style-rules.sh
 block-blocking-bash.sh
+block-runaway-find.sh
 block-mainsession-exploration.sh
 post-history.sh
 subagent-decomposition-check.sh
@@ -233,6 +237,7 @@ INJECT_CMD='${CLAUDE_PROJECT_DIR}/tooling/claude-hooks/inject-orchestrator-rules
 STYLE_CMD='${CLAUDE_PROJECT_DIR}/tooling/claude-hooks/inject-style-rules.sh'
 HISTORY_CMD='${CLAUDE_PROJECT_DIR}/tooling/claude-hooks/post-history.sh'
 BLOCKBASH_CMD='${CLAUDE_PROJECT_DIR}/tooling/claude-hooks/block-blocking-bash.sh'
+RUNAWAYFIND_CMD='${CLAUDE_PROJECT_DIR}/tooling/claude-hooks/block-runaway-find.sh'
 EXPLORE_CMD='${CLAUDE_PROJECT_DIR}/tooling/claude-hooks/block-mainsession-exploration.sh'
 SUBAGENT_DECOMP_CMD='${CLAUDE_PROJECT_DIR}/tooling/claude-hooks/subagent-decomposition-check.sh'
 PLAN_ENVELOPE_CMD='${CLAUDE_PROJECT_DIR}/tooling/claude-hooks/plan-envelope-antibody.sh'
@@ -256,6 +261,7 @@ DESIRED="$(printf '%s' "$CURRENT" | jq \
     --arg style   "$STYLE_CMD" \
     --arg history "$HISTORY_CMD" \
     --arg blockbash "$BLOCKBASH_CMD" \
+    --arg runawayfind "$RUNAWAYFIND_CMD" \
     --arg explore "$EXPLORE_CMD" \
     --arg subagent_decomp "$SUBAGENT_DECOMP_CMD" \
     --arg plan_envelope "$PLAN_ENVELOPE_CMD" \
@@ -286,9 +292,11 @@ DESIRED="$(printf '%s' "$CURRENT" | jq \
 
     .hooks.PreToolUse |= (
         strip("block-blocking-bash\\.sh$")
+        | strip("block-runaway-find\\.sh$")
         | strip("block-mainsession-exploration\\.sh$")
         | strip("require-explicit-agent-type\\.sh$")
         + [ { "matcher": "Bash", "hooks": [ { "type": "command", "command": $blockbash } ] } ]
+        + [ { "matcher": "Bash", "hooks": [ { "type": "command", "command": $runawayfind } ] } ]
         + [ { "matcher": "",     "hooks": [ { "type": "command", "command": $explore  } ] } ]
         + [ { "matcher": "Agent", "hooks": [ { "type": "command", "command": $require_agent_type } ] } ]
     )
@@ -307,6 +315,7 @@ if [ "$NORM_CURRENT" != "$NORM_DESIRED" ]; then
         printf '          UserPromptSubmit += plan-envelope-antibody.sh    (%s)\n' "$PLAN_ENVELOPE_CMD"
         printf '          SubagentStart[""] += subagent-decomposition-check.sh (%s)\n' "$SUBAGENT_DECOMP_CMD"
         printf '          PreToolUse[Bash]  += block-blocking-bash.sh      (%s)\n' "$BLOCKBASH_CMD"
+        printf '          PreToolUse[Bash]  += block-runaway-find.sh      (%s)\n' "$RUNAWAYFIND_CMD"
         printf '          PreToolUse[""]    += block-mainsession-exploration.sh (%s)\n' "$EXPLORE_CMD"
         printf '          PreToolUse[Agent] += require-explicit-agent-type.sh (%s)\n' "$REQUIRE_AGENT_TYPE_CMD"
         printf '        resulting settings.json:\n'
